@@ -1,0 +1,10 @@
+C:\Users\Dong\Documents\Visual Studio 2017\Projects\QuanLyNhanSuSGU\Model\bin\Debug\Model.dll.config
+C:\Users\Dong\Documents\Visual Studio 2017\Projects\QuanLyNhanSuSGU\Model\bin\Debug\Model.dll
+C:\Users\Dong\Documents\Visual Studio 2017\Projects\QuanLyNhanSuSGU\Model\bin\Debug\Model.pdb
+C:\Users\Dong\Documents\Visual Studio 2017\Projects\QuanLyNhanSuSGU\Model\bin\Debug\EntityFramework.dll
+C:\Users\Dong\Documents\Visual Studio 2017\Projects\QuanLyNhanSuSGU\Model\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Dong\Documents\Visual Studio 2017\Projects\QuanLyNhanSuSGU\Model\bin\Debug\EntityFramework.xml
+C:\Users\Dong\Documents\Visual Studio 2017\Projects\QuanLyNhanSuSGU\Model\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Dong\Documents\Visual Studio 2017\Projects\QuanLyNhanSuSGU\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+C:\Users\Dong\Documents\Visual Studio 2017\Projects\QuanLyNhanSuSGU\Model\obj\Debug\Model.dll
+C:\Users\Dong\Documents\Visual Studio 2017\Projects\QuanLyNhanSuSGU\Model\obj\Debug\Model.pdb
