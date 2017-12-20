@@ -1,0 +1,43 @@
+﻿using System.Windows.Forms;
+using DevExpress.XtraEditors;
+using QLNS_SGU.Presenter;
+using DevExpress.XtraGrid;
+using DevExpress.XtraGrid.Views.Grid;
+using System;
+
+namespace QLNS_SGU.View
+{
+    public interface ILoaiHocHamHocViForm : IView<ILoaiHocHamHocViPresenter>
+    {
+        GridControl GCLoaiHocHamHocVi { get; set; }
+        GridView GVLoaiHocHamHocVi { get; set; }
+        SaveFileDialog SaveFileDialog { get; set; }
+    }
+    public partial class LoaiHocHamHocViForm : XtraForm, ILoaiHocHamHocViForm
+    {
+        public LoaiHocHamHocViForm()
+        {
+            InitializeComponent();
+        }
+
+        #region Controls
+        public GridControl GCLoaiHocHamHocVi { get => gcLoaiHocHamHocVi; set => gcLoaiHocHamHocVi = value; }
+        public GridView GVLoaiHocHamHocVi { get => gvLoaiHocHamHocVi; set => gvLoaiHocHamHocVi = value; }
+        public SaveFileDialog SaveFileDialog { get => saveFileDialog1; set => saveFileDialog1 = value; }
+        #endregion
+
+        public void Attach(ILoaiHocHamHocViPresenter presenter)
+        {
+            btnRefresh.ItemClick += (s, e) => presenter.RefreshGrid();
+            btnAdd.ItemClick += (s, e) => presenter.AddNewRow();
+            btnSave.ItemClick += (s, e) => presenter.SaveData();
+            btnDelete.ItemClick += (s, e) => presenter.DeleteRow();
+            btnExportExcel.ItemClick += (s, e) => presenter.ExportExcel();
+            gcLoaiHocHamHocVi.MouseDoubleClick += new MouseEventHandler(presenter.MouseDoubleClick);
+            gvLoaiHocHamHocVi.HiddenEditor += new EventHandler(presenter.HiddenEditor);
+            gvLoaiHocHamHocVi.InitNewRow += new InitNewRowEventHandler(presenter.InitNewRow);
+            gvLoaiHocHamHocVi.KeyDown += new KeyEventHandler(presenter.EnterToCloseEditor);
+            gvLoaiHocHamHocVi.CustomDrawRowIndicator += new RowIndicatorCustomDrawEventHandler(presenter.RowIndicator);
+        }
+    }
+}
