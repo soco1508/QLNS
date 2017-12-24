@@ -28,7 +28,8 @@ namespace QLNS_SGU.View
 
         public void Attach(IContainerPresenter presenter)
         {
-            btnDangXuat.ItemClick += (s, e) => presenter.Logout();
+            btnExit.ItemClick += (s, e) => presenter.Exit();
+            btnLogout.ItemClick += (s, e) => presenter.Logout();
             btnNaviMain.ItemClick += (s, e) => presenter.NaviMain();
             btnOpenImportData.ItemClick += (s, e) => presenter.OpenImportData();
             btnNaviExportData.ItemClick += (s, e) => presenter.NaviExportData();

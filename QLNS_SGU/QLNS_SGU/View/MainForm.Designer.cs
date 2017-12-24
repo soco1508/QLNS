@@ -31,9 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
-            this.bar3 = new DevExpress.XtraBars.Bar();
-            this.btnExportExcelMainGrid = new DevExpress.XtraBars.BarButtonItem();
-            this.btnPrintReport = new DevExpress.XtraBars.BarButtonItem();
+            this.bar1 = new DevExpress.XtraBars.Bar();
+            this.btnExportExcel = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -41,6 +40,8 @@
             this.btnView = new DevExpress.XtraBars.BarButtonItem();
             this.btnEditInGrid = new DevExpress.XtraBars.BarButtonItem();
             this.btnDownloadFileQuaTrinhCongTac = new DevExpress.XtraBars.BarButtonItem();
+            this.btnExportExcelMainGrid = new DevExpress.XtraBars.BarButtonItem();
+            this.btnPrintReport = new DevExpress.XtraBars.BarButtonItem();
             this.btnDownloadFileHopDong = new DevExpress.XtraBars.BarButtonItem();
             this.btnDownloadFileQuaTrinhLuong = new DevExpress.XtraBars.BarButtonItem();
             this.btnDownloadFileHocHamHocVi = new DevExpress.XtraBars.BarButtonItem();
@@ -50,15 +51,6 @@
             this.btnDownloadFileHocNangCao = new DevExpress.XtraBars.BarButtonItem();
             this.btnDownloadFileNganh = new DevExpress.XtraBars.BarButtonItem();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.gcHopDong = new DevExpress.XtraGrid.GridControl();
-            this.gvHopDong = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn17 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn18 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemMemoEdit13 = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
-            this.gridColumn19 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemMemoEdit14 = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
             this.gcTrangThai = new DevExpress.XtraGrid.GridControl();
             this.gvTrangThai = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -127,11 +119,10 @@
             this.gvQuaTrinhCongTac = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemMemoEdit4 = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
-            this.gridColumn34 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn35 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn36 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemSpinEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
+            this.gridColumn34 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn36 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn37 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn38 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn39 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -140,6 +131,7 @@
             this.gridColumn41 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn42 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn44 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcThongTinCaNhan = new DevExpress.XtraGrid.GridControl();
             this.layoutView1 = new DevExpress.XtraGrid.Views.Layout.LayoutView();
             this.layoutViewColumn1 = new DevExpress.XtraGrid.Columns.LayoutViewColumn();
@@ -211,6 +203,7 @@
             this.lbDonVi = new DevExpress.XtraLayout.SimpleLabelItem();
             this.emptySpaceItem5 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem7 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.lbHopDong = new DevExpress.XtraLayout.SimpleLabelItem();
             this.simpleSeparator1 = new DevExpress.XtraLayout.SimpleSeparator();
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.lbChuyenMon = new DevExpress.XtraLayout.SimpleLabelItem();
@@ -232,7 +225,6 @@
             this.lciChungChi = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciTrangThai = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciQuaTrinhCongTac = new DevExpress.XtraLayout.LayoutControlItem();
-            this.lciHopDong = new DevExpress.XtraLayout.LayoutControlItem();
             this.lbTrangThai = new DevExpress.XtraLayout.SimpleLabelItem();
             this.simpleLabelItem1 = new DevExpress.XtraLayout.SimpleLabelItem();
             this.splitterControl1 = new DevExpress.XtraEditors.SplitterControl();
@@ -254,7 +246,6 @@
             this.popupMenuGVQuaTrinhCongTac = new DevExpress.XtraBars.PopupMenu(this.components);
             this.txtRowIndexRightView = new DevExpress.XtraEditors.TextEdit();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.popupMenuGVHopDong = new DevExpress.XtraBars.PopupMenu(this.components);
             this.popupMenuGVQuaTrinhLuong = new DevExpress.XtraBars.PopupMenu(this.components);
             this.popupMenuGVHocHamHocVi_DangHocNangCao_Nganh = new DevExpress.XtraBars.PopupMenu(this.components);
             this.popupMenuGVChungChi = new DevExpress.XtraBars.PopupMenu(this.components);
@@ -262,10 +253,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gcHopDong)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvHopDong)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcTrangThai)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvTrangThai)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit16)).BeginInit();
@@ -339,6 +326,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lbDonVi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lbHopDong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.simpleSeparator1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lbChuyenMon)).BeginInit();
@@ -360,7 +348,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciChungChi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciTrangThai)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciQuaTrinhCongTac)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciHopDong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lbTrangThai)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.simpleLabelItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcMain)).BeginInit();
@@ -372,7 +359,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.popupMenuGVMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenuGVQuaTrinhCongTac)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRowIndexRightView.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.popupMenuGVHopDong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenuGVQuaTrinhLuong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenuGVHocHamHocVi_DangHocNangCao_Nganh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenuGVChungChi)).BeginInit();
@@ -382,7 +368,7 @@
             // barManager1
             // 
             this.barManager1.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
-            this.bar3});
+            this.bar1});
             this.barManager1.DockControls.Add(this.barDockControlTop);
             this.barManager1.DockControls.Add(this.barDockControlBottom);
             this.barManager1.DockControls.Add(this.barDockControlLeft);
@@ -401,41 +387,30 @@
             this.btnDownloadFileChungChi,
             this.btnDownloadFileTrangThai,
             this.btnDownloadFileHocNangCao,
-            this.btnDownloadFileNganh});
-            this.barManager1.MaxItemId = 14;
-            this.barManager1.StatusBar = this.bar3;
+            this.btnDownloadFileNganh,
+            this.btnExportExcel});
+            this.barManager1.MainMenu = this.bar1;
+            this.barManager1.MaxItemId = 15;
             // 
-            // bar3
+            // bar1
             // 
-            this.bar3.BarName = "Status bar";
-            this.bar3.CanDockStyle = DevExpress.XtraBars.BarCanDockStyle.Bottom;
-            this.bar3.DockCol = 0;
-            this.bar3.DockRow = 0;
-            this.bar3.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom;
-            this.bar3.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnExportExcelMainGrid),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnPrintReport)});
-            this.bar3.OptionsBar.AllowQuickCustomization = false;
-            this.bar3.OptionsBar.DrawDragBorder = false;
-            this.bar3.OptionsBar.UseWholeRow = true;
-            this.bar3.Text = "Status bar";
+            this.bar1.BarName = "Custom 2";
+            this.bar1.DockCol = 0;
+            this.bar1.DockRow = 0;
+            this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
+            this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnExportExcel)});
+            this.bar1.OptionsBar.MultiLine = true;
+            this.bar1.OptionsBar.UseWholeRow = true;
+            this.bar1.Text = "Custom 2";
             // 
-            // btnExportExcelMainGrid
+            // btnExportExcel
             // 
-            this.btnExportExcelMainGrid.Caption = "Xuất Excel";
-            this.btnExportExcelMainGrid.Id = 4;
-            this.btnExportExcelMainGrid.ImageOptions.Image = global::QLNS_SGU.Properties.Resources.excel;
-            this.btnExportExcelMainGrid.Name = "btnExportExcelMainGrid";
-            this.btnExportExcelMainGrid.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            // 
-            // btnPrintReport
-            // 
-            this.btnPrintReport.Caption = "In báo cáo";
-            this.btnPrintReport.Id = 5;
-            this.btnPrintReport.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnPrintReport.ImageOptions.Image")));
-            this.btnPrintReport.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnPrintReport.ImageOptions.LargeImage")));
-            this.btnPrintReport.Name = "btnPrintReport";
-            this.btnPrintReport.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.btnExportExcel.Caption = "Xuất Excel";
+            this.btnExportExcel.Id = 14;
+            this.btnExportExcel.ImageOptions.Image = global::QLNS_SGU.Properties.Resources.excel;
+            this.btnExportExcel.Name = "btnExportExcel";
+            this.btnExportExcel.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
             // barDockControlTop
             // 
@@ -443,31 +418,31 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(1280, 0);
+            this.barDockControlTop.Size = new System.Drawing.Size(1280, 24);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 474);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 500);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(1280, 26);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1280, 0);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 24);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 474);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 476);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1280, 0);
+            this.barDockControlRight.Location = new System.Drawing.Point(1280, 24);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 474);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 476);
             // 
             // btnView
             // 
@@ -486,6 +461,23 @@
             this.btnDownloadFileQuaTrinhCongTac.Caption = "Tải xuống văn bản đính kèm";
             this.btnDownloadFileQuaTrinhCongTac.Id = 3;
             this.btnDownloadFileQuaTrinhCongTac.Name = "btnDownloadFileQuaTrinhCongTac";
+            // 
+            // btnExportExcelMainGrid
+            // 
+            this.btnExportExcelMainGrid.Caption = "Xuất Excel";
+            this.btnExportExcelMainGrid.Id = 4;
+            this.btnExportExcelMainGrid.ImageOptions.Image = global::QLNS_SGU.Properties.Resources.excel;
+            this.btnExportExcelMainGrid.Name = "btnExportExcelMainGrid";
+            this.btnExportExcelMainGrid.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            // 
+            // btnPrintReport
+            // 
+            this.btnPrintReport.Caption = "In báo cáo";
+            this.btnPrintReport.Id = 5;
+            this.btnPrintReport.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnPrintReport.ImageOptions.Image")));
+            this.btnPrintReport.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnPrintReport.ImageOptions.LargeImage")));
+            this.btnPrintReport.Name = "btnPrintReport";
+            this.btnPrintReport.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
             // btnDownloadFileHopDong
             // 
@@ -537,7 +529,6 @@
             // 
             // layoutControl1
             // 
-            this.layoutControl1.Controls.Add(this.gcHopDong);
             this.layoutControl1.Controls.Add(this.gcTrangThai);
             this.layoutControl1.Controls.Add(this.gcChungChi);
             this.layoutControl1.Controls.Add(this.gcHocHamHocVi_DangHocNangCao_Nganh);
@@ -549,95 +540,17 @@
             this.layoutControl1.Controls.Add(this.btnEditInLayout);
             this.layoutControl1.Controls.Add(this.btnOpenCloudStorage);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.layoutControl1.Location = new System.Drawing.Point(564, 0);
+            this.layoutControl1.Location = new System.Drawing.Point(512, 24);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(650, 198, 450, 400);
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(716, 474);
+            this.layoutControl1.Size = new System.Drawing.Size(768, 476);
             this.layoutControl1.TabIndex = 4;
             this.layoutControl1.Text = "layoutControl1";
             // 
-            // gcHopDong
-            // 
-            this.gcHopDong.Location = new System.Drawing.Point(116, 300);
-            this.gcHopDong.MainView = this.gvHopDong;
-            this.gcHopDong.MenuManager = this.barManager1;
-            this.gcHopDong.Name = "gcHopDong";
-            this.gcHopDong.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemMemoEdit13,
-            this.repositoryItemMemoEdit14});
-            this.gcHopDong.Size = new System.Drawing.Size(102, 136);
-            this.gcHopDong.TabIndex = 17;
-            this.gcHopDong.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gvHopDong});
-            // 
-            // gvHopDong
-            // 
-            this.gvHopDong.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn14,
-            this.gridColumn16,
-            this.gridColumn17,
-            this.gridColumn18,
-            this.gridColumn19});
-            this.gvHopDong.GridControl = this.gcHopDong;
-            this.gvHopDong.Name = "gvHopDong";
-            this.gvHopDong.OptionsBehavior.Editable = false;
-            this.gvHopDong.OptionsView.RowAutoHeight = true;
-            this.gvHopDong.OptionsView.ShowGroupPanel = false;
-            // 
-            // gridColumn14
-            // 
-            this.gridColumn14.Caption = "Hợp đồng";
-            this.gridColumn14.FieldName = "LoaiHopDong";
-            this.gridColumn14.Name = "gridColumn14";
-            this.gridColumn14.Visible = true;
-            this.gridColumn14.VisibleIndex = 0;
-            // 
-            // gridColumn16
-            // 
-            this.gridColumn16.Caption = "Ngày bắt đầu";
-            this.gridColumn16.FieldName = "NgayBatDau";
-            this.gridColumn16.Name = "gridColumn16";
-            this.gridColumn16.Visible = true;
-            this.gridColumn16.VisibleIndex = 1;
-            // 
-            // gridColumn17
-            // 
-            this.gridColumn17.Caption = "Ngày kết thúc";
-            this.gridColumn17.FieldName = "NgayKetThuc";
-            this.gridColumn17.Name = "gridColumn17";
-            this.gridColumn17.Visible = true;
-            this.gridColumn17.VisibleIndex = 2;
-            // 
-            // gridColumn18
-            // 
-            this.gridColumn18.Caption = "Link văn bản đính kèm";
-            this.gridColumn18.ColumnEdit = this.repositoryItemMemoEdit13;
-            this.gridColumn18.FieldName = "LinkVanBanDinhKem";
-            this.gridColumn18.Name = "gridColumn18";
-            this.gridColumn18.Visible = true;
-            this.gridColumn18.VisibleIndex = 3;
-            // 
-            // repositoryItemMemoEdit13
-            // 
-            this.repositoryItemMemoEdit13.Name = "repositoryItemMemoEdit13";
-            // 
-            // gridColumn19
-            // 
-            this.gridColumn19.Caption = "Ghi chú";
-            this.gridColumn19.ColumnEdit = this.repositoryItemMemoEdit14;
-            this.gridColumn19.FieldName = "GhiChu";
-            this.gridColumn19.Name = "gridColumn19";
-            this.gridColumn19.Visible = true;
-            this.gridColumn19.VisibleIndex = 4;
-            // 
-            // repositoryItemMemoEdit14
-            // 
-            this.repositoryItemMemoEdit14.Name = "repositoryItemMemoEdit14";
-            // 
             // gcTrangThai
             // 
-            this.gcTrangThai.Location = new System.Drawing.Point(326, 180);
+            this.gcTrangThai.Location = new System.Drawing.Point(552, 175);
             this.gcTrangThai.MainView = this.gvTrangThai;
             this.gcTrangThai.MenuManager = this.barManager1;
             this.gcTrangThai.Name = "gcTrangThai";
@@ -645,7 +558,7 @@
             this.repositoryItemMemoEdit16,
             this.repositoryItemMemoEdit17,
             this.repositoryItemMemoEdit18});
-            this.gcTrangThai.Size = new System.Drawing.Size(100, 256);
+            this.gcTrangThai.Size = new System.Drawing.Size(100, 263);
             this.gcTrangThai.TabIndex = 16;
             this.gcTrangThai.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvTrangThai});
@@ -732,7 +645,7 @@
             this.gridColumn30.Name = "gridColumn30";
             this.gridColumn30.Visible = true;
             this.gridColumn30.VisibleIndex = 5;
-            this.gridColumn30.Width = 130;
+            this.gridColumn30.Width = 160;
             // 
             // repositoryItemMemoEdit18
             // 
@@ -740,14 +653,14 @@
             // 
             // gcChungChi
             // 
-            this.gcChungChi.Location = new System.Drawing.Point(430, 300);
+            this.gcChungChi.Location = new System.Drawing.Point(656, 289);
             this.gcChungChi.MainView = this.gvChungChi;
             this.gcChungChi.MenuManager = this.barManager1;
             this.gcChungChi.Name = "gcChungChi";
             this.gcChungChi.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemMemoEdit19,
             this.repositoryItemMemoEdit20});
-            this.gcChungChi.Size = new System.Drawing.Size(274, 136);
+            this.gcChungChi.Size = new System.Drawing.Size(100, 149);
             this.gcChungChi.TabIndex = 14;
             this.gcChungChi.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvChungChi});
@@ -769,7 +682,7 @@
             // gridColumn13
             // 
             this.gridColumn13.Caption = "Chứng chỉ";
-            this.gridColumn13.FieldName = "ChungChi";
+            this.gridColumn13.FieldName = "LoaiChungChi";
             this.gridColumn13.Name = "gridColumn13";
             this.gridColumn13.Visible = true;
             this.gridColumn13.VisibleIndex = 0;
@@ -824,7 +737,7 @@
             // 
             // gcHocHamHocVi_DangHocNangCao_Nganh
             // 
-            this.gcHocHamHocVi_DangHocNangCao_Nganh.Location = new System.Drawing.Point(430, 180);
+            this.gcHocHamHocVi_DangHocNangCao_Nganh.Location = new System.Drawing.Point(656, 175);
             this.gcHocHamHocVi_DangHocNangCao_Nganh.MainView = this.gvHocHamHocVi_DangHocNangCao_Nganh;
             this.gcHocHamHocVi_DangHocNangCao_Nganh.MenuManager = this.barManager1;
             this.gcHocHamHocVi_DangHocNangCao_Nganh.Name = "gcHocHamHocVi_DangHocNangCao_Nganh";
@@ -835,7 +748,7 @@
             this.repositoryItemMemoEdit24,
             this.repositoryItemMemoEdit25,
             this.repositoryItemMemoEdit26});
-            this.gcHocHamHocVi_DangHocNangCao_Nganh.Size = new System.Drawing.Size(274, 116);
+            this.gcHocHamHocVi_DangHocNangCao_Nganh.Size = new System.Drawing.Size(100, 110);
             this.gcHocHamHocVi_DangHocNangCao_Nganh.TabIndex = 13;
             this.gcHocHamHocVi_DangHocNangCao_Nganh.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvHocHamHocVi_DangHocNangCao_Nganh});
@@ -1138,14 +1051,14 @@
             // 
             // gcQuaTrinhLuong
             // 
-            this.gcQuaTrinhLuong.Location = new System.Drawing.Point(222, 180);
+            this.gcQuaTrinhLuong.Location = new System.Drawing.Point(238, 175);
             this.gcQuaTrinhLuong.MainView = this.gvQuaTrinhLuong;
             this.gcQuaTrinhLuong.MenuManager = this.barManager1;
             this.gcQuaTrinhLuong.Name = "gcQuaTrinhLuong";
             this.gcQuaTrinhLuong.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemMemoEdit15,
             this.repositoryItemSpinEdit1});
-            this.gcQuaTrinhLuong.Size = new System.Drawing.Size(100, 256);
+            this.gcQuaTrinhLuong.Size = new System.Drawing.Size(310, 263);
             this.gcQuaTrinhLuong.TabIndex = 7;
             this.gcQuaTrinhLuong.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvQuaTrinhLuong});
@@ -1248,7 +1161,7 @@
             this.gridColumn25.Name = "gridColumn25";
             this.gridColumn25.Visible = true;
             this.gridColumn25.VisibleIndex = 6;
-            this.gridColumn25.Width = 130;
+            this.gridColumn25.Width = 200;
             // 
             // repositoryItemMemoEdit15
             // 
@@ -1256,7 +1169,7 @@
             // 
             // gcQuaTrinhCongTac
             // 
-            this.gcQuaTrinhCongTac.Location = new System.Drawing.Point(116, 180);
+            this.gcQuaTrinhCongTac.Location = new System.Drawing.Point(116, 175);
             this.gcQuaTrinhCongTac.MainView = this.gvQuaTrinhCongTac;
             this.gcQuaTrinhCongTac.MenuManager = this.barManager1;
             this.gcQuaTrinhCongTac.Name = "gcQuaTrinhCongTac";
@@ -1264,7 +1177,7 @@
             this.repositoryItemMemoEdit4,
             this.repositoryItemMemoEdit5,
             this.repositoryItemSpinEdit2});
-            this.gcQuaTrinhCongTac.Size = new System.Drawing.Size(102, 116);
+            this.gcQuaTrinhCongTac.Size = new System.Drawing.Size(118, 263);
             this.gcQuaTrinhCongTac.TabIndex = 6;
             this.gcQuaTrinhCongTac.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvQuaTrinhCongTac});
@@ -1273,17 +1186,18 @@
             // 
             this.gvQuaTrinhCongTac.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn11,
-            this.gridColumn34,
-            this.gridColumn35,
-            this.gridColumn36,
             this.gridColumn10,
+            this.gridColumn34,
+            this.gridColumn36,
             this.gridColumn37,
             this.gridColumn38,
             this.gridColumn39,
             this.gridColumn40,
             this.gridColumn41,
             this.gridColumn42,
-            this.gridColumn44});
+            this.gridColumn44,
+            this.gridColumn14});
+            this.gvQuaTrinhCongTac.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.None;
             this.gvQuaTrinhCongTac.GridControl = this.gcQuaTrinhCongTac;
             this.gvQuaTrinhCongTac.Name = "gvQuaTrinhCongTac";
             this.gvQuaTrinhCongTac.OptionsBehavior.Editable = false;
@@ -1309,6 +1223,26 @@
             // 
             this.repositoryItemMemoEdit4.Name = "repositoryItemMemoEdit4";
             // 
+            // gridColumn10
+            // 
+            this.gridColumn10.Caption = "Hệ số";
+            this.gridColumn10.ColumnEdit = this.repositoryItemSpinEdit2;
+            this.gridColumn10.DisplayFormat.FormatString = "n0";
+            this.gridColumn10.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gridColumn10.FieldName = "HeSoChucVu";
+            this.gridColumn10.Name = "gridColumn10";
+            this.gridColumn10.Visible = true;
+            this.gridColumn10.VisibleIndex = 1;
+            // 
+            // repositoryItemSpinEdit2
+            // 
+            this.repositoryItemSpinEdit2.AutoHeight = false;
+            this.repositoryItemSpinEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemSpinEdit2.Mask.EditMask = "n3";
+            this.repositoryItemSpinEdit2.Mask.UseMaskAsDisplayFormat = true;
+            this.repositoryItemSpinEdit2.Name = "repositoryItemSpinEdit2";
+            // 
             // gridColumn34
             // 
             this.gridColumn34.AppearanceCell.Options.UseTextOptions = true;
@@ -1318,18 +1252,7 @@
             this.gridColumn34.FieldName = "DonVi";
             this.gridColumn34.Name = "gridColumn34";
             this.gridColumn34.Visible = true;
-            this.gridColumn34.VisibleIndex = 1;
-            // 
-            // gridColumn35
-            // 
-            this.gridColumn35.AppearanceCell.Options.UseTextOptions = true;
-            this.gridColumn35.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridColumn35.Caption = "Địa điểm";
-            this.gridColumn35.ColumnEdit = this.repositoryItemMemoEdit4;
-            this.gridColumn35.FieldName = "DiaDiem";
-            this.gridColumn35.Name = "gridColumn35";
-            this.gridColumn35.Visible = true;
-            this.gridColumn35.VisibleIndex = 2;
+            this.gridColumn34.VisibleIndex = 2;
             // 
             // gridColumn36
             // 
@@ -1342,26 +1265,6 @@
             this.gridColumn36.Visible = true;
             this.gridColumn36.VisibleIndex = 3;
             this.gridColumn36.Width = 85;
-            // 
-            // gridColumn10
-            // 
-            this.gridColumn10.Caption = "Hệ số chức vụ";
-            this.gridColumn10.ColumnEdit = this.repositoryItemSpinEdit2;
-            this.gridColumn10.DisplayFormat.FormatString = "n0";
-            this.gridColumn10.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.gridColumn10.FieldName = "HeSoChucVu";
-            this.gridColumn10.Name = "gridColumn10";
-            this.gridColumn10.Visible = true;
-            this.gridColumn10.VisibleIndex = 11;
-            // 
-            // repositoryItemSpinEdit2
-            // 
-            this.repositoryItemSpinEdit2.AutoHeight = false;
-            this.repositoryItemSpinEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemSpinEdit2.Mask.EditMask = "n3";
-            this.repositoryItemSpinEdit2.Mask.UseMaskAsDisplayFormat = true;
-            this.repositoryItemSpinEdit2.Name = "repositoryItemSpinEdit2";
             // 
             // gridColumn37
             // 
@@ -1444,9 +1347,15 @@
             this.gridColumn44.VisibleIndex = 10;
             this.gridColumn44.Width = 130;
             // 
+            // gridColumn14
+            // 
+            this.gridColumn14.Caption = "gridColumn14";
+            this.gridColumn14.FieldName = "Id";
+            this.gridColumn14.Name = "gridColumn14";
+            // 
             // gcThongTinCaNhan
             // 
-            this.gcThongTinCaNhan.Location = new System.Drawing.Point(12, 180);
+            this.gcThongTinCaNhan.Location = new System.Drawing.Point(12, 175);
             this.gcThongTinCaNhan.MainView = this.layoutView1;
             this.gcThongTinCaNhan.MenuManager = this.barManager1;
             this.gcThongTinCaNhan.Name = "gcThongTinCaNhan";
@@ -1464,7 +1373,7 @@
             this.repositoryItemMemoEdit10,
             this.repositoryItemMemoEdit11,
             this.repositoryItemMemoEdit12});
-            this.gcThongTinCaNhan.Size = new System.Drawing.Size(100, 256);
+            this.gcThongTinCaNhan.Size = new System.Drawing.Size(100, 263);
             this.gcThongTinCaNhan.TabIndex = 5;
             this.gcThongTinCaNhan.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.layoutView1});
@@ -1938,7 +1847,7 @@
             this.picVienChuc.Name = "picVienChuc";
             this.picVienChuc.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
             this.picVienChuc.Properties.ZoomAccelerationFactor = 1D;
-            this.picVienChuc.Size = new System.Drawing.Size(124, 124);
+            this.picVienChuc.Size = new System.Drawing.Size(108, 104);
             this.picVienChuc.StyleController = this.layoutControl1;
             this.picVienChuc.TabIndex = 4;
             // 
@@ -1949,7 +1858,7 @@
             this.btnClosePersonDetails.Appearance.Options.UseFont = true;
             this.btnClosePersonDetails.Appearance.Options.UseForeColor = true;
             this.btnClosePersonDetails.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnClosePersonDetails.ImageOptions.Image")));
-            this.btnClosePersonDetails.Location = new System.Drawing.Point(615, 440);
+            this.btnClosePersonDetails.Location = new System.Drawing.Point(667, 442);
             this.btnClosePersonDetails.Name = "btnClosePersonDetails";
             this.btnClosePersonDetails.Size = new System.Drawing.Size(89, 22);
             this.btnClosePersonDetails.StyleController = this.layoutControl1;
@@ -1961,7 +1870,7 @@
             this.btnEditInLayout.Appearance.Font = new System.Drawing.Font("Tahoma", 9F);
             this.btnEditInLayout.Appearance.Options.UseFont = true;
             this.btnEditInLayout.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEditInLayout.ImageOptions.Image")));
-            this.btnEditInLayout.Location = new System.Drawing.Point(522, 440);
+            this.btnEditInLayout.Location = new System.Drawing.Point(574, 442);
             this.btnEditInLayout.Name = "btnEditInLayout";
             this.btnEditInLayout.Size = new System.Drawing.Size(89, 22);
             this.btnEditInLayout.StyleController = this.layoutControl1;
@@ -1973,7 +1882,7 @@
             this.btnOpenCloudStorage.Appearance.Font = new System.Drawing.Font("Tahoma", 9F);
             this.btnOpenCloudStorage.Appearance.Options.UseFont = true;
             this.btnOpenCloudStorage.ImageOptions.Image = global::QLNS_SGU.Properties.Resources.googledrive;
-            this.btnOpenCloudStorage.Location = new System.Drawing.Point(376, 440);
+            this.btnOpenCloudStorage.Location = new System.Drawing.Point(428, 442);
             this.btnOpenCloudStorage.Name = "btnOpenCloudStorage";
             this.btnOpenCloudStorage.Size = new System.Drawing.Size(142, 22);
             this.btnOpenCloudStorage.StyleController = this.layoutControl1;
@@ -2009,22 +1918,21 @@
             this.lciChungChi,
             this.lciTrangThai,
             this.lciQuaTrinhCongTac,
-            this.lciHopDong,
             this.lbTrangThai,
             this.simpleLabelItem1});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(716, 474);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(768, 476);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.picVienChuc;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem1.MaxSize = new System.Drawing.Size(128, 128);
-            this.layoutControlItem1.MinSize = new System.Drawing.Size(128, 128);
+            this.layoutControlItem1.MaxSize = new System.Drawing.Size(112, 108);
+            this.layoutControlItem1.MinSize = new System.Drawing.Size(112, 108);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(128, 128);
+            this.layoutControlItem1.Size = new System.Drawing.Size(112, 108);
             this.layoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
@@ -2032,9 +1940,9 @@
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(140, 112);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(122, 98);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(556, 16);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(626, 10);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlGroup2
@@ -2045,84 +1953,98 @@
             this.lbChucVu,
             this.lbDonVi,
             this.emptySpaceItem5,
-            this.emptySpaceItem7});
-            this.layoutControlGroup2.Location = new System.Drawing.Point(140, 0);
+            this.emptySpaceItem7,
+            this.lbHopDong});
+            this.layoutControlGroup2.Location = new System.Drawing.Point(122, 0);
             this.layoutControlGroup2.Name = "layoutControlGroup2";
             this.layoutControlGroup2.OptionsPrint.AppearanceGroupCaption.BorderColor = System.Drawing.Color.Transparent;
             this.layoutControlGroup2.OptionsPrint.AppearanceGroupCaption.Options.UseBorderColor = true;
             this.layoutControlGroup2.OptionsPrint.AppearanceItemCaption.BorderColor = System.Drawing.Color.Transparent;
             this.layoutControlGroup2.OptionsPrint.AppearanceItemCaption.Options.UseBorderColor = true;
-            this.layoutControlGroup2.Size = new System.Drawing.Size(556, 112);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(626, 98);
             this.layoutControlGroup2.TextVisible = false;
             // 
             // lbHoTenVienChuc
             // 
             this.lbHoTenVienChuc.AllowHotTrack = false;
-            this.lbHoTenVienChuc.AppearanceItemCaption.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Bold);
+            this.lbHoTenVienChuc.AppearanceItemCaption.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold);
             this.lbHoTenVienChuc.AppearanceItemCaption.ForeColor = System.Drawing.Color.Black;
             this.lbHoTenVienChuc.AppearanceItemCaption.Options.UseFont = true;
             this.lbHoTenVienChuc.AppearanceItemCaption.Options.UseForeColor = true;
             this.lbHoTenVienChuc.Location = new System.Drawing.Point(0, 10);
             this.lbHoTenVienChuc.Name = "lbHoTenVienChuc";
-            this.lbHoTenVienChuc.Size = new System.Drawing.Size(556, 35);
+            this.lbHoTenVienChuc.Size = new System.Drawing.Size(626, 30);
             this.lbHoTenVienChuc.Text = "Hong Phuc Thanh Dong";
-            this.lbHoTenVienChuc.TextSize = new System.Drawing.Size(282, 31);
+            this.lbHoTenVienChuc.TextSize = new System.Drawing.Size(246, 26);
             // 
             // lbChucVu
             // 
             this.lbChucVu.AllowHotTrack = false;
-            this.lbChucVu.AppearanceItemCaption.Font = new System.Drawing.Font("Times New Roman", 18F);
+            this.lbChucVu.AppearanceItemCaption.Font = new System.Drawing.Font("Times New Roman", 14F);
             this.lbChucVu.AppearanceItemCaption.ForeColor = System.Drawing.Color.Black;
             this.lbChucVu.AppearanceItemCaption.Options.UseFont = true;
             this.lbChucVu.AppearanceItemCaption.Options.UseForeColor = true;
-            this.lbChucVu.Location = new System.Drawing.Point(0, 55);
+            this.lbChucVu.Location = new System.Drawing.Point(0, 50);
             this.lbChucVu.Name = "lbChucVu";
-            this.lbChucVu.Size = new System.Drawing.Size(556, 31);
+            this.lbChucVu.Size = new System.Drawing.Size(359, 25);
             this.lbChucVu.Text = "Sinh Vien";
-            this.lbChucVu.TextSize = new System.Drawing.Size(282, 27);
+            this.lbChucVu.TextSize = new System.Drawing.Size(246, 21);
             // 
             // lbDonVi
             // 
             this.lbDonVi.AllowHotTrack = false;
-            this.lbDonVi.AppearanceItemCaption.Font = new System.Drawing.Font("Times New Roman", 15F);
+            this.lbDonVi.AppearanceItemCaption.Font = new System.Drawing.Font("Times New Roman", 12F);
             this.lbDonVi.AppearanceItemCaption.ForeColor = System.Drawing.Color.Black;
             this.lbDonVi.AppearanceItemCaption.Options.UseFont = true;
             this.lbDonVi.AppearanceItemCaption.Options.UseForeColor = true;
-            this.lbDonVi.Location = new System.Drawing.Point(0, 86);
+            this.lbDonVi.Location = new System.Drawing.Point(0, 75);
             this.lbDonVi.Name = "lbDonVi";
-            this.lbDonVi.Size = new System.Drawing.Size(556, 26);
+            this.lbDonVi.Size = new System.Drawing.Size(626, 23);
             this.lbDonVi.Text = "Khoa Cong nghe thong tin";
-            this.lbDonVi.TextSize = new System.Drawing.Size(282, 22);
+            this.lbDonVi.TextSize = new System.Drawing.Size(246, 19);
             // 
             // emptySpaceItem5
             // 
             this.emptySpaceItem5.AllowHotTrack = false;
             this.emptySpaceItem5.Location = new System.Drawing.Point(0, 0);
             this.emptySpaceItem5.Name = "emptySpaceItem5";
-            this.emptySpaceItem5.Size = new System.Drawing.Size(556, 10);
+            this.emptySpaceItem5.Size = new System.Drawing.Size(626, 10);
             this.emptySpaceItem5.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem7
             // 
             this.emptySpaceItem7.AllowHotTrack = false;
-            this.emptySpaceItem7.Location = new System.Drawing.Point(0, 45);
+            this.emptySpaceItem7.Location = new System.Drawing.Point(0, 40);
             this.emptySpaceItem7.Name = "emptySpaceItem7";
-            this.emptySpaceItem7.Size = new System.Drawing.Size(556, 10);
+            this.emptySpaceItem7.Size = new System.Drawing.Size(626, 10);
             this.emptySpaceItem7.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // lbHopDong
+            // 
+            this.lbHopDong.AllowHotTrack = false;
+            this.lbHopDong.AppearanceItemCaption.Font = new System.Drawing.Font("Times New Roman", 14F);
+            this.lbHopDong.AppearanceItemCaption.Options.UseFont = true;
+            this.lbHopDong.AppearanceItemCaption.Options.UseTextOptions = true;
+            this.lbHopDong.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.lbHopDong.Location = new System.Drawing.Point(359, 50);
+            this.lbHopDong.Name = "lbHopDong";
+            this.lbHopDong.Size = new System.Drawing.Size(267, 25);
+            this.lbHopDong.Text = "Hợp đồng Không thời hạn   ";
+            this.lbHopDong.TextSize = new System.Drawing.Size(246, 21);
             // 
             // simpleSeparator1
             // 
             this.simpleSeparator1.AllowHotTrack = false;
-            this.simpleSeparator1.Location = new System.Drawing.Point(0, 140);
+            this.simpleSeparator1.Location = new System.Drawing.Point(0, 135);
             this.simpleSeparator1.Name = "simpleSeparator1";
-            this.simpleSeparator1.Size = new System.Drawing.Size(696, 2);
+            this.simpleSeparator1.Size = new System.Drawing.Size(748, 2);
             // 
             // emptySpaceItem3
             // 
             this.emptySpaceItem3.AllowHotTrack = false;
-            this.emptySpaceItem3.Location = new System.Drawing.Point(0, 128);
+            this.emptySpaceItem3.Location = new System.Drawing.Point(0, 108);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(696, 12);
+            this.emptySpaceItem3.Size = new System.Drawing.Size(748, 27);
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
             // lbChuyenMon
@@ -2134,14 +2056,14 @@
             this.lbChuyenMon.AppearanceItemCaption.Options.UseForeColor = true;
             this.lbChuyenMon.AppearanceItemCaption.Options.UseTextOptions = true;
             this.lbChuyenMon.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.lbChuyenMon.Location = new System.Drawing.Point(488, 142);
+            this.lbChuyenMon.Location = new System.Drawing.Point(540, 137);
             this.lbChuyenMon.MaxSize = new System.Drawing.Size(98, 26);
             this.lbChuyenMon.MinSize = new System.Drawing.Size(98, 26);
             this.lbChuyenMon.Name = "lbChuyenMon";
             this.lbChuyenMon.Size = new System.Drawing.Size(98, 26);
             this.lbChuyenMon.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lbChuyenMon.Text = "Chuyên môn";
-            this.lbChuyenMon.TextSize = new System.Drawing.Size(282, 15);
+            this.lbChuyenMon.TextSize = new System.Drawing.Size(246, 15);
             // 
             // simpleLabelItem9
             // 
@@ -2152,14 +2074,14 @@
             this.simpleLabelItem9.AppearanceItemCaption.Options.UseForeColor = true;
             this.simpleLabelItem9.AppearanceItemCaption.Options.UseTextOptions = true;
             this.simpleLabelItem9.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.simpleLabelItem9.Location = new System.Drawing.Point(476, 142);
+            this.simpleLabelItem9.Location = new System.Drawing.Point(528, 137);
             this.simpleLabelItem9.MaxSize = new System.Drawing.Size(12, 26);
             this.simpleLabelItem9.MinSize = new System.Drawing.Size(12, 26);
             this.simpleLabelItem9.Name = "simpleLabelItem9";
             this.simpleLabelItem9.Size = new System.Drawing.Size(12, 26);
             this.simpleLabelItem9.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.simpleLabelItem9.Text = "|";
-            this.simpleLabelItem9.TextSize = new System.Drawing.Size(282, 14);
+            this.simpleLabelItem9.TextSize = new System.Drawing.Size(246, 14);
             // 
             // lbQuaTrinhLuong
             // 
@@ -2170,14 +2092,14 @@
             this.lbQuaTrinhLuong.AppearanceItemCaption.Options.UseForeColor = true;
             this.lbQuaTrinhLuong.AppearanceItemCaption.Options.UseTextOptions = true;
             this.lbQuaTrinhLuong.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.lbQuaTrinhLuong.Location = new System.Drawing.Point(357, 142);
+            this.lbQuaTrinhLuong.Location = new System.Drawing.Point(409, 137);
             this.lbQuaTrinhLuong.MaxSize = new System.Drawing.Size(119, 26);
             this.lbQuaTrinhLuong.MinSize = new System.Drawing.Size(119, 26);
             this.lbQuaTrinhLuong.Name = "lbQuaTrinhLuong";
             this.lbQuaTrinhLuong.Size = new System.Drawing.Size(119, 26);
             this.lbQuaTrinhLuong.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lbQuaTrinhLuong.Text = "Quá trình lương";
-            this.lbQuaTrinhLuong.TextSize = new System.Drawing.Size(282, 15);
+            this.lbQuaTrinhLuong.TextSize = new System.Drawing.Size(246, 15);
             // 
             // simpleLabelItem7
             // 
@@ -2188,14 +2110,14 @@
             this.simpleLabelItem7.AppearanceItemCaption.Options.UseForeColor = true;
             this.simpleLabelItem7.AppearanceItemCaption.Options.UseTextOptions = true;
             this.simpleLabelItem7.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.simpleLabelItem7.Location = new System.Drawing.Point(344, 142);
+            this.simpleLabelItem7.Location = new System.Drawing.Point(396, 137);
             this.simpleLabelItem7.MaxSize = new System.Drawing.Size(13, 26);
             this.simpleLabelItem7.MinSize = new System.Drawing.Size(13, 26);
             this.simpleLabelItem7.Name = "simpleLabelItem7";
             this.simpleLabelItem7.Size = new System.Drawing.Size(13, 26);
             this.simpleLabelItem7.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.simpleLabelItem7.Text = "|";
-            this.simpleLabelItem7.TextSize = new System.Drawing.Size(282, 14);
+            this.simpleLabelItem7.TextSize = new System.Drawing.Size(246, 14);
             // 
             // lbQuaTrinhCongTac
             // 
@@ -2206,14 +2128,14 @@
             this.lbQuaTrinhCongTac.AppearanceItemCaption.Options.UseForeColor = true;
             this.lbQuaTrinhCongTac.AppearanceItemCaption.Options.UseTextOptions = true;
             this.lbQuaTrinhCongTac.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.lbQuaTrinhCongTac.Location = new System.Drawing.Point(207, 142);
+            this.lbQuaTrinhCongTac.Location = new System.Drawing.Point(259, 137);
             this.lbQuaTrinhCongTac.MaxSize = new System.Drawing.Size(137, 26);
             this.lbQuaTrinhCongTac.MinSize = new System.Drawing.Size(137, 26);
             this.lbQuaTrinhCongTac.Name = "lbQuaTrinhCongTac";
             this.lbQuaTrinhCongTac.Size = new System.Drawing.Size(137, 26);
             this.lbQuaTrinhCongTac.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lbQuaTrinhCongTac.Text = "Quá trình công tác";
-            this.lbQuaTrinhCongTac.TextSize = new System.Drawing.Size(282, 15);
+            this.lbQuaTrinhCongTac.TextSize = new System.Drawing.Size(246, 15);
             // 
             // simpleLabelItem5
             // 
@@ -2224,14 +2146,14 @@
             this.simpleLabelItem5.AppearanceItemCaption.Options.UseForeColor = true;
             this.simpleLabelItem5.AppearanceItemCaption.Options.UseTextOptions = true;
             this.simpleLabelItem5.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.simpleLabelItem5.Location = new System.Drawing.Point(194, 142);
+            this.simpleLabelItem5.Location = new System.Drawing.Point(246, 137);
             this.simpleLabelItem5.MaxSize = new System.Drawing.Size(13, 26);
             this.simpleLabelItem5.MinSize = new System.Drawing.Size(13, 26);
             this.simpleLabelItem5.Name = "simpleLabelItem5";
             this.simpleLabelItem5.Size = new System.Drawing.Size(13, 26);
             this.simpleLabelItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.simpleLabelItem5.Text = "|";
-            this.simpleLabelItem5.TextSize = new System.Drawing.Size(282, 14);
+            this.simpleLabelItem5.TextSize = new System.Drawing.Size(246, 14);
             // 
             // lbThongTinCaNhan
             // 
@@ -2242,48 +2164,48 @@
             this.lbThongTinCaNhan.AppearanceItemCaption.Options.UseForeColor = true;
             this.lbThongTinCaNhan.AppearanceItemCaption.Options.UseTextOptions = true;
             this.lbThongTinCaNhan.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.lbThongTinCaNhan.Location = new System.Drawing.Point(58, 142);
+            this.lbThongTinCaNhan.Location = new System.Drawing.Point(110, 137);
             this.lbThongTinCaNhan.MaxSize = new System.Drawing.Size(136, 26);
             this.lbThongTinCaNhan.MinSize = new System.Drawing.Size(136, 26);
             this.lbThongTinCaNhan.Name = "lbThongTinCaNhan";
             this.lbThongTinCaNhan.Size = new System.Drawing.Size(136, 26);
             this.lbThongTinCaNhan.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lbThongTinCaNhan.Text = "Thông tin cá nhân";
-            this.lbThongTinCaNhan.TextSize = new System.Drawing.Size(282, 15);
+            this.lbThongTinCaNhan.TextSize = new System.Drawing.Size(246, 15);
             // 
             // emptySpaceItem4
             // 
             this.emptySpaceItem4.AllowHotTrack = false;
-            this.emptySpaceItem4.Location = new System.Drawing.Point(0, 142);
+            this.emptySpaceItem4.Location = new System.Drawing.Point(0, 137);
             this.emptySpaceItem4.MaxSize = new System.Drawing.Size(0, 26);
             this.emptySpaceItem4.MinSize = new System.Drawing.Size(10, 26);
             this.emptySpaceItem4.Name = "emptySpaceItem4";
-            this.emptySpaceItem4.Size = new System.Drawing.Size(58, 26);
+            this.emptySpaceItem4.Size = new System.Drawing.Size(110, 26);
             this.emptySpaceItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
             // 
             // lciThongTinCaNhan
             // 
             this.lciThongTinCaNhan.Control = this.gcThongTinCaNhan;
-            this.lciThongTinCaNhan.Location = new System.Drawing.Point(0, 168);
+            this.lciThongTinCaNhan.Location = new System.Drawing.Point(0, 163);
             this.lciThongTinCaNhan.Name = "lciThongTinCaNhan";
-            this.lciThongTinCaNhan.Size = new System.Drawing.Size(104, 260);
+            this.lciThongTinCaNhan.Size = new System.Drawing.Size(104, 267);
             this.lciThongTinCaNhan.TextSize = new System.Drawing.Size(0, 0);
             this.lciThongTinCaNhan.TextVisible = false;
             // 
             // lciQuaTrinhLuong
             // 
             this.lciQuaTrinhLuong.Control = this.gcQuaTrinhLuong;
-            this.lciQuaTrinhLuong.Location = new System.Drawing.Point(210, 168);
+            this.lciQuaTrinhLuong.Location = new System.Drawing.Point(226, 163);
             this.lciQuaTrinhLuong.Name = "lciQuaTrinhLuong";
-            this.lciQuaTrinhLuong.Size = new System.Drawing.Size(104, 260);
+            this.lciQuaTrinhLuong.Size = new System.Drawing.Size(314, 267);
             this.lciQuaTrinhLuong.TextSize = new System.Drawing.Size(0, 0);
             this.lciQuaTrinhLuong.TextVisible = false;
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.btnClosePersonDetails;
-            this.layoutControlItem2.Location = new System.Drawing.Point(603, 428);
+            this.layoutControlItem2.Location = new System.Drawing.Point(655, 430);
             this.layoutControlItem2.MaxSize = new System.Drawing.Size(93, 26);
             this.layoutControlItem2.MinSize = new System.Drawing.Size(93, 26);
             this.layoutControlItem2.Name = "layoutControlItem2";
@@ -2295,7 +2217,7 @@
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.btnEditInLayout;
-            this.layoutControlItem3.Location = new System.Drawing.Point(510, 428);
+            this.layoutControlItem3.Location = new System.Drawing.Point(562, 430);
             this.layoutControlItem3.MaxSize = new System.Drawing.Size(93, 26);
             this.layoutControlItem3.MinSize = new System.Drawing.Size(93, 26);
             this.layoutControlItem3.Name = "layoutControlItem3";
@@ -2307,7 +2229,7 @@
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.btnOpenCloudStorage;
-            this.layoutControlItem5.Location = new System.Drawing.Point(364, 428);
+            this.layoutControlItem5.Location = new System.Drawing.Point(416, 430);
             this.layoutControlItem5.MaxSize = new System.Drawing.Size(146, 26);
             this.layoutControlItem5.MinSize = new System.Drawing.Size(146, 26);
             this.layoutControlItem5.Name = "layoutControlItem5";
@@ -2319,63 +2241,54 @@
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 428);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 430);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(364, 26);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(416, 26);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem6
             // 
             this.emptySpaceItem6.AllowHotTrack = false;
-            this.emptySpaceItem6.Location = new System.Drawing.Point(128, 0);
+            this.emptySpaceItem6.Location = new System.Drawing.Point(112, 0);
             this.emptySpaceItem6.Name = "emptySpaceItem6";
-            this.emptySpaceItem6.Size = new System.Drawing.Size(12, 128);
+            this.emptySpaceItem6.Size = new System.Drawing.Size(10, 108);
             this.emptySpaceItem6.TextSize = new System.Drawing.Size(0, 0);
             // 
             // lciHocHamHocVi_DangHocNangCao
             // 
             this.lciHocHamHocVi_DangHocNangCao.Control = this.gcHocHamHocVi_DangHocNangCao_Nganh;
-            this.lciHocHamHocVi_DangHocNangCao.Location = new System.Drawing.Point(418, 168);
+            this.lciHocHamHocVi_DangHocNangCao.Location = new System.Drawing.Point(644, 163);
             this.lciHocHamHocVi_DangHocNangCao.Name = "lciHocHamHocVi_DangHocNangCao";
-            this.lciHocHamHocVi_DangHocNangCao.Size = new System.Drawing.Size(278, 120);
+            this.lciHocHamHocVi_DangHocNangCao.Size = new System.Drawing.Size(104, 114);
             this.lciHocHamHocVi_DangHocNangCao.TextSize = new System.Drawing.Size(0, 0);
             this.lciHocHamHocVi_DangHocNangCao.TextVisible = false;
             // 
             // lciChungChi
             // 
             this.lciChungChi.Control = this.gcChungChi;
-            this.lciChungChi.Location = new System.Drawing.Point(418, 288);
+            this.lciChungChi.Location = new System.Drawing.Point(644, 277);
             this.lciChungChi.Name = "lciChungChi";
-            this.lciChungChi.Size = new System.Drawing.Size(278, 140);
+            this.lciChungChi.Size = new System.Drawing.Size(104, 153);
             this.lciChungChi.TextSize = new System.Drawing.Size(0, 0);
             this.lciChungChi.TextVisible = false;
             // 
             // lciTrangThai
             // 
             this.lciTrangThai.Control = this.gcTrangThai;
-            this.lciTrangThai.Location = new System.Drawing.Point(314, 168);
+            this.lciTrangThai.Location = new System.Drawing.Point(540, 163);
             this.lciTrangThai.Name = "lciTrangThai";
-            this.lciTrangThai.Size = new System.Drawing.Size(104, 260);
+            this.lciTrangThai.Size = new System.Drawing.Size(104, 267);
             this.lciTrangThai.TextSize = new System.Drawing.Size(0, 0);
             this.lciTrangThai.TextVisible = false;
             // 
             // lciQuaTrinhCongTac
             // 
             this.lciQuaTrinhCongTac.Control = this.gcQuaTrinhCongTac;
-            this.lciQuaTrinhCongTac.Location = new System.Drawing.Point(104, 168);
+            this.lciQuaTrinhCongTac.Location = new System.Drawing.Point(104, 163);
             this.lciQuaTrinhCongTac.Name = "lciQuaTrinhCongTac";
-            this.lciQuaTrinhCongTac.Size = new System.Drawing.Size(106, 120);
+            this.lciQuaTrinhCongTac.Size = new System.Drawing.Size(122, 267);
             this.lciQuaTrinhCongTac.TextSize = new System.Drawing.Size(0, 0);
             this.lciQuaTrinhCongTac.TextVisible = false;
-            // 
-            // lciHopDong
-            // 
-            this.lciHopDong.Control = this.gcHopDong;
-            this.lciHopDong.Location = new System.Drawing.Point(104, 288);
-            this.lciHopDong.Name = "lciHopDong";
-            this.lciHopDong.Size = new System.Drawing.Size(106, 140);
-            this.lciHopDong.TextSize = new System.Drawing.Size(0, 0);
-            this.lciHopDong.TextVisible = false;
             // 
             // lbTrangThai
             // 
@@ -2386,14 +2299,14 @@
             this.lbTrangThai.AppearanceItemCaption.Options.UseForeColor = true;
             this.lbTrangThai.AppearanceItemCaption.Options.UseTextOptions = true;
             this.lbTrangThai.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.lbTrangThai.Location = new System.Drawing.Point(598, 142);
+            this.lbTrangThai.Location = new System.Drawing.Point(650, 137);
             this.lbTrangThai.MaxSize = new System.Drawing.Size(98, 26);
             this.lbTrangThai.MinSize = new System.Drawing.Size(98, 26);
             this.lbTrangThai.Name = "lbTrangThai";
             this.lbTrangThai.Size = new System.Drawing.Size(98, 26);
             this.lbTrangThai.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lbTrangThai.Text = "Trạng thái";
-            this.lbTrangThai.TextSize = new System.Drawing.Size(282, 15);
+            this.lbTrangThai.TextSize = new System.Drawing.Size(246, 15);
             // 
             // simpleLabelItem1
             // 
@@ -2404,28 +2317,28 @@
             this.simpleLabelItem1.AppearanceItemCaption.Options.UseForeColor = true;
             this.simpleLabelItem1.AppearanceItemCaption.Options.UseTextOptions = true;
             this.simpleLabelItem1.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.simpleLabelItem1.Location = new System.Drawing.Point(586, 142);
+            this.simpleLabelItem1.Location = new System.Drawing.Point(638, 137);
             this.simpleLabelItem1.MaxSize = new System.Drawing.Size(12, 26);
             this.simpleLabelItem1.MinSize = new System.Drawing.Size(12, 26);
             this.simpleLabelItem1.Name = "simpleLabelItem1";
             this.simpleLabelItem1.Size = new System.Drawing.Size(12, 26);
             this.simpleLabelItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.simpleLabelItem1.Text = "|";
-            this.simpleLabelItem1.TextSize = new System.Drawing.Size(282, 14);
+            this.simpleLabelItem1.TextSize = new System.Drawing.Size(246, 14);
             // 
             // splitterControl1
             // 
             this.splitterControl1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.splitterControl1.Location = new System.Drawing.Point(560, 0);
+            this.splitterControl1.Location = new System.Drawing.Point(507, 24);
             this.splitterControl1.Name = "splitterControl1";
-            this.splitterControl1.Size = new System.Drawing.Size(4, 474);
+            this.splitterControl1.Size = new System.Drawing.Size(5, 476);
             this.splitterControl1.TabIndex = 5;
             this.splitterControl1.TabStop = false;
             // 
             // gcMain
             // 
             this.gcMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcMain.Location = new System.Drawing.Point(0, 0);
+            this.gcMain.Location = new System.Drawing.Point(0, 24);
             this.gcMain.MainView = this.gvMain;
             this.gcMain.MenuManager = this.barManager1;
             this.gcMain.Name = "gcMain";
@@ -2433,7 +2346,7 @@
             this.repositoryItemMemoEdit1,
             this.repositoryItemMemoEdit6,
             this.repositoryItemMemoEdit7});
-            this.gcMain.Size = new System.Drawing.Size(560, 474);
+            this.gcMain.Size = new System.Drawing.Size(507, 476);
             this.gcMain.TabIndex = 6;
             this.gcMain.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvMain});
@@ -2458,22 +2371,26 @@
             new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Count, "gridColumn4", null, " ( Có {0} người )")});
             this.gvMain.Name = "gvMain";
             this.gvMain.OptionsBehavior.Editable = false;
+            this.gvMain.OptionsCustomization.CustomizationFormSnapMode = DevExpress.Utils.Controls.SnapMode.None;
             this.gvMain.OptionsEditForm.EditFormColumnCount = 2;
             this.gvMain.OptionsEditForm.PopupEditFormWidth = 600;
+            this.gvMain.OptionsView.ColumnAutoWidth = false;
+            this.gvMain.OptionsView.RowAutoHeight = true;
             this.gvMain.OptionsView.ShowFooter = true;
-            this.gvMain.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
-            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gridColumn2, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
             // gridColumn2
             // 
             this.gridColumn2.AppearanceCell.Options.UseTextOptions = true;
-            this.gridColumn2.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn2.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn2.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn2.Caption = "Mã viên chức";
             this.gridColumn2.ColumnEdit = this.repositoryItemMemoEdit6;
             this.gridColumn2.FieldName = "MaVienChuc";
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 0;
+            this.gridColumn2.Width = 100;
             // 
             // repositoryItemMemoEdit6
             // 
@@ -2483,13 +2400,15 @@
             // 
             this.gridColumn3.AppearanceCell.Options.UseTextOptions = true;
             this.gridColumn3.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn3.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn3.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn3.Caption = "Chức vụ";
             this.gridColumn3.ColumnEdit = this.repositoryItemMemoEdit7;
             this.gridColumn3.FieldName = "ChucVu";
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 1;
-            this.gridColumn3.Width = 74;
+            this.gridColumn3.VisibleIndex = 4;
+            this.gridColumn3.Width = 300;
             // 
             // repositoryItemMemoEdit7
             // 
@@ -2497,55 +2416,66 @@
             // 
             // gridColumn4
             // 
+            this.gridColumn4.AppearanceCell.Options.HighPriority = true;
             this.gridColumn4.AppearanceCell.Options.UseTextOptions = true;
             this.gridColumn4.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn4.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn4.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn4.Caption = "Đơn vị";
             this.gridColumn4.ColumnEdit = this.repositoryItemMemoEdit7;
             this.gridColumn4.FieldName = "DonVi";
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 2;
+            this.gridColumn4.VisibleIndex = 1;
             this.gridColumn4.Width = 113;
             // 
             // gridColumn5
             // 
             this.gridColumn5.AppearanceCell.Options.UseTextOptions = true;
             this.gridColumn5.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn5.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn5.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn5.Caption = "Họ";
             this.gridColumn5.ColumnEdit = this.repositoryItemMemoEdit7;
             this.gridColumn5.FieldName = "Ho";
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 3;
-            this.gridColumn5.Width = 60;
+            this.gridColumn5.VisibleIndex = 2;
+            this.gridColumn5.Width = 250;
             // 
             // gridColumn6
             // 
             this.gridColumn6.AppearanceCell.Options.UseTextOptions = true;
             this.gridColumn6.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn6.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn6.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn6.Caption = "Tên";
             this.gridColumn6.ColumnEdit = this.repositoryItemMemoEdit7;
             this.gridColumn6.FieldName = "Ten";
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 4;
-            this.gridColumn6.Width = 30;
+            this.gridColumn6.VisibleIndex = 3;
+            this.gridColumn6.Width = 70;
             // 
             // gridColumn7
             // 
             this.gridColumn7.AppearanceCell.Options.UseTextOptions = true;
-            this.gridColumn7.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn7.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn7.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn7.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn7.Caption = "Giới tính";
             this.gridColumn7.FieldName = "GioiTinh";
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.Visible = true;
             this.gridColumn7.VisibleIndex = 5;
-            this.gridColumn7.Width = 25;
+            this.gridColumn7.Width = 70;
             // 
             // gridColumn8
             // 
             this.gridColumn8.AppearanceCell.Options.UseTextOptions = true;
-            this.gridColumn8.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn8.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn8.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn8.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn8.Caption = "Ngày sinh";
             this.gridColumn8.DisplayFormat.FormatString = "dd/MM/yyyy";
             this.gridColumn8.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
@@ -2553,18 +2483,20 @@
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.Visible = true;
             this.gridColumn8.VisibleIndex = 6;
-            this.gridColumn8.Width = 40;
+            this.gridColumn8.Width = 150;
             // 
             // gridColumn9
             // 
             this.gridColumn9.AppearanceCell.Options.UseTextOptions = true;
-            this.gridColumn9.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn9.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn9.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn9.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn9.Caption = "Học hàm - Học vị";
             this.gridColumn9.FieldName = "TrinhDo";
             this.gridColumn9.Name = "gridColumn9";
             this.gridColumn9.Visible = true;
             this.gridColumn9.VisibleIndex = 7;
-            this.gridColumn9.Width = 60;
+            this.gridColumn9.Width = 200;
             // 
             // repositoryItemMemoEdit1
             // 
@@ -2572,7 +2504,7 @@
             // 
             // txtRowIndex
             // 
-            this.txtRowIndex.Location = new System.Drawing.Point(222, 12);
+            this.txtRowIndex.Location = new System.Drawing.Point(238, 29);
             this.txtRowIndex.MenuManager = this.barManager1;
             this.txtRowIndex.Name = "txtRowIndex";
             this.txtRowIndex.Size = new System.Drawing.Size(35, 20);
@@ -2596,18 +2528,11 @@
             // 
             // txtRowIndexRightView
             // 
-            this.txtRowIndexRightView.Location = new System.Drawing.Point(279, 12);
+            this.txtRowIndexRightView.Location = new System.Drawing.Point(302, 29);
             this.txtRowIndexRightView.Name = "txtRowIndexRightView";
             this.txtRowIndexRightView.Size = new System.Drawing.Size(35, 20);
             this.txtRowIndexRightView.TabIndex = 7;
             this.txtRowIndexRightView.Visible = false;
-            // 
-            // popupMenuGVHopDong
-            // 
-            this.popupMenuGVHopDong.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnDownloadFileHopDong)});
-            this.popupMenuGVHopDong.Manager = this.barManager1;
-            this.popupMenuGVHopDong.Name = "popupMenuGVHopDong";
             // 
             // popupMenuGVQuaTrinhLuong
             // 
@@ -2662,14 +2587,9 @@
             this.MinimizeBox = false;
             this.Name = "MainForm";
             this.ShowIcon = false;
-            this.Text = "Màn hình chính";
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gcHopDong)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvHopDong)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcTrangThai)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvTrangThai)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit16)).EndInit();
@@ -2743,6 +2663,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lbDonVi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lbHopDong)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.simpleSeparator1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lbChuyenMon)).EndInit();
@@ -2764,7 +2685,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciChungChi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciTrangThai)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciQuaTrinhCongTac)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciHopDong)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lbTrangThai)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.simpleLabelItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcMain)).EndInit();
@@ -2776,7 +2696,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.popupMenuGVMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenuGVQuaTrinhCongTac)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRowIndexRightView.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.popupMenuGVHopDong)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenuGVQuaTrinhLuong)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenuGVHocHamHocVi_DangHocNangCao_Nganh)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenuGVChungChi)).EndInit();
@@ -2789,7 +2708,6 @@
         #endregion
 
         private DevExpress.XtraBars.BarManager barManager1;
-        private DevExpress.XtraBars.Bar bar3;
         private DevExpress.XtraBars.BarDockControl barDockControlTop;
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
@@ -2853,7 +2771,6 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem7;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem6;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn34;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn35;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn36;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn37;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn38;
@@ -2937,16 +2854,6 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gvTrangThai;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn15;
         private DevExpress.XtraLayout.LayoutControlItem lciTrangThai;
-        private DevExpress.XtraGrid.GridControl gcHopDong;
-        private DevExpress.XtraGrid.Views.Grid.GridView gvHopDong;
-        private DevExpress.XtraLayout.LayoutControlItem lciHopDong;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn14;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn16;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn17;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn18;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn19;
-        private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repositoryItemMemoEdit13;
-        private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repositoryItemMemoEdit14;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn20;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn21;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn22;
@@ -3004,7 +2911,6 @@
         private DevExpress.XtraBars.BarButtonItem btnDownloadFileDangHocNangCao;
         private DevExpress.XtraBars.BarButtonItem btnDownloadFileChungChi;
         private DevExpress.XtraBars.BarButtonItem btnDownloadFileTrangThai;
-        private DevExpress.XtraBars.PopupMenu popupMenuGVHopDong;
         private DevExpress.XtraBars.PopupMenu popupMenuGVQuaTrinhLuong;
         private DevExpress.XtraBars.PopupMenu popupMenuGVHocHamHocVi_DangHocNangCao_Nganh;
         private DevExpress.XtraBars.PopupMenu popupMenuGVChungChi;
@@ -3017,5 +2923,9 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn67;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn68;
         private DevExpress.XtraBars.BarButtonItem btnDownloadFileNganh;
+        private DevExpress.XtraLayout.SimpleLabelItem lbHopDong;
+        private DevExpress.XtraBars.Bar bar1;
+        private DevExpress.XtraBars.BarButtonItem btnExportExcel;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn14;
     }
 }

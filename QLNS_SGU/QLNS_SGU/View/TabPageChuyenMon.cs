@@ -130,10 +130,6 @@ namespace QLNS_SGU.View
         public void Attach(ITabPageChuyenMonPresenter presenter)
         {
             Load += (s, e) => presenter.LoadForm();
-            btnSelectTabHocHamHocVi.ItemClick += (s, e) => presenter.SelectTabHocHamHocVi();
-            btnSelectTabDangHocNangCao.ItemClick += (s, e) => presenter.SelectTabDangHocNangCao();
-            btnSelectTabNganh.ItemClick += (s, e) => presenter.SelectTabNganh();
-            btnSelectTabChungChi.ItemClick += (s, e) => presenter.SelectTabChungChi();
             //tab1
             cbxNganhDaoTaoHHHV.EditValueChanged += new EventHandler(presenter.CbxNganhDaoTaoHHHVChanged);
             gvHocHamHocVi.Click += (s, e) => presenter.ClickRowAndShowInfoHHHV();                                  

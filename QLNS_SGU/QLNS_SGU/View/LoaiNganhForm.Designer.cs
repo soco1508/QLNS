@@ -237,7 +237,6 @@
             this.MinimizeBox = false;
             this.Name = "LoaiNganhForm";
             this.ShowIcon = false;
-            this.Text = "Loại ngành";
             ((System.ComponentModel.ISupportInitialize)(this.gcLoaiNganh)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvLoaiNganh)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();

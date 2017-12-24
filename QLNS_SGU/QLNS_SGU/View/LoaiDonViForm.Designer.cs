@@ -230,7 +230,6 @@
             this.MinimizeBox = false;
             this.Name = "LoaiDonViForm";
             this.ShowIcon = false;
-            this.Text = "Loại đơn vị";
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcLoaiDonVi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvLoaiDonVi)).EndInit();

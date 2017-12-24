@@ -40,7 +40,6 @@
             this.btnNaviChuyenNganh = new DevExpress.XtraBars.BarButtonItem();
             this.btnNaviLoaiChungChi = new DevExpress.XtraBars.BarButtonItem();
             this.btnNaviLoaiHopDong = new DevExpress.XtraBars.BarButtonItem();
-            this.btnDangXuat = new DevExpress.XtraBars.BarButtonItem();
             this.txtXinChao = new DevExpress.XtraBars.BarStaticItem();
             this.btnNaviMain = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
@@ -60,12 +59,21 @@
             this.btnNaviLoaiHocHamHocVi = new DevExpress.XtraBars.BarButtonItem();
             this.btnNaviTrangThai = new DevExpress.XtraBars.BarButtonItem();
             this.btnNaviVienChuc = new DevExpress.XtraBars.BarButtonItem();
+            this.btnNaviExportData = new DevExpress.XtraBars.BarButtonItem();
+            this.btnAbout = new DevExpress.XtraBars.BarButtonItem();
+            this.btnLogout = new DevExpress.XtraBars.BarButtonItem();
+            this.btnExit = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::QLNS_SGU.View.WaitForm1), true, true);
-            this.btnNaviExportData = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenuNganh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenuDonVi)).BeginInit();
@@ -83,7 +91,6 @@
             this.btnNaviNganh,
             this.btnNaviLoaiChungChi,
             this.btnNaviLoaiHopDong,
-            this.btnDangXuat,
             this.txtXinChao,
             this.btnNaviMain,
             this.barButtonItem3,
@@ -103,12 +110,17 @@
             this.btnNaviLoaiHocHamHocVi,
             this.btnNaviTrangThai,
             this.btnNaviVienChuc,
-            this.btnNaviExportData});
+            this.btnNaviExportData,
+            this.btnAbout,
+            this.btnLogout,
+            this.btnExit});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 42;
+            this.ribbon.MaxItemId = 45;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
-            this.ribbonPage1});
+            this.ribbonPage2,
+            this.ribbonPage1,
+            this.ribbonPage3});
             this.ribbon.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2007;
             this.ribbon.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbon.Size = new System.Drawing.Size(996, 150);
@@ -194,18 +206,6 @@
             this.btnNaviLoaiHopDong.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
             // 
-            // btnDangXuat
-            // 
-            this.btnDangXuat.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-            this.btnDangXuat.Caption = "Đăng xuất";
-            this.btnDangXuat.Id = 9;
-            this.btnDangXuat.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.btnDangXuat.ItemAppearance.Normal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnDangXuat.ItemAppearance.Normal.Options.UseFont = true;
-            this.btnDangXuat.ItemAppearance.Normal.Options.UseForeColor = true;
-            this.btnDangXuat.Name = "btnDangXuat";
-            this.btnDangXuat.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.Caption;
-            // 
             // txtXinChao
             // 
             this.txtXinChao.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
@@ -219,9 +219,9 @@
             // 
             // btnNaviMain
             // 
-            this.btnNaviMain.Caption = "Màn hình chính";
+            this.btnNaviMain.Caption = "Danh sách viên chức";
             this.btnNaviMain.Id = 12;
-            this.btnNaviMain.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnNaviMain.ImageOptions.Image")));
+            this.btnNaviMain.ImageOptions.Image = global::QLNS_SGU.Properties.Resources.vienchuc;
             this.btnNaviMain.Name = "btnNaviMain";
             this.btnNaviMain.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
@@ -352,19 +352,79 @@
             this.btnNaviVienChuc.ImageOptions.LargeImage = global::QLNS_SGU.Properties.Resources.vienchuc;
             this.btnNaviVienChuc.Name = "btnNaviVienChuc";
             // 
+            // btnNaviExportData
+            // 
+            this.btnNaviExportData.Caption = "Xuất dữ liệu";
+            this.btnNaviExportData.Id = 41;
+            this.btnNaviExportData.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnNaviExportData.ImageOptions.Image")));
+            this.btnNaviExportData.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnNaviExportData.ImageOptions.LargeImage")));
+            this.btnNaviExportData.Name = "btnNaviExportData";
+            // 
+            // btnAbout
+            // 
+            this.btnAbout.Caption = "Giới thiệu";
+            this.btnAbout.Id = 42;
+            this.btnAbout.ImageOptions.Image = global::QLNS_SGU.Properties.Resources.about;
+            this.btnAbout.ImageOptions.LargeImage = global::QLNS_SGU.Properties.Resources.about;
+            this.btnAbout.Name = "btnAbout";
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.Caption = "Đăng xuất";
+            this.btnLogout.Id = 43;
+            this.btnLogout.ImageOptions.LargeImage = global::QLNS_SGU.Properties.Resources.logout;
+            this.btnLogout.Name = "btnLogout";
+            // 
+            // btnExit
+            // 
+            this.btnExit.Caption = "Thoát";
+            this.btnExit.Id = 44;
+            this.btnExit.ImageOptions.LargeImage = global::QLNS_SGU.Properties.Resources.exit;
+            this.btnExit.Name = "btnExit";
+            // 
+            // ribbonPage2
+            // 
+            this.ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup1,
+            this.ribbonPageGroup4,
+            this.ribbonPageGroup5});
+            this.ribbonPage2.Image = ((System.Drawing.Image)(resources.GetObject("ribbonPage2.Image")));
+            this.ribbonPage2.Name = "ribbonPage2";
+            this.ribbonPage2.Text = "Hệ thống";
+            // 
+            // ribbonPageGroup1
+            // 
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnAbout);
+            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            this.ribbonPageGroup1.ShowCaptionButton = false;
+            this.ribbonPageGroup1.Text = "Giới thiệu";
+            // 
+            // ribbonPageGroup4
+            // 
+            this.ribbonPageGroup4.ItemLinks.Add(this.btnLogout);
+            this.ribbonPageGroup4.Name = "ribbonPageGroup4";
+            this.ribbonPageGroup4.ShowCaptionButton = false;
+            this.ribbonPageGroup4.Text = "Đăng xuất";
+            // 
+            // ribbonPageGroup5
+            // 
+            this.ribbonPageGroup5.AllowTextClipping = false;
+            this.ribbonPageGroup5.ItemLinks.Add(this.btnExit);
+            this.ribbonPageGroup5.Name = "ribbonPageGroup5";
+            this.ribbonPageGroup5.ShowCaptionButton = false;
+            this.ribbonPageGroup5.Text = "Thoát ứng dụng";
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup2});
-            this.ribbonPage1.Image = ((System.Drawing.Image)(resources.GetObject("ribbonPage1.Image")));
+            this.ribbonPage1.Image = global::QLNS_SGU.Properties.Resources.category;
             this.ribbonPage1.Name = "ribbonPage1";
-            this.ribbonPage1.Text = "Màn hình";
+            this.ribbonPage1.Text = "Danh mục";
             // 
             // ribbonPageGroup2
             // 
             this.ribbonPageGroup2.ItemLinks.Add(this.btnNaviMain);
-            this.ribbonPageGroup2.ItemLinks.Add(this.btnOpenImportData);
-            this.ribbonPageGroup2.ItemLinks.Add(this.btnNaviExportData);
             this.ribbonPageGroup2.ItemLinks.Add(this.btnOpenCreateAndEditPersonInfoForm);
             this.ribbonPageGroup2.ItemLinks.Add(this.btnNaviLoaiHopDong);
             this.ribbonPageGroup2.ItemLinks.Add(this.btnNaviLoaiChungChi);
@@ -377,12 +437,27 @@
             this.ribbonPageGroup2.ItemLinks.Add(this.btnNaviVienChuc);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.ShowCaptionButton = false;
-            this.ribbonPageGroup2.Text = "Chuyển màn hình";
+            this.ribbonPageGroup2.Text = "Quản lý";
+            // 
+            // ribbonPage3
+            // 
+            this.ribbonPage3.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup3});
+            this.ribbonPage3.Image = ((System.Drawing.Image)(resources.GetObject("ribbonPage3.Image")));
+            this.ribbonPage3.Name = "ribbonPage3";
+            this.ribbonPage3.Text = "Dữ liệu";
+            // 
+            // ribbonPageGroup3
+            // 
+            this.ribbonPageGroup3.ItemLinks.Add(this.btnOpenImportData);
+            this.ribbonPageGroup3.ItemLinks.Add(this.btnNaviExportData);
+            this.ribbonPageGroup3.Name = "ribbonPageGroup3";
+            this.ribbonPageGroup3.ShowCaptionButton = false;
+            this.ribbonPageGroup3.Text = "Nhập/Xuất dữ liệu";
             // 
             // ribbonStatusBar
             // 
             this.ribbonStatusBar.ItemLinks.Add(this.txtXinChao);
-            this.ribbonStatusBar.ItemLinks.Add(this.btnDangXuat);
             this.ribbonStatusBar.Location = new System.Drawing.Point(0, 491);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
@@ -395,14 +470,6 @@
             // splashScreenManager1
             // 
             this.splashScreenManager1.ClosingDelay = 500;
-            // 
-            // btnNaviExportData
-            // 
-            this.btnNaviExportData.Caption = "Xuất dữ liệu";
-            this.btnNaviExportData.Id = 41;
-            this.btnNaviExportData.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.Image")));
-            this.btnNaviExportData.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.LargeImage")));
-            this.btnNaviExportData.Name = "btnNaviExportData";
             // 
             // ContainerForm
             // 
@@ -418,6 +485,7 @@
             this.Ribbon = this.ribbon;
             this.ShowIcon = false;
             this.StatusBar = this.ribbonStatusBar;
+            this.Text = "Quản lý nhân sự";
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenuNganh)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenuDonVi)).EndInit();
@@ -439,7 +507,6 @@
         private DevExpress.XtraBars.BarButtonItem btnNaviNganh;
         private DevExpress.XtraBars.BarButtonItem btnNaviLoaiChungChi;
         private DevExpress.XtraBars.BarButtonItem btnNaviLoaiHopDong;
-        private DevExpress.XtraBars.BarButtonItem btnDangXuat;
         private DevExpress.XtraBars.BarStaticItem txtXinChao;
         private DevExpress.XtraBars.BarButtonItem btnNaviMain;
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;
@@ -466,5 +533,14 @@
         private DevExpress.XtraBars.BarButtonItem btnNaviTrangThai;
         private DevExpress.XtraBars.BarButtonItem btnNaviVienChuc;
         private DevExpress.XtraBars.BarButtonItem btnNaviExportData;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
+        private DevExpress.XtraBars.BarButtonItem btnAbout;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage3;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
+        private DevExpress.XtraBars.BarButtonItem btnLogout;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
+        private DevExpress.XtraBars.BarButtonItem btnExit;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
     }
 }

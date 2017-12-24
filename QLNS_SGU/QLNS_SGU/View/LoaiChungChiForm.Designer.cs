@@ -236,7 +236,6 @@
             this.MinimizeBox = false;
             this.Name = "LoaiChungChiForm";
             this.ShowIcon = false;
-            this.Text = "Loại chứng chỉ";
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcLoaiChungChi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvLoaiChungChi)).EndInit();

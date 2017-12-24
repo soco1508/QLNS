@@ -75,6 +75,15 @@ namespace Model.Repository
             return listHopDong;
         }
 
+        public string GetLoaiHopDongVienChucForLbHopDong(string mavienchuc)
+        {
+            int idvienchuc = _db.VienChucs.Where(x => x.maVienChuc == mavienchuc).Select(y => y.idVienChuc).FirstOrDefault();
+            return _db.HopDongVienChucs.Where(x => x.idVienChuc == idvienchuc)
+                                                     .OrderByDescending(t => t.ngayBatDau)
+                                                     .Select(y => y.LoaiHopDong.tenLoaiHopDong)
+                                                     .FirstOrDefault();
+        }
+
         public DateTime? ReturnDateTimeToDatabase(string datetime)
         {
             if (datetime == "")

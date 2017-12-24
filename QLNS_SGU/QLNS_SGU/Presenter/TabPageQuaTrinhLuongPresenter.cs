@@ -30,6 +30,7 @@ namespace QLNS_SGU.Presenter
     public class TabPageQuaTrinhLuongPresenter : ITabPageQuaTrinhLuongPresenter
     {
         public static string _mavienchuc = "";
+        public int _rowHandle = -1;
         private static CreateAndEditPersonInfoForm _createAndEditPersonInfoForm = new CreateAndEditPersonInfoForm();
         private TabPageQuaTrinhLuong _view;
         public object UI => _view;
@@ -38,7 +39,7 @@ namespace QLNS_SGU.Presenter
         public void Initialize(string mavienchuc)
         {
             _view.Attach(this);
-            _view.TXTMaVienChuc.Caption = mavienchuc;
+            _view.TXTMaVienChuc.Text = mavienchuc;
         }
         private void LoadGridTabPageQuaTrinhLuong(string mavienchuc)
         {
@@ -75,7 +76,7 @@ namespace QLNS_SGU.Presenter
         }
         private void InsertData()
         {
-            string mavienchuc = _view.TXTMaVienChuc.Caption;
+            string mavienchuc = _view.TXTMaVienChuc.Text;
             UnitOfWorks unitOfWorks = new UnitOfWorks(new QLNSSGU_1Entities());
             int idngach = Convert.ToInt32(_view.CBXMaNgach.EditValue);
             double hesobac = Convert.ToDouble(_view.TXTHeSoBac.EditValue);
@@ -90,7 +91,7 @@ namespace QLNS_SGU.Presenter
             });
             unitOfWorks.Save();
             XtraMessageBox.Show("Thêm dữ liệu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            LoadGridTabPageQuaTrinhLuong(_view.TXTMaVienChuc.Caption);
+            LoadGridTabPageQuaTrinhLuong(_view.TXTMaVienChuc.Text);
         }
         private void UpdateData()
         {
@@ -105,7 +106,7 @@ namespace QLNS_SGU.Presenter
             quaTrinhLuong.linkVanBanDinhKem = _view.TXTLinkVanBanDinhKem.Text;
             unitOfWorks.Save();
             XtraMessageBox.Show("Sửa dữ liệu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            LoadGridTabPageQuaTrinhLuong(_view.TXTMaVienChuc.Caption);
+            LoadGridTabPageQuaTrinhLuong(_view.TXTMaVienChuc.Text);
         }
         private void Download(string linkvanbandinhkem)
         {
@@ -139,7 +140,7 @@ namespace QLNS_SGU.Presenter
 
         public void Add()
         {
-            if(_view.TXTMaVienChuc.Caption != "" && _mavienchuc == "")
+            if(_view.TXTMaVienChuc.Text != "" && _mavienchuc == "")
             {
                 if (_view.CBXMaNgach.Text != "" && _view.CBXBac.Text != "")
                 {
@@ -153,9 +154,9 @@ namespace QLNS_SGU.Presenter
                     _view.CBXBac.ErrorIconAlignment = ErrorIconAlignment.MiddleRight;
                 }
             }
-            else if (_view.TXTMaVienChuc.Caption == "" && _mavienchuc != "")
+            else if (_view.TXTMaVienChuc.Text == "" && _mavienchuc != "")
             {
-                _view.TXTMaVienChuc.Caption = _mavienchuc;
+                _view.TXTMaVienChuc.Text = _mavienchuc;
                 if (_view.CBXMaNgach.Text != "" && _view.CBXBac.Text != "")
                 {
                     InsertData();
@@ -245,7 +246,7 @@ namespace QLNS_SGU.Presenter
         {
             if (_view.GVTabPageQuaTrinhLuong.FocusedRowHandle >= 0)
             {
-                string mavienchuc = _view.TXTMaVienChuc.Caption;
+                string mavienchuc = _view.TXTMaVienChuc.Text;
                 _view.OpenFileDialog.FileName = string.Empty;
                 _view.OpenFileDialog.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
                 if (_view.OpenFileDialog.ShowDialog() == DialogResult.Cancel) return;
@@ -298,8 +299,16 @@ namespace QLNS_SGU.Presenter
         public void LoadForm()
         {
             LoadCbxData();
-            string mavienchuc = _view.TXTMaVienChuc.Caption;
-            if (mavienchuc != "") LoadGridTabPageQuaTrinhLuong(mavienchuc);
+            string mavienchuc = _view.TXTMaVienChuc.Text;
+            if (mavienchuc != "")
+            {
+                LoadGridTabPageQuaTrinhLuong(mavienchuc);
+                if(_rowHandle >= 0)
+                {
+                    _view.GVTabPageQuaTrinhLuong.FocusedRowHandle = _rowHandle;
+                    ClickRowAndShowInfo();
+                }
+            }
         }
 
         public void BacChanged(object sender, EventArgs e)

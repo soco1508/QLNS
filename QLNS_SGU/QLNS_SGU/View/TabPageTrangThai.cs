@@ -27,8 +27,8 @@ namespace QLNS_SGU.View
         TextEdit TXTMoTa { get; set; }
         TextEdit TXTDiaDiem { get; set; }
         TextEdit TXTLinkVanBanDinhKem { get; set; }
-        BarStaticItem TXTMaVienChuc { get; set; }
-        BarStaticItem TXTRownIndex { get; set; }
+        TextEdit TXTMaVienChuc { get; set; }
+        TextEdit TXTRownIndex { get; set; }
     }
     public partial class TabPageTrangThai : XtraForm, ITabPageTrangThai
     {
@@ -47,20 +47,20 @@ namespace QLNS_SGU.View
         public TextEdit TXTMoTa { get => txtMoTa; set => txtMoTa = value; }
         public TextEdit TXTDiaDiem { get => txtDiaDiem; set => txtDiaDiem = value; }
         public TextEdit TXTLinkVanBanDinhKem { get => txtLinkVanBanDinhKem; set => txtLinkVanBanDinhKem = value; }
-        public BarStaticItem TXTMaVienChuc { get => txtMaVienChuc; set => txtMaVienChuc = value; }
-        public BarStaticItem TXTRownIndex { get => txtRowIndex; set => txtRowIndex = value; }
+        public TextEdit TXTMaVienChuc { get => txtMaVienChuc; set => txtMaVienChuc = value; }
+        public TextEdit TXTRownIndex { get => txtRowIndex; set => txtRowIndex = value; }
         #endregion
         public void Attach(ITabPageTrangThaiPresenter presenter)
         {
             Load += (s, e) => presenter.LoadForm();
             gvTrangThai.Click += (s, e) => presenter.ClickRowAndShowInfo();
-            btnUpload.ItemClick += (s, e) => presenter.UploadFileToGoogleDrive();
-            btnDownload.ItemClick += (s, e) => presenter.DownloadFileToDevice();
-            btnEdit.ItemClick += (s, e) => presenter.Edit();
-            btnRefresh.ItemClick += (s, e) => presenter.Refresh();
-            btnAdd.ItemClick += (s, e) => presenter.Add();
-            btnDelete.ItemClick += (s, e) => presenter.Delete();
-            btnExportExcel.ItemClick += (s, e) => presenter.ExportExcel();
+            btnUpload.Click += (s, e) => presenter.UploadFileToGoogleDrive();
+            btnDownload.Click += (s, e) => presenter.DownloadFileToDevice();
+            btnEdit.Click += (s, e) => presenter.Edit();
+            btnRefresh.Click += (s, e) => presenter.Refresh();
+            btnAdd.Click += (s, e) => presenter.Add();
+            btnDelete.Click += (s, e) => presenter.Delete();
+            btnExportExcel.Click += (s, e) => presenter.ExportExcel();
         }
     }
 }

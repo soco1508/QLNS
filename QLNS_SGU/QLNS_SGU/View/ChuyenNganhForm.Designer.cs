@@ -241,7 +241,6 @@
             this.MinimizeBox = false;
             this.Name = "ChuyenNganhForm";
             this.ShowIcon = false;
-            this.Text = "Chuyên ngành";
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcChuyenNganh)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvChuyenNganh)).EndInit();

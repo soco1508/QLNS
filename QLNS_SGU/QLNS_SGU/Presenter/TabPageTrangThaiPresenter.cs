@@ -29,6 +29,7 @@ namespace QLNS_SGU.Presenter
     public class TabPageTrangThaiPresenter : ITabPageTrangThaiPresenter
     {
         public static string _mavienchuc = "";
+        public int _rowHandle = -1;
         private static CreateAndEditPersonInfoForm _createAndEditPersonInfoForm = new CreateAndEditPersonInfoForm();
         private TabPageTrangThai _view;
         public object UI => _view;
@@ -37,7 +38,7 @@ namespace QLNS_SGU.Presenter
         public void Initialize(string mavienchuc)
         {
             _view.Attach(this);
-            _view.TXTMaVienChuc.Caption = mavienchuc;
+            _view.TXTMaVienChuc.Text = mavienchuc;
         }
         private void LoadGridTabPageTrangThai(string mavienchuc)
         {
@@ -69,7 +70,7 @@ namespace QLNS_SGU.Presenter
         }
         private void InsertData()
         {
-            string mavienchuc = _view.TXTMaVienChuc.Caption;
+            string mavienchuc = _view.TXTMaVienChuc.Text;
             UnitOfWorks unitOfWorks = new UnitOfWorks(new QLNSSGU_1Entities());
             unitOfWorks.TrangThaiVienChucRepository.Insert(new TrangThaiVienChuc
             {
@@ -83,7 +84,7 @@ namespace QLNS_SGU.Presenter
             });
             unitOfWorks.Save();
             XtraMessageBox.Show("Thêm dữ liệu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            LoadGridTabPageTrangThai(_view.TXTMaVienChuc.Caption);
+            LoadGridTabPageTrangThai(_view.TXTMaVienChuc.Text);
         }
         private void UpdateData()
         {
@@ -99,7 +100,7 @@ namespace QLNS_SGU.Presenter
             trangThaiVienChuc.linkVanBanDinhKem = _view.TXTLinkVanBanDinhKem.Text;
             unitOfWorks.Save();
             XtraMessageBox.Show("Sửa dữ liệu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            LoadGridTabPageTrangThai(_view.TXTMaVienChuc.Caption);
+            LoadGridTabPageTrangThai(_view.TXTMaVienChuc.Text);
         }
         private void Download(string linkvanbandinhkem)
         {
@@ -133,7 +134,7 @@ namespace QLNS_SGU.Presenter
 
         public void Add()
         {
-            if(_view.TXTMaVienChuc.Caption != "" && _mavienchuc == "")
+            if(_view.TXTMaVienChuc.Text != "" && _mavienchuc == "")
             {
                 if (_view.CBXTrangThai.Text != "")
                 {
@@ -145,9 +146,9 @@ namespace QLNS_SGU.Presenter
                     _view.CBXTrangThai.ErrorIconAlignment = ErrorIconAlignment.MiddleRight;
                 }
             }
-            else if(_view.TXTMaVienChuc.Caption == "" && _mavienchuc != "")
+            else if(_view.TXTMaVienChuc.Text == "" && _mavienchuc != "")
             {
-                _view.TXTMaVienChuc.Caption = _mavienchuc;
+                _view.TXTMaVienChuc.Text = _mavienchuc;
                 if (_view.CBXTrangThai.Text != "")
                 {
                     InsertData();
@@ -234,7 +235,7 @@ namespace QLNS_SGU.Presenter
         {
             if (_view.GVTabPageTrangThai.FocusedRowHandle >= 0)
             {
-                string mavienchuc = _view.TXTMaVienChuc.Caption;
+                string mavienchuc = _view.TXTMaVienChuc.Text;
                 _view.OpenFileDialog.FileName = string.Empty;
                 _view.OpenFileDialog.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
                 if (_view.OpenFileDialog.ShowDialog() == DialogResult.Cancel) return;
@@ -287,8 +288,16 @@ namespace QLNS_SGU.Presenter
         public void LoadForm()
         {
             LoadCbxData();
-            string mavienchuc = _view.TXTMaVienChuc.Caption;
-            if (mavienchuc != "") LoadGridTabPageTrangThai(mavienchuc);
+            string mavienchuc = _view.TXTMaVienChuc.Text;
+            if (mavienchuc != "")
+            {
+                LoadGridTabPageTrangThai(mavienchuc);
+                if(_rowHandle >= 0)
+                {
+                    _view.GVTabPageTrangThai.FocusedRowHandle = _rowHandle;
+                    ClickRowAndShowInfo();
+                }
+            }
         }
 
         public void ExportExcel()

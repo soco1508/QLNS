@@ -157,7 +157,7 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(1000, 24);
+            this.barDockControlTop.Size = new System.Drawing.Size(1000, 28);
             // 
             // barDockControlBottom
             // 
@@ -171,22 +171,22 @@
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 24);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 28);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 442);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 438);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1000, 24);
+            this.barDockControlRight.Location = new System.Drawing.Point(1000, 28);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 442);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 438);
             // 
             // gcNgach
             // 
             this.gcNgach.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcNgach.Location = new System.Drawing.Point(0, 24);
+            this.gcNgach.Location = new System.Drawing.Point(0, 28);
             this.gcNgach.MainView = this.gvNgach;
             this.gcNgach.MenuManager = this.barManager1;
             this.gcNgach.Name = "gcNgach";
@@ -194,7 +194,7 @@
             this.repositoryItemSpinEdit1,
             this.repositoryItemSpinEdit2,
             this.repositoryItemSpinEdit3});
-            this.gcNgach.Size = new System.Drawing.Size(1000, 442);
+            this.gcNgach.Size = new System.Drawing.Size(1000, 438);
             this.gcNgach.TabIndex = 4;
             this.gcNgach.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvNgach});
@@ -327,7 +327,6 @@
             this.MinimizeBox = false;
             this.Name = "NgachForm";
             this.ShowIcon = false;
-            this.Text = "Ngạch";
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcNgach)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvNgach)).EndInit();

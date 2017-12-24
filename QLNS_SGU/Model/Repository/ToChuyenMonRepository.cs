@@ -42,7 +42,7 @@ namespace Model.Repository
 
         public IList<ToChuyenMon> GetListToChuyenMon()
         {
-            return _db.ToChuyenMons.ToList();
+            return _db.ToChuyenMons.Where(x => x.tenToChuyenMon == "").ToList();
         }
 
         public void DeleteById(int id)
@@ -69,6 +69,11 @@ namespace Model.Repository
             toChuyenMon.tenToChuyenMon = ToChuyenMon;
             toChuyenMon.idDonVi = iddonvi;
             _db.SaveChanges();
+        }
+
+        public List<ToChuyenMon> GetListToChuyenMonByDonVi(int iddonvi)
+        {
+            return _db.ToChuyenMons.Where(x => x.idDonVi == iddonvi).ToList();
         }
     }
 }

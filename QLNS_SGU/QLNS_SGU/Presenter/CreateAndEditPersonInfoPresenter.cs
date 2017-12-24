@@ -19,8 +19,10 @@ namespace QLNS_SGU.Presenter
     public class CreateAndEditPersonInfoPresenter : ICreateAndEditPersonInfoPresenter
     {
         private CreateAndEditPersonInfoForm _view;
-        private static string _mavienchuc = "";
-        private static int _tabOrder = -1;
+        private string _mavienchuc = "";
+        private int _tabOrder = -1;
+        public int _rowHandle = -1;
+        public bool checkGrid = false;
         public object UI => _view;
         public CreateAndEditPersonInfoPresenter(CreateAndEditPersonInfoForm view) => _view = view;
         public void Close() => _view.Close();
@@ -39,18 +41,23 @@ namespace QLNS_SGU.Presenter
             InitForm(form1);
             var tabPageQuaTrinhCongTacPresenter = new TabPageQuaTrinhCongTacPresenter(new TabPageQuaTrinhCongTac());
             tabPageQuaTrinhCongTacPresenter.Initialize(_mavienchuc);
+            tabPageQuaTrinhCongTacPresenter._rowHandle = _rowHandle;
             Form form2 = (Form)tabPageQuaTrinhCongTacPresenter.UI;
             InitForm(form2);
             var tabPageQuaTrinhLuongPresenter = new TabPageQuaTrinhLuongPresenter(new TabPageQuaTrinhLuong());
             tabPageQuaTrinhLuongPresenter.Initialize(_mavienchuc);
+            tabPageQuaTrinhLuongPresenter._rowHandle = _rowHandle;
             Form form3 = (Form)tabPageQuaTrinhLuongPresenter.UI;
             InitForm(form3);
             var tabPageChuyenMonPresenter = new TabPageChuyenMonPresenter(new TabPageChuyenMon());
             tabPageChuyenMonPresenter.Initialize(_mavienchuc);
+            tabPageChuyenMonPresenter._rowHandle = _rowHandle;
+            tabPageChuyenMonPresenter.checkGrid = checkGrid;
             Form form4 = (Form)tabPageChuyenMonPresenter.UI;
             InitForm(form4);
             var tabPageTrangThaiPresenter = new TabPageTrangThaiPresenter(new TabPageTrangThai());
             tabPageTrangThaiPresenter.Initialize(_mavienchuc);
+            tabPageTrangThaiPresenter._rowHandle = _rowHandle;
             Form form5 = (Form)tabPageTrangThaiPresenter.UI;
             InitForm(form5);
             switch (_tabOrder)

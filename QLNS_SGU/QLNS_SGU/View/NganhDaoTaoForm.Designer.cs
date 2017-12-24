@@ -263,7 +263,6 @@
             this.MinimizeBox = false;
             this.Name = "NganhDaoTaoForm";
             this.ShowIcon = false;
-            this.Text = "Ngành đào tạo";
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcNganhDaoTao)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvNganhDaoTao)).EndInit();

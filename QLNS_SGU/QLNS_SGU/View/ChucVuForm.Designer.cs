@@ -267,7 +267,6 @@
             this.MinimizeBox = false;
             this.Name = "ChucVuForm";
             this.ShowIcon = false;
-            this.Text = "Chức vụ";
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcChucVu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvChucVu)).EndInit();

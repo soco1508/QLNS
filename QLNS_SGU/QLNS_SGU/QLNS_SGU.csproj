@@ -507,6 +507,10 @@
     <None Include="Resources\hochamhocvi16.png" />
     <None Include="Resources\nganh16.png" />
     <None Include="Resources\danghocnangcao16.png" />
+    <None Include="Resources\category.png" />
+    <None Include="Resources\about.png" />
+    <None Include="Resources\logout.png" />
+    <None Include="Resources\exit.png" />
     <Content Include="users.ico" />
   </ItemGroup>
   <ItemGroup />

@@ -17,27 +17,157 @@ namespace Model.Repository
         public List<GridViewMainData> LoadDataToGrid()
         {
             var list = new List<GridViewMainData>();
-            var rows = (from b in _db.VienChucs
-                        from c in _db.DonVis
-                        from d in _db.ChucVus
-                        from e in _db.ChucVuDonViVienChucs
-                        where b.idVienChuc == e.idVienChuc && e.idDonVi == c.idDonVi && e.idChucVu == d.idChucVu
-                        select new { b.idVienChuc, b.maVienChuc, b.ngaySinh, b.ho, b.ten, b.gioiTinh, c.tenDonVi, d.tenChucVu });
-            foreach (var row in rows)
+            var rows = from a in _db.ChucVuDonViVienChucs
+                       group a by a.idVienChuc into g
+                       from p in g
+                       where p.ngayKetThuc != null && p.ngayBatDau <= DateTime.Now && p.ngayKetThuc >= DateTime.Now
+                       orderby p.VienChuc.maVienChuc
+                       select new { p.ChucVu.tenChucVu, p.ChucVu.heSoChucVu, p.DonVi.tenDonVi, p.VienChuc.maVienChuc, p.VienChuc.ho, p.VienChuc.ten, p.VienChuc.ngaySinh, p.VienChuc.gioiTinh, p.idVienChuc };
+            var temp_rows = from a in rows
+                            group a by a.idVienChuc into g
+                            from p in g
+                            where p.heSoChucVu == g.Max(x => x.heSoChucVu)
+                            orderby p.maVienChuc
+                            select p;
+            var rows1 = from a in _db.ChucVuDonViVienChucs
+                        group a by a.idVienChuc into g
+                        from p in g
+                        where p.ngayKetThuc == null && p.ngayBatDau == g.Max(t => t.ngayBatDau)
+                        select new { p.ChucVu.tenChucVu, p.ChucVu.heSoChucVu, p.DonVi.tenDonVi, p.VienChuc.maVienChuc, p.VienChuc.ho, p.VienChuc.ten, p.VienChuc.ngaySinh, p.VienChuc.gioiTinh, p.idVienChuc };
+            var temp_rows1 = from a in rows1
+                            group a by a.idVienChuc into g
+                            from p in g
+                            where p.heSoChucVu == g.Max(x => x.heSoChucVu)
+                            orderby p.maVienChuc
+                            select p;
+            string tempMaVienChuc = "";
+            double? tempHeSoCV = -1;
+            foreach (var row in temp_rows)
             {
-                list.Add(new GridViewMainData
+                if(row.maVienChuc.Equals(tempMaVienChuc) == true)
                 {
-                    ChucVu = row.tenChucVu,
-                    MaVienChuc = row.maVienChuc,
-                    DonVi = row.tenDonVi,
-                    Ho = row.ho,
-                    Ten = row.ten,
-                    NgaySinh = row.ngaySinh,
-                    GioiTinh = CheckGioiTinh(row.gioiTinh),
-                    TrinhDo = GetTrinhDoByBacHocHamHocVi(row.idVienChuc)
-                });
+                    if(tempHeSoCV < row.heSoChucVu)
+                    {
+                        list.Add(new GridViewMainData
+                        {
+                            MaVienChuc = row.maVienChuc,
+                            Ho = row.ho,
+                            Ten = row.ten,
+                            GioiTinh = CheckGioiTinh(row.gioiTinh),
+                            NgaySinh = row.ngaySinh,
+                            ChucVu = row.tenChucVu,
+                            DonVi = row.tenDonVi,
+                            TrinhDo = GetTrinhDoByBacHocHamHocVi(row.idVienChuc),
+                            HeSo = row.heSoChucVu,
+                        });
+                        tempMaVienChuc = row.maVienChuc;
+                        tempHeSoCV = row.heSoChucVu;
+                    }
+                }
+                else
+                {
+                    list.Add(new GridViewMainData
+                    {
+                        MaVienChuc = row.maVienChuc,
+                        Ho = row.ho,
+                        Ten = row.ten,
+                        GioiTinh = CheckGioiTinh(row.gioiTinh),
+                        NgaySinh = row.ngaySinh,
+                        ChucVu = row.tenChucVu,
+                        DonVi = row.tenDonVi,
+                        TrinhDo = GetTrinhDoByBacHocHamHocVi(row.idVienChuc),
+                        HeSo = row.heSoChucVu,
+                    });
+                    tempMaVienChuc = row.maVienChuc;
+                    tempHeSoCV = row.heSoChucVu;
+                }              
             }
-            return list;
+            foreach (var row in temp_rows1)
+            {
+                if (row.maVienChuc.Equals(tempMaVienChuc) == true)
+                {
+                    if (tempHeSoCV < row.heSoChucVu)
+                    {
+                        list.Add(new GridViewMainData
+                        {
+                            MaVienChuc = row.maVienChuc,
+                            Ho = row.ho,
+                            Ten = row.ten,
+                            GioiTinh = CheckGioiTinh(row.gioiTinh),
+                            NgaySinh = row.ngaySinh,
+                            ChucVu = row.tenChucVu,
+                            DonVi = row.tenDonVi,
+                            TrinhDo = GetTrinhDoByBacHocHamHocVi(row.idVienChuc),
+                            HeSo = row.heSoChucVu,
+                        });
+                        tempMaVienChuc = row.maVienChuc;
+                        tempHeSoCV = row.heSoChucVu;
+                    }
+                }
+                else
+                {
+                    list.Add(new GridViewMainData
+                    {
+                        MaVienChuc = row.maVienChuc,
+                        Ho = row.ho,
+                        Ten = row.ten,
+                        GioiTinh = CheckGioiTinh(row.gioiTinh),
+                        NgaySinh = row.ngaySinh,
+                        ChucVu = row.tenChucVu,
+                        DonVi = row.tenDonVi,
+                        TrinhDo = GetTrinhDoByBacHocHamHocVi(row.idVienChuc),
+                        HeSo = row.heSoChucVu,
+                    });
+                    tempMaVienChuc = row.maVienChuc;
+                    tempHeSoCV = row.heSoChucVu;
+                }
+            }
+            var rows2 = list.OrderBy(x => x.MaVienChuc);
+            List<GridViewMainData> list1 = new List<GridViewMainData>();
+            string tempMaVienChuc1 = "";
+            double? tempHeSoCV1 = -1;
+            foreach(var row in rows2)
+            {
+                if (row.MaVienChuc.Equals(tempMaVienChuc1) == true)
+                {
+                    if (tempHeSoCV1 < row.HeSo)
+                    {
+                        list1.RemoveAt(list1.Count - 1);
+                        list1.Add(new GridViewMainData
+                        {
+                            MaVienChuc = row.MaVienChuc,
+                            Ho = row.Ho,
+                            Ten = row.Ten,
+                            GioiTinh = row.GioiTinh,
+                            NgaySinh = row.NgaySinh,
+                            ChucVu = row.ChucVu,
+                            DonVi = row.DonVi,
+                            TrinhDo = row.TrinhDo,
+                            HeSo = row.HeSo,
+                        });
+                        tempMaVienChuc1 = row.MaVienChuc;
+                        tempHeSoCV1 = row.HeSo;
+                    }
+                }
+                else
+                {
+                    list1.Add(new GridViewMainData
+                    {
+                        MaVienChuc = row.MaVienChuc,
+                        Ho = row.Ho,
+                        Ten = row.Ten,
+                        GioiTinh = row.GioiTinh,
+                        NgaySinh = row.NgaySinh,
+                        ChucVu = row.ChucVu,
+                        DonVi = row.DonVi,
+                        TrinhDo = row.TrinhDo,
+                        HeSo = row.HeSo,
+                    });
+                    tempMaVienChuc1 = row.MaVienChuc;
+                    tempHeSoCV1 = row.HeSo;
+                }               
+            }
+            return list1;
         }
 
         private string CheckGioiTinh(bool? t)

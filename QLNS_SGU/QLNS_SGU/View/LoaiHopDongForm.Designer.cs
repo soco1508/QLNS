@@ -236,7 +236,6 @@
             this.MinimizeBox = false;
             this.Name = "LoaiHopDongForm";
             this.ShowIcon = false;
-            this.Text = "Loại hợp đồng";
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcLoaiHopDong)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvLoaiHopDong)).EndInit();

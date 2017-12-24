@@ -27,8 +27,8 @@ namespace QLNS_SGU.View
         DateEdit DTNgayLenLuong { get; set; }
         SpinEdit TXTHeSoBac { get; set; }
         CheckEdit CHKDangHuongLuong { get; set; }
-        BarStaticItem TXTMaVienChuc { get; set; }
-        BarStaticItem TXTRownIndex { get; set; }
+        TextEdit TXTMaVienChuc { get; set; }
+        TextEdit TXTRownIndex { get; set; }
     }
     public partial class TabPageQuaTrinhLuong : XtraForm, ITabPageQuaTrinhLuong
     {
@@ -46,8 +46,8 @@ namespace QLNS_SGU.View
         public DateEdit DTNgayBatDau { get => dtNgayBatDau; set => dtNgayBatDau = value; }
         public DateEdit DTNgayLenLuong { get => dtNgayLenLuong; set => dtNgayLenLuong = value; }
         public TextEdit TXTLinkVanBanDinhKem { get => txtLinkVanBanDinhKem; set => txtLinkVanBanDinhKem = value; }
-        public BarStaticItem TXTMaVienChuc { get => txtMaVienChuc; set => txtMaVienChuc = value; }
-        public BarStaticItem TXTRownIndex { get => txtRowIndex; set => txtRowIndex = value; }
+        public TextEdit TXTMaVienChuc { get => txtMaVienChuc; set => txtMaVienChuc = value; }
+        public TextEdit TXTRownIndex { get => txtRowIndex; set => txtRowIndex = value; }
         public SpinEdit TXTHeSoBac { get => txtHeSoBac; set => txtHeSoBac = value; }
         public CheckEdit CHKDangHuongLuong { get => chkDangHuongLuong; set => chkDangHuongLuong = value; }
         #endregion
@@ -56,13 +56,13 @@ namespace QLNS_SGU.View
             Load += (s, e) => presenter.LoadForm();
             cbxBac.EditValueChanged += new EventHandler(presenter.BacChanged);
             gvQuaTrinhLuong.Click += (s, e) => presenter.ClickRowAndShowInfo();
-            btnUpload.ItemClick += (s, e) => presenter.UploadFileToGoogleDrive();
-            btnDownload.ItemClick += (s, e) => presenter.DownloadFileToDevice();
-            btnEdit.ItemClick += (s, e) => presenter.Edit();
-            btnRefresh.ItemClick += (s, e) => presenter.Refresh();
-            btnAdd.ItemClick += (s, e) => presenter.Add();
-            btnDelete.ItemClick += (s, e) => presenter.Delete();
-            btnExportExcel.ItemClick += (s, e) => presenter.ExportExcel();
+            btnUpload.Click += (s, e) => presenter.UploadFileToGoogleDrive();
+            btnDownload.Click += (s, e) => presenter.DownloadFileToDevice();
+            btnEdit.Click += (s, e) => presenter.Edit();
+            btnRefresh.Click += (s, e) => presenter.Refresh();
+            btnAdd.Click += (s, e) => presenter.Add();
+            btnDelete.Click += (s, e) => presenter.Delete();
+            btnExportExcel.Click += (s, e) => presenter.ExportExcel();
         }
     }
 }

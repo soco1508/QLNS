@@ -33,6 +33,7 @@
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.btnRefresh = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDelete = new DevExpress.XtraBars.BarButtonItem();
             this.btnExportExcel = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
@@ -74,7 +75,6 @@
             this.gridColumn22 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.popupMenuView = new DevExpress.XtraBars.PopupMenu(this.components);
-            this.btnDelete = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcVienChuc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvVienChuc)).BeginInit();
@@ -130,6 +130,15 @@
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
+            // btnDelete
+            // 
+            this.btnDelete.Caption = "Xóa";
+            this.btnDelete.Id = 15;
+            this.btnDelete.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.ImageOptions.Image")));
+            this.btnDelete.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnDelete.ImageOptions.LargeImage")));
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            // 
             // btnExportExcel
             // 
             this.btnExportExcel.Caption = "Xuất Excel";
@@ -145,7 +154,7 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(1000, 24);
+            this.barDockControlTop.Size = new System.Drawing.Size(1000, 28);
             // 
             // barDockControlBottom
             // 
@@ -159,17 +168,17 @@
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 24);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 28);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 442);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 438);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1000, 24);
+            this.barDockControlRight.Location = new System.Drawing.Point(1000, 28);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 442);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 438);
             // 
             // btnOpenThongTinCaNhan
             // 
@@ -234,11 +243,11 @@
             // gcVienChuc
             // 
             this.gcVienChuc.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcVienChuc.Location = new System.Drawing.Point(0, 24);
+            this.gcVienChuc.Location = new System.Drawing.Point(0, 28);
             this.gcVienChuc.MainView = this.gvVienChuc;
             this.gcVienChuc.MenuManager = this.barManager1;
             this.gcVienChuc.Name = "gcVienChuc";
-            this.gcVienChuc.Size = new System.Drawing.Size(1000, 442);
+            this.gcVienChuc.Size = new System.Drawing.Size(1000, 438);
             this.gcVienChuc.TabIndex = 4;
             this.gcVienChuc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvVienChuc});
@@ -476,15 +485,6 @@
             this.popupMenuView.Manager = this.barManager1;
             this.popupMenuView.Name = "popupMenuView";
             // 
-            // btnDelete
-            // 
-            this.btnDelete.Caption = "Xóa";
-            this.btnDelete.Id = 15;
-            this.btnDelete.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
-            this.btnDelete.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            // 
             // VienChucForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -501,7 +501,6 @@
             this.MinimizeBox = false;
             this.Name = "VienChucForm";
             this.ShowIcon = false;
-            this.Text = "Viên chức";
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcVienChuc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvVienChuc)).EndInit();

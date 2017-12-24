@@ -82,6 +82,6 @@ namespace Model.Repository
             donVi.sDT = sdt;
             donVi.idLoaiDonVi = idloaidonvi;
             _db.SaveChanges();
-        }        
+        }
     }
 }

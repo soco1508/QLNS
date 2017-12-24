@@ -87,7 +87,6 @@ namespace QLNS_SGU.View
         {
             Load += (s, e) => presenter.LoadForm();
             //tab1           
-            btnQuanLyHopDong.Click += (s, e) => presenter.SelectTabHopDong();
             gvTabPageQuaTrinhCongTac.Click += (s, e) => presenter.ClickRowAndShowInfoCV();
             btnUploadCV.Click += (s, e) => presenter.UploadFileToGoogleDriveCV();
             btnDownloadCV.Click += (s, e) => presenter.DownloadFileToDeviceCV();
@@ -97,8 +96,8 @@ namespace QLNS_SGU.View
             btnDeleteCV.Click += (s, e) => presenter.DeleteCV();
             btnExportExcelCV.Click += (s, e) => presenter.ExportExcelCV();
             cbxChucVu.EditValueChanged += new EventHandler(presenter.ChucVuChanged);
+            cbxDonVi.EditValueChanged += new EventHandler(presenter.DonViChanged);
             //tab2
-            btnQuanLyCongTac.Click += (s, e) => presenter.SelectTabCongTac();
             gvHopDong.Click += (s, e) => presenter.ClickRowAndShowInfoHD();
             btnUploadHD.Click += (s, e) => presenter.UploadFileToGoogleDriveHD();
             btnDownloadHD.Click += (s, e) => presenter.DownloadFileToDeviceHD();

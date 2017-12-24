@@ -32,15 +32,15 @@ namespace QLNS_SGU.Presenter
         void AddCV();
         void DeleteCV();
         void LoadForm();
-        void SelectTabHopDong();
-        void SelectTabCongTac();
         void ChucVuChanged(object sender, EventArgs e);
+        void DonViChanged(object sender, EventArgs e);
         void ExportExcelCV();
-        void ExportExcelHD();
+        void ExportExcelHD();     
     }
     public class TabPageQuaTrinhCongTacPresenter : ITabPageQuaTrinhCongTacPresenter
     {
         public static string _mavienchuc = "";
+        public int _rowHandle = -1;
         private TabPageQuaTrinhCongTac _view;
         private static CreateAndEditPersonInfoForm _createAndEditPersonInfoForm = new CreateAndEditPersonInfoForm();
         public object UI => _view;
@@ -57,7 +57,7 @@ namespace QLNS_SGU.Presenter
         private void LoadGridTabPageQuaTrinhCongTac(string mavienchuc)
         {
             UnitOfWorks unitOfWorks = new UnitOfWorks(new QLNSSGU_1Entities());
-            List<QuaTrinhCongTacForView> listQuaTrinhCongTac = unitOfWorks.ChucVuDonViVienChucRepository.GetListQuaTrinhCongTac(mavienchuc);
+            List<QuaTrinhCongTacForView> listQuaTrinhCongTac = unitOfWorks.ChucVuDonViVienChucRepository.GetListQuaTrinhCongTacForEdit(mavienchuc);
             _view.GCTabPageQuaTrinhCongTac.DataSource = listQuaTrinhCongTac;
         } 
         private void LoadGridTabPageHopDong(string mavienchuc)
@@ -93,6 +93,8 @@ namespace QLNS_SGU.Presenter
             _view.CBXToChuyenMon.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("idToChuyenMon", ""));
             _view.CBXToChuyenMon.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("tenToChuyenMon", ""));
             _view.CBXToChuyenMon.Properties.Columns[0].Visible = false;
+            _view.CBXToChuyenMon.EditValue = unitOfWorks.ToChuyenMonRepository.GetIdToChuyenMon("", "");
+            _view.CBXToChuyenMon.ReadOnly = true;
             List<string> listPhanLoai = new List<string>() { "Chức vụ quá khứ", "Một chức vụ hiện tại", "Nhiều chức vụ hiện tại", "" };
             _view.CBXPhanLoai.Properties.DataSource = listPhanLoai;
             _view.CBXPhanLoai.Properties.DropDownRows = listPhanLoai.Count;
@@ -101,7 +103,8 @@ namespace QLNS_SGU.Presenter
             _view.CBXKiemNhiem.Properties.DropDownRows = listKiemNhiem.Count;
             List<string> listLoaiThayDoi = new List<string>() { "Chưa thay đổi", "Thay đổi chức vụ", "Thay đổi đơn vị", "Thay đổi tổ bộ môn", "" };
             _view.CBXLoaiThayDoi.Properties.DataSource = listLoaiThayDoi;
-            _view.CBXLoaiThayDoi.Properties.DropDownRows = listLoaiThayDoi.Count;            
+            _view.CBXLoaiThayDoi.Properties.DropDownRows = listLoaiThayDoi.Count;
+            _view.CBXDonVi.EditValue = unitOfWorks.DonViRepository.GetIdDonVi("");           
         }
         private void LoadCbxDataHD()
         {
@@ -119,9 +122,11 @@ namespace QLNS_SGU.Presenter
         {
             UnitOfWorks unitOfWorks = new UnitOfWorks(new QLNSSGU_1Entities());
             _view.CBXChucVu.ErrorText = null;
+            _view.DTNgayBatDau.ErrorText = null;
             _view.CBXChucVu.EditValue = null;
             _view.CBXDonVi.EditValue = unitOfWorks.DonViRepository.GetIdDonVi("");
             _view.CBXToChuyenMon.EditValue = unitOfWorks.ToChuyenMonRepository.GetIdToChuyenMon("", "");
+            _view.CBXToChuyenMon.ReadOnly = true;
             _view.CBXPhanLoai.EditValue = "";
             _view.TXTHeSoChucVu.Text = "";
             _view.CBXKiemNhiem.EditValue = "";
@@ -143,9 +148,9 @@ namespace QLNS_SGU.Presenter
         private void InsertDataCV()
         {
             string mavienchuc = _view.TXTMaVienChuc.Text;
-            string checkphanloaicongtac = _view.CBXPhanLoai.EditValue.ToString();
-            string kiemnhiem = _view.CBXKiemNhiem.EditValue.ToString();
-            string loaithaydoi = _view.CBXLoaiThayDoi.EditValue.ToString();
+            string checkphanloaicongtac = _view.CBXPhanLoai.Text;
+            string kiemnhiem = _view.CBXKiemNhiem.Text;
+            string loaithaydoi = _view.CBXLoaiThayDoi.Text;
             UnitOfWorks unitOfWorks = new UnitOfWorks(new QLNSSGU_1Entities());
             unitOfWorks.ChucVuDonViVienChucRepository.Insert(new ChucVuDonViVienChuc
             {
@@ -162,8 +167,9 @@ namespace QLNS_SGU.Presenter
                 phanLoaiCongTac = _view.TXTPhanLoaiCongTac.Text
             });
             unitOfWorks.Save();
-            XtraMessageBox.Show("Thêm dữ liệu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             LoadGridTabPageQuaTrinhCongTac(_view.TXTMaVienChuc.Text);
+            XtraMessageBox.Show("Thêm dữ liệu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);          
+            MainPresenter.LoadGrid();
         }
         private void InsertDataHD()
         {
@@ -190,6 +196,8 @@ namespace QLNS_SGU.Presenter
             string loaithaydoi = _view.CBXLoaiThayDoi.EditValue.ToString();
             int idchucvudonvivienchuc = Convert.ToInt32(_view.GVTabPageQuaTrinhCongTac.GetFocusedRowCellDisplayText("Id"));
             ChucVuDonViVienChuc chucVuDonViVienChuc = unitOfWorks.ChucVuDonViVienChucRepository.GetObjectById(idchucvudonvivienchuc);
+            chucVuDonViVienChuc.idDonVi = Convert.ToInt32(_view.CBXDonVi.EditValue);
+            chucVuDonViVienChuc.idToChuyenMon = Convert.ToInt32(_view.CBXToChuyenMon.EditValue);
             chucVuDonViVienChuc.checkPhanLoaiCongTac = unitOfWorks.ChucVuDonViVienChucRepository.HardCheckPhanLoaiCongTacToDatabase(checkphanloaicongtac);
             chucVuDonViVienChuc.kiemNhiem = unitOfWorks.ChucVuDonViVienChucRepository.HardKiemNhiemToDatabase(kiemnhiem);
             chucVuDonViVienChuc.phanLoaiCongTac = _view.TXTPhanLoaiCongTac.Text;
@@ -198,8 +206,9 @@ namespace QLNS_SGU.Presenter
             chucVuDonViVienChuc.ngayKetThuc = unitOfWorks.HopDongVienChucRepository.ReturnDateTimeToDatabase(_view.DTNgayKetThuc.Text);
             chucVuDonViVienChuc.linkVanBanDinhKem = _view.TXTLinkVanBanDinhKem.Text;
             unitOfWorks.Save();
-            XtraMessageBox.Show("Sửa dữ liệu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             LoadGridTabPageQuaTrinhCongTac(_view.TXTMaVienChuc.Text);
+            XtraMessageBox.Show("Sửa dữ liệu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);            
+            MainPresenter.LoadGrid();
         }
         private void UpdateDataHD()
         {
@@ -317,7 +326,6 @@ namespace QLNS_SGU.Presenter
         public void ClickRowAndShowInfoCV()
         {
             _view.CBXChucVu.ReadOnly = true;
-            _view.CBXDonVi.ReadOnly = true;
             _view.CBXToChuyenMon.ReadOnly = true;
             UnitOfWorks unitOfWorks = new UnitOfWorks(new QLNSSGU_1Entities());
             int row_handle = _view.GVTabPageQuaTrinhCongTac.FocusedRowHandle;
@@ -351,7 +359,15 @@ namespace QLNS_SGU.Presenter
             int row_handle = _view.GVTabPageQuaTrinhCongTac.FocusedRowHandle;
             if(row_handle >= 0)
             {
-                UpdateDataCV();
+                if(_view.DTNgayBatDau.Text != "")
+                {
+                    UpdateDataCV();
+                }
+                else
+                {
+                    _view.DTNgayBatDau.ErrorText = "Vui lòng chọn ngày bắt đầu.";
+                    _view.DTNgayBatDau.ErrorIconAlignment = ErrorIconAlignment.MiddleRight;
+                }
             }           
         }
 
@@ -359,35 +375,43 @@ namespace QLNS_SGU.Presenter
         {
             SetDefaultValueControlCV();
             _view.CBXChucVu.ReadOnly = false;
-            _view.CBXDonVi.ReadOnly = false;
-            _view.CBXToChuyenMon.ReadOnly = false;
         }
 
         public void AddCV()
         {
             if(_view.TXTMaVienChuc.Text != "" && _mavienchuc == "")
             {
-                if (_view.CBXChucVu.Text != "")
+                if (_view.CBXChucVu.Text != "" && _view.DTNgayBatDau.Text != "")
                 {
                     InsertDataCV();
                 }
-                else
+                if (_view.CBXChucVu.Text == "")
                 {
                     _view.CBXChucVu.ErrorText = "Vui lòng chọn chức vụ.";
                     _view.CBXChucVu.ErrorIconAlignment = ErrorIconAlignment.MiddleRight;
+                }
+                if(_view.DTNgayBatDau.Text == "")
+                {
+                    _view.DTNgayBatDau.ErrorText = "Vui lòng chọn ngày bắt đầu.";
+                    _view.DTNgayBatDau.ErrorIconAlignment = ErrorIconAlignment.MiddleRight;
                 }
             }
             else if (_view.TXTMaVienChuc.Text == "" && _mavienchuc != "")
             {
                 _view.TXTMaVienChuc.Text = _mavienchuc;
-                if (_view.CBXChucVu.Text != "")
+                if (_view.CBXChucVu.Text != "" && _view.DTNgayBatDau.Text != "")
                 {
                     InsertDataCV();
                 }
-                else
+                if (_view.CBXChucVu.Text == "")
                 {
                     _view.CBXChucVu.ErrorText = "Vui lòng chọn chức vụ.";
                     _view.CBXChucVu.ErrorIconAlignment = ErrorIconAlignment.MiddleRight;
+                }
+                if (_view.DTNgayBatDau.Text == "")
+                {
+                    _view.DTNgayBatDau.ErrorText = "Vui lòng chọn ngày bắt đầu.";
+                    _view.DTNgayBatDau.ErrorIconAlignment = ErrorIconAlignment.MiddleRight;
                 }
             }
             else XtraMessageBox.Show("Vui lòng thêm thông tin viên chức trước.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -409,6 +433,7 @@ namespace QLNS_SGU.Presenter
                         unitOfWorks.Save();
                         _view.GVTabPageQuaTrinhCongTac.DeleteRow(row_handle);
                         RefreshCV();
+                        MainPresenter.LoadGrid();
                     }
                 }
                 else XtraMessageBox.Show("Vui lòng chọn dòng cần xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);                
@@ -429,6 +454,11 @@ namespace QLNS_SGU.Presenter
             {
                 LoadGridTabPageQuaTrinhCongTac(mavienchuc);
                 LoadGridTabPageHopDong(mavienchuc);
+                if(_rowHandle >= 0)
+                {
+                    _view.GVTabPageQuaTrinhCongTac.FocusedRowHandle = _rowHandle;
+                    ClickRowAndShowInfoCV();
+                }                
             }
         }
 
@@ -438,6 +468,20 @@ namespace QLNS_SGU.Presenter
             int idchucvu = Convert.ToInt32(_view.CBXChucVu.EditValue);
             string hesochucvu = unitOfWorks.ChucVuRepository.GetHeSoChucVuByIdChucVu(idchucvu);
             _view.TXTHeSoChucVu.Text = hesochucvu;
+        }
+
+        public void DonViChanged(object sender, EventArgs e)
+        {
+            UnitOfWorks unitOfWorks = new UnitOfWorks(new QLNSSGU_1Entities());
+            int iddonvi = Convert.ToInt32(_view.CBXDonVi.EditValue);
+            _view.CBXToChuyenMon.Properties.DataSource = null;
+            List<ToChuyenMon> listToChuyenMon = unitOfWorks.ToChuyenMonRepository.GetListToChuyenMonByDonVi(iddonvi);
+            _view.CBXToChuyenMon.Properties.DataSource = listToChuyenMon;
+            _view.CBXToChuyenMon.Properties.DisplayMember = "tenToChuyenMon";
+            _view.CBXToChuyenMon.Properties.ValueMember = "idToChuyenMon";
+            _view.CBXToChuyenMon.Properties.DropDownRows = listToChuyenMon.Count;
+            _view.CBXToChuyenMon.Properties.Columns[0].Visible = false;
+            _view.CBXToChuyenMon.ReadOnly = false;
         }
 
         public void ClickRowAndShowInfoHD()

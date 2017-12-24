@@ -276,7 +276,6 @@
             this.MinimizeBox = false;
             this.Name = "DonViForm";
             this.ShowIcon = false;
-            this.Text = "Đơn vị";
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcDonVi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDonVi)).EndInit();

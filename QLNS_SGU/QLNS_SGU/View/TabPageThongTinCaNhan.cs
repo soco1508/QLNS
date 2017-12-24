@@ -71,7 +71,7 @@ namespace QLNS_SGU.View
         public void Attach(ITabPageThongTinCaNhanPresenter presenter)
         {
             Load += (s, e) => presenter.LoadForm();
-            btnAddNew.ItemClick += (s, e) => presenter.AddNew();
+            //btnAddNew.ItemClick += (s, e) => presenter.AddNew();
             btnSave.ItemClick += (s, e) => presenter.Save();
         }
     }

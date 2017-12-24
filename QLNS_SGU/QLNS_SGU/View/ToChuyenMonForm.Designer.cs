@@ -241,7 +241,6 @@
             this.MinimizeBox = false;
             this.Name = "ToChuyenMonForm";
             this.ShowIcon = false;
-            this.Text = "Tổ chuyên môn";
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcToChuyenMon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvToChuyenMon)).EndInit();

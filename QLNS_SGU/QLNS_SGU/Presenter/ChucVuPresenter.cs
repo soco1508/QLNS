@@ -63,7 +63,6 @@ namespace QLNS_SGU.Presenter
             mylookup.PopulateColumns();
             mylookup.Columns[0].Visible = false;
             mylookup.Columns[2].Visible = false;
-            mylookup.Columns[3].Visible = false;
             SplashScreenManager.CloseForm(false);            
         }
 

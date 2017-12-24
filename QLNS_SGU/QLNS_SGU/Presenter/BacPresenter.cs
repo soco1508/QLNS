@@ -51,7 +51,7 @@ namespace QLNS_SGU.Presenter
             RepositoryItemLookUpEdit mylookup = new RepositoryItemLookUpEdit();
             mylookup.DataSource = unitOfWorks.NgachRepository.GetListNgach();
             mylookup.ValueMember = "idNgach";
-            mylookup.DisplayMember = "tenNgach";
+            mylookup.DisplayMember = "maNgach";
             mylookup.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
             mylookup.DropDownRows = unitOfWorks.NgachRepository.GetListNgach().Count;
             mylookup.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoFilter;
@@ -67,8 +67,7 @@ namespace QLNS_SGU.Presenter
             mylookup.Columns[4].Visible = false;
             mylookup.Columns[5].Visible = false;
             mylookup.Columns[6].Visible = false;
-            SplashScreenManager.CloseForm(false);
-            
+            SplashScreenManager.CloseForm(false);            
         }
 
         public void AddNewRow()

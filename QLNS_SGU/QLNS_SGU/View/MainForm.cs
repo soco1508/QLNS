@@ -28,7 +28,6 @@ namespace QLNS_SGU.View
         TextEdit TXTRowIndexRightView { get; set; }
         PopupMenu PopupMenuGVMain { get; set; }
         PopupMenu PopupMenuGVQuaTrinhCongTac { get; set; }
-        PopupMenu PopupMenuGVHopDong { get; set; }
         PopupMenu PopupMenuGVQuaTrinhLuong { get; set; }
         PopupMenu PopupMenuGVHocHamHocVi_DangHocNangCao_Nganh { get; set; }
         PopupMenu PopupMenuGVChungChi { get; set; }
@@ -41,9 +40,9 @@ namespace QLNS_SGU.View
         SimpleLabelItem LBHoVaTen { get; set; }
         SimpleLabelItem LBChucVu { get; set; }
         SimpleLabelItem LBDonVi { get; set; }
+        SimpleLabelItem LBHopDong { get; set; }
         LayoutControlItem LCIThongTinCaNhan { get; set; }
         LayoutControlItem LCIQuaTrinhCongTac { get; set; }
-        LayoutControlItem LCIHopDong { get; set; }
         LayoutControlItem LCIQuaTrinhLuong { get; set; }
         LayoutControlItem LCIHocHamHocVi_DangHocNangCao { get; set; }
         LayoutControlItem LCIChungChi { get; set; }
@@ -52,8 +51,6 @@ namespace QLNS_SGU.View
         LayoutView GVThongTinCaNhan { get; set; }
         GridControl GCQuaTrinhCongTac { get; set; }
         GridView GVQuaTrinhCongTac { get; set; }
-        GridControl GCHopDong { get; set; }
-        GridView GVHopDong { get; set; }
         GridControl GCQuaTrinhLuong { get; set; }
         GridView GVQuaTrinhLuong { get; set; }
         GridControl GCHocHamHocVi_DangHocNangCao_Nganh { get; set; }
@@ -85,9 +82,9 @@ namespace QLNS_SGU.View
         public SimpleLabelItem LBHoVaTen { get => lbHoTenVienChuc; set => lbHoTenVienChuc = value; }
         public SimpleLabelItem LBChucVu { get => lbChucVu; set => lbChucVu = value; }
         public SimpleLabelItem LBDonVi { get => lbDonVi; set => lbDonVi = value; }
+        public SimpleLabelItem LBHopDong { get => lbHopDong; set => lbHopDong = value; }
         public LayoutControlItem LCIThongTinCaNhan { get => lciThongTinCaNhan; set => lciThongTinCaNhan = value; }
         public LayoutControlItem LCIQuaTrinhCongTac { get => lciQuaTrinhCongTac; set => lciQuaTrinhCongTac = value; }
-        public LayoutControlItem LCIHopDong { get => lciHopDong; set => lciHopDong = value; }
         public LayoutControlItem LCIQuaTrinhLuong { get => lciQuaTrinhLuong; set => lciQuaTrinhLuong = value; }
         public LayoutControlItem LCIHocHamHocVi_DangHocNangCao { get => lciHocHamHocVi_DangHocNangCao; set => lciHocHamHocVi_DangHocNangCao = value; }
         public LayoutControlItem LCIChungChi { get => lciChungChi; set => lciChungChi = value; }
@@ -95,9 +92,7 @@ namespace QLNS_SGU.View
         public GridControl GCThongTinCaNhan { get => gcThongTinCaNhan; set => gcThongTinCaNhan = value; }
         public LayoutView GVThongTinCaNhan { get => layoutView1; set => layoutView1 = value; }
         public GridControl GCQuaTrinhCongTac { get => gcQuaTrinhCongTac; set => gcQuaTrinhCongTac = value; }
-        public GridView GVQuaTrinhCongTac { get => gvQuaTrinhCongTac; set => gvQuaTrinhCongTac = value; }
-        public GridControl GCHopDong { get => gcHopDong; set => gcHopDong = value; }
-        public GridView GVHopDong { get => gvHopDong; set => gvHopDong = value; }       
+        public GridView GVQuaTrinhCongTac { get => gvQuaTrinhCongTac; set => gvQuaTrinhCongTac = value; }    
         public GridControl GCQuaTrinhLuong { get => gcQuaTrinhLuong; set => gcQuaTrinhLuong = value; }
         public GridView GVQuaTrinhLuong { get => gvQuaTrinhLuong; set => gvQuaTrinhLuong = value; }
         public GridControl GCHocHamHocVi_DangHocNangCao_Nganh { get => gcHocHamHocVi_DangHocNangCao_Nganh; set => gcHocHamHocVi_DangHocNangCao_Nganh = value; }
@@ -109,7 +104,6 @@ namespace QLNS_SGU.View
         public PictureEdit PICVienChuc { get => picVienChuc; set => picVienChuc = value; }
         public PopupMenu PopupMenuGVMain { get => popupMenuGVMain; set => popupMenuGVMain = value; }
         public PopupMenu PopupMenuGVQuaTrinhCongTac { get => popupMenuGVQuaTrinhCongTac; set => popupMenuGVQuaTrinhCongTac = value; }
-        public PopupMenu PopupMenuGVHopDong { get => popupMenuGVHopDong; set => popupMenuGVHopDong = value; }
         public PopupMenu PopupMenuGVQuaTrinhLuong { get => popupMenuGVQuaTrinhLuong; set => popupMenuGVQuaTrinhLuong = value; }
         public PopupMenu PopupMenuGVHocHamHocVi_DangHocNangCao_Nganh { get => popupMenuGVHocHamHocVi_DangHocNangCao_Nganh; set => popupMenuGVHocHamHocVi_DangHocNangCao_Nganh = value; }
         public PopupMenu PopupMenuGVChungChi { get => popupMenuGVChungChi; set => popupMenuGVChungChi = value; }
@@ -117,19 +111,17 @@ namespace QLNS_SGU.View
         #endregion
         public void Attach(IMainPresenter presenter)
         {
-            //Load += (s, e) => presenter.LoadDataToMainGrid();
             gvMain.MouseDown += new MouseEventHandler(presenter.RightClickMainGrid);
             gvMain.Click += (s, e) => presenter.ClickRowAndChangeInfoAtRightLayout();
+            gvMain.DoubleClick += (s, e) => presenter.ViewPersonDetails();
             gvMain.KeyDown += new KeyEventHandler(presenter.EventArrowKeysInGVMain);
             gvQuaTrinhCongTac.MouseDown += new MouseEventHandler(presenter.RightClickQuaTrinhCongTacGrid);
             gvQuaTrinhLuong.MouseDown += new MouseEventHandler(presenter.RightClickQuaTrinhLuongGrid);
-            gvHopDong.MouseDown += new MouseEventHandler(presenter.RightClickHopDongGrid);
             gvHocHamHocVi_DangHocNangCao_Nganh.MouseDown += new MouseEventHandler(presenter.RightClickHocHamHocVi_DangHocNangCao_NganhGrid);
             gvChungChi.MouseDown += new MouseEventHandler(presenter.RightClickChungChiGrid);
             gvTrangThai.MouseDown += new MouseEventHandler(presenter.RightClickTrangThaiGrid);
             btnView.ItemClick += (s, e) => presenter.ViewPersonDetails();
             btnDownloadFileQuaTrinhCongTac.ItemClick += (s, e) => presenter.DownloadFileQuaTrinhCongTac();            
-            btnDownloadFileHopDong.ItemClick += (s, e) => presenter.DownloadFileHopDong();
             btnDownloadFileQuaTrinhLuong.ItemClick += (s, e) => presenter.DownloadFileQuaTrinhLuong();
             btnDownloadFileHocHamHocVi.ItemClick += (s, e) => presenter.DownloadFileHocHamHocVi();
             btnDownloadFileHocNangCao.ItemClick += (s, e) => presenter.DownloadFileDangHocNangCao();
@@ -144,10 +136,18 @@ namespace QLNS_SGU.View
             btnClosePersonDetails.Click += (s, e) => presenter.ClosePersonDetails();
             layoutView1.MouseWheel += new MouseEventHandler(presenter.MouseWheelGVThongTinCaNhan);
             btnOpenCloudStorage.Click += (s, e) => presenter.OpenStoreImage();
-            btnEditInLayout.Click += (s, e) => presenter.OpenEditForm();
+            btnEditInLayout.Click += (s, e) => presenter.OpenEditFormHasId();
             btnEditInGrid.ItemClick += (s, e) => presenter.OpenEditForm();
             gvMain.CustomDrawRowIndicator += new RowIndicatorCustomDrawEventHandler(presenter.RowIndicator);
             btnExportExcelMainGrid.ItemClick += (s, e) => presenter.ExportExcelMainGrid();
+            //Load += new EventHandler(presenter.LoadForm);
+            //FormClosing += new FormClosingEventHandler(presenter.ClosingForm);
+            gvQuaTrinhCongTac.Click += (s, e) => presenter.ClickRowGVQuaTrinhCongTac();
+            gvQuaTrinhLuong.Click += (s, e) => presenter.ClickRowGVQuaTrinhLuong();
+            gvHocHamHocVi_DangHocNangCao_Nganh.Click += (s, e) => presenter.ClickRowGVHocHamHocVi_DangHocNangCao_Nganh();
+            gvChungChi.Click += (s, e) => presenter.ClickRowGVChungChi();
+            gvTrangThai.Click += (s, e) => presenter.ClickRowGVTrangThai();
+            btnExportExcel.ItemClick += (s, e) => presenter.ExportExcelMainGrid();
         }
     }
 }

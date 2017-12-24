@@ -225,7 +225,6 @@
             this.MinimizeBox = false;
             this.Name = "LoaiHocHamHocViForm";
             this.ShowIcon = false;
-            this.Text = "Loại học hàm học vị";
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcLoaiHocHamHocVi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvLoaiHocHamHocVi)).EndInit();

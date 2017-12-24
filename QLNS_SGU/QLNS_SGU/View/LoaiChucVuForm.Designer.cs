@@ -225,7 +225,6 @@
             this.MinimizeBox = false;
             this.Name = "LoaiChucVuForm";
             this.ShowIcon = false;
-            this.Text = "Loại chức vụ";
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcLoaiChucVu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvLoaiChucVu)).EndInit();

@@ -18,10 +18,6 @@ namespace QLNS_SGU.Presenter
     public interface ITabPageChuyenMonPresenter : IPresenterArgument
     {
         void LoadForm();
-        void SelectTabHocHamHocVi();
-        void SelectTabDangHocNangCao();
-        void SelectTabNganh();
-        void SelectTabChungChi();
         //1
         void ClickRowAndShowInfoHHHV();
         void RefreshHHHV();
@@ -64,6 +60,8 @@ namespace QLNS_SGU.Presenter
     public class TabPageChuyenMonPresenter : ITabPageChuyenMonPresenter
     {
         public static string _mavienchuc = "";
+        public int _rowHandle = -1;
+        public bool checkGrid = false;
         private static CreateAndEditPersonInfoForm _createAndEditPersonInfoForm = new CreateAndEditPersonInfoForm();
         private TabPageChuyenMon _view;
         public object UI => _view;
@@ -454,6 +452,19 @@ namespace QLNS_SGU.Presenter
                 LoadGridTabPageDangHocNangCao(mavienchuc);
                 LoadGridTabPageNganh(mavienchuc);
                 LoadGridTabPageChungChi(mavienchuc);
+                if(_rowHandle >= 0)
+                {
+                    if(checkGrid == false)
+                    {
+                        _view.GVHocHamHocVi.FocusedRowHandle = _rowHandle;
+                        ClickRowAndShowInfoHHHV();
+                    }
+                    else
+                    {
+                        _view.GVChungChi.FocusedRowHandle = _rowHandle;
+                        ClickRowAndShowInfoCC();
+                    }
+                }
             }
         }
         //1

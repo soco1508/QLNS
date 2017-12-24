@@ -292,7 +292,6 @@
             this.MinimizeBox = false;
             this.Name = "BacForm";
             this.ShowIcon = false;
-            this.Text = "Bậc";
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcBac)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvBac)).EndInit();

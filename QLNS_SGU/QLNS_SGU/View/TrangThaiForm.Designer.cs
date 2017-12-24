@@ -225,7 +225,6 @@
             this.MinimizeBox = false;
             this.Name = "TrangThaiForm";
             this.ShowIcon = false;
-            this.Text = "Trạng thái";
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcTrangThai)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvTrangThai)).EndInit();

@@ -14,12 +14,20 @@ namespace Model.Repository
         {
         }
 
-        public List<QuaTrinhCongTacForView> GetListQuaTrinhCongTac(string mavienchuc)
+        public List<QuaTrinhCongTacForView> GetListQuaTrinhCongTacForView(string mavienchuc)
         {
             int idvienchuc = _db.VienChucs.Where(x => x.maVienChuc == mavienchuc).Select(y => y.idVienChuc).FirstOrDefault();
-            List<ChucVuDonViVienChuc> listChucVuDonViVienChuc = _db.ChucVuDonViVienChucs.Where(x => x.idVienChuc == idvienchuc).ToList();
+            var rows = from a in _db.ChucVuDonViVienChucs
+                       where a.idVienChuc == idvienchuc
+                       select a;
+            var rows1 = from a in rows
+                        group a by a.idDonVi into g
+                        from p in g
+                        where p.ChucVu.heSoChucVu == g.Max(t => t.ChucVu.heSoChucVu)
+                        select p;
+            List<ChucVuDonViVienChuc> listChucVuDonViVienChuc = rows1.ToList();
             List<QuaTrinhCongTacForView> listQuaTrinhCongTac = new List<QuaTrinhCongTacForView>();
-            for (int i = 0; i < listChucVuDonViVienChuc.Count; i++)
+            for (int i = listChucVuDonViVienChuc.Count - 1; i >= 0; i--)
             {
                 listQuaTrinhCongTac.Add(new QuaTrinhCongTacForView
                 {
@@ -40,6 +48,44 @@ namespace Model.Repository
             }
             return listQuaTrinhCongTac;
         }
+
+        public List<QuaTrinhCongTacForView> GetListQuaTrinhCongTacForEdit(string mavienchuc)
+        {
+            int idvienchuc = _db.VienChucs.Where(x => x.maVienChuc == mavienchuc).Select(y => y.idVienChuc).FirstOrDefault();
+            List<ChucVuDonViVienChuc> listChucVuDonViVienChuc = _db.ChucVuDonViVienChucs.Where(x => x.idVienChuc == idvienchuc).ToList();
+            List<QuaTrinhCongTacForView> listQuaTrinhCongTac = new List<QuaTrinhCongTacForView>();
+            for (int i = listChucVuDonViVienChuc.Count - 1; i >= 0; i--)
+            {
+                listQuaTrinhCongTac.Add(new QuaTrinhCongTacForView
+                {
+                    Id = listChucVuDonViVienChuc[i].idViTriDonViVienChuc,
+                    ChucVu = listChucVuDonViVienChuc[i].ChucVu.tenChucVu,
+                    DonVi = listChucVuDonViVienChuc[i].DonVi.tenDonVi,
+                    ToChuyenMon = listChucVuDonViVienChuc[i].ToChuyenMon.tenToChuyenMon,
+                    DiaDiem = listChucVuDonViVienChuc[i].DonVi.diaDiem,
+                    NgayBatDau = listChucVuDonViVienChuc[i].ngayBatDau,
+                    NgayKetThuc = listChucVuDonViVienChuc[i].ngayKetThuc,
+                    PhanLoaiCongTac = listChucVuDonViVienChuc[i].phanLoaiCongTac,
+                    HeSoChucVu = listChucVuDonViVienChuc[i].ChucVu.heSoChucVu,
+                    CheckPhanLoaiCongTac = HardCheckPhanLoaiCongTacToGrid(listChucVuDonViVienChuc[i].checkPhanLoaiCongTac),
+                    LoaiThayDoi = HardLoaiThayDoiToGrid(listChucVuDonViVienChuc[i].loaiThayDoi),
+                    KiemNhiem = HardKiemNhiemToGrid(listChucVuDonViVienChuc[i].kiemNhiem),
+                    LinkVanBanDinhKem = listChucVuDonViVienChuc[i].linkVanBanDinhKem
+                });
+            }
+            return listQuaTrinhCongTac;
+        }
+
+        //public void UpdateNgayBatDau()
+        //{
+        //    List<ChucVuDonViVienChuc> list = _db.ChucVuDonViVienChucs.ToList();
+        //    for(int i = 0; i < list.Count; i++)
+        //    {
+        //        int id = list[i].idViTriDonViVienChuc; // phải gán biến trước nếu ko sẽ bị lỗi recognize linq khi gán trực tiếp
+        //        ChucVuDonViVienChuc cv = _db.ChucVuDonViVienChucs.Where(x => x.idViTriDonViVienChuc == id).FirstOrDefault();
+        //        cv.ngayBatDau = Convert.ToDateTime("01/01/2000");
+        //    }
+        //}
 
         public void Update(int id, string linkfiledinhkem)
         {
@@ -129,9 +175,9 @@ namespace Model.Repository
             switch (kiemnhiem)
             {
                 case 0:
-                    return "Có";
-                case 1:
                     return "Không";
+                case 1:
+                    return "Có";
                 case 2:
                     return "";
                 default:
@@ -177,9 +223,9 @@ namespace Model.Repository
         {
             switch (kiemnhiem)
             {
-                case "Có":
-                    return 0;
                 case "Không":
+                    return 0;
+                case "Có":
                     return 1;
                 case "":
                     return 2;
@@ -209,13 +255,24 @@ namespace Model.Repository
 
         public ChucVuDonViVienChuc GetObjectById(int idchucvudonvivienchuc)
         {
-            return _db.ChucVuDonViVienChucs.Where(x => x.idVienChuc == idchucvudonvivienchuc).FirstOrDefault();
+            return _db.ChucVuDonViVienChucs.Where(x => x.idViTriDonViVienChuc == idchucvudonvivienchuc).FirstOrDefault();
         }
 
         public void DeleteById(int id)
         {
             ChucVuDonViVienChuc chucVuDonViVienChuc = _db.ChucVuDonViVienChucs.Where(x => x.idViTriDonViVienChuc == id).FirstOrDefault();
             _db.ChucVuDonViVienChucs.Remove(chucVuDonViVienChuc);
+        }
+
+        public void UpdateNgayKetThuc()
+        {
+            List<ChucVuDonViVienChuc> list = _db.ChucVuDonViVienChucs.ToList();
+            for (int i = 0; i < list.Count; i++)
+            {
+                int id = list[i].idViTriDonViVienChuc; // phải gán biến trước nếu ko sẽ bị lỗi recognize linq khi gán trực tiếp
+                ChucVuDonViVienChuc cv = _db.ChucVuDonViVienChucs.Where(x => x.idViTriDonViVienChuc == id).FirstOrDefault();
+                cv.ngayKetThuc = Convert.ToDateTime("01/01/2020");
+            }
         }
     }
 }

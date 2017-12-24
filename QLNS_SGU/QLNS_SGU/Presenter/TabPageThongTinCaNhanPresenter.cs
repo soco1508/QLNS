@@ -16,7 +16,7 @@ namespace QLNS_SGU.Presenter
     public interface ITabPageThongTinCaNhanPresenter : IPresenterArgument
     {
         void LoadForm();
-        void AddNew();
+        //void AddNew();
         void Save();
     }
     public class TabPageThongTinCaNhanPresenter : ITabPageThongTinCaNhanPresenter
@@ -142,13 +142,22 @@ namespace QLNS_SGU.Presenter
                     ghiChu = _view.TXTGhiChu.Text,
                     anh = ConvertImageToBinary(_view.PICVienChuc.GetLoadedImageLocation())
                 });
+                unitOfWorks.ChucVuDonViVienChucRepository.Insert(new ChucVuDonViVienChuc
+                {
+                    idVienChuc = unitOfWorks.VienChucRepository.GetIdVienChuc(mavienchuc),
+                    idChucVu = unitOfWorks.ChucVuRepository.GetIdChucVu(""),
+                    idDonVi = unitOfWorks.DonViRepository.GetIdDonVi(""),
+                    idToChuyenMon = unitOfWorks.ToChuyenMonRepository.GetIdToChuyenMon("", ""),
+                    ngayBatDau = Convert.ToDateTime("01/01/2000")
+                });
                 unitOfWorks.Save();
                 XtraMessageBox.Show("Lưu dữ liệu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 TabPageQuaTrinhCongTacPresenter._mavienchuc = _view.TXTMaVienChuc.Text;
                 TabPageQuaTrinhLuongPresenter._mavienchuc = _view.TXTMaVienChuc.Text;
                 TabPageChuyenMonPresenter._mavienchuc = _view.TXTMaVienChuc.Text;
                 TabPageTrangThaiPresenter._mavienchuc = _view.TXTMaVienChuc.Text;           
-                _view.TXTMaVienChuc.Enabled = false;            
+                _view.TXTMaVienChuc.Enabled = false;
+                MainPresenter.LoadGrid();
             }
             else
             {
@@ -185,33 +194,33 @@ namespace QLNS_SGU.Presenter
             XtraMessageBox.Show("Cập nhật dữ liệu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        public void AddNew()
-        {            
-            _view.TXTMaVienChuc.ErrorText = null;
-            _view.TXTHo.ErrorText = null;
-            _view.TXTTen.ErrorText = null;
-            _view.CBXGioiTinh.ErrorText = null;
-            _view.PICVienChuc.Image = null;
-            _view.TXTMaVienChuc.Text = "";
-            _view.CBXGioiTinh.Text = "";
-            _view.TXTHo.Text = "";
-            _view.TXTTen.Text = "";
-            _view.DTNgaySinh.EditValue = null;
-            _view.DTNgayThamGiaCongTac.EditValue = null;
-            _view.DTNgayVeTruong.EditValue = null;
-            _view.DTNgayVaoNganh.EditValue = null;
-            _view.TXTSoDienThoai.Text = "";
-            _view.TXTNoiSinh.Text = "";
-            _view.TXTQueQuan.Text = "";
-            _view.TXTHoKhauThuongTru.Text = "";
-            _view.TXTNoiOHienNay.Text = "";
-            _view.TXTGhiChu.Text = "";
-            _view.CHKLaDangVien.Checked = false;
-            _view.DTNgayVaoDang.EditValue = null;
-            _view.TXTVanHoa.Text = "";
-            SelectEmptyValueCbx();
-            checkAddNew = true;            
-        }
+        //public void AddNew()
+        //{            
+        //    _view.TXTMaVienChuc.ErrorText = null;
+        //    _view.TXTHo.ErrorText = null;
+        //    _view.TXTTen.ErrorText = null;
+        //    _view.CBXGioiTinh.ErrorText = null;
+        //    _view.PICVienChuc.Image = null;
+        //    _view.TXTMaVienChuc.Text = "";
+        //    _view.CBXGioiTinh.Text = "";
+        //    _view.TXTHo.Text = "";
+        //    _view.TXTTen.Text = "";
+        //    _view.DTNgaySinh.EditValue = null;
+        //    _view.DTNgayThamGiaCongTac.EditValue = null;
+        //    _view.DTNgayVeTruong.EditValue = null;
+        //    _view.DTNgayVaoNganh.EditValue = null;
+        //    _view.TXTSoDienThoai.Text = "";
+        //    _view.TXTNoiSinh.Text = "";
+        //    _view.TXTQueQuan.Text = "";
+        //    _view.TXTHoKhauThuongTru.Text = "";
+        //    _view.TXTNoiOHienNay.Text = "";
+        //    _view.TXTGhiChu.Text = "";
+        //    _view.CHKLaDangVien.Checked = false;
+        //    _view.DTNgayVaoDang.EditValue = null;
+        //    _view.TXTVanHoa.Text = "";
+        //    SelectEmptyValueCbx();
+        //    checkAddNew = true;            
+        //}
 
         public void LoadForm()
         {
