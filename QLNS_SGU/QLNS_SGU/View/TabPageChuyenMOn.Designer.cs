@@ -84,25 +84,22 @@
             this.layoutControlItem70 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem73 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem35 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.btnPrintReportCC = new DevExpress.XtraEditors.SimpleButton();
             this.btnExportExcelCC = new DevExpress.XtraEditors.SimpleButton();
             this.btnDeleteCC = new DevExpress.XtraEditors.SimpleButton();
             this.btnEditCC = new DevExpress.XtraEditors.SimpleButton();
             this.btnAddCC = new DevExpress.XtraEditors.SimpleButton();
             this.btnRefreshCC = new DevExpress.XtraEditors.SimpleButton();
             this.tabHocHamHocVi = new DevExpress.XtraTab.XtraTabPage();
-            this.popupMenu = new DevExpress.XtraBars.PopupMenu(this.components);
             this.txtRowIndex = new DevExpress.XtraEditors.TextEdit();
             this.txtMaVienChuc = new DevExpress.XtraEditors.TextEdit();
-            this.btnDownloadHHHV = new DevExpress.XtraEditors.SimpleButton();
-            this.btnUploadHHHV = new DevExpress.XtraEditors.SimpleButton();
-            this.btnPrintReportHHHV = new DevExpress.XtraEditors.SimpleButton();
             this.btnExportExcelHHHV = new DevExpress.XtraEditors.SimpleButton();
             this.btnDeleteHHHV = new DevExpress.XtraEditors.SimpleButton();
             this.btnEditHHHV = new DevExpress.XtraEditors.SimpleButton();
             this.btnAddHHHV = new DevExpress.XtraEditors.SimpleButton();
             this.btnRefreshHHHV = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.btnDownloadHHHV = new DevExpress.XtraEditors.SimpleButton();
+            this.btnUploadHHHV = new DevExpress.XtraEditors.SimpleButton();
             this.gcHocHamHocVi = new DevExpress.XtraGrid.GridControl();
             this.gvHocHamHocVi = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -147,8 +144,12 @@
             this.emptySpaceItem10 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem78 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem79 = new DevExpress.XtraLayout.LayoutControlItem();
             this.tabDangHocNangCao = new DevExpress.XtraTab.XtraTabPage();
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
+            this.btnDownloadDHNC = new DevExpress.XtraEditors.SimpleButton();
+            this.btnUploadDHNC = new DevExpress.XtraEditors.SimpleButton();
             this.gcDangHocNangCao = new DevExpress.XtraGrid.GridControl();
             this.gvDangHocNangCao = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -197,9 +198,9 @@
             this.layoutControlItem17 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem18 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem19 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.btnDownloadDHNC = new DevExpress.XtraEditors.SimpleButton();
-            this.btnUploadDHNC = new DevExpress.XtraEditors.SimpleButton();
-            this.btnPrintReportDHNC = new DevExpress.XtraEditors.SimpleButton();
+            this.layoutControlItem76 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem77 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem37 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.btnExportExcelDHNC = new DevExpress.XtraEditors.SimpleButton();
             this.btnDeleteDHNC = new DevExpress.XtraEditors.SimpleButton();
             this.btnEditDHNC = new DevExpress.XtraEditors.SimpleButton();
@@ -248,12 +249,12 @@
             this.layoutControlItem74 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem75 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem36 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.btnPrintReportN = new DevExpress.XtraEditors.SimpleButton();
             this.btnExportExcelN = new DevExpress.XtraEditors.SimpleButton();
             this.btnDeleteN = new DevExpress.XtraEditors.SimpleButton();
             this.btnEditN = new DevExpress.XtraEditors.SimpleButton();
             this.btnAddN = new DevExpress.XtraEditors.SimpleButton();
             this.btnRefreshN = new DevExpress.XtraEditors.SimpleButton();
+            this.popupMenu = new DevExpress.XtraBars.PopupMenu(this.components);
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
@@ -393,11 +394,6 @@
             this.layoutControlItem56 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem24 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem57 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem76 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem77 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem37 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.layoutControlItem78 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem79 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
@@ -433,7 +429,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem73)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem35)).BeginInit();
             this.tabHocHamHocVi.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.popupMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRowIndex.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaVienChuc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
@@ -472,6 +467,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem78)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem79)).BeginInit();
             this.tabDangHocNangCao.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
             this.layoutControl2.SuspendLayout();
@@ -513,6 +510,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem76)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem77)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem37)).BeginInit();
             this.tabNganh.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl6)).BeginInit();
             this.layoutControl6.SuspendLayout();
@@ -548,6 +548,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem74)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem75)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem36)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit10)).BeginInit();
@@ -658,11 +659,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem56)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem24)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem57)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem76)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem77)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem37)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem78)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem79)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -808,7 +804,7 @@
             this.barButtonItem6.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem6.ImageOptions.Image")));
             this.barButtonItem6.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem6.ImageOptions.LargeImage")));
             this.barButtonItem6.Name = "barButtonItem6";
-            this.barButtonItem6.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;            
+            this.barButtonItem6.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
             // xtraTabControl1
             // 
@@ -830,7 +826,6 @@
             // tabChungChi
             // 
             this.tabChungChi.Controls.Add(this.layoutControl7);
-            this.tabChungChi.Controls.Add(this.btnPrintReportCC);
             this.tabChungChi.Controls.Add(this.btnExportExcelCC);
             this.tabChungChi.Controls.Add(this.btnDeleteCC);
             this.tabChungChi.Controls.Add(this.btnEditCC);
@@ -1224,28 +1219,6 @@
             this.emptySpaceItem35.Size = new System.Drawing.Size(478, 10);
             this.emptySpaceItem35.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // btnPrintReportCC
-            // 
-            this.btnPrintReportCC.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
-            this.btnPrintReportCC.Appearance.Font = new System.Drawing.Font("Tahoma", 8.75F);
-            this.btnPrintReportCC.Appearance.Options.UseBackColor = true;
-            this.btnPrintReportCC.Appearance.Options.UseFont = true;
-            this.btnPrintReportCC.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(223)))), ((int)(((byte)(134)))));
-            this.btnPrintReportCC.AppearanceHovered.Font = new System.Drawing.Font("Tahoma", 8.75F);
-            this.btnPrintReportCC.AppearanceHovered.ForeColor = System.Drawing.Color.Black;
-            this.btnPrintReportCC.AppearanceHovered.Options.UseBackColor = true;
-            this.btnPrintReportCC.AppearanceHovered.Options.UseFont = true;
-            this.btnPrintReportCC.AppearanceHovered.Options.UseForeColor = true;
-            this.btnPrintReportCC.AppearancePressed.ForeColor = System.Drawing.Color.Black;
-            this.btnPrintReportCC.AppearancePressed.Options.UseForeColor = true;
-            this.btnPrintReportCC.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.btnPrintReportCC.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnPrintReportCC.ImageOptions.Image")));
-            this.btnPrintReportCC.Location = new System.Drawing.Point(994, 0);
-            this.btnPrintReportCC.Name = "btnPrintReportCC";
-            this.btnPrintReportCC.Size = new System.Drawing.Size(88, 22);
-            this.btnPrintReportCC.TabIndex = 21;
-            this.btnPrintReportCC.Text = "In báo cáo";
-            // 
             // btnExportExcelCC
             // 
             this.btnExportExcelCC.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
@@ -1262,7 +1235,7 @@
             this.btnExportExcelCC.AppearancePressed.Options.UseForeColor = true;
             this.btnExportExcelCC.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.btnExportExcelCC.ImageOptions.Image = global::QLNS_SGU.Properties.Resources.excel;
-            this.btnExportExcelCC.Location = new System.Drawing.Point(903, 0);
+            this.btnExportExcelCC.Location = new System.Drawing.Point(997, 0);
             this.btnExportExcelCC.Name = "btnExportExcelCC";
             this.btnExportExcelCC.Size = new System.Drawing.Size(85, 22);
             this.btnExportExcelCC.TabIndex = 20;
@@ -1360,7 +1333,6 @@
             // 
             this.tabHocHamHocVi.Controls.Add(this.txtRowIndex);
             this.tabHocHamHocVi.Controls.Add(this.txtMaVienChuc);
-            this.tabHocHamHocVi.Controls.Add(this.btnPrintReportHHHV);
             this.tabHocHamHocVi.Controls.Add(this.btnExportExcelHHHV);
             this.tabHocHamHocVi.Controls.Add(this.btnDeleteHHHV);
             this.tabHocHamHocVi.Controls.Add(this.btnEditHHHV);
@@ -1371,12 +1343,6 @@
             this.tabHocHamHocVi.Name = "tabHocHamHocVi";
             this.tabHocHamHocVi.Size = new System.Drawing.Size(1094, 472);
             this.tabHocHamHocVi.Text = "Học hàm - Học vị";
-            // 
-            // popupMenu
-            // 
-            this.popupMenu.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {});
-            this.popupMenu.Manager = this.barManager1;
-            this.popupMenu.Name = "popupMenu";
             // 
             // txtRowIndex
             // 
@@ -1398,72 +1364,6 @@
             this.txtMaVienChuc.TabIndex = 15;
             this.txtMaVienChuc.Visible = false;
             // 
-            // btnDownloadHHHV
-            // 
-            this.btnDownloadHHHV.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
-            this.btnDownloadHHHV.Appearance.Font = new System.Drawing.Font("Tahoma", 8.75F);
-            this.btnDownloadHHHV.Appearance.Options.UseBackColor = true;
-            this.btnDownloadHHHV.Appearance.Options.UseFont = true;
-            this.btnDownloadHHHV.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(223)))), ((int)(((byte)(134)))));
-            this.btnDownloadHHHV.AppearanceHovered.Font = new System.Drawing.Font("Tahoma", 8.75F);
-            this.btnDownloadHHHV.AppearanceHovered.ForeColor = System.Drawing.Color.Black;
-            this.btnDownloadHHHV.AppearanceHovered.Options.UseBackColor = true;
-            this.btnDownloadHHHV.AppearanceHovered.Options.UseFont = true;
-            this.btnDownloadHHHV.AppearanceHovered.Options.UseForeColor = true;
-            this.btnDownloadHHHV.AppearancePressed.ForeColor = System.Drawing.Color.Black;
-            this.btnDownloadHHHV.AppearancePressed.Options.UseForeColor = true;
-            this.btnDownloadHHHV.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDownloadHHHV.ImageOptions.Image")));
-            this.btnDownloadHHHV.Location = new System.Drawing.Point(1000, 142);
-            this.btnDownloadHHHV.Name = "btnDownloadHHHV";
-            this.btnDownloadHHHV.Size = new System.Drawing.Size(82, 22);
-            this.btnDownloadHHHV.StyleController = this.layoutControl1;
-            this.btnDownloadHHHV.TabIndex = 14;
-            this.btnDownloadHHHV.Text = "Tải xuống";
-            // 
-            // btnUploadHHHV
-            // 
-            this.btnUploadHHHV.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
-            this.btnUploadHHHV.Appearance.Font = new System.Drawing.Font("Tahoma", 8.75F);
-            this.btnUploadHHHV.Appearance.Options.UseBackColor = true;
-            this.btnUploadHHHV.Appearance.Options.UseFont = true;
-            this.btnUploadHHHV.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(223)))), ((int)(((byte)(134)))));
-            this.btnUploadHHHV.AppearanceHovered.Font = new System.Drawing.Font("Tahoma", 8.75F);
-            this.btnUploadHHHV.AppearanceHovered.ForeColor = System.Drawing.Color.Black;
-            this.btnUploadHHHV.AppearanceHovered.Options.UseBackColor = true;
-            this.btnUploadHHHV.AppearanceHovered.Options.UseFont = true;
-            this.btnUploadHHHV.AppearanceHovered.Options.UseForeColor = true;
-            this.btnUploadHHHV.AppearancePressed.ForeColor = System.Drawing.Color.Black;
-            this.btnUploadHHHV.AppearancePressed.Options.UseForeColor = true;
-            this.btnUploadHHHV.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnUploadHHHV.ImageOptions.Image")));
-            this.btnUploadHHHV.Location = new System.Drawing.Point(930, 142);
-            this.btnUploadHHHV.Name = "btnUploadHHHV";
-            this.btnUploadHHHV.Size = new System.Drawing.Size(66, 22);
-            this.btnUploadHHHV.StyleController = this.layoutControl1;
-            this.btnUploadHHHV.TabIndex = 13;
-            this.btnUploadHHHV.Text = "Tải lên";
-            // 
-            // btnPrintReportHHHV
-            // 
-            this.btnPrintReportHHHV.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
-            this.btnPrintReportHHHV.Appearance.Font = new System.Drawing.Font("Tahoma", 8.75F);
-            this.btnPrintReportHHHV.Appearance.Options.UseBackColor = true;
-            this.btnPrintReportHHHV.Appearance.Options.UseFont = true;
-            this.btnPrintReportHHHV.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(223)))), ((int)(((byte)(134)))));
-            this.btnPrintReportHHHV.AppearanceHovered.Font = new System.Drawing.Font("Tahoma", 8.75F);
-            this.btnPrintReportHHHV.AppearanceHovered.ForeColor = System.Drawing.Color.Black;
-            this.btnPrintReportHHHV.AppearanceHovered.Options.UseBackColor = true;
-            this.btnPrintReportHHHV.AppearanceHovered.Options.UseFont = true;
-            this.btnPrintReportHHHV.AppearanceHovered.Options.UseForeColor = true;
-            this.btnPrintReportHHHV.AppearancePressed.ForeColor = System.Drawing.Color.Black;
-            this.btnPrintReportHHHV.AppearancePressed.Options.UseForeColor = true;
-            this.btnPrintReportHHHV.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.btnPrintReportHHHV.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnPrintReportHHHV.ImageOptions.Image")));
-            this.btnPrintReportHHHV.Location = new System.Drawing.Point(994, 0);
-            this.btnPrintReportHHHV.Name = "btnPrintReportHHHV";
-            this.btnPrintReportHHHV.Size = new System.Drawing.Size(88, 22);
-            this.btnPrintReportHHHV.TabIndex = 12;
-            this.btnPrintReportHHHV.Text = "In báo cáo";
-            // 
             // btnExportExcelHHHV
             // 
             this.btnExportExcelHHHV.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
@@ -1480,7 +1380,7 @@
             this.btnExportExcelHHHV.AppearancePressed.Options.UseForeColor = true;
             this.btnExportExcelHHHV.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.btnExportExcelHHHV.ImageOptions.Image = global::QLNS_SGU.Properties.Resources.excel;
-            this.btnExportExcelHHHV.Location = new System.Drawing.Point(903, 0);
+            this.btnExportExcelHHHV.Location = new System.Drawing.Point(997, 0);
             this.btnExportExcelHHHV.Name = "btnExportExcelHHHV";
             this.btnExportExcelHHHV.Size = new System.Drawing.Size(85, 22);
             this.btnExportExcelHHHV.TabIndex = 11;
@@ -1596,6 +1496,50 @@
             this.layoutControl1.Size = new System.Drawing.Size(1094, 449);
             this.layoutControl1.TabIndex = 2;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // btnDownloadHHHV
+            // 
+            this.btnDownloadHHHV.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
+            this.btnDownloadHHHV.Appearance.Font = new System.Drawing.Font("Tahoma", 8.75F);
+            this.btnDownloadHHHV.Appearance.Options.UseBackColor = true;
+            this.btnDownloadHHHV.Appearance.Options.UseFont = true;
+            this.btnDownloadHHHV.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(223)))), ((int)(((byte)(134)))));
+            this.btnDownloadHHHV.AppearanceHovered.Font = new System.Drawing.Font("Tahoma", 8.75F);
+            this.btnDownloadHHHV.AppearanceHovered.ForeColor = System.Drawing.Color.Black;
+            this.btnDownloadHHHV.AppearanceHovered.Options.UseBackColor = true;
+            this.btnDownloadHHHV.AppearanceHovered.Options.UseFont = true;
+            this.btnDownloadHHHV.AppearanceHovered.Options.UseForeColor = true;
+            this.btnDownloadHHHV.AppearancePressed.ForeColor = System.Drawing.Color.Black;
+            this.btnDownloadHHHV.AppearancePressed.Options.UseForeColor = true;
+            this.btnDownloadHHHV.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDownloadHHHV.ImageOptions.Image")));
+            this.btnDownloadHHHV.Location = new System.Drawing.Point(1000, 142);
+            this.btnDownloadHHHV.Name = "btnDownloadHHHV";
+            this.btnDownloadHHHV.Size = new System.Drawing.Size(82, 22);
+            this.btnDownloadHHHV.StyleController = this.layoutControl1;
+            this.btnDownloadHHHV.TabIndex = 14;
+            this.btnDownloadHHHV.Text = "Tải xuống";
+            // 
+            // btnUploadHHHV
+            // 
+            this.btnUploadHHHV.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
+            this.btnUploadHHHV.Appearance.Font = new System.Drawing.Font("Tahoma", 8.75F);
+            this.btnUploadHHHV.Appearance.Options.UseBackColor = true;
+            this.btnUploadHHHV.Appearance.Options.UseFont = true;
+            this.btnUploadHHHV.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(223)))), ((int)(((byte)(134)))));
+            this.btnUploadHHHV.AppearanceHovered.Font = new System.Drawing.Font("Tahoma", 8.75F);
+            this.btnUploadHHHV.AppearanceHovered.ForeColor = System.Drawing.Color.Black;
+            this.btnUploadHHHV.AppearanceHovered.Options.UseBackColor = true;
+            this.btnUploadHHHV.AppearanceHovered.Options.UseFont = true;
+            this.btnUploadHHHV.AppearanceHovered.Options.UseForeColor = true;
+            this.btnUploadHHHV.AppearancePressed.ForeColor = System.Drawing.Color.Black;
+            this.btnUploadHHHV.AppearancePressed.Options.UseForeColor = true;
+            this.btnUploadHHHV.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnUploadHHHV.ImageOptions.Image")));
+            this.btnUploadHHHV.Location = new System.Drawing.Point(930, 142);
+            this.btnUploadHHHV.Name = "btnUploadHHHV";
+            this.btnUploadHHHV.Size = new System.Drawing.Size(66, 22);
+            this.btnUploadHHHV.StyleController = this.layoutControl1;
+            this.btnUploadHHHV.TabIndex = 13;
+            this.btnUploadHHHV.Text = "Tải lên";
             // 
             // gcHocHamHocVi
             // 
@@ -2035,10 +1979,27 @@
             this.layoutControlItem11.Text = "Hình thức đào tạo:";
             this.layoutControlItem11.TextSize = new System.Drawing.Size(109, 13);
             // 
+            // layoutControlItem78
+            // 
+            this.layoutControlItem78.Control = this.btnUploadHHHV;
+            this.layoutControlItem78.Location = new System.Drawing.Point(918, 130);
+            this.layoutControlItem78.Name = "layoutControlItem78";
+            this.layoutControlItem78.Size = new System.Drawing.Size(70, 26);
+            this.layoutControlItem78.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem78.TextVisible = false;
+            // 
+            // layoutControlItem79
+            // 
+            this.layoutControlItem79.Control = this.btnDownloadHHHV;
+            this.layoutControlItem79.Location = new System.Drawing.Point(988, 130);
+            this.layoutControlItem79.Name = "layoutControlItem79";
+            this.layoutControlItem79.Size = new System.Drawing.Size(86, 26);
+            this.layoutControlItem79.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem79.TextVisible = false;
+            // 
             // tabDangHocNangCao
             // 
             this.tabDangHocNangCao.Controls.Add(this.layoutControl2);
-            this.tabDangHocNangCao.Controls.Add(this.btnPrintReportDHNC);
             this.tabDangHocNangCao.Controls.Add(this.btnExportExcelDHNC);
             this.tabDangHocNangCao.Controls.Add(this.btnDeleteDHNC);
             this.tabDangHocNangCao.Controls.Add(this.btnEditDHNC);
@@ -2072,6 +2033,50 @@
             this.layoutControl2.Size = new System.Drawing.Size(1094, 449);
             this.layoutControl2.TabIndex = 27;
             this.layoutControl2.Text = "layoutControl2";
+            // 
+            // btnDownloadDHNC
+            // 
+            this.btnDownloadDHNC.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
+            this.btnDownloadDHNC.Appearance.Font = new System.Drawing.Font("Tahoma", 8.75F);
+            this.btnDownloadDHNC.Appearance.Options.UseBackColor = true;
+            this.btnDownloadDHNC.Appearance.Options.UseFont = true;
+            this.btnDownloadDHNC.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(223)))), ((int)(((byte)(134)))));
+            this.btnDownloadDHNC.AppearanceHovered.Font = new System.Drawing.Font("Tahoma", 8.75F);
+            this.btnDownloadDHNC.AppearanceHovered.ForeColor = System.Drawing.Color.Black;
+            this.btnDownloadDHNC.AppearanceHovered.Options.UseBackColor = true;
+            this.btnDownloadDHNC.AppearanceHovered.Options.UseFont = true;
+            this.btnDownloadDHNC.AppearanceHovered.Options.UseForeColor = true;
+            this.btnDownloadDHNC.AppearancePressed.ForeColor = System.Drawing.Color.Black;
+            this.btnDownloadDHNC.AppearancePressed.Options.UseForeColor = true;
+            this.btnDownloadDHNC.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDownloadDHNC.ImageOptions.Image")));
+            this.btnDownloadDHNC.Location = new System.Drawing.Point(1000, 143);
+            this.btnDownloadDHNC.Name = "btnDownloadDHNC";
+            this.btnDownloadDHNC.Size = new System.Drawing.Size(82, 22);
+            this.btnDownloadDHNC.StyleController = this.layoutControl2;
+            this.btnDownloadDHNC.TabIndex = 23;
+            this.btnDownloadDHNC.Text = "Tải xuống";
+            // 
+            // btnUploadDHNC
+            // 
+            this.btnUploadDHNC.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
+            this.btnUploadDHNC.Appearance.Font = new System.Drawing.Font("Tahoma", 8.75F);
+            this.btnUploadDHNC.Appearance.Options.UseBackColor = true;
+            this.btnUploadDHNC.Appearance.Options.UseFont = true;
+            this.btnUploadDHNC.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(223)))), ((int)(((byte)(134)))));
+            this.btnUploadDHNC.AppearanceHovered.Font = new System.Drawing.Font("Tahoma", 8.75F);
+            this.btnUploadDHNC.AppearanceHovered.ForeColor = System.Drawing.Color.Black;
+            this.btnUploadDHNC.AppearanceHovered.Options.UseBackColor = true;
+            this.btnUploadDHNC.AppearanceHovered.Options.UseFont = true;
+            this.btnUploadDHNC.AppearanceHovered.Options.UseForeColor = true;
+            this.btnUploadDHNC.AppearancePressed.ForeColor = System.Drawing.Color.Black;
+            this.btnUploadDHNC.AppearancePressed.Options.UseForeColor = true;
+            this.btnUploadDHNC.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnUploadDHNC.ImageOptions.Image")));
+            this.btnUploadDHNC.Location = new System.Drawing.Point(930, 143);
+            this.btnUploadDHNC.Name = "btnUploadDHNC";
+            this.btnUploadDHNC.Size = new System.Drawing.Size(66, 22);
+            this.btnUploadDHNC.StyleController = this.layoutControl2;
+            this.btnUploadDHNC.TabIndex = 22;
+            this.btnUploadDHNC.Text = "Tải lên";
             // 
             // gcDangHocNangCao
             // 
@@ -2540,71 +2545,31 @@
             this.layoutControlItem19.Text = "Nước cấp bằng:";
             this.layoutControlItem19.TextSize = new System.Drawing.Size(109, 13);
             // 
-            // btnDownloadDHNC
+            // layoutControlItem76
             // 
-            this.btnDownloadDHNC.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
-            this.btnDownloadDHNC.Appearance.Font = new System.Drawing.Font("Tahoma", 8.75F);
-            this.btnDownloadDHNC.Appearance.Options.UseBackColor = true;
-            this.btnDownloadDHNC.Appearance.Options.UseFont = true;
-            this.btnDownloadDHNC.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(223)))), ((int)(((byte)(134)))));
-            this.btnDownloadDHNC.AppearanceHovered.Font = new System.Drawing.Font("Tahoma", 8.75F);
-            this.btnDownloadDHNC.AppearanceHovered.ForeColor = System.Drawing.Color.Black;
-            this.btnDownloadDHNC.AppearanceHovered.Options.UseBackColor = true;
-            this.btnDownloadDHNC.AppearanceHovered.Options.UseFont = true;
-            this.btnDownloadDHNC.AppearanceHovered.Options.UseForeColor = true;
-            this.btnDownloadDHNC.AppearancePressed.ForeColor = System.Drawing.Color.Black;
-            this.btnDownloadDHNC.AppearancePressed.Options.UseForeColor = true;
-            this.btnDownloadDHNC.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDownloadDHNC.ImageOptions.Image")));
-            this.btnDownloadDHNC.Location = new System.Drawing.Point(1000, 143);
-            this.btnDownloadDHNC.Name = "btnDownloadDHNC";
-            this.btnDownloadDHNC.Size = new System.Drawing.Size(82, 22);
-            this.btnDownloadDHNC.StyleController = this.layoutControl2;
-            this.btnDownloadDHNC.TabIndex = 23;
-            this.btnDownloadDHNC.Text = "Tải xuống";
+            this.layoutControlItem76.Control = this.btnUploadDHNC;
+            this.layoutControlItem76.Location = new System.Drawing.Point(918, 131);
+            this.layoutControlItem76.Name = "layoutControlItem76";
+            this.layoutControlItem76.Size = new System.Drawing.Size(70, 26);
+            this.layoutControlItem76.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem76.TextVisible = false;
             // 
-            // btnUploadDHNC
+            // layoutControlItem77
             // 
-            this.btnUploadDHNC.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
-            this.btnUploadDHNC.Appearance.Font = new System.Drawing.Font("Tahoma", 8.75F);
-            this.btnUploadDHNC.Appearance.Options.UseBackColor = true;
-            this.btnUploadDHNC.Appearance.Options.UseFont = true;
-            this.btnUploadDHNC.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(223)))), ((int)(((byte)(134)))));
-            this.btnUploadDHNC.AppearanceHovered.Font = new System.Drawing.Font("Tahoma", 8.75F);
-            this.btnUploadDHNC.AppearanceHovered.ForeColor = System.Drawing.Color.Black;
-            this.btnUploadDHNC.AppearanceHovered.Options.UseBackColor = true;
-            this.btnUploadDHNC.AppearanceHovered.Options.UseFont = true;
-            this.btnUploadDHNC.AppearanceHovered.Options.UseForeColor = true;
-            this.btnUploadDHNC.AppearancePressed.ForeColor = System.Drawing.Color.Black;
-            this.btnUploadDHNC.AppearancePressed.Options.UseForeColor = true;
-            this.btnUploadDHNC.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnUploadDHNC.ImageOptions.Image")));
-            this.btnUploadDHNC.Location = new System.Drawing.Point(930, 143);
-            this.btnUploadDHNC.Name = "btnUploadDHNC";
-            this.btnUploadDHNC.Size = new System.Drawing.Size(66, 22);
-            this.btnUploadDHNC.StyleController = this.layoutControl2;
-            this.btnUploadDHNC.TabIndex = 22;
-            this.btnUploadDHNC.Text = "Tải lên";
+            this.layoutControlItem77.Control = this.btnDownloadDHNC;
+            this.layoutControlItem77.Location = new System.Drawing.Point(988, 131);
+            this.layoutControlItem77.Name = "layoutControlItem77";
+            this.layoutControlItem77.Size = new System.Drawing.Size(86, 26);
+            this.layoutControlItem77.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem77.TextVisible = false;
             // 
-            // btnPrintReportDHNC
+            // emptySpaceItem37
             // 
-            this.btnPrintReportDHNC.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
-            this.btnPrintReportDHNC.Appearance.Font = new System.Drawing.Font("Tahoma", 8.75F);
-            this.btnPrintReportDHNC.Appearance.Options.UseBackColor = true;
-            this.btnPrintReportDHNC.Appearance.Options.UseFont = true;
-            this.btnPrintReportDHNC.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(223)))), ((int)(((byte)(134)))));
-            this.btnPrintReportDHNC.AppearanceHovered.Font = new System.Drawing.Font("Tahoma", 8.75F);
-            this.btnPrintReportDHNC.AppearanceHovered.ForeColor = System.Drawing.Color.Black;
-            this.btnPrintReportDHNC.AppearanceHovered.Options.UseBackColor = true;
-            this.btnPrintReportDHNC.AppearanceHovered.Options.UseFont = true;
-            this.btnPrintReportDHNC.AppearanceHovered.Options.UseForeColor = true;
-            this.btnPrintReportDHNC.AppearancePressed.ForeColor = System.Drawing.Color.Black;
-            this.btnPrintReportDHNC.AppearancePressed.Options.UseForeColor = true;
-            this.btnPrintReportDHNC.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.btnPrintReportDHNC.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnPrintReportDHNC.ImageOptions.Image")));
-            this.btnPrintReportDHNC.Location = new System.Drawing.Point(994, 0);
-            this.btnPrintReportDHNC.Name = "btnPrintReportDHNC";
-            this.btnPrintReportDHNC.Size = new System.Drawing.Size(88, 22);
-            this.btnPrintReportDHNC.TabIndex = 21;
-            this.btnPrintReportDHNC.Text = "In báo cáo";
+            this.emptySpaceItem37.AllowHotTrack = false;
+            this.emptySpaceItem37.Location = new System.Drawing.Point(596, 157);
+            this.emptySpaceItem37.Name = "emptySpaceItem37";
+            this.emptySpaceItem37.Size = new System.Drawing.Size(478, 10);
+            this.emptySpaceItem37.TextSize = new System.Drawing.Size(0, 0);
             // 
             // btnExportExcelDHNC
             // 
@@ -2622,7 +2587,7 @@
             this.btnExportExcelDHNC.AppearancePressed.Options.UseForeColor = true;
             this.btnExportExcelDHNC.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.btnExportExcelDHNC.ImageOptions.Image = global::QLNS_SGU.Properties.Resources.excel;
-            this.btnExportExcelDHNC.Location = new System.Drawing.Point(903, 0);
+            this.btnExportExcelDHNC.Location = new System.Drawing.Point(997, 0);
             this.btnExportExcelDHNC.Name = "btnExportExcelDHNC";
             this.btnExportExcelDHNC.Size = new System.Drawing.Size(85, 22);
             this.btnExportExcelDHNC.TabIndex = 20;
@@ -2719,7 +2684,6 @@
             // tabNganh
             // 
             this.tabNganh.Controls.Add(this.layoutControl6);
-            this.tabNganh.Controls.Add(this.btnPrintReportN);
             this.tabNganh.Controls.Add(this.btnExportExcelN);
             this.tabNganh.Controls.Add(this.btnDeleteN);
             this.tabNganh.Controls.Add(this.btnEditN);
@@ -3188,28 +3152,6 @@
             this.emptySpaceItem36.Size = new System.Drawing.Size(478, 10);
             this.emptySpaceItem36.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // btnPrintReportN
-            // 
-            this.btnPrintReportN.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
-            this.btnPrintReportN.Appearance.Font = new System.Drawing.Font("Tahoma", 8.75F);
-            this.btnPrintReportN.Appearance.Options.UseBackColor = true;
-            this.btnPrintReportN.Appearance.Options.UseFont = true;
-            this.btnPrintReportN.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(223)))), ((int)(((byte)(134)))));
-            this.btnPrintReportN.AppearanceHovered.Font = new System.Drawing.Font("Tahoma", 8.75F);
-            this.btnPrintReportN.AppearanceHovered.ForeColor = System.Drawing.Color.Black;
-            this.btnPrintReportN.AppearanceHovered.Options.UseBackColor = true;
-            this.btnPrintReportN.AppearanceHovered.Options.UseFont = true;
-            this.btnPrintReportN.AppearanceHovered.Options.UseForeColor = true;
-            this.btnPrintReportN.AppearancePressed.ForeColor = System.Drawing.Color.Black;
-            this.btnPrintReportN.AppearancePressed.Options.UseForeColor = true;
-            this.btnPrintReportN.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.btnPrintReportN.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnPrintReportN.ImageOptions.Image")));
-            this.btnPrintReportN.Location = new System.Drawing.Point(994, 0);
-            this.btnPrintReportN.Name = "btnPrintReportN";
-            this.btnPrintReportN.Size = new System.Drawing.Size(88, 22);
-            this.btnPrintReportN.TabIndex = 20;
-            this.btnPrintReportN.Text = "In báo cáo";
-            // 
             // btnExportExcelN
             // 
             this.btnExportExcelN.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
@@ -3226,7 +3168,7 @@
             this.btnExportExcelN.AppearancePressed.Options.UseForeColor = true;
             this.btnExportExcelN.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.btnExportExcelN.ImageOptions.Image = global::QLNS_SGU.Properties.Resources.excel;
-            this.btnExportExcelN.Location = new System.Drawing.Point(903, 0);
+            this.btnExportExcelN.Location = new System.Drawing.Point(997, 0);
             this.btnExportExcelN.Name = "btnExportExcelN";
             this.btnExportExcelN.Size = new System.Drawing.Size(85, 22);
             this.btnExportExcelN.TabIndex = 19;
@@ -3319,6 +3261,11 @@
             this.btnRefreshN.Size = new System.Drawing.Size(75, 22);
             this.btnRefreshN.TabIndex = 4;
             this.btnRefreshN.Text = "Làm mới";
+            // 
+            // popupMenu
+            // 
+            this.popupMenu.Manager = this.barManager1;
+            this.popupMenu.Name = "popupMenu";
             // 
             // openFileDialog1
             // 
@@ -4742,50 +4689,6 @@
             this.layoutControlItem57.Text = "Kiêm nhiệm:";
             this.layoutControlItem57.TextSize = new System.Drawing.Size(109, 13);
             // 
-            // layoutControlItem76
-            // 
-            this.layoutControlItem76.Control = this.btnUploadDHNC;
-            this.layoutControlItem76.Location = new System.Drawing.Point(918, 131);
-            this.layoutControlItem76.Name = "layoutControlItem76";
-            this.layoutControlItem76.Size = new System.Drawing.Size(70, 26);
-            this.layoutControlItem76.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem76.TextVisible = false;
-            // 
-            // layoutControlItem77
-            // 
-            this.layoutControlItem77.Control = this.btnDownloadDHNC;
-            this.layoutControlItem77.Location = new System.Drawing.Point(988, 131);
-            this.layoutControlItem77.Name = "layoutControlItem77";
-            this.layoutControlItem77.Size = new System.Drawing.Size(86, 26);
-            this.layoutControlItem77.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem77.TextVisible = false;
-            // 
-            // emptySpaceItem37
-            // 
-            this.emptySpaceItem37.AllowHotTrack = false;
-            this.emptySpaceItem37.Location = new System.Drawing.Point(596, 157);
-            this.emptySpaceItem37.Name = "emptySpaceItem37";
-            this.emptySpaceItem37.Size = new System.Drawing.Size(478, 10);
-            this.emptySpaceItem37.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // layoutControlItem78
-            // 
-            this.layoutControlItem78.Control = this.btnUploadHHHV;
-            this.layoutControlItem78.Location = new System.Drawing.Point(918, 130);
-            this.layoutControlItem78.Name = "layoutControlItem78";
-            this.layoutControlItem78.Size = new System.Drawing.Size(70, 26);
-            this.layoutControlItem78.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem78.TextVisible = false;
-            // 
-            // layoutControlItem79
-            // 
-            this.layoutControlItem79.Control = this.btnDownloadHHHV;
-            this.layoutControlItem79.Location = new System.Drawing.Point(988, 130);
-            this.layoutControlItem79.Name = "layoutControlItem79";
-            this.layoutControlItem79.Size = new System.Drawing.Size(86, 26);
-            this.layoutControlItem79.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem79.TextVisible = false;
-            // 
             // TabPageChuyenMon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4839,7 +4742,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem73)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem35)).EndInit();
             this.tabHocHamHocVi.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.popupMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRowIndex.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaVienChuc.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
@@ -4878,6 +4780,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem78)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem79)).EndInit();
             this.tabDangHocNangCao.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).EndInit();
             this.layoutControl2.ResumeLayout(false);
@@ -4919,6 +4823,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem76)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem77)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem37)).EndInit();
             this.tabNganh.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl6)).EndInit();
             this.layoutControl6.ResumeLayout(false);
@@ -4954,6 +4861,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem74)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem75)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem36)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit10)).EndInit();
@@ -5064,11 +4972,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem56)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem24)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem57)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem76)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem77)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem37)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem78)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem79)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -5094,7 +4997,6 @@
         private DevExpress.XtraEditors.TextEdit txtMaVienChuc;
         private DevExpress.XtraEditors.SimpleButton btnDownloadHHHV;
         private DevExpress.XtraEditors.SimpleButton btnUploadHHHV;
-        private DevExpress.XtraEditors.SimpleButton btnPrintReportHHHV;
         private DevExpress.XtraEditors.SimpleButton btnExportExcelHHHV;
         private DevExpress.XtraEditors.SimpleButton btnDeleteHHHV;
         private DevExpress.XtraEditors.SimpleButton btnEditHHHV;
@@ -5168,7 +5070,6 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem21;
         private DevExpress.XtraEditors.SimpleButton btnDownloadDHNC;
         private DevExpress.XtraEditors.SimpleButton btnUploadDHNC;
-        private DevExpress.XtraEditors.SimpleButton btnPrintReportDHNC;
         private DevExpress.XtraEditors.SimpleButton btnExportExcelDHNC;
         private DevExpress.XtraEditors.SimpleButton btnDeleteDHNC;
         private DevExpress.XtraEditors.SimpleButton btnEditDHNC;
@@ -5213,7 +5114,6 @@
         private DevExpress.XtraEditors.SimpleButton btnAddN;
         private DevExpress.XtraEditors.SimpleButton btnDownloadN;
         private DevExpress.XtraEditors.SimpleButton btnUploadN;
-        private DevExpress.XtraEditors.SimpleButton btnPrintReportN;
         private DevExpress.XtraEditors.SimpleButton btnExportExcelN;
         private DevExpress.XtraEditors.SimpleButton btnDeleteN;
         private DevExpress.XtraEditors.SimpleButton btnEditN;
@@ -5394,7 +5294,6 @@
         private DevExpress.XtraBars.StandaloneBarDockControl standaloneBarDockControl4;
         private DevExpress.XtraEditors.SimpleButton btnDownloadCC;
         private DevExpress.XtraEditors.SimpleButton btnUploadCC;
-        private DevExpress.XtraEditors.SimpleButton btnPrintReportCC;
         private DevExpress.XtraEditors.SimpleButton btnExportExcelCC;
         private DevExpress.XtraEditors.SimpleButton btnDeleteCC;
         private DevExpress.XtraEditors.SimpleButton btnEditCC;

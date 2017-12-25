@@ -30,40 +30,119 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoaiNganhForm));
-            this.gcLoaiNganh = new DevExpress.XtraGrid.GridControl();
-            this.gvLoaiNganh = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
-            this.bar2 = new DevExpress.XtraBars.Bar();
-            this.btnRefresh = new DevExpress.XtraBars.BarButtonItem();
-            this.btnAdd = new DevExpress.XtraBars.BarButtonItem();
-            this.btnSave = new DevExpress.XtraBars.BarButtonItem();
-            this.btnDelete = new DevExpress.XtraBars.BarButtonItem();
-            this.btnExportExcel = new DevExpress.XtraBars.BarButtonItem();
-            this.btnPrintReport = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.standaloneBarDockControl1 = new DevExpress.XtraBars.StandaloneBarDockControl();
+            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.gcLoaiNganh = new DevExpress.XtraGrid.GridControl();
+            this.gvLoaiNganh = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.btnExportExcel = new DevExpress.XtraEditors.SimpleButton();
+            this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
+            this.btnSave = new DevExpress.XtraEditors.SimpleButton();
+            this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
+            this.btnRefresh = new DevExpress.XtraEditors.SimpleButton();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
+            this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcLoaiNganh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvLoaiNganh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // barManager1
+            // 
+            this.barManager1.DockControls.Add(this.barDockControlTop);
+            this.barManager1.DockControls.Add(this.barDockControlBottom);
+            this.barManager1.DockControls.Add(this.barDockControlLeft);
+            this.barManager1.DockControls.Add(this.barDockControlRight);
+            this.barManager1.DockControls.Add(this.standaloneBarDockControl1);
+            this.barManager1.Form = this;
+            this.barManager1.MaxItemId = 6;
+            // 
+            // barDockControlTop
+            // 
+            this.barDockControlTop.CausesValidation = false;
+            this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
+            this.barDockControlTop.Manager = this.barManager1;
+            this.barDockControlTop.Size = new System.Drawing.Size(1000, 0);
+            // 
+            // barDockControlBottom
+            // 
+            this.barDockControlBottom.CausesValidation = false;
+            this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 466);
+            this.barDockControlBottom.Manager = this.barManager1;
+            this.barDockControlBottom.Size = new System.Drawing.Size(1000, 0);
+            // 
+            // barDockControlLeft
+            // 
+            this.barDockControlLeft.CausesValidation = false;
+            this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
+            this.barDockControlLeft.Manager = this.barManager1;
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 466);
+            // 
+            // barDockControlRight
+            // 
+            this.barDockControlRight.CausesValidation = false;
+            this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.barDockControlRight.Location = new System.Drawing.Point(1000, 0);
+            this.barDockControlRight.Manager = this.barManager1;
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 466);
+            // 
+            // standaloneBarDockControl1
+            // 
+            this.standaloneBarDockControl1.CausesValidation = false;
+            this.standaloneBarDockControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.standaloneBarDockControl1.Location = new System.Drawing.Point(0, 0);
+            this.standaloneBarDockControl1.Manager = this.barManager1;
+            this.standaloneBarDockControl1.Name = "standaloneBarDockControl1";
+            this.standaloneBarDockControl1.Size = new System.Drawing.Size(1000, 23);
+            this.standaloneBarDockControl1.Text = "standaloneBarDockControl1";
+            // 
+            // layoutControl1
+            // 
+            this.layoutControl1.Controls.Add(this.gcLoaiNganh);
+            this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutControl1.Location = new System.Drawing.Point(0, 23);
+            this.layoutControl1.Name = "layoutControl1";
+            this.layoutControl1.Root = this.layoutControlGroup1;
+            this.layoutControl1.Size = new System.Drawing.Size(1000, 443);
+            this.layoutControl1.TabIndex = 10;
+            this.layoutControl1.Text = "layoutControl1";
+            // 
+            // layoutControlGroup1
+            // 
+            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup1.GroupBordersVisible = false;
+            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem1});
+            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup1.Name = "layoutControlGroup1";
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1000, 443);
+            this.layoutControlGroup1.TextVisible = false;
             // 
             // gcLoaiNganh
             // 
-            this.gcLoaiNganh.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcLoaiNganh.Location = new System.Drawing.Point(0, 28);
+            this.gcLoaiNganh.Location = new System.Drawing.Point(12, 12);
             this.gcLoaiNganh.MainView = this.gvLoaiNganh;
             this.gcLoaiNganh.Name = "gcLoaiNganh";
             this.gcLoaiNganh.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemTextEdit1});
-            this.gcLoaiNganh.Size = new System.Drawing.Size(1000, 438);
-            this.gcLoaiNganh.TabIndex = 4;
+            this.gcLoaiNganh.Size = new System.Drawing.Size(976, 419);
+            this.gcLoaiNganh.TabIndex = 5;
             this.gcLoaiNganh.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvLoaiNganh});
             // 
@@ -100,126 +179,124 @@
             this.repositoryItemTextEdit1.AutoHeight = false;
             this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
             // 
-            // barManager1
+            // layoutControlItem1
             // 
-            this.barManager1.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
-            this.bar2});
-            this.barManager1.DockControls.Add(this.barDockControlTop);
-            this.barManager1.DockControls.Add(this.barDockControlBottom);
-            this.barManager1.DockControls.Add(this.barDockControlLeft);
-            this.barManager1.DockControls.Add(this.barDockControlRight);
-            this.barManager1.Form = this;
-            this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.btnAdd,
-            this.btnSave,
-            this.btnDelete,
-            this.btnRefresh,
-            this.btnExportExcel,
-            this.btnPrintReport});
-            this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 6;
-            // 
-            // bar2
-            // 
-            this.bar2.BarName = "Main menu";
-            this.bar2.DockCol = 0;
-            this.bar2.DockRow = 0;
-            this.bar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
-            this.bar2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnRefresh),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnAdd),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnSave),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnDelete),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnExportExcel),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnPrintReport)});
-            this.bar2.OptionsBar.MultiLine = true;
-            this.bar2.OptionsBar.UseWholeRow = true;
-            this.bar2.Text = "Main menu";
-            // 
-            // btnRefresh
-            // 
-            this.btnRefresh.Caption = "Làm mới";
-            this.btnRefresh.Id = 3;
-            this.btnRefresh.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.ImageOptions.Image")));
-            this.btnRefresh.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnRefresh.ImageOptions.LargeImage")));
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Caption = "Thêm";
-            this.btnAdd.Id = 0;
-            this.btnAdd.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.ImageOptions.Image")));
-            this.btnAdd.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnAdd.ImageOptions.LargeImage")));
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            // 
-            // btnSave
-            // 
-            this.btnSave.Caption = "Lưu";
-            this.btnSave.Id = 1;
-            this.btnSave.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.ImageOptions.Image")));
-            this.btnSave.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnSave.ImageOptions.LargeImage")));
-            this.btnSave.Name = "btnSave";
-            this.btnSave.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Caption = "Xóa";
-            this.btnDelete.Id = 2;
-            this.btnDelete.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.ImageOptions.Image")));
-            this.btnDelete.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnDelete.ImageOptions.LargeImage")));
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.layoutControlItem1.Control = this.gcLoaiNganh;
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(980, 423);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextVisible = false;
             // 
             // btnExportExcel
             // 
-            this.btnExportExcel.Caption = "Xuất Excel";
-            this.btnExportExcel.Id = 4;
+            this.btnExportExcel.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
+            this.btnExportExcel.Appearance.Font = new System.Drawing.Font("Tahoma", 8.75F);
+            this.btnExportExcel.Appearance.Options.UseBackColor = true;
+            this.btnExportExcel.Appearance.Options.UseFont = true;
+            this.btnExportExcel.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(223)))), ((int)(((byte)(134)))));
+            this.btnExportExcel.AppearanceHovered.Font = new System.Drawing.Font("Tahoma", 8.75F);
+            this.btnExportExcel.AppearanceHovered.ForeColor = System.Drawing.Color.Black;
+            this.btnExportExcel.AppearanceHovered.Options.UseBackColor = true;
+            this.btnExportExcel.AppearanceHovered.Options.UseFont = true;
+            this.btnExportExcel.AppearanceHovered.Options.UseForeColor = true;
+            this.btnExportExcel.AppearancePressed.ForeColor = System.Drawing.Color.Black;
+            this.btnExportExcel.AppearancePressed.Options.UseForeColor = true;
+            this.btnExportExcel.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.btnExportExcel.ImageOptions.Image = global::QLNS_SGU.Properties.Resources.excel;
+            this.btnExportExcel.Location = new System.Drawing.Point(903, 0);
             this.btnExportExcel.Name = "btnExportExcel";
-            this.btnExportExcel.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.btnExportExcel.Size = new System.Drawing.Size(85, 22);
+            this.btnExportExcel.TabIndex = 57;
+            this.btnExportExcel.Text = "Xuất Excel";
             // 
-            // btnPrintReport
+            // btnDelete
             // 
-            this.btnPrintReport.Caption = "In báo cáo";
-            this.btnPrintReport.Id = 5;
-            this.btnPrintReport.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnPrintReport.ImageOptions.Image")));
-            this.btnPrintReport.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnPrintReport.ImageOptions.LargeImage")));
-            this.btnPrintReport.Name = "btnPrintReport";
-            this.btnPrintReport.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.btnDelete.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
+            this.btnDelete.Appearance.Font = new System.Drawing.Font("Tahoma", 8.75F);
+            this.btnDelete.Appearance.Options.UseBackColor = true;
+            this.btnDelete.Appearance.Options.UseFont = true;
+            this.btnDelete.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(223)))), ((int)(((byte)(134)))));
+            this.btnDelete.AppearanceHovered.Font = new System.Drawing.Font("Tahoma", 8.75F);
+            this.btnDelete.AppearanceHovered.ForeColor = System.Drawing.Color.Black;
+            this.btnDelete.AppearanceHovered.Options.UseBackColor = true;
+            this.btnDelete.AppearanceHovered.Options.UseFont = true;
+            this.btnDelete.AppearanceHovered.Options.UseForeColor = true;
+            this.btnDelete.AppearancePressed.ForeColor = System.Drawing.Color.Black;
+            this.btnDelete.AppearancePressed.Options.UseForeColor = true;
+            this.btnDelete.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.btnDelete.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.ImageOptions.Image")));
+            this.btnDelete.Location = new System.Drawing.Point(213, 0);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(48, 22);
+            this.btnDelete.TabIndex = 56;
+            this.btnDelete.Text = "Xóa";
             // 
-            // barDockControlTop
+            // btnSave
             // 
-            this.barDockControlTop.CausesValidation = false;
-            this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(1000, 28);
+            this.btnSave.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
+            this.btnSave.Appearance.Font = new System.Drawing.Font("Tahoma", 8.75F);
+            this.btnSave.Appearance.Options.UseBackColor = true;
+            this.btnSave.Appearance.Options.UseFont = true;
+            this.btnSave.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(223)))), ((int)(((byte)(134)))));
+            this.btnSave.AppearanceHovered.Font = new System.Drawing.Font("Tahoma", 8.75F);
+            this.btnSave.AppearanceHovered.ForeColor = System.Drawing.Color.Black;
+            this.btnSave.AppearanceHovered.Options.UseBackColor = true;
+            this.btnSave.AppearanceHovered.Options.UseFont = true;
+            this.btnSave.AppearanceHovered.Options.UseForeColor = true;
+            this.btnSave.AppearancePressed.ForeColor = System.Drawing.Color.Black;
+            this.btnSave.AppearancePressed.Options.UseForeColor = true;
+            this.btnSave.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.btnSave.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.ImageOptions.Image")));
+            this.btnSave.Location = new System.Drawing.Point(158, 0);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(49, 22);
+            this.btnSave.TabIndex = 55;
+            this.btnSave.Text = "Lưu";
             // 
-            // barDockControlBottom
+            // btnAdd
             // 
-            this.barDockControlBottom.CausesValidation = false;
-            this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 466);
-            this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(1000, 0);
+            this.btnAdd.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
+            this.btnAdd.Appearance.Font = new System.Drawing.Font("Tahoma", 8.75F);
+            this.btnAdd.Appearance.Options.UseBackColor = true;
+            this.btnAdd.Appearance.Options.UseFont = true;
+            this.btnAdd.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(223)))), ((int)(((byte)(134)))));
+            this.btnAdd.AppearanceHovered.Font = new System.Drawing.Font("Tahoma", 8.75F);
+            this.btnAdd.AppearanceHovered.ForeColor = System.Drawing.Color.Black;
+            this.btnAdd.AppearanceHovered.Options.UseBackColor = true;
+            this.btnAdd.AppearanceHovered.Options.UseFont = true;
+            this.btnAdd.AppearanceHovered.Options.UseForeColor = true;
+            this.btnAdd.AppearancePressed.ForeColor = System.Drawing.Color.Black;
+            this.btnAdd.AppearancePressed.Options.UseForeColor = true;
+            this.btnAdd.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.btnAdd.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.ImageOptions.Image")));
+            this.btnAdd.Location = new System.Drawing.Point(91, 0);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(61, 22);
+            this.btnAdd.TabIndex = 54;
+            this.btnAdd.Text = "Thêm";
             // 
-            // barDockControlLeft
+            // btnRefresh
             // 
-            this.barDockControlLeft.CausesValidation = false;
-            this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 28);
-            this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 438);
-            // 
-            // barDockControlRight
-            // 
-            this.barDockControlRight.CausesValidation = false;
-            this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1000, 28);
-            this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 438);
+            this.btnRefresh.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
+            this.btnRefresh.Appearance.Font = new System.Drawing.Font("Tahoma", 8.75F);
+            this.btnRefresh.Appearance.Options.UseBackColor = true;
+            this.btnRefresh.Appearance.Options.UseFont = true;
+            this.btnRefresh.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(223)))), ((int)(((byte)(134)))));
+            this.btnRefresh.AppearanceHovered.Font = new System.Drawing.Font("Tahoma", 8.75F);
+            this.btnRefresh.AppearanceHovered.ForeColor = System.Drawing.Color.Black;
+            this.btnRefresh.AppearanceHovered.Options.UseBackColor = true;
+            this.btnRefresh.AppearanceHovered.Options.UseFont = true;
+            this.btnRefresh.AppearanceHovered.Options.UseForeColor = true;
+            this.btnRefresh.AppearancePressed.ForeColor = System.Drawing.Color.Black;
+            this.btnRefresh.AppearancePressed.Options.UseForeColor = true;
+            this.btnRefresh.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.btnRefresh.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.ImageOptions.Image")));
+            this.btnRefresh.Location = new System.Drawing.Point(10, 0);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(75, 22);
+            this.btnRefresh.TabIndex = 53;
+            this.btnRefresh.Text = "Làm mới";
             // 
             // LoaiNganhForm
             // 
@@ -227,7 +304,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1000, 466);
             this.ControlBox = false;
-            this.Controls.Add(this.gcLoaiNganh);
+            this.Controls.Add(this.btnExportExcel);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.btnRefresh);
+            this.Controls.Add(this.layoutControl1);
+            this.Controls.Add(this.standaloneBarDockControl1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
@@ -237,33 +320,39 @@
             this.MinimizeBox = false;
             this.Name = "LoaiNganhForm";
             this.ShowIcon = false;
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
+            this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcLoaiNganh)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvLoaiNganh)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private DevExpress.XtraGrid.GridControl gcLoaiNganh;
-        private DevExpress.XtraGrid.Views.Grid.GridView gvLoaiNganh;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraBars.BarManager barManager1;
-        private DevExpress.XtraBars.Bar bar2;
-        private DevExpress.XtraBars.BarButtonItem btnRefresh;
-        private DevExpress.XtraBars.BarButtonItem btnAdd;
-        private DevExpress.XtraBars.BarButtonItem btnSave;
-        private DevExpress.XtraBars.BarButtonItem btnDelete;
-        private DevExpress.XtraBars.BarButtonItem btnExportExcel;
-        private DevExpress.XtraBars.BarButtonItem btnPrintReport;
         private DevExpress.XtraBars.BarDockControl barDockControlTop;
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private DevExpress.XtraBars.StandaloneBarDockControl standaloneBarDockControl1;
+        private DevExpress.XtraLayout.LayoutControl layoutControl1;
+        private DevExpress.XtraGrid.GridControl gcLoaiNganh;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvLoaiNganh;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraEditors.SimpleButton btnExportExcel;
+        private DevExpress.XtraEditors.SimpleButton btnDelete;
+        private DevExpress.XtraEditors.SimpleButton btnSave;
+        private DevExpress.XtraEditors.SimpleButton btnAdd;
+        private DevExpress.XtraEditors.SimpleButton btnRefresh;
     }
 }

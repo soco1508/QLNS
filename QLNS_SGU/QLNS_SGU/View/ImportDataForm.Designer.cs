@@ -36,6 +36,7 @@
             this.txtPathFile = new DevExpress.XtraBars.BarStaticItem();
             this.cbxContainListSheets = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemComboBox2 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
+            this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -182,7 +183,6 @@
             this.layoutControlItem23 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
@@ -374,13 +374,18 @@
             this.repositoryItemComboBox2.Sorted = true;
             this.repositoryItemComboBox2.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             // 
+            // barStaticItem1
+            // 
+            this.barStaticItem1.Id = 12;
+            this.barStaticItem1.Name = "barStaticItem1";
+            // 
             // barDockControlTop
             // 
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(591, 24);
+            this.barDockControlTop.Size = new System.Drawing.Size(591, 28);
             // 
             // barDockControlBottom
             // 
@@ -394,17 +399,17 @@
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 24);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 28);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 378);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 374);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(591, 24);
+            this.barDockControlRight.Location = new System.Drawing.Point(591, 28);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 378);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 374);
             // 
             // dockManager1
             // 
@@ -475,11 +480,11 @@
             this.navBarTrangThai,
             this.navBarChungChi,
             this.navBarHopDong});
-            this.navBarControl1.Location = new System.Drawing.Point(0, 24);
+            this.navBarControl1.Location = new System.Drawing.Point(0, 28);
             this.navBarControl1.Name = "navBarControl1";
             this.navBarControl1.OptionsNavPane.ExpandedWidth = 206;
             this.navBarControl1.PaintStyleKind = DevExpress.XtraNavBar.NavBarViewKind.NavigationPane;
-            this.navBarControl1.Size = new System.Drawing.Size(206, 378);
+            this.navBarControl1.Size = new System.Drawing.Size(206, 374);
             this.navBarControl1.TabIndex = 6;
             this.navBarControl1.Text = "navBarControl1";
             // 
@@ -565,9 +570,9 @@
             // 
             // splitterControl1
             // 
-            this.splitterControl1.Location = new System.Drawing.Point(206, 24);
+            this.splitterControl1.Location = new System.Drawing.Point(206, 28);
             this.splitterControl1.Name = "splitterControl1";
-            this.splitterControl1.Size = new System.Drawing.Size(5, 378);
+            this.splitterControl1.Size = new System.Drawing.Size(4, 374);
             this.splitterControl1.TabIndex = 7;
             this.splitterControl1.TabStop = false;
             // 
@@ -575,11 +580,11 @@
             // 
             this.xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xtraTabControl1.HeaderOrientation = DevExpress.XtraTab.TabOrientation.Horizontal;
-            this.xtraTabControl1.Location = new System.Drawing.Point(211, 24);
+            this.xtraTabControl1.Location = new System.Drawing.Point(210, 28);
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.tabDangHocNangCao;
             this.xtraTabControl1.ShowTabHeader = DevExpress.Utils.DefaultBoolean.True;
-            this.xtraTabControl1.Size = new System.Drawing.Size(380, 378);
+            this.xtraTabControl1.Size = new System.Drawing.Size(381, 374);
             this.xtraTabControl1.TabIndex = 8;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.tabThongTinCaNhan,
@@ -596,7 +601,7 @@
             // 
             this.tabDangHocNangCao.Controls.Add(this.layoutControl7);
             this.tabDangHocNangCao.Name = "tabDangHocNangCao";
-            this.tabDangHocNangCao.Size = new System.Drawing.Size(374, 350);
+            this.tabDangHocNangCao.Size = new System.Drawing.Size(376, 349);
             this.tabDangHocNangCao.Text = "Đang học nâng cao";
             // 
             // layoutControl7
@@ -606,7 +611,7 @@
             this.layoutControl7.Location = new System.Drawing.Point(0, 0);
             this.layoutControl7.Name = "layoutControl7";
             this.layoutControl7.Root = this.layoutControlGroup7;
-            this.layoutControl7.Size = new System.Drawing.Size(374, 350);
+            this.layoutControl7.Size = new System.Drawing.Size(376, 349);
             this.layoutControl7.TabIndex = 0;
             this.layoutControl7.Text = "layoutControl7";
             // 
@@ -616,9 +621,9 @@
             this.btnImportDangHocNangCao.Appearance.ForeColor = System.Drawing.Color.DimGray;
             this.btnImportDangHocNangCao.Appearance.Options.UseFont = true;
             this.btnImportDangHocNangCao.Appearance.Options.UseForeColor = true;
-            this.btnImportDangHocNangCao.Location = new System.Drawing.Point(221, 12);
+            this.btnImportDangHocNangCao.Location = new System.Drawing.Point(222, 12);
             this.btnImportDangHocNangCao.Name = "btnImportDangHocNangCao";
-            this.btnImportDangHocNangCao.Size = new System.Drawing.Size(141, 24);
+            this.btnImportDangHocNangCao.Size = new System.Drawing.Size(142, 24);
             this.btnImportDangHocNangCao.StyleController = this.layoutControl7;
             this.btnImportDangHocNangCao.TabIndex = 4;
             this.btnImportDangHocNangCao.Text = "Nhập dữ liệu";
@@ -633,7 +638,7 @@
             this.layoutControlItem19});
             this.layoutControlGroup7.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup7.Name = "layoutControlGroup7";
-            this.layoutControlGroup7.Size = new System.Drawing.Size(374, 350);
+            this.layoutControlGroup7.Size = new System.Drawing.Size(376, 349);
             this.layoutControlGroup7.TextVisible = false;
             // 
             // simpleLabelItem19
@@ -644,8 +649,11 @@
             this.simpleLabelItem19.AppearanceItemCaption.Options.UseFont = true;
             this.simpleLabelItem19.AppearanceItemCaption.Options.UseForeColor = true;
             this.simpleLabelItem19.Location = new System.Drawing.Point(0, 0);
+            this.simpleLabelItem19.MaxSize = new System.Drawing.Size(210, 23);
+            this.simpleLabelItem19.MinSize = new System.Drawing.Size(210, 23);
             this.simpleLabelItem19.Name = "simpleLabelItem19";
-            this.simpleLabelItem19.Size = new System.Drawing.Size(209, 28);
+            this.simpleLabelItem19.Size = new System.Drawing.Size(210, 28);
+            this.simpleLabelItem19.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.simpleLabelItem19.Text = "Đang học nâng cao";
             this.simpleLabelItem19.TextSize = new System.Drawing.Size(136, 19);
             // 
@@ -653,16 +661,21 @@
             // 
             this.emptySpaceItem20.AllowHotTrack = false;
             this.emptySpaceItem20.Location = new System.Drawing.Point(0, 28);
+            this.emptySpaceItem20.MinSize = new System.Drawing.Size(104, 24);
             this.emptySpaceItem20.Name = "emptySpaceItem20";
-            this.emptySpaceItem20.Size = new System.Drawing.Size(354, 302);
+            this.emptySpaceItem20.Size = new System.Drawing.Size(356, 301);
+            this.emptySpaceItem20.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem20.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem19
             // 
             this.layoutControlItem19.Control = this.btnImportDangHocNangCao;
-            this.layoutControlItem19.Location = new System.Drawing.Point(209, 0);
+            this.layoutControlItem19.Location = new System.Drawing.Point(210, 0);
+            this.layoutControlItem19.MaxSize = new System.Drawing.Size(146, 28);
+            this.layoutControlItem19.MinSize = new System.Drawing.Size(146, 28);
             this.layoutControlItem19.Name = "layoutControlItem19";
-            this.layoutControlItem19.Size = new System.Drawing.Size(145, 28);
+            this.layoutControlItem19.Size = new System.Drawing.Size(146, 28);
+            this.layoutControlItem19.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem19.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem19.TextVisible = false;
             // 
@@ -670,7 +683,7 @@
             // 
             this.tabThongTinCaNhan.Controls.Add(this.layoutControl1);
             this.tabThongTinCaNhan.Name = "tabThongTinCaNhan";
-            this.tabThongTinCaNhan.Size = new System.Drawing.Size(374, 350);
+            this.tabThongTinCaNhan.Size = new System.Drawing.Size(376, 349);
             this.tabThongTinCaNhan.Text = "Thông tin viên chức";
             // 
             // layoutControl1
@@ -681,7 +694,7 @@
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(641, 149, 450, 400);
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(374, 350);
+            this.layoutControl1.Size = new System.Drawing.Size(376, 349);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -691,9 +704,9 @@
             this.btnImportVienChuc.Appearance.ForeColor = System.Drawing.Color.DimGray;
             this.btnImportVienChuc.Appearance.Options.UseFont = true;
             this.btnImportVienChuc.Appearance.Options.UseForeColor = true;
-            this.btnImportVienChuc.Location = new System.Drawing.Point(221, 12);
+            this.btnImportVienChuc.Location = new System.Drawing.Point(222, 12);
             this.btnImportVienChuc.Name = "btnImportVienChuc";
-            this.btnImportVienChuc.Size = new System.Drawing.Size(141, 24);
+            this.btnImportVienChuc.Size = new System.Drawing.Size(142, 24);
             this.btnImportVienChuc.StyleController = this.layoutControl1;
             this.btnImportVienChuc.TabIndex = 4;
             this.btnImportVienChuc.Text = "Nhập dữ liệu";
@@ -709,7 +722,7 @@
             this.layoutControlItem1});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(374, 350);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(376, 349);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // simpleLabelItem1
@@ -722,8 +735,11 @@
             this.simpleLabelItem1.AppearanceItemCaption.Options.UseTextOptions = true;
             this.simpleLabelItem1.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.simpleLabelItem1.Location = new System.Drawing.Point(0, 0);
+            this.simpleLabelItem1.MaxSize = new System.Drawing.Size(210, 23);
+            this.simpleLabelItem1.MinSize = new System.Drawing.Size(210, 23);
             this.simpleLabelItem1.Name = "simpleLabelItem1";
-            this.simpleLabelItem1.Size = new System.Drawing.Size(209, 28);
+            this.simpleLabelItem1.Size = new System.Drawing.Size(210, 28);
+            this.simpleLabelItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.simpleLabelItem1.Text = "Viên chức";
             this.simpleLabelItem1.TextSize = new System.Drawing.Size(69, 19);
             // 
@@ -732,22 +748,25 @@
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.Location = new System.Drawing.Point(0, 28);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(354, 300);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(356, 299);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // simpleSeparator1
             // 
             this.simpleSeparator1.AllowHotTrack = false;
-            this.simpleSeparator1.Location = new System.Drawing.Point(0, 328);
+            this.simpleSeparator1.Location = new System.Drawing.Point(0, 327);
             this.simpleSeparator1.Name = "simpleSeparator1";
-            this.simpleSeparator1.Size = new System.Drawing.Size(354, 2);
+            this.simpleSeparator1.Size = new System.Drawing.Size(356, 2);
             // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.btnImportVienChuc;
-            this.layoutControlItem1.Location = new System.Drawing.Point(209, 0);
+            this.layoutControlItem1.Location = new System.Drawing.Point(210, 0);
+            this.layoutControlItem1.MaxSize = new System.Drawing.Size(146, 28);
+            this.layoutControlItem1.MinSize = new System.Drawing.Size(146, 28);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(145, 28);
+            this.layoutControlItem1.Size = new System.Drawing.Size(146, 28);
+            this.layoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -755,7 +774,7 @@
             // 
             this.tabTrangThai.Controls.Add(this.layoutControl2);
             this.tabTrangThai.Name = "tabTrangThai";
-            this.tabTrangThai.Size = new System.Drawing.Size(374, 350);
+            this.tabTrangThai.Size = new System.Drawing.Size(376, 349);
             this.tabTrangThai.Text = "Trạng thái";
             // 
             // layoutControl2
@@ -766,7 +785,7 @@
             this.layoutControl2.Location = new System.Drawing.Point(0, 0);
             this.layoutControl2.Name = "layoutControl2";
             this.layoutControl2.Root = this.layoutControlGroup2;
-            this.layoutControl2.Size = new System.Drawing.Size(374, 350);
+            this.layoutControl2.Size = new System.Drawing.Size(376, 349);
             this.layoutControl2.TabIndex = 0;
             this.layoutControl2.Text = "layoutControl2";
             // 
@@ -776,9 +795,9 @@
             this.btnImportTrangThai.Appearance.ForeColor = System.Drawing.Color.DimGray;
             this.btnImportTrangThai.Appearance.Options.UseFont = true;
             this.btnImportTrangThai.Appearance.Options.UseForeColor = true;
-            this.btnImportTrangThai.Location = new System.Drawing.Point(221, 12);
+            this.btnImportTrangThai.Location = new System.Drawing.Point(222, 12);
             this.btnImportTrangThai.Name = "btnImportTrangThai";
-            this.btnImportTrangThai.Size = new System.Drawing.Size(141, 24);
+            this.btnImportTrangThai.Size = new System.Drawing.Size(142, 24);
             this.btnImportTrangThai.StyleController = this.layoutControl2;
             this.btnImportTrangThai.TabIndex = 4;
             this.btnImportTrangThai.Text = "Nhập dữ liệu";
@@ -789,9 +808,9 @@
             this.btnImportTrangThaiVienChuc.Appearance.ForeColor = System.Drawing.Color.DimGray;
             this.btnImportTrangThaiVienChuc.Appearance.Options.UseFont = true;
             this.btnImportTrangThaiVienChuc.Appearance.Options.UseForeColor = true;
-            this.btnImportTrangThaiVienChuc.Location = new System.Drawing.Point(221, 62);
+            this.btnImportTrangThaiVienChuc.Location = new System.Drawing.Point(222, 62);
             this.btnImportTrangThaiVienChuc.Name = "btnImportTrangThaiVienChuc";
-            this.btnImportTrangThaiVienChuc.Size = new System.Drawing.Size(141, 24);
+            this.btnImportTrangThaiVienChuc.Size = new System.Drawing.Size(142, 24);
             this.btnImportTrangThaiVienChuc.StyleController = this.layoutControl2;
             this.btnImportTrangThaiVienChuc.TabIndex = 5;
             this.btnImportTrangThaiVienChuc.Text = "Nhập dữ liệu";
@@ -810,7 +829,7 @@
             this.emptySpaceItem11});
             this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup2.Name = "layoutControlGroup2";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(374, 350);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(376, 349);
             this.layoutControlGroup2.TextVisible = false;
             // 
             // simpleLabelItem2
@@ -821,8 +840,11 @@
             this.simpleLabelItem2.AppearanceItemCaption.Options.UseFont = true;
             this.simpleLabelItem2.AppearanceItemCaption.Options.UseForeColor = true;
             this.simpleLabelItem2.Location = new System.Drawing.Point(0, 0);
+            this.simpleLabelItem2.MaxSize = new System.Drawing.Size(210, 23);
+            this.simpleLabelItem2.MinSize = new System.Drawing.Size(210, 23);
             this.simpleLabelItem2.Name = "simpleLabelItem2";
-            this.simpleLabelItem2.Size = new System.Drawing.Size(209, 28);
+            this.simpleLabelItem2.Size = new System.Drawing.Size(210, 28);
+            this.simpleLabelItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.simpleLabelItem2.Text = "Trạng thái";
             this.simpleLabelItem2.TextSize = new System.Drawing.Size(158, 19);
             // 
@@ -830,8 +852,10 @@
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
             this.emptySpaceItem2.Location = new System.Drawing.Point(0, 78);
+            this.emptySpaceItem2.MinSize = new System.Drawing.Size(104, 24);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(354, 250);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(356, 249);
+            this.emptySpaceItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // simpleLabelItem3
@@ -844,33 +868,42 @@
             this.simpleLabelItem3.AppearanceItemCaption.Options.UseTextOptions = true;
             this.simpleLabelItem3.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.simpleLabelItem3.Location = new System.Drawing.Point(0, 50);
+            this.simpleLabelItem3.MaxSize = new System.Drawing.Size(210, 23);
+            this.simpleLabelItem3.MinSize = new System.Drawing.Size(210, 23);
             this.simpleLabelItem3.Name = "simpleLabelItem3";
-            this.simpleLabelItem3.Size = new System.Drawing.Size(209, 28);
+            this.simpleLabelItem3.Size = new System.Drawing.Size(210, 28);
+            this.simpleLabelItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.simpleLabelItem3.Text = "Trạng thái - Viên chức";
             this.simpleLabelItem3.TextSize = new System.Drawing.Size(158, 19);
             // 
             // simpleSeparator6
             // 
             this.simpleSeparator6.AllowHotTrack = false;
-            this.simpleSeparator6.Location = new System.Drawing.Point(0, 328);
+            this.simpleSeparator6.Location = new System.Drawing.Point(0, 327);
             this.simpleSeparator6.Name = "simpleSeparator6";
-            this.simpleSeparator6.Size = new System.Drawing.Size(354, 2);
+            this.simpleSeparator6.Size = new System.Drawing.Size(356, 2);
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.btnImportTrangThai;
-            this.layoutControlItem2.Location = new System.Drawing.Point(209, 0);
+            this.layoutControlItem2.Location = new System.Drawing.Point(210, 0);
+            this.layoutControlItem2.MaxSize = new System.Drawing.Size(146, 28);
+            this.layoutControlItem2.MinSize = new System.Drawing.Size(146, 28);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(145, 28);
+            this.layoutControlItem2.Size = new System.Drawing.Size(146, 28);
+            this.layoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.btnImportTrangThaiVienChuc;
-            this.layoutControlItem3.Location = new System.Drawing.Point(209, 50);
+            this.layoutControlItem3.Location = new System.Drawing.Point(210, 50);
+            this.layoutControlItem3.MaxSize = new System.Drawing.Size(146, 28);
+            this.layoutControlItem3.MinSize = new System.Drawing.Size(146, 28);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(145, 28);
+            this.layoutControlItem3.Size = new System.Drawing.Size(146, 28);
+            this.layoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
@@ -878,9 +911,10 @@
             // 
             this.emptySpaceItem11.AllowHotTrack = false;
             this.emptySpaceItem11.Location = new System.Drawing.Point(0, 28);
-            this.emptySpaceItem11.MinSize = new System.Drawing.Size(10, 10);
+            this.emptySpaceItem11.MaxSize = new System.Drawing.Size(0, 22);
+            this.emptySpaceItem11.MinSize = new System.Drawing.Size(10, 22);
             this.emptySpaceItem11.Name = "emptySpaceItem11";
-            this.emptySpaceItem11.Size = new System.Drawing.Size(354, 22);
+            this.emptySpaceItem11.Size = new System.Drawing.Size(356, 22);
             this.emptySpaceItem11.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem11.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -888,7 +922,7 @@
             // 
             this.tabChucVuDonVi.Controls.Add(this.layoutControl3);
             this.tabChucVuDonVi.Name = "tabChucVuDonVi";
-            this.tabChucVuDonVi.Size = new System.Drawing.Size(374, 350);
+            this.tabChucVuDonVi.Size = new System.Drawing.Size(376, 349);
             this.tabChucVuDonVi.Text = "Chức vụ - Đơn vị";
             // 
             // layoutControl3
@@ -903,7 +937,7 @@
             this.layoutControl3.Location = new System.Drawing.Point(0, 0);
             this.layoutControl3.Name = "layoutControl3";
             this.layoutControl3.Root = this.layoutControlGroup3;
-            this.layoutControl3.Size = new System.Drawing.Size(374, 350);
+            this.layoutControl3.Size = new System.Drawing.Size(376, 349);
             this.layoutControl3.TabIndex = 0;
             this.layoutControl3.Text = "layoutControl3";
             // 
@@ -913,9 +947,9 @@
             this.btnImportLoaiChucVu.Appearance.ForeColor = System.Drawing.Color.DimGray;
             this.btnImportLoaiChucVu.Appearance.Options.UseFont = true;
             this.btnImportLoaiChucVu.Appearance.Options.UseForeColor = true;
-            this.btnImportLoaiChucVu.Location = new System.Drawing.Point(221, 12);
+            this.btnImportLoaiChucVu.Location = new System.Drawing.Point(222, 12);
             this.btnImportLoaiChucVu.Name = "btnImportLoaiChucVu";
-            this.btnImportLoaiChucVu.Size = new System.Drawing.Size(141, 24);
+            this.btnImportLoaiChucVu.Size = new System.Drawing.Size(142, 24);
             this.btnImportLoaiChucVu.StyleController = this.layoutControl3;
             this.btnImportLoaiChucVu.TabIndex = 4;
             this.btnImportLoaiChucVu.Text = "Nhập dữ liệu";
@@ -926,9 +960,9 @@
             this.btnImportChucVu.Appearance.ForeColor = System.Drawing.Color.DimGray;
             this.btnImportChucVu.Appearance.Options.UseFont = true;
             this.btnImportChucVu.Appearance.Options.UseForeColor = true;
-            this.btnImportChucVu.Location = new System.Drawing.Point(221, 60);
+            this.btnImportChucVu.Location = new System.Drawing.Point(222, 60);
             this.btnImportChucVu.Name = "btnImportChucVu";
-            this.btnImportChucVu.Size = new System.Drawing.Size(141, 24);
+            this.btnImportChucVu.Size = new System.Drawing.Size(142, 24);
             this.btnImportChucVu.StyleController = this.layoutControl3;
             this.btnImportChucVu.TabIndex = 5;
             this.btnImportChucVu.Text = "Nhập dữ liệu";
@@ -939,9 +973,9 @@
             this.btnImportLoaiDonVi.Appearance.ForeColor = System.Drawing.Color.DimGray;
             this.btnImportLoaiDonVi.Appearance.Options.UseFont = true;
             this.btnImportLoaiDonVi.Appearance.Options.UseForeColor = true;
-            this.btnImportLoaiDonVi.Location = new System.Drawing.Point(221, 108);
+            this.btnImportLoaiDonVi.Location = new System.Drawing.Point(222, 108);
             this.btnImportLoaiDonVi.Name = "btnImportLoaiDonVi";
-            this.btnImportLoaiDonVi.Size = new System.Drawing.Size(141, 24);
+            this.btnImportLoaiDonVi.Size = new System.Drawing.Size(142, 24);
             this.btnImportLoaiDonVi.StyleController = this.layoutControl3;
             this.btnImportLoaiDonVi.TabIndex = 6;
             this.btnImportLoaiDonVi.Text = "Nhập dữ liệu";
@@ -952,9 +986,9 @@
             this.btnImportDonVi.Appearance.ForeColor = System.Drawing.Color.DimGray;
             this.btnImportDonVi.Appearance.Options.UseFont = true;
             this.btnImportDonVi.Appearance.Options.UseForeColor = true;
-            this.btnImportDonVi.Location = new System.Drawing.Point(221, 156);
+            this.btnImportDonVi.Location = new System.Drawing.Point(222, 156);
             this.btnImportDonVi.Name = "btnImportDonVi";
-            this.btnImportDonVi.Size = new System.Drawing.Size(141, 24);
+            this.btnImportDonVi.Size = new System.Drawing.Size(142, 24);
             this.btnImportDonVi.StyleController = this.layoutControl3;
             this.btnImportDonVi.TabIndex = 7;
             this.btnImportDonVi.Text = "Nhập dữ liệu";
@@ -965,9 +999,9 @@
             this.btnImportToChuyenMon.Appearance.ForeColor = System.Drawing.Color.DimGray;
             this.btnImportToChuyenMon.Appearance.Options.UseFont = true;
             this.btnImportToChuyenMon.Appearance.Options.UseForeColor = true;
-            this.btnImportToChuyenMon.Location = new System.Drawing.Point(221, 204);
+            this.btnImportToChuyenMon.Location = new System.Drawing.Point(222, 204);
             this.btnImportToChuyenMon.Name = "btnImportToChuyenMon";
-            this.btnImportToChuyenMon.Size = new System.Drawing.Size(141, 24);
+            this.btnImportToChuyenMon.Size = new System.Drawing.Size(142, 24);
             this.btnImportToChuyenMon.StyleController = this.layoutControl3;
             this.btnImportToChuyenMon.TabIndex = 8;
             this.btnImportToChuyenMon.Text = "Nhập dữ liệu";
@@ -978,9 +1012,9 @@
             this.btnImportChucVuDonViVienChuc.Appearance.ForeColor = System.Drawing.Color.DimGray;
             this.btnImportChucVuDonViVienChuc.Appearance.Options.UseFont = true;
             this.btnImportChucVuDonViVienChuc.Appearance.Options.UseForeColor = true;
-            this.btnImportChucVuDonViVienChuc.Location = new System.Drawing.Point(221, 252);
+            this.btnImportChucVuDonViVienChuc.Location = new System.Drawing.Point(222, 251);
             this.btnImportChucVuDonViVienChuc.Name = "btnImportChucVuDonViVienChuc";
-            this.btnImportChucVuDonViVienChuc.Size = new System.Drawing.Size(141, 24);
+            this.btnImportChucVuDonViVienChuc.Size = new System.Drawing.Size(142, 24);
             this.btnImportChucVuDonViVienChuc.StyleController = this.layoutControl3;
             this.btnImportChucVuDonViVienChuc.TabIndex = 9;
             this.btnImportChucVuDonViVienChuc.Text = "Nhập dữ liệu";
@@ -1010,7 +1044,7 @@
             this.layoutControlItem4});
             this.layoutControlGroup3.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup3.Name = "layoutControlGroup3";
-            this.layoutControlGroup3.Size = new System.Drawing.Size(374, 350);
+            this.layoutControlGroup3.Size = new System.Drawing.Size(376, 349);
             this.layoutControlGroup3.TextVisible = false;
             // 
             // simpleLabelItem4
@@ -1021,8 +1055,11 @@
             this.simpleLabelItem4.AppearanceItemCaption.Options.UseFont = true;
             this.simpleLabelItem4.AppearanceItemCaption.Options.UseForeColor = true;
             this.simpleLabelItem4.Location = new System.Drawing.Point(0, 0);
+            this.simpleLabelItem4.MaxSize = new System.Drawing.Size(210, 23);
+            this.simpleLabelItem4.MinSize = new System.Drawing.Size(210, 23);
             this.simpleLabelItem4.Name = "simpleLabelItem4";
-            this.simpleLabelItem4.Size = new System.Drawing.Size(209, 28);
+            this.simpleLabelItem4.Size = new System.Drawing.Size(210, 28);
+            this.simpleLabelItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.simpleLabelItem4.Text = "Loại chức vụ";
             this.simpleLabelItem4.TextSize = new System.Drawing.Size(131, 19);
             // 
@@ -1034,8 +1071,11 @@
             this.simpleLabelItem5.AppearanceItemCaption.Options.UseFont = true;
             this.simpleLabelItem5.AppearanceItemCaption.Options.UseForeColor = true;
             this.simpleLabelItem5.Location = new System.Drawing.Point(0, 48);
+            this.simpleLabelItem5.MaxSize = new System.Drawing.Size(210, 23);
+            this.simpleLabelItem5.MinSize = new System.Drawing.Size(210, 23);
             this.simpleLabelItem5.Name = "simpleLabelItem5";
-            this.simpleLabelItem5.Size = new System.Drawing.Size(209, 28);
+            this.simpleLabelItem5.Size = new System.Drawing.Size(210, 28);
+            this.simpleLabelItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.simpleLabelItem5.Text = "Chức vụ";
             this.simpleLabelItem5.TextSize = new System.Drawing.Size(131, 19);
             // 
@@ -1047,8 +1087,11 @@
             this.simpleLabelItem6.AppearanceItemCaption.Options.UseFont = true;
             this.simpleLabelItem6.AppearanceItemCaption.Options.UseForeColor = true;
             this.simpleLabelItem6.Location = new System.Drawing.Point(0, 96);
+            this.simpleLabelItem6.MaxSize = new System.Drawing.Size(210, 23);
+            this.simpleLabelItem6.MinSize = new System.Drawing.Size(210, 23);
             this.simpleLabelItem6.Name = "simpleLabelItem6";
-            this.simpleLabelItem6.Size = new System.Drawing.Size(209, 28);
+            this.simpleLabelItem6.Size = new System.Drawing.Size(210, 28);
+            this.simpleLabelItem6.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.simpleLabelItem6.Text = "Loại đơn vị";
             this.simpleLabelItem6.TextSize = new System.Drawing.Size(131, 19);
             // 
@@ -1060,8 +1103,11 @@
             this.simpleLabelItem7.AppearanceItemCaption.Options.UseFont = true;
             this.simpleLabelItem7.AppearanceItemCaption.Options.UseForeColor = true;
             this.simpleLabelItem7.Location = new System.Drawing.Point(0, 144);
+            this.simpleLabelItem7.MaxSize = new System.Drawing.Size(210, 23);
+            this.simpleLabelItem7.MinSize = new System.Drawing.Size(210, 23);
             this.simpleLabelItem7.Name = "simpleLabelItem7";
-            this.simpleLabelItem7.Size = new System.Drawing.Size(209, 28);
+            this.simpleLabelItem7.Size = new System.Drawing.Size(210, 28);
+            this.simpleLabelItem7.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.simpleLabelItem7.Text = "Đơn vị";
             this.simpleLabelItem7.TextSize = new System.Drawing.Size(131, 19);
             // 
@@ -1072,53 +1118,70 @@
             this.simpleLabelItem9.AppearanceItemCaption.ForeColor = System.Drawing.Color.DimGray;
             this.simpleLabelItem9.AppearanceItemCaption.Options.UseFont = true;
             this.simpleLabelItem9.AppearanceItemCaption.Options.UseForeColor = true;
-            this.simpleLabelItem9.Location = new System.Drawing.Point(0, 240);
+            this.simpleLabelItem9.Location = new System.Drawing.Point(0, 239);
+            this.simpleLabelItem9.MaxSize = new System.Drawing.Size(210, 23);
+            this.simpleLabelItem9.MinSize = new System.Drawing.Size(210, 23);
             this.simpleLabelItem9.Name = "simpleLabelItem9";
-            this.simpleLabelItem9.Size = new System.Drawing.Size(209, 28);
+            this.simpleLabelItem9.Size = new System.Drawing.Size(210, 28);
+            this.simpleLabelItem9.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.simpleLabelItem9.Text = "Quá trình công tác";
             this.simpleLabelItem9.TextSize = new System.Drawing.Size(131, 19);
             // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.btnImportChucVu;
-            this.layoutControlItem5.Location = new System.Drawing.Point(209, 48);
+            this.layoutControlItem5.Location = new System.Drawing.Point(210, 48);
+            this.layoutControlItem5.MaxSize = new System.Drawing.Size(146, 28);
+            this.layoutControlItem5.MinSize = new System.Drawing.Size(146, 28);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(145, 28);
+            this.layoutControlItem5.Size = new System.Drawing.Size(146, 28);
+            this.layoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.btnImportLoaiDonVi;
-            this.layoutControlItem6.Location = new System.Drawing.Point(209, 96);
+            this.layoutControlItem6.Location = new System.Drawing.Point(210, 96);
+            this.layoutControlItem6.MaxSize = new System.Drawing.Size(146, 28);
+            this.layoutControlItem6.MinSize = new System.Drawing.Size(146, 28);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(145, 28);
+            this.layoutControlItem6.Size = new System.Drawing.Size(146, 28);
+            this.layoutControlItem6.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
             // 
             // layoutControlItem7
             // 
             this.layoutControlItem7.Control = this.btnImportDonVi;
-            this.layoutControlItem7.Location = new System.Drawing.Point(209, 144);
+            this.layoutControlItem7.Location = new System.Drawing.Point(210, 144);
+            this.layoutControlItem7.MaxSize = new System.Drawing.Size(146, 28);
+            this.layoutControlItem7.MinSize = new System.Drawing.Size(146, 28);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(145, 28);
+            this.layoutControlItem7.Size = new System.Drawing.Size(146, 28);
+            this.layoutControlItem7.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem7.TextVisible = false;
             // 
             // emptySpaceItem5
             // 
             this.emptySpaceItem5.AllowHotTrack = false;
-            this.emptySpaceItem5.Location = new System.Drawing.Point(0, 268);
+            this.emptySpaceItem5.Location = new System.Drawing.Point(0, 267);
+            this.emptySpaceItem5.MinSize = new System.Drawing.Size(104, 24);
             this.emptySpaceItem5.Name = "emptySpaceItem5";
-            this.emptySpaceItem5.Size = new System.Drawing.Size(354, 62);
+            this.emptySpaceItem5.Size = new System.Drawing.Size(356, 62);
+            this.emptySpaceItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem5.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem9
             // 
             this.layoutControlItem9.Control = this.btnImportChucVuDonViVienChuc;
-            this.layoutControlItem9.Location = new System.Drawing.Point(209, 240);
+            this.layoutControlItem9.Location = new System.Drawing.Point(210, 239);
+            this.layoutControlItem9.MaxSize = new System.Drawing.Size(146, 28);
+            this.layoutControlItem9.MinSize = new System.Drawing.Size(146, 28);
             this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(145, 28);
+            this.layoutControlItem9.Size = new System.Drawing.Size(146, 28);
+            this.layoutControlItem9.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem9.TextVisible = false;
             // 
@@ -1126,9 +1189,10 @@
             // 
             this.emptySpaceItem6.AllowHotTrack = false;
             this.emptySpaceItem6.Location = new System.Drawing.Point(0, 28);
-            this.emptySpaceItem6.MinSize = new System.Drawing.Size(10, 10);
+            this.emptySpaceItem6.MaxSize = new System.Drawing.Size(0, 20);
+            this.emptySpaceItem6.MinSize = new System.Drawing.Size(10, 20);
             this.emptySpaceItem6.Name = "emptySpaceItem6";
-            this.emptySpaceItem6.Size = new System.Drawing.Size(354, 20);
+            this.emptySpaceItem6.Size = new System.Drawing.Size(356, 20);
             this.emptySpaceItem6.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem6.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -1136,9 +1200,10 @@
             // 
             this.emptySpaceItem7.AllowHotTrack = false;
             this.emptySpaceItem7.Location = new System.Drawing.Point(0, 76);
-            this.emptySpaceItem7.MinSize = new System.Drawing.Size(10, 10);
+            this.emptySpaceItem7.MaxSize = new System.Drawing.Size(0, 20);
+            this.emptySpaceItem7.MinSize = new System.Drawing.Size(10, 20);
             this.emptySpaceItem7.Name = "emptySpaceItem7";
-            this.emptySpaceItem7.Size = new System.Drawing.Size(354, 20);
+            this.emptySpaceItem7.Size = new System.Drawing.Size(356, 20);
             this.emptySpaceItem7.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem7.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -1146,9 +1211,10 @@
             // 
             this.emptySpaceItem8.AllowHotTrack = false;
             this.emptySpaceItem8.Location = new System.Drawing.Point(0, 124);
-            this.emptySpaceItem8.MinSize = new System.Drawing.Size(10, 10);
+            this.emptySpaceItem8.MaxSize = new System.Drawing.Size(0, 20);
+            this.emptySpaceItem8.MinSize = new System.Drawing.Size(10, 20);
             this.emptySpaceItem8.Name = "emptySpaceItem8";
-            this.emptySpaceItem8.Size = new System.Drawing.Size(354, 20);
+            this.emptySpaceItem8.Size = new System.Drawing.Size(356, 20);
             this.emptySpaceItem8.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem8.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -1156,9 +1222,10 @@
             // 
             this.emptySpaceItem9.AllowHotTrack = false;
             this.emptySpaceItem9.Location = new System.Drawing.Point(0, 172);
-            this.emptySpaceItem9.MinSize = new System.Drawing.Size(10, 10);
+            this.emptySpaceItem9.MaxSize = new System.Drawing.Size(0, 20);
+            this.emptySpaceItem9.MinSize = new System.Drawing.Size(10, 20);
             this.emptySpaceItem9.Name = "emptySpaceItem9";
-            this.emptySpaceItem9.Size = new System.Drawing.Size(354, 20);
+            this.emptySpaceItem9.Size = new System.Drawing.Size(356, 20);
             this.emptySpaceItem9.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem9.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -1170,17 +1237,23 @@
             this.simpleLabelItem8.AppearanceItemCaption.Options.UseFont = true;
             this.simpleLabelItem8.AppearanceItemCaption.Options.UseForeColor = true;
             this.simpleLabelItem8.Location = new System.Drawing.Point(0, 192);
+            this.simpleLabelItem8.MaxSize = new System.Drawing.Size(210, 23);
+            this.simpleLabelItem8.MinSize = new System.Drawing.Size(210, 23);
             this.simpleLabelItem8.Name = "simpleLabelItem8";
-            this.simpleLabelItem8.Size = new System.Drawing.Size(209, 28);
+            this.simpleLabelItem8.Size = new System.Drawing.Size(210, 28);
+            this.simpleLabelItem8.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.simpleLabelItem8.Text = "Tổ chuyên môn";
             this.simpleLabelItem8.TextSize = new System.Drawing.Size(131, 19);
             // 
             // layoutControlItem8
             // 
             this.layoutControlItem8.Control = this.btnImportToChuyenMon;
-            this.layoutControlItem8.Location = new System.Drawing.Point(209, 192);
+            this.layoutControlItem8.Location = new System.Drawing.Point(210, 192);
+            this.layoutControlItem8.MaxSize = new System.Drawing.Size(146, 28);
+            this.layoutControlItem8.MinSize = new System.Drawing.Size(146, 28);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(145, 28);
+            this.layoutControlItem8.Size = new System.Drawing.Size(146, 28);
+            this.layoutControlItem8.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem8.TextVisible = false;
             // 
@@ -1188,18 +1261,22 @@
             // 
             this.emptySpaceItem10.AllowHotTrack = false;
             this.emptySpaceItem10.Location = new System.Drawing.Point(0, 220);
-            this.emptySpaceItem10.MinSize = new System.Drawing.Size(10, 10);
+            this.emptySpaceItem10.MaxSize = new System.Drawing.Size(0, 19);
+            this.emptySpaceItem10.MinSize = new System.Drawing.Size(10, 19);
             this.emptySpaceItem10.Name = "emptySpaceItem10";
-            this.emptySpaceItem10.Size = new System.Drawing.Size(354, 20);
+            this.emptySpaceItem10.Size = new System.Drawing.Size(356, 19);
             this.emptySpaceItem10.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem10.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.btnImportLoaiChucVu;
-            this.layoutControlItem4.Location = new System.Drawing.Point(209, 0);
+            this.layoutControlItem4.Location = new System.Drawing.Point(210, 0);
+            this.layoutControlItem4.MaxSize = new System.Drawing.Size(146, 28);
+            this.layoutControlItem4.MinSize = new System.Drawing.Size(146, 28);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(145, 28);
+            this.layoutControlItem4.Size = new System.Drawing.Size(146, 28);
+            this.layoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
@@ -1207,7 +1284,7 @@
             // 
             this.tabNgachBacLuong.Controls.Add(this.layoutControl4);
             this.tabNgachBacLuong.Name = "tabNgachBacLuong";
-            this.tabNgachBacLuong.Size = new System.Drawing.Size(374, 350);
+            this.tabNgachBacLuong.Size = new System.Drawing.Size(376, 349);
             this.tabNgachBacLuong.Text = "Ngạch - Bậc - Lương";
             // 
             // layoutControl4
@@ -1219,7 +1296,7 @@
             this.layoutControl4.Location = new System.Drawing.Point(0, 0);
             this.layoutControl4.Name = "layoutControl4";
             this.layoutControl4.Root = this.layoutControlGroup4;
-            this.layoutControl4.Size = new System.Drawing.Size(374, 350);
+            this.layoutControl4.Size = new System.Drawing.Size(376, 349);
             this.layoutControl4.TabIndex = 0;
             this.layoutControl4.Text = "layoutControl4";
             // 
@@ -1229,9 +1306,9 @@
             this.btnImportNgach.Appearance.ForeColor = System.Drawing.Color.DimGray;
             this.btnImportNgach.Appearance.Options.UseFont = true;
             this.btnImportNgach.Appearance.Options.UseForeColor = true;
-            this.btnImportNgach.Location = new System.Drawing.Point(221, 12);
+            this.btnImportNgach.Location = new System.Drawing.Point(222, 12);
             this.btnImportNgach.Name = "btnImportNgach";
-            this.btnImportNgach.Size = new System.Drawing.Size(141, 24);
+            this.btnImportNgach.Size = new System.Drawing.Size(142, 24);
             this.btnImportNgach.StyleController = this.layoutControl4;
             this.btnImportNgach.TabIndex = 4;
             this.btnImportNgach.Text = "Nhập dữ liệu";
@@ -1242,9 +1319,9 @@
             this.btnImportBac.Appearance.ForeColor = System.Drawing.Color.DimGray;
             this.btnImportBac.Appearance.Options.UseFont = true;
             this.btnImportBac.Appearance.Options.UseForeColor = true;
-            this.btnImportBac.Location = new System.Drawing.Point(221, 60);
+            this.btnImportBac.Location = new System.Drawing.Point(222, 60);
             this.btnImportBac.Name = "btnImportBac";
-            this.btnImportBac.Size = new System.Drawing.Size(141, 24);
+            this.btnImportBac.Size = new System.Drawing.Size(142, 24);
             this.btnImportBac.StyleController = this.layoutControl4;
             this.btnImportBac.TabIndex = 5;
             this.btnImportBac.Text = "Nhập dữ liệu";
@@ -1255,9 +1332,9 @@
             this.btnImportQuaTrinhLuong.Appearance.ForeColor = System.Drawing.Color.DimGray;
             this.btnImportQuaTrinhLuong.Appearance.Options.UseFont = true;
             this.btnImportQuaTrinhLuong.Appearance.Options.UseForeColor = true;
-            this.btnImportQuaTrinhLuong.Location = new System.Drawing.Point(221, 108);
+            this.btnImportQuaTrinhLuong.Location = new System.Drawing.Point(222, 108);
             this.btnImportQuaTrinhLuong.Name = "btnImportQuaTrinhLuong";
-            this.btnImportQuaTrinhLuong.Size = new System.Drawing.Size(141, 24);
+            this.btnImportQuaTrinhLuong.Size = new System.Drawing.Size(142, 24);
             this.btnImportQuaTrinhLuong.StyleController = this.layoutControl4;
             this.btnImportQuaTrinhLuong.TabIndex = 6;
             this.btnImportQuaTrinhLuong.Text = "Nhập dữ liệu";
@@ -1278,7 +1355,7 @@
             this.emptySpaceItem14});
             this.layoutControlGroup4.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup4.Name = "layoutControlGroup4";
-            this.layoutControlGroup4.Size = new System.Drawing.Size(374, 350);
+            this.layoutControlGroup4.Size = new System.Drawing.Size(376, 349);
             this.layoutControlGroup4.TextVisible = false;
             // 
             // simpleLabelItem10
@@ -1289,8 +1366,11 @@
             this.simpleLabelItem10.AppearanceItemCaption.Options.UseFont = true;
             this.simpleLabelItem10.AppearanceItemCaption.Options.UseForeColor = true;
             this.simpleLabelItem10.Location = new System.Drawing.Point(0, 0);
+            this.simpleLabelItem10.MaxSize = new System.Drawing.Size(210, 23);
+            this.simpleLabelItem10.MinSize = new System.Drawing.Size(210, 23);
             this.simpleLabelItem10.Name = "simpleLabelItem10";
-            this.simpleLabelItem10.Size = new System.Drawing.Size(209, 28);
+            this.simpleLabelItem10.Size = new System.Drawing.Size(210, 28);
+            this.simpleLabelItem10.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.simpleLabelItem10.Text = "Ngạch";
             this.simpleLabelItem10.TextSize = new System.Drawing.Size(113, 19);
             // 
@@ -1302,8 +1382,11 @@
             this.simpleLabelItem11.AppearanceItemCaption.Options.UseFont = true;
             this.simpleLabelItem11.AppearanceItemCaption.Options.UseForeColor = true;
             this.simpleLabelItem11.Location = new System.Drawing.Point(0, 48);
+            this.simpleLabelItem11.MaxSize = new System.Drawing.Size(210, 23);
+            this.simpleLabelItem11.MinSize = new System.Drawing.Size(210, 23);
             this.simpleLabelItem11.Name = "simpleLabelItem11";
-            this.simpleLabelItem11.Size = new System.Drawing.Size(209, 28);
+            this.simpleLabelItem11.Size = new System.Drawing.Size(210, 28);
+            this.simpleLabelItem11.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.simpleLabelItem11.Text = "Bậc";
             this.simpleLabelItem11.TextSize = new System.Drawing.Size(113, 19);
             // 
@@ -1315,26 +1398,35 @@
             this.simpleLabelItem12.AppearanceItemCaption.Options.UseFont = true;
             this.simpleLabelItem12.AppearanceItemCaption.Options.UseForeColor = true;
             this.simpleLabelItem12.Location = new System.Drawing.Point(0, 96);
+            this.simpleLabelItem12.MaxSize = new System.Drawing.Size(210, 23);
+            this.simpleLabelItem12.MinSize = new System.Drawing.Size(210, 23);
             this.simpleLabelItem12.Name = "simpleLabelItem12";
-            this.simpleLabelItem12.Size = new System.Drawing.Size(209, 28);
+            this.simpleLabelItem12.Size = new System.Drawing.Size(210, 28);
+            this.simpleLabelItem12.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.simpleLabelItem12.Text = "Quá trình lương";
             this.simpleLabelItem12.TextSize = new System.Drawing.Size(113, 19);
             // 
             // layoutControlItem10
             // 
             this.layoutControlItem10.Control = this.btnImportNgach;
-            this.layoutControlItem10.Location = new System.Drawing.Point(209, 0);
+            this.layoutControlItem10.Location = new System.Drawing.Point(210, 0);
+            this.layoutControlItem10.MaxSize = new System.Drawing.Size(146, 28);
+            this.layoutControlItem10.MinSize = new System.Drawing.Size(146, 28);
             this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(145, 28);
+            this.layoutControlItem10.Size = new System.Drawing.Size(146, 28);
+            this.layoutControlItem10.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem10.TextVisible = false;
             // 
             // layoutControlItem11
             // 
             this.layoutControlItem11.Control = this.btnImportBac;
-            this.layoutControlItem11.Location = new System.Drawing.Point(209, 48);
+            this.layoutControlItem11.Location = new System.Drawing.Point(210, 48);
+            this.layoutControlItem11.MaxSize = new System.Drawing.Size(146, 28);
+            this.layoutControlItem11.MinSize = new System.Drawing.Size(146, 28);
             this.layoutControlItem11.Name = "layoutControlItem11";
-            this.layoutControlItem11.Size = new System.Drawing.Size(145, 28);
+            this.layoutControlItem11.Size = new System.Drawing.Size(146, 28);
+            this.layoutControlItem11.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem11.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem11.TextVisible = false;
             // 
@@ -1342,16 +1434,21 @@
             // 
             this.emptySpaceItem12.AllowHotTrack = false;
             this.emptySpaceItem12.Location = new System.Drawing.Point(0, 124);
+            this.emptySpaceItem12.MinSize = new System.Drawing.Size(104, 24);
             this.emptySpaceItem12.Name = "emptySpaceItem12";
-            this.emptySpaceItem12.Size = new System.Drawing.Size(354, 206);
+            this.emptySpaceItem12.Size = new System.Drawing.Size(356, 205);
+            this.emptySpaceItem12.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem12.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem12
             // 
             this.layoutControlItem12.Control = this.btnImportQuaTrinhLuong;
-            this.layoutControlItem12.Location = new System.Drawing.Point(209, 96);
+            this.layoutControlItem12.Location = new System.Drawing.Point(210, 96);
+            this.layoutControlItem12.MaxSize = new System.Drawing.Size(146, 28);
+            this.layoutControlItem12.MinSize = new System.Drawing.Size(146, 28);
             this.layoutControlItem12.Name = "layoutControlItem12";
-            this.layoutControlItem12.Size = new System.Drawing.Size(145, 28);
+            this.layoutControlItem12.Size = new System.Drawing.Size(146, 28);
+            this.layoutControlItem12.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem12.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem12.TextVisible = false;
             // 
@@ -1359,9 +1456,10 @@
             // 
             this.emptySpaceItem13.AllowHotTrack = false;
             this.emptySpaceItem13.Location = new System.Drawing.Point(0, 28);
-            this.emptySpaceItem13.MinSize = new System.Drawing.Size(10, 10);
+            this.emptySpaceItem13.MaxSize = new System.Drawing.Size(0, 20);
+            this.emptySpaceItem13.MinSize = new System.Drawing.Size(10, 20);
             this.emptySpaceItem13.Name = "emptySpaceItem13";
-            this.emptySpaceItem13.Size = new System.Drawing.Size(354, 20);
+            this.emptySpaceItem13.Size = new System.Drawing.Size(356, 20);
             this.emptySpaceItem13.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem13.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -1369,9 +1467,10 @@
             // 
             this.emptySpaceItem14.AllowHotTrack = false;
             this.emptySpaceItem14.Location = new System.Drawing.Point(0, 76);
-            this.emptySpaceItem14.MinSize = new System.Drawing.Size(10, 10);
+            this.emptySpaceItem14.MaxSize = new System.Drawing.Size(0, 20);
+            this.emptySpaceItem14.MinSize = new System.Drawing.Size(10, 20);
             this.emptySpaceItem14.Name = "emptySpaceItem14";
-            this.emptySpaceItem14.Size = new System.Drawing.Size(354, 20);
+            this.emptySpaceItem14.Size = new System.Drawing.Size(356, 20);
             this.emptySpaceItem14.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem14.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -1379,7 +1478,7 @@
             // 
             this.tabNganh.Controls.Add(this.layoutControl5);
             this.tabNganh.Name = "tabNganh";
-            this.tabNganh.Size = new System.Drawing.Size(374, 350);
+            this.tabNganh.Size = new System.Drawing.Size(376, 349);
             this.tabNganh.Text = "Ngành";
             // 
             // layoutControl5
@@ -1392,7 +1491,7 @@
             this.layoutControl5.Location = new System.Drawing.Point(0, 0);
             this.layoutControl5.Name = "layoutControl5";
             this.layoutControl5.Root = this.layoutControlGroup5;
-            this.layoutControl5.Size = new System.Drawing.Size(374, 350);
+            this.layoutControl5.Size = new System.Drawing.Size(376, 349);
             this.layoutControl5.TabIndex = 0;
             this.layoutControl5.Text = "layoutControl5";
             // 
@@ -1402,9 +1501,9 @@
             this.btnImportLoaiNganh.Appearance.ForeColor = System.Drawing.Color.DimGray;
             this.btnImportLoaiNganh.Appearance.Options.UseFont = true;
             this.btnImportLoaiNganh.Appearance.Options.UseForeColor = true;
-            this.btnImportLoaiNganh.Location = new System.Drawing.Point(221, 12);
+            this.btnImportLoaiNganh.Location = new System.Drawing.Point(222, 12);
             this.btnImportLoaiNganh.Name = "btnImportLoaiNganh";
-            this.btnImportLoaiNganh.Size = new System.Drawing.Size(141, 24);
+            this.btnImportLoaiNganh.Size = new System.Drawing.Size(142, 24);
             this.btnImportLoaiNganh.StyleController = this.layoutControl5;
             this.btnImportLoaiNganh.TabIndex = 4;
             this.btnImportLoaiNganh.Text = "Nhập dữ liệu";
@@ -1415,9 +1514,9 @@
             this.btnImportNganhDaoTao.Appearance.ForeColor = System.Drawing.Color.DimGray;
             this.btnImportNganhDaoTao.Appearance.Options.UseFont = true;
             this.btnImportNganhDaoTao.Appearance.Options.UseForeColor = true;
-            this.btnImportNganhDaoTao.Location = new System.Drawing.Point(221, 60);
+            this.btnImportNganhDaoTao.Location = new System.Drawing.Point(222, 60);
             this.btnImportNganhDaoTao.Name = "btnImportNganhDaoTao";
-            this.btnImportNganhDaoTao.Size = new System.Drawing.Size(141, 24);
+            this.btnImportNganhDaoTao.Size = new System.Drawing.Size(142, 24);
             this.btnImportNganhDaoTao.StyleController = this.layoutControl5;
             this.btnImportNganhDaoTao.TabIndex = 5;
             this.btnImportNganhDaoTao.Text = "Nhập dữ liệu";
@@ -1428,9 +1527,9 @@
             this.btnImportChuyenNganh.Appearance.ForeColor = System.Drawing.Color.DimGray;
             this.btnImportChuyenNganh.Appearance.Options.UseFont = true;
             this.btnImportChuyenNganh.Appearance.Options.UseForeColor = true;
-            this.btnImportChuyenNganh.Location = new System.Drawing.Point(221, 108);
+            this.btnImportChuyenNganh.Location = new System.Drawing.Point(222, 108);
             this.btnImportChuyenNganh.Name = "btnImportChuyenNganh";
-            this.btnImportChuyenNganh.Size = new System.Drawing.Size(141, 24);
+            this.btnImportChuyenNganh.Size = new System.Drawing.Size(142, 24);
             this.btnImportChuyenNganh.StyleController = this.layoutControl5;
             this.btnImportChuyenNganh.TabIndex = 6;
             this.btnImportChuyenNganh.Text = "Nhập dữ liệu";
@@ -1441,9 +1540,9 @@
             this.btnImportNganhVienChuc.Appearance.ForeColor = System.Drawing.Color.DimGray;
             this.btnImportNganhVienChuc.Appearance.Options.UseFont = true;
             this.btnImportNganhVienChuc.Appearance.Options.UseForeColor = true;
-            this.btnImportNganhVienChuc.Location = new System.Drawing.Point(221, 156);
+            this.btnImportNganhVienChuc.Location = new System.Drawing.Point(222, 155);
             this.btnImportNganhVienChuc.Name = "btnImportNganhVienChuc";
-            this.btnImportNganhVienChuc.Size = new System.Drawing.Size(141, 24);
+            this.btnImportNganhVienChuc.Size = new System.Drawing.Size(142, 24);
             this.btnImportNganhVienChuc.StyleController = this.layoutControl5;
             this.btnImportNganhVienChuc.TabIndex = 7;
             this.btnImportNganhVienChuc.Text = "Nhập dữ liệu";
@@ -1467,7 +1566,7 @@
             this.emptySpaceItem18});
             this.layoutControlGroup5.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup5.Name = "layoutControlGroup5";
-            this.layoutControlGroup5.Size = new System.Drawing.Size(374, 350);
+            this.layoutControlGroup5.Size = new System.Drawing.Size(376, 349);
             this.layoutControlGroup5.TextVisible = false;
             // 
             // simpleLabelItem13
@@ -1478,8 +1577,11 @@
             this.simpleLabelItem13.AppearanceItemCaption.Options.UseFont = true;
             this.simpleLabelItem13.AppearanceItemCaption.Options.UseForeColor = true;
             this.simpleLabelItem13.Location = new System.Drawing.Point(0, 0);
+            this.simpleLabelItem13.MaxSize = new System.Drawing.Size(210, 23);
+            this.simpleLabelItem13.MinSize = new System.Drawing.Size(210, 23);
             this.simpleLabelItem13.Name = "simpleLabelItem13";
-            this.simpleLabelItem13.Size = new System.Drawing.Size(209, 28);
+            this.simpleLabelItem13.Size = new System.Drawing.Size(210, 28);
+            this.simpleLabelItem13.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.simpleLabelItem13.Text = "Loại ngành";
             this.simpleLabelItem13.TextSize = new System.Drawing.Size(104, 19);
             // 
@@ -1491,8 +1593,11 @@
             this.simpleLabelItem14.AppearanceItemCaption.Options.UseFont = true;
             this.simpleLabelItem14.AppearanceItemCaption.Options.UseForeColor = true;
             this.simpleLabelItem14.Location = new System.Drawing.Point(0, 48);
+            this.simpleLabelItem14.MaxSize = new System.Drawing.Size(210, 23);
+            this.simpleLabelItem14.MinSize = new System.Drawing.Size(210, 23);
             this.simpleLabelItem14.Name = "simpleLabelItem14";
-            this.simpleLabelItem14.Size = new System.Drawing.Size(209, 28);
+            this.simpleLabelItem14.Size = new System.Drawing.Size(210, 28);
+            this.simpleLabelItem14.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.simpleLabelItem14.Text = "Ngành đào tạo";
             this.simpleLabelItem14.TextSize = new System.Drawing.Size(104, 19);
             // 
@@ -1504,8 +1609,11 @@
             this.simpleLabelItem15.AppearanceItemCaption.Options.UseFont = true;
             this.simpleLabelItem15.AppearanceItemCaption.Options.UseForeColor = true;
             this.simpleLabelItem15.Location = new System.Drawing.Point(0, 96);
+            this.simpleLabelItem15.MaxSize = new System.Drawing.Size(210, 23);
+            this.simpleLabelItem15.MinSize = new System.Drawing.Size(210, 23);
             this.simpleLabelItem15.Name = "simpleLabelItem15";
-            this.simpleLabelItem15.Size = new System.Drawing.Size(209, 28);
+            this.simpleLabelItem15.Size = new System.Drawing.Size(210, 28);
+            this.simpleLabelItem15.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.simpleLabelItem15.Text = "Chuyên ngành";
             this.simpleLabelItem15.TextSize = new System.Drawing.Size(104, 19);
             // 
@@ -1516,53 +1624,70 @@
             this.simpleLabelItem16.AppearanceItemCaption.ForeColor = System.Drawing.Color.DimGray;
             this.simpleLabelItem16.AppearanceItemCaption.Options.UseFont = true;
             this.simpleLabelItem16.AppearanceItemCaption.Options.UseForeColor = true;
-            this.simpleLabelItem16.Location = new System.Drawing.Point(0, 144);
+            this.simpleLabelItem16.Location = new System.Drawing.Point(0, 143);
+            this.simpleLabelItem16.MaxSize = new System.Drawing.Size(210, 23);
+            this.simpleLabelItem16.MinSize = new System.Drawing.Size(210, 23);
             this.simpleLabelItem16.Name = "simpleLabelItem16";
-            this.simpleLabelItem16.Size = new System.Drawing.Size(209, 28);
+            this.simpleLabelItem16.Size = new System.Drawing.Size(210, 28);
+            this.simpleLabelItem16.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.simpleLabelItem16.Text = "Chuyên môn";
             this.simpleLabelItem16.TextSize = new System.Drawing.Size(104, 19);
             // 
             // emptySpaceItem15
             // 
             this.emptySpaceItem15.AllowHotTrack = false;
-            this.emptySpaceItem15.Location = new System.Drawing.Point(0, 172);
+            this.emptySpaceItem15.Location = new System.Drawing.Point(0, 171);
+            this.emptySpaceItem15.MinSize = new System.Drawing.Size(104, 24);
             this.emptySpaceItem15.Name = "emptySpaceItem15";
-            this.emptySpaceItem15.Size = new System.Drawing.Size(354, 158);
+            this.emptySpaceItem15.Size = new System.Drawing.Size(356, 158);
+            this.emptySpaceItem15.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem15.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem13
             // 
             this.layoutControlItem13.Control = this.btnImportLoaiNganh;
-            this.layoutControlItem13.Location = new System.Drawing.Point(209, 0);
+            this.layoutControlItem13.Location = new System.Drawing.Point(210, 0);
+            this.layoutControlItem13.MaxSize = new System.Drawing.Size(146, 28);
+            this.layoutControlItem13.MinSize = new System.Drawing.Size(146, 28);
             this.layoutControlItem13.Name = "layoutControlItem13";
-            this.layoutControlItem13.Size = new System.Drawing.Size(145, 28);
+            this.layoutControlItem13.Size = new System.Drawing.Size(146, 28);
+            this.layoutControlItem13.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem13.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem13.TextVisible = false;
             // 
             // layoutControlItem14
             // 
             this.layoutControlItem14.Control = this.btnImportNganhDaoTao;
-            this.layoutControlItem14.Location = new System.Drawing.Point(209, 48);
+            this.layoutControlItem14.Location = new System.Drawing.Point(210, 48);
+            this.layoutControlItem14.MaxSize = new System.Drawing.Size(146, 28);
+            this.layoutControlItem14.MinSize = new System.Drawing.Size(146, 28);
             this.layoutControlItem14.Name = "layoutControlItem14";
-            this.layoutControlItem14.Size = new System.Drawing.Size(145, 28);
+            this.layoutControlItem14.Size = new System.Drawing.Size(146, 28);
+            this.layoutControlItem14.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem14.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem14.TextVisible = false;
             // 
             // layoutControlItem15
             // 
             this.layoutControlItem15.Control = this.btnImportChuyenNganh;
-            this.layoutControlItem15.Location = new System.Drawing.Point(209, 96);
+            this.layoutControlItem15.Location = new System.Drawing.Point(210, 96);
+            this.layoutControlItem15.MaxSize = new System.Drawing.Size(146, 28);
+            this.layoutControlItem15.MinSize = new System.Drawing.Size(146, 28);
             this.layoutControlItem15.Name = "layoutControlItem15";
-            this.layoutControlItem15.Size = new System.Drawing.Size(145, 28);
+            this.layoutControlItem15.Size = new System.Drawing.Size(146, 28);
+            this.layoutControlItem15.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem15.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem15.TextVisible = false;
             // 
             // layoutControlItem16
             // 
             this.layoutControlItem16.Control = this.btnImportNganhVienChuc;
-            this.layoutControlItem16.Location = new System.Drawing.Point(209, 144);
+            this.layoutControlItem16.Location = new System.Drawing.Point(210, 143);
+            this.layoutControlItem16.MaxSize = new System.Drawing.Size(146, 28);
+            this.layoutControlItem16.MinSize = new System.Drawing.Size(146, 28);
             this.layoutControlItem16.Name = "layoutControlItem16";
-            this.layoutControlItem16.Size = new System.Drawing.Size(145, 28);
+            this.layoutControlItem16.Size = new System.Drawing.Size(146, 28);
+            this.layoutControlItem16.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem16.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem16.TextVisible = false;
             // 
@@ -1570,9 +1695,10 @@
             // 
             this.emptySpaceItem16.AllowHotTrack = false;
             this.emptySpaceItem16.Location = new System.Drawing.Point(0, 28);
-            this.emptySpaceItem16.MinSize = new System.Drawing.Size(1, 1);
+            this.emptySpaceItem16.MaxSize = new System.Drawing.Size(0, 20);
+            this.emptySpaceItem16.MinSize = new System.Drawing.Size(1, 20);
             this.emptySpaceItem16.Name = "emptySpaceItem16";
-            this.emptySpaceItem16.Size = new System.Drawing.Size(354, 20);
+            this.emptySpaceItem16.Size = new System.Drawing.Size(356, 20);
             this.emptySpaceItem16.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem16.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -1580,9 +1706,10 @@
             // 
             this.emptySpaceItem17.AllowHotTrack = false;
             this.emptySpaceItem17.Location = new System.Drawing.Point(0, 76);
-            this.emptySpaceItem17.MinSize = new System.Drawing.Size(1, 1);
+            this.emptySpaceItem17.MaxSize = new System.Drawing.Size(0, 20);
+            this.emptySpaceItem17.MinSize = new System.Drawing.Size(1, 20);
             this.emptySpaceItem17.Name = "emptySpaceItem17";
-            this.emptySpaceItem17.Size = new System.Drawing.Size(354, 20);
+            this.emptySpaceItem17.Size = new System.Drawing.Size(356, 20);
             this.emptySpaceItem17.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem17.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -1590,9 +1717,10 @@
             // 
             this.emptySpaceItem18.AllowHotTrack = false;
             this.emptySpaceItem18.Location = new System.Drawing.Point(0, 124);
-            this.emptySpaceItem18.MinSize = new System.Drawing.Size(10, 10);
+            this.emptySpaceItem18.MaxSize = new System.Drawing.Size(0, 19);
+            this.emptySpaceItem18.MinSize = new System.Drawing.Size(10, 19);
             this.emptySpaceItem18.Name = "emptySpaceItem18";
-            this.emptySpaceItem18.Size = new System.Drawing.Size(354, 20);
+            this.emptySpaceItem18.Size = new System.Drawing.Size(356, 19);
             this.emptySpaceItem18.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem18.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -1600,7 +1728,7 @@
             // 
             this.tabHocHamHocVi.Controls.Add(this.layoutControl6);
             this.tabHocHamHocVi.Name = "tabHocHamHocVi";
-            this.tabHocHamHocVi.Size = new System.Drawing.Size(374, 350);
+            this.tabHocHamHocVi.Size = new System.Drawing.Size(376, 349);
             this.tabHocHamHocVi.Text = "Học hàm - Học vị";
             // 
             // layoutControl6
@@ -1611,7 +1739,7 @@
             this.layoutControl6.Location = new System.Drawing.Point(0, 0);
             this.layoutControl6.Name = "layoutControl6";
             this.layoutControl6.Root = this.layoutControlGroup6;
-            this.layoutControl6.Size = new System.Drawing.Size(374, 350);
+            this.layoutControl6.Size = new System.Drawing.Size(376, 349);
             this.layoutControl6.TabIndex = 0;
             this.layoutControl6.Text = "layoutControl6";
             // 
@@ -1621,9 +1749,9 @@
             this.btnImportLoaiHocHamHocVi.Appearance.ForeColor = System.Drawing.Color.DimGray;
             this.btnImportLoaiHocHamHocVi.Appearance.Options.UseFont = true;
             this.btnImportLoaiHocHamHocVi.Appearance.Options.UseForeColor = true;
-            this.btnImportLoaiHocHamHocVi.Location = new System.Drawing.Point(221, 12);
+            this.btnImportLoaiHocHamHocVi.Location = new System.Drawing.Point(222, 12);
             this.btnImportLoaiHocHamHocVi.Name = "btnImportLoaiHocHamHocVi";
-            this.btnImportLoaiHocHamHocVi.Size = new System.Drawing.Size(141, 24);
+            this.btnImportLoaiHocHamHocVi.Size = new System.Drawing.Size(142, 24);
             this.btnImportLoaiHocHamHocVi.StyleController = this.layoutControl6;
             this.btnImportLoaiHocHamHocVi.TabIndex = 4;
             this.btnImportLoaiHocHamHocVi.Text = "Nhập dữ liệu";
@@ -1634,9 +1762,9 @@
             this.btnImportHocHamHocViVienChuc.Appearance.ForeColor = System.Drawing.Color.DimGray;
             this.btnImportHocHamHocViVienChuc.Appearance.Options.UseFont = true;
             this.btnImportHocHamHocViVienChuc.Appearance.Options.UseForeColor = true;
-            this.btnImportHocHamHocViVienChuc.Location = new System.Drawing.Point(221, 60);
+            this.btnImportHocHamHocViVienChuc.Location = new System.Drawing.Point(222, 60);
             this.btnImportHocHamHocViVienChuc.Name = "btnImportHocHamHocViVienChuc";
-            this.btnImportHocHamHocViVienChuc.Size = new System.Drawing.Size(141, 24);
+            this.btnImportHocHamHocViVienChuc.Size = new System.Drawing.Size(142, 24);
             this.btnImportHocHamHocViVienChuc.StyleController = this.layoutControl6;
             this.btnImportHocHamHocViVienChuc.TabIndex = 5;
             this.btnImportHocHamHocViVienChuc.Text = "Nhập dữ liệu";
@@ -1654,7 +1782,7 @@
             this.emptySpaceItem23});
             this.layoutControlGroup6.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup6.Name = "layoutControlGroup6";
-            this.layoutControlGroup6.Size = new System.Drawing.Size(374, 350);
+            this.layoutControlGroup6.Size = new System.Drawing.Size(376, 349);
             this.layoutControlGroup6.TextVisible = false;
             // 
             // simpleLabelItem17
@@ -1665,8 +1793,11 @@
             this.simpleLabelItem17.AppearanceItemCaption.Options.UseFont = true;
             this.simpleLabelItem17.AppearanceItemCaption.Options.UseForeColor = true;
             this.simpleLabelItem17.Location = new System.Drawing.Point(0, 0);
+            this.simpleLabelItem17.MaxSize = new System.Drawing.Size(210, 23);
+            this.simpleLabelItem17.MinSize = new System.Drawing.Size(210, 23);
             this.simpleLabelItem17.Name = "simpleLabelItem17";
-            this.simpleLabelItem17.Size = new System.Drawing.Size(209, 28);
+            this.simpleLabelItem17.Size = new System.Drawing.Size(210, 28);
+            this.simpleLabelItem17.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.simpleLabelItem17.Text = "Loại học hàm học vị";
             this.simpleLabelItem17.TextSize = new System.Drawing.Size(187, 19);
             // 
@@ -1678,17 +1809,23 @@
             this.simpleLabelItem18.AppearanceItemCaption.Options.UseFont = true;
             this.simpleLabelItem18.AppearanceItemCaption.Options.UseForeColor = true;
             this.simpleLabelItem18.Location = new System.Drawing.Point(0, 48);
+            this.simpleLabelItem18.MaxSize = new System.Drawing.Size(210, 23);
+            this.simpleLabelItem18.MinSize = new System.Drawing.Size(210, 23);
             this.simpleLabelItem18.Name = "simpleLabelItem18";
-            this.simpleLabelItem18.Size = new System.Drawing.Size(209, 28);
+            this.simpleLabelItem18.Size = new System.Drawing.Size(210, 28);
+            this.simpleLabelItem18.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.simpleLabelItem18.Text = "Học hàm/Học vị Viên chức";
             this.simpleLabelItem18.TextSize = new System.Drawing.Size(187, 19);
             // 
             // layoutControlItem17
             // 
             this.layoutControlItem17.Control = this.btnImportLoaiHocHamHocVi;
-            this.layoutControlItem17.Location = new System.Drawing.Point(209, 0);
+            this.layoutControlItem17.Location = new System.Drawing.Point(210, 0);
+            this.layoutControlItem17.MaxSize = new System.Drawing.Size(146, 28);
+            this.layoutControlItem17.MinSize = new System.Drawing.Size(146, 28);
             this.layoutControlItem17.Name = "layoutControlItem17";
-            this.layoutControlItem17.Size = new System.Drawing.Size(145, 28);
+            this.layoutControlItem17.Size = new System.Drawing.Size(146, 28);
+            this.layoutControlItem17.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem17.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem17.TextVisible = false;
             // 
@@ -1696,16 +1833,21 @@
             // 
             this.emptySpaceItem19.AllowHotTrack = false;
             this.emptySpaceItem19.Location = new System.Drawing.Point(0, 76);
+            this.emptySpaceItem19.MinSize = new System.Drawing.Size(104, 24);
             this.emptySpaceItem19.Name = "emptySpaceItem19";
-            this.emptySpaceItem19.Size = new System.Drawing.Size(354, 254);
+            this.emptySpaceItem19.Size = new System.Drawing.Size(356, 253);
+            this.emptySpaceItem19.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem19.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem18
             // 
             this.layoutControlItem18.Control = this.btnImportHocHamHocViVienChuc;
-            this.layoutControlItem18.Location = new System.Drawing.Point(209, 48);
+            this.layoutControlItem18.Location = new System.Drawing.Point(210, 48);
+            this.layoutControlItem18.MaxSize = new System.Drawing.Size(146, 28);
+            this.layoutControlItem18.MinSize = new System.Drawing.Size(146, 28);
             this.layoutControlItem18.Name = "layoutControlItem18";
-            this.layoutControlItem18.Size = new System.Drawing.Size(145, 28);
+            this.layoutControlItem18.Size = new System.Drawing.Size(146, 28);
+            this.layoutControlItem18.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem18.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem18.TextVisible = false;
             // 
@@ -1713,9 +1855,10 @@
             // 
             this.emptySpaceItem23.AllowHotTrack = false;
             this.emptySpaceItem23.Location = new System.Drawing.Point(0, 28);
-            this.emptySpaceItem23.MinSize = new System.Drawing.Size(10, 10);
+            this.emptySpaceItem23.MaxSize = new System.Drawing.Size(0, 20);
+            this.emptySpaceItem23.MinSize = new System.Drawing.Size(10, 20);
             this.emptySpaceItem23.Name = "emptySpaceItem23";
-            this.emptySpaceItem23.Size = new System.Drawing.Size(354, 20);
+            this.emptySpaceItem23.Size = new System.Drawing.Size(356, 20);
             this.emptySpaceItem23.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem23.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -1723,7 +1866,7 @@
             // 
             this.tabChungChi.Controls.Add(this.layoutControl8);
             this.tabChungChi.Name = "tabChungChi";
-            this.tabChungChi.Size = new System.Drawing.Size(374, 350);
+            this.tabChungChi.Size = new System.Drawing.Size(376, 349);
             this.tabChungChi.Text = "Chứng chỉ";
             // 
             // layoutControl8
@@ -1734,7 +1877,7 @@
             this.layoutControl8.Location = new System.Drawing.Point(0, 0);
             this.layoutControl8.Name = "layoutControl8";
             this.layoutControl8.Root = this.layoutControlGroup8;
-            this.layoutControl8.Size = new System.Drawing.Size(374, 350);
+            this.layoutControl8.Size = new System.Drawing.Size(376, 349);
             this.layoutControl8.TabIndex = 0;
             this.layoutControl8.Text = "layoutControl8";
             // 
@@ -1744,9 +1887,9 @@
             this.btnImportLoaiChungChi.Appearance.ForeColor = System.Drawing.Color.DimGray;
             this.btnImportLoaiChungChi.Appearance.Options.UseFont = true;
             this.btnImportLoaiChungChi.Appearance.Options.UseForeColor = true;
-            this.btnImportLoaiChungChi.Location = new System.Drawing.Point(221, 12);
+            this.btnImportLoaiChungChi.Location = new System.Drawing.Point(222, 12);
             this.btnImportLoaiChungChi.Name = "btnImportLoaiChungChi";
-            this.btnImportLoaiChungChi.Size = new System.Drawing.Size(141, 24);
+            this.btnImportLoaiChungChi.Size = new System.Drawing.Size(142, 24);
             this.btnImportLoaiChungChi.StyleController = this.layoutControl8;
             this.btnImportLoaiChungChi.TabIndex = 4;
             this.btnImportLoaiChungChi.Text = "Nhập dữ liệu";
@@ -1757,9 +1900,9 @@
             this.btnImportChungChiVienChuc.Appearance.ForeColor = System.Drawing.Color.DimGray;
             this.btnImportChungChiVienChuc.Appearance.Options.UseFont = true;
             this.btnImportChungChiVienChuc.Appearance.Options.UseForeColor = true;
-            this.btnImportChungChiVienChuc.Location = new System.Drawing.Point(221, 59);
+            this.btnImportChungChiVienChuc.Location = new System.Drawing.Point(222, 59);
             this.btnImportChungChiVienChuc.Name = "btnImportChungChiVienChuc";
-            this.btnImportChungChiVienChuc.Size = new System.Drawing.Size(141, 24);
+            this.btnImportChungChiVienChuc.Size = new System.Drawing.Size(142, 24);
             this.btnImportChungChiVienChuc.StyleController = this.layoutControl8;
             this.btnImportChungChiVienChuc.TabIndex = 5;
             this.btnImportChungChiVienChuc.Text = "Nhập dữ liệu";
@@ -1777,7 +1920,7 @@
             this.emptySpaceItem22});
             this.layoutControlGroup8.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup8.Name = "layoutControlGroup8";
-            this.layoutControlGroup8.Size = new System.Drawing.Size(374, 350);
+            this.layoutControlGroup8.Size = new System.Drawing.Size(376, 349);
             this.layoutControlGroup8.TextVisible = false;
             // 
             // simpleLabelItem20
@@ -1788,8 +1931,11 @@
             this.simpleLabelItem20.AppearanceItemCaption.Options.UseFont = true;
             this.simpleLabelItem20.AppearanceItemCaption.Options.UseForeColor = true;
             this.simpleLabelItem20.Location = new System.Drawing.Point(0, 0);
+            this.simpleLabelItem20.MaxSize = new System.Drawing.Size(210, 23);
+            this.simpleLabelItem20.MinSize = new System.Drawing.Size(210, 23);
             this.simpleLabelItem20.Name = "simpleLabelItem20";
-            this.simpleLabelItem20.Size = new System.Drawing.Size(209, 28);
+            this.simpleLabelItem20.Size = new System.Drawing.Size(210, 28);
+            this.simpleLabelItem20.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.simpleLabelItem20.Text = "Loại chứng chỉ";
             this.simpleLabelItem20.TextSize = new System.Drawing.Size(146, 19);
             // 
@@ -1801,17 +1947,23 @@
             this.simpleLabelItem21.AppearanceItemCaption.Options.UseFont = true;
             this.simpleLabelItem21.AppearanceItemCaption.Options.UseForeColor = true;
             this.simpleLabelItem21.Location = new System.Drawing.Point(0, 47);
+            this.simpleLabelItem21.MaxSize = new System.Drawing.Size(210, 23);
+            this.simpleLabelItem21.MinSize = new System.Drawing.Size(210, 23);
             this.simpleLabelItem21.Name = "simpleLabelItem21";
-            this.simpleLabelItem21.Size = new System.Drawing.Size(209, 28);
+            this.simpleLabelItem21.Size = new System.Drawing.Size(210, 28);
+            this.simpleLabelItem21.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.simpleLabelItem21.Text = "Chứng chỉ Viên chức";
             this.simpleLabelItem21.TextSize = new System.Drawing.Size(146, 19);
             // 
             // layoutControlItem20
             // 
             this.layoutControlItem20.Control = this.btnImportLoaiChungChi;
-            this.layoutControlItem20.Location = new System.Drawing.Point(209, 0);
+            this.layoutControlItem20.Location = new System.Drawing.Point(210, 0);
+            this.layoutControlItem20.MaxSize = new System.Drawing.Size(146, 28);
+            this.layoutControlItem20.MinSize = new System.Drawing.Size(146, 28);
             this.layoutControlItem20.Name = "layoutControlItem20";
-            this.layoutControlItem20.Size = new System.Drawing.Size(145, 28);
+            this.layoutControlItem20.Size = new System.Drawing.Size(146, 28);
+            this.layoutControlItem20.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem20.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem20.TextVisible = false;
             // 
@@ -1819,16 +1971,21 @@
             // 
             this.emptySpaceItem21.AllowHotTrack = false;
             this.emptySpaceItem21.Location = new System.Drawing.Point(0, 75);
+            this.emptySpaceItem21.MinSize = new System.Drawing.Size(104, 24);
             this.emptySpaceItem21.Name = "emptySpaceItem21";
-            this.emptySpaceItem21.Size = new System.Drawing.Size(354, 255);
+            this.emptySpaceItem21.Size = new System.Drawing.Size(356, 254);
+            this.emptySpaceItem21.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem21.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem21
             // 
             this.layoutControlItem21.Control = this.btnImportChungChiVienChuc;
-            this.layoutControlItem21.Location = new System.Drawing.Point(209, 47);
+            this.layoutControlItem21.Location = new System.Drawing.Point(210, 47);
+            this.layoutControlItem21.MaxSize = new System.Drawing.Size(146, 28);
+            this.layoutControlItem21.MinSize = new System.Drawing.Size(146, 28);
             this.layoutControlItem21.Name = "layoutControlItem21";
-            this.layoutControlItem21.Size = new System.Drawing.Size(145, 28);
+            this.layoutControlItem21.Size = new System.Drawing.Size(146, 28);
+            this.layoutControlItem21.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem21.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem21.TextVisible = false;
             // 
@@ -1836,9 +1993,10 @@
             // 
             this.emptySpaceItem22.AllowHotTrack = false;
             this.emptySpaceItem22.Location = new System.Drawing.Point(0, 28);
-            this.emptySpaceItem22.MinSize = new System.Drawing.Size(10, 10);
+            this.emptySpaceItem22.MaxSize = new System.Drawing.Size(0, 19);
+            this.emptySpaceItem22.MinSize = new System.Drawing.Size(10, 19);
             this.emptySpaceItem22.Name = "emptySpaceItem22";
-            this.emptySpaceItem22.Size = new System.Drawing.Size(354, 19);
+            this.emptySpaceItem22.Size = new System.Drawing.Size(356, 19);
             this.emptySpaceItem22.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem22.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -1846,7 +2004,7 @@
             // 
             this.tabHopDong.Controls.Add(this.layoutControl9);
             this.tabHopDong.Name = "tabHopDong";
-            this.tabHopDong.Size = new System.Drawing.Size(374, 350);
+            this.tabHopDong.Size = new System.Drawing.Size(376, 349);
             this.tabHopDong.Text = "Hợp đồng";
             // 
             // layoutControl9
@@ -1857,7 +2015,7 @@
             this.layoutControl9.Location = new System.Drawing.Point(0, 0);
             this.layoutControl9.Name = "layoutControl9";
             this.layoutControl9.Root = this.layoutControlGroup9;
-            this.layoutControl9.Size = new System.Drawing.Size(374, 350);
+            this.layoutControl9.Size = new System.Drawing.Size(376, 349);
             this.layoutControl9.TabIndex = 0;
             this.layoutControl9.Text = "layoutControl9";
             // 
@@ -1867,9 +2025,9 @@
             this.btnImportLoaiHopDong.Appearance.ForeColor = System.Drawing.Color.DimGray;
             this.btnImportLoaiHopDong.Appearance.Options.UseFont = true;
             this.btnImportLoaiHopDong.Appearance.Options.UseForeColor = true;
-            this.btnImportLoaiHopDong.Location = new System.Drawing.Point(221, 12);
+            this.btnImportLoaiHopDong.Location = new System.Drawing.Point(222, 12);
             this.btnImportLoaiHopDong.Name = "btnImportLoaiHopDong";
-            this.btnImportLoaiHopDong.Size = new System.Drawing.Size(141, 24);
+            this.btnImportLoaiHopDong.Size = new System.Drawing.Size(142, 24);
             this.btnImportLoaiHopDong.StyleController = this.layoutControl9;
             this.btnImportLoaiHopDong.TabIndex = 4;
             this.btnImportLoaiHopDong.Text = "Nhập dữ liệu";
@@ -1880,9 +2038,9 @@
             this.btnImportHopDongVienChuc.Appearance.ForeColor = System.Drawing.Color.DimGray;
             this.btnImportHopDongVienChuc.Appearance.Options.UseFont = true;
             this.btnImportHopDongVienChuc.Appearance.Options.UseForeColor = true;
-            this.btnImportHopDongVienChuc.Location = new System.Drawing.Point(221, 60);
+            this.btnImportHopDongVienChuc.Location = new System.Drawing.Point(222, 60);
             this.btnImportHopDongVienChuc.Name = "btnImportHopDongVienChuc";
-            this.btnImportHopDongVienChuc.Size = new System.Drawing.Size(141, 24);
+            this.btnImportHopDongVienChuc.Size = new System.Drawing.Size(142, 24);
             this.btnImportHopDongVienChuc.StyleController = this.layoutControl9;
             this.btnImportHopDongVienChuc.TabIndex = 5;
             this.btnImportHopDongVienChuc.Text = "Nhập dữ liệu";
@@ -1900,7 +2058,7 @@
             this.emptySpaceItem3});
             this.layoutControlGroup9.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup9.Name = "layoutControlGroup9";
-            this.layoutControlGroup9.Size = new System.Drawing.Size(374, 350);
+            this.layoutControlGroup9.Size = new System.Drawing.Size(376, 349);
             this.layoutControlGroup9.TextVisible = false;
             // 
             // simpleLabelItem22
@@ -1911,8 +2069,11 @@
             this.simpleLabelItem22.AppearanceItemCaption.Options.UseFont = true;
             this.simpleLabelItem22.AppearanceItemCaption.Options.UseForeColor = true;
             this.simpleLabelItem22.Location = new System.Drawing.Point(0, 0);
+            this.simpleLabelItem22.MaxSize = new System.Drawing.Size(210, 23);
+            this.simpleLabelItem22.MinSize = new System.Drawing.Size(210, 23);
             this.simpleLabelItem22.Name = "simpleLabelItem22";
-            this.simpleLabelItem22.Size = new System.Drawing.Size(209, 28);
+            this.simpleLabelItem22.Size = new System.Drawing.Size(210, 28);
+            this.simpleLabelItem22.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.simpleLabelItem22.Text = "Loại hợp đồng";
             this.simpleLabelItem22.TextSize = new System.Drawing.Size(155, 19);
             // 
@@ -1924,26 +2085,35 @@
             this.simpleLabelItem23.AppearanceItemCaption.Options.UseFont = true;
             this.simpleLabelItem23.AppearanceItemCaption.Options.UseForeColor = true;
             this.simpleLabelItem23.Location = new System.Drawing.Point(0, 48);
+            this.simpleLabelItem23.MaxSize = new System.Drawing.Size(210, 23);
+            this.simpleLabelItem23.MinSize = new System.Drawing.Size(210, 23);
             this.simpleLabelItem23.Name = "simpleLabelItem23";
-            this.simpleLabelItem23.Size = new System.Drawing.Size(209, 28);
+            this.simpleLabelItem23.Size = new System.Drawing.Size(210, 28);
+            this.simpleLabelItem23.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.simpleLabelItem23.Text = "Hợp đồng - Viên chức";
             this.simpleLabelItem23.TextSize = new System.Drawing.Size(155, 19);
             // 
             // layoutControlItem22
             // 
             this.layoutControlItem22.Control = this.btnImportLoaiHopDong;
-            this.layoutControlItem22.Location = new System.Drawing.Point(209, 0);
+            this.layoutControlItem22.Location = new System.Drawing.Point(210, 0);
+            this.layoutControlItem22.MaxSize = new System.Drawing.Size(146, 28);
+            this.layoutControlItem22.MinSize = new System.Drawing.Size(146, 28);
             this.layoutControlItem22.Name = "layoutControlItem22";
-            this.layoutControlItem22.Size = new System.Drawing.Size(145, 28);
+            this.layoutControlItem22.Size = new System.Drawing.Size(146, 28);
+            this.layoutControlItem22.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem22.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem22.TextVisible = false;
             // 
             // layoutControlItem23
             // 
             this.layoutControlItem23.Control = this.btnImportHopDongVienChuc;
-            this.layoutControlItem23.Location = new System.Drawing.Point(209, 48);
+            this.layoutControlItem23.Location = new System.Drawing.Point(210, 48);
+            this.layoutControlItem23.MaxSize = new System.Drawing.Size(146, 28);
+            this.layoutControlItem23.MinSize = new System.Drawing.Size(146, 28);
             this.layoutControlItem23.Name = "layoutControlItem23";
-            this.layoutControlItem23.Size = new System.Drawing.Size(145, 28);
+            this.layoutControlItem23.Size = new System.Drawing.Size(146, 28);
+            this.layoutControlItem23.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem23.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem23.TextVisible = false;
             // 
@@ -1951,24 +2121,22 @@
             // 
             this.emptySpaceItem4.AllowHotTrack = false;
             this.emptySpaceItem4.Location = new System.Drawing.Point(0, 76);
+            this.emptySpaceItem4.MinSize = new System.Drawing.Size(104, 24);
             this.emptySpaceItem4.Name = "emptySpaceItem4";
-            this.emptySpaceItem4.Size = new System.Drawing.Size(354, 254);
+            this.emptySpaceItem4.Size = new System.Drawing.Size(356, 253);
+            this.emptySpaceItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem3
             // 
             this.emptySpaceItem3.AllowHotTrack = false;
             this.emptySpaceItem3.Location = new System.Drawing.Point(0, 28);
-            this.emptySpaceItem3.MinSize = new System.Drawing.Size(10, 10);
+            this.emptySpaceItem3.MaxSize = new System.Drawing.Size(0, 20);
+            this.emptySpaceItem3.MinSize = new System.Drawing.Size(10, 20);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(354, 20);
+            this.emptySpaceItem3.Size = new System.Drawing.Size(356, 20);
             this.emptySpaceItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // barStaticItem1
-            // 
-            this.barStaticItem1.Id = 12;
-            this.barStaticItem1.Name = "barStaticItem1";
             // 
             // ImportDataForm
             // 

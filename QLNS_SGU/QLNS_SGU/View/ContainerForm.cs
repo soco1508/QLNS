@@ -31,7 +31,7 @@ namespace QLNS_SGU.View
             btnExit.ItemClick += (s, e) => presenter.Exit();
             btnLogout.ItemClick += (s, e) => presenter.Logout();
             btnNaviMain.ItemClick += (s, e) => presenter.NaviMain();
-            btnOpenImportData.ItemClick += (s, e) => presenter.OpenImportData();
+            btnNaviImportData.ItemClick += (s, e) => presenter.NaviImportData();
             btnNaviExportData.ItemClick += (s, e) => presenter.NaviExportData();
             btnOpenCreateAndEditPersonInfoForm.ItemClick += (s, e) => presenter.OpenCreateAndEditPersonInfoForm();
             btnNaviLoaiNganh.ItemClick += (s, e) => presenter.NaviLoaiNganh();
@@ -48,7 +48,6 @@ namespace QLNS_SGU.View
             btnNaviLoaiHocHamHocVi.ItemClick += (s, e) => presenter.NaviLoaiHocHamHocVi();
             btnNaviLoaiChungChi.ItemClick += (s, e) => presenter.NaviLoaiChungChi();
             btnNaviTrangThai.ItemClick += (s, e) => presenter.NaviTrangThai();
-            btnNaviVienChuc.ItemClick += (s, e) => presenter.NaviVienChuc();
         }       
     }
 }

@@ -187,7 +187,6 @@
     <Compile Include="Presenter\TabPageTrangThaiPresenter.cs" />
     <Compile Include="Presenter\ToChuyenMonPresenter.cs" />
     <Compile Include="Presenter\TrangThaiPresenter.cs" />
-    <Compile Include="Presenter\VienChucPresenter.cs" />
     <Compile Include="Presenter\WaitPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -348,12 +347,6 @@
     <Compile Include="View\TrangThaiForm.Designer.cs">
       <DependentUpon>TrangThaiForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\VienChucForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\VienChucForm.Designer.cs">
-      <DependentUpon>VienChucForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\WaitForm1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -448,9 +441,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\TrangThaiForm.resx">
       <DependentUpon>TrangThaiForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\VienChucForm.resx">
-      <DependentUpon>VienChucForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\WaitForm1.resx">
       <DependentUpon>WaitForm1.cs</DependentUpon>

@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ContainerForm));
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.btnOpenImportData = new DevExpress.XtraBars.BarButtonItem();
+            this.btnNaviImportData = new DevExpress.XtraBars.BarButtonItem();
             this.btnOpenCreateAndEditPersonInfoForm = new DevExpress.XtraBars.BarButtonItem();
             this.btnNaviNganh = new DevExpress.XtraBars.BarButtonItem();
             this.popupMenuNganh = new DevExpress.XtraBars.PopupMenu(this.components);
@@ -58,7 +58,6 @@
             this.btnNaviChucVu = new DevExpress.XtraBars.BarButtonItem();
             this.btnNaviLoaiHocHamHocVi = new DevExpress.XtraBars.BarButtonItem();
             this.btnNaviTrangThai = new DevExpress.XtraBars.BarButtonItem();
-            this.btnNaviVienChuc = new DevExpress.XtraBars.BarButtonItem();
             this.btnNaviExportData = new DevExpress.XtraBars.BarButtonItem();
             this.btnAbout = new DevExpress.XtraBars.BarButtonItem();
             this.btnLogout = new DevExpress.XtraBars.BarButtonItem();
@@ -86,7 +85,7 @@
             this.ribbon.ExpandCollapseItem.Id = 0;
             this.ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbon.ExpandCollapseItem,
-            this.btnOpenImportData,
+            this.btnNaviImportData,
             this.btnOpenCreateAndEditPersonInfoForm,
             this.btnNaviNganh,
             this.btnNaviLoaiChungChi,
@@ -109,7 +108,6 @@
             this.btnNaviChucVu,
             this.btnNaviLoaiHocHamHocVi,
             this.btnNaviTrangThai,
-            this.btnNaviVienChuc,
             this.btnNaviExportData,
             this.btnAbout,
             this.btnLogout,
@@ -127,14 +125,14 @@
             this.ribbon.StatusBar = this.ribbonStatusBar;
             this.ribbon.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
             // 
-            // btnOpenImportData
+            // btnNaviImportData
             // 
-            this.btnOpenImportData.Caption = "Nhập dữ liệu";
-            this.btnOpenImportData.Id = 1;
-            this.btnOpenImportData.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnOpenImportData.ImageOptions.Image")));
-            this.btnOpenImportData.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnOpenImportData.ImageOptions.LargeImage")));
-            this.btnOpenImportData.Name = "btnOpenImportData";
-            this.btnOpenImportData.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
+            this.btnNaviImportData.Caption = "Nhập dữ liệu";
+            this.btnNaviImportData.Id = 1;
+            this.btnNaviImportData.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnOpenImportData.ImageOptions.Image")));
+            this.btnNaviImportData.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnOpenImportData.ImageOptions.LargeImage")));
+            this.btnNaviImportData.Name = "btnNaviImportData";
+            this.btnNaviImportData.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
             // 
             // btnOpenCreateAndEditPersonInfoForm
@@ -345,13 +343,6 @@
             this.btnNaviTrangThai.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnNaviTrangThai.ImageOptions.LargeImage")));
             this.btnNaviTrangThai.Name = "btnNaviTrangThai";
             // 
-            // btnNaviVienChuc
-            // 
-            this.btnNaviVienChuc.Caption = "Viên chức";
-            this.btnNaviVienChuc.Id = 40;
-            this.btnNaviVienChuc.ImageOptions.LargeImage = global::QLNS_SGU.Properties.Resources.vienchuc;
-            this.btnNaviVienChuc.Name = "btnNaviVienChuc";
-            // 
             // btnNaviExportData
             // 
             this.btnNaviExportData.Caption = "Xuất dữ liệu";
@@ -434,7 +425,6 @@
             this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem2);
             this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem6);
             this.ribbonPageGroup2.ItemLinks.Add(this.btnNaviTrangThai);
-            this.ribbonPageGroup2.ItemLinks.Add(this.btnNaviVienChuc);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.ShowCaptionButton = false;
             this.ribbonPageGroup2.Text = "Quản lý";
@@ -449,7 +439,7 @@
             // 
             // ribbonPageGroup3
             // 
-            this.ribbonPageGroup3.ItemLinks.Add(this.btnOpenImportData);
+            this.ribbonPageGroup3.ItemLinks.Add(this.btnNaviImportData);
             this.ribbonPageGroup3.ItemLinks.Add(this.btnNaviExportData);
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
             this.ribbonPageGroup3.ShowCaptionButton = false;
@@ -502,7 +492,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
         private DevExpress.LookAndFeel.DefaultLookAndFeel defaultLookAndFeel1;
-        private DevExpress.XtraBars.BarButtonItem btnOpenImportData;
+        private DevExpress.XtraBars.BarButtonItem btnNaviImportData;
         private DevExpress.XtraBars.BarButtonItem btnOpenCreateAndEditPersonInfoForm;
         private DevExpress.XtraBars.BarButtonItem btnNaviNganh;
         private DevExpress.XtraBars.BarButtonItem btnNaviLoaiChungChi;
@@ -531,7 +521,6 @@
         private DevExpress.XtraBars.BarButtonItem btnNaviChucVu;
         private DevExpress.XtraBars.BarButtonItem btnNaviLoaiHocHamHocVi;
         private DevExpress.XtraBars.BarButtonItem btnNaviTrangThai;
-        private DevExpress.XtraBars.BarButtonItem btnNaviVienChuc;
         private DevExpress.XtraBars.BarButtonItem btnNaviExportData;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;

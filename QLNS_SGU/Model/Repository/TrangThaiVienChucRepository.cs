@@ -72,7 +72,7 @@ namespace Model.Repository
             int idvienchuc = _db.VienChucs.Where(x => x.maVienChuc == mavienchuc).Select(y => y.idVienChuc).FirstOrDefault();
             List<TrangThaiVienChuc> listTrangThaiVienChuc = _db.TrangThaiVienChucs.Where(x => x.idVienChuc == idvienchuc).ToList();
             List<TrangThaiForView> listTrangThaiForView = new List<TrangThaiForView>();
-            for(int i = 0; i < listTrangThaiVienChuc.Count; i++)
+            for(int i = listTrangThaiVienChuc.Count - 1; i >= 0; i--)
             {
                 listTrangThaiForView.Add(new TrangThaiForView
                 {

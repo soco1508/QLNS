@@ -65,7 +65,7 @@ namespace Model.Repository
             int idvienchuc = _db.VienChucs.Where(x => x.maVienChuc == mavienchuc).Select(y => y.idVienChuc).FirstOrDefault();
             List<QuaTrinhLuong> listQuaTrinhLuong = _db.QuaTrinhLuongs.Where(x => x.idVienChuc == idvienchuc).ToList();
             List<QuaTrinhLuongForView> listQuaTrinhLuongForView = new List<QuaTrinhLuongForView>();
-            for (int i = 0; i < listQuaTrinhLuong.Count; i++)
+            for (int i = listQuaTrinhLuong.Count - 1; i >= 0; i--)
             {
                 listQuaTrinhLuongForView.Add(new QuaTrinhLuongForView
                 {

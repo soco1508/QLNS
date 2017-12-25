@@ -39,6 +39,8 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
+            this.btnDownload = new DevExpress.XtraEditors.SimpleButton();
+            this.btnUpload = new DevExpress.XtraEditors.SimpleButton();
             this.gcQuaTrinhLuong = new DevExpress.XtraGrid.GridControl();
             this.gvQuaTrinhLuong = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -77,18 +79,15 @@
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.txtRowIndex = new DevExpress.XtraEditors.TextEdit();
             this.txtMaVienChuc = new DevExpress.XtraEditors.TextEdit();
-            this.btnPrintReport = new DevExpress.XtraEditors.SimpleButton();
             this.btnExportExcel = new DevExpress.XtraEditors.SimpleButton();
             this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
             this.btnEdit = new DevExpress.XtraEditors.SimpleButton();
             this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
             this.btnRefresh = new DevExpress.XtraEditors.SimpleButton();
-            this.btnUpload = new DevExpress.XtraEditors.SimpleButton();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.btnDownload = new DevExpress.XtraEditors.SimpleButton();
-            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
             this.layoutControl2.SuspendLayout();
@@ -124,10 +123,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtRowIndex.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMaVienChuc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRowIndex.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMaVienChuc.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -205,6 +204,51 @@
             this.layoutControl2.Size = new System.Drawing.Size(1100, 477);
             this.layoutControl2.TabIndex = 35;
             this.layoutControl2.Text = "layoutControl2";
+            // 
+            // btnDownload
+            // 
+            this.btnDownload.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
+            this.btnDownload.Appearance.Font = new System.Drawing.Font("Tahoma", 8.75F);
+            this.btnDownload.Appearance.Options.UseBackColor = true;
+            this.btnDownload.Appearance.Options.UseFont = true;
+            this.btnDownload.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(223)))), ((int)(((byte)(134)))));
+            this.btnDownload.AppearanceHovered.Font = new System.Drawing.Font("Tahoma", 8.75F);
+            this.btnDownload.AppearanceHovered.ForeColor = System.Drawing.Color.Black;
+            this.btnDownload.AppearanceHovered.Options.UseBackColor = true;
+            this.btnDownload.AppearanceHovered.Options.UseFont = true;
+            this.btnDownload.AppearanceHovered.Options.UseForeColor = true;
+            this.btnDownload.AppearancePressed.ForeColor = System.Drawing.Color.Black;
+            this.btnDownload.AppearancePressed.Options.UseForeColor = true;
+            this.btnDownload.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDownload.ImageOptions.Image")));
+            this.btnDownload.Location = new System.Drawing.Point(1006, 94);
+            this.btnDownload.Name = "btnDownload";
+            this.btnDownload.Size = new System.Drawing.Size(82, 22);
+            this.btnDownload.StyleController = this.layoutControl2;
+            this.btnDownload.TabIndex = 25;
+            this.btnDownload.Text = "Tải xuống";
+            // 
+            // btnUpload
+            // 
+            this.btnUpload.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
+            this.btnUpload.Appearance.Font = new System.Drawing.Font("Tahoma", 8.75F);
+            this.btnUpload.Appearance.Options.UseBackColor = true;
+            this.btnUpload.Appearance.Options.UseFont = true;
+            this.btnUpload.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(223)))), ((int)(((byte)(134)))));
+            this.btnUpload.AppearanceHovered.Font = new System.Drawing.Font("Tahoma", 8.75F);
+            this.btnUpload.AppearanceHovered.ForeColor = System.Drawing.Color.Black;
+            this.btnUpload.AppearanceHovered.Options.UseBackColor = true;
+            this.btnUpload.AppearanceHovered.Options.UseFont = true;
+            this.btnUpload.AppearanceHovered.Options.UseForeColor = true;
+            this.btnUpload.AppearancePressed.ForeColor = System.Drawing.Color.Black;
+            this.btnUpload.AppearancePressed.Options.UseForeColor = true;
+            this.btnUpload.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnUpload.ImageOptions.Image")));
+            this.btnUpload.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
+            this.btnUpload.Location = new System.Drawing.Point(936, 94);
+            this.btnUpload.Name = "btnUpload";
+            this.btnUpload.Size = new System.Drawing.Size(66, 22);
+            this.btnUpload.StyleController = this.layoutControl2;
+            this.btnUpload.TabIndex = 24;
+            this.btnUpload.Text = "Tải lên";
             // 
             // gcQuaTrinhLuong
             // 
@@ -587,6 +631,24 @@
             this.emptySpaceItem2.Size = new System.Drawing.Size(478, 10);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // layoutControlItem4
+            // 
+            this.layoutControlItem4.Control = this.btnUpload;
+            this.layoutControlItem4.Location = new System.Drawing.Point(924, 82);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(70, 26);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem4.TextVisible = false;
+            // 
+            // layoutControlItem5
+            // 
+            this.layoutControlItem5.Control = this.btnDownload;
+            this.layoutControlItem5.Location = new System.Drawing.Point(994, 82);
+            this.layoutControlItem5.Name = "layoutControlItem5";
+            this.layoutControlItem5.Size = new System.Drawing.Size(86, 26);
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem5.TextVisible = false;
+            // 
             // txtRowIndex
             // 
             this.txtRowIndex.EditValue = "txtrowindex";
@@ -607,28 +669,6 @@
             this.txtMaVienChuc.TabIndex = 49;
             this.txtMaVienChuc.Visible = false;
             // 
-            // btnPrintReport
-            // 
-            this.btnPrintReport.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
-            this.btnPrintReport.Appearance.Font = new System.Drawing.Font("Tahoma", 8.75F);
-            this.btnPrintReport.Appearance.Options.UseBackColor = true;
-            this.btnPrintReport.Appearance.Options.UseFont = true;
-            this.btnPrintReport.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(223)))), ((int)(((byte)(134)))));
-            this.btnPrintReport.AppearanceHovered.Font = new System.Drawing.Font("Tahoma", 8.75F);
-            this.btnPrintReport.AppearanceHovered.ForeColor = System.Drawing.Color.Black;
-            this.btnPrintReport.AppearanceHovered.Options.UseBackColor = true;
-            this.btnPrintReport.AppearanceHovered.Options.UseFont = true;
-            this.btnPrintReport.AppearanceHovered.Options.UseForeColor = true;
-            this.btnPrintReport.AppearancePressed.ForeColor = System.Drawing.Color.Black;
-            this.btnPrintReport.AppearancePressed.Options.UseForeColor = true;
-            this.btnPrintReport.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.btnPrintReport.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnPrintReport.ImageOptions.Image")));
-            this.btnPrintReport.Location = new System.Drawing.Point(1000, 0);
-            this.btnPrintReport.Name = "btnPrintReport";
-            this.btnPrintReport.Size = new System.Drawing.Size(88, 22);
-            this.btnPrintReport.TabIndex = 48;
-            this.btnPrintReport.Text = "In báo cáo";
-            // 
             // btnExportExcel
             // 
             this.btnExportExcel.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
@@ -645,7 +685,7 @@
             this.btnExportExcel.AppearancePressed.Options.UseForeColor = true;
             this.btnExportExcel.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.btnExportExcel.ImageOptions.Image = global::QLNS_SGU.Properties.Resources.excel;
-            this.btnExportExcel.Location = new System.Drawing.Point(909, 0);
+            this.btnExportExcel.Location = new System.Drawing.Point(1003, 0);
             this.btnExportExcel.Name = "btnExportExcel";
             this.btnExportExcel.Size = new System.Drawing.Size(85, 22);
             this.btnExportExcel.TabIndex = 47;
@@ -739,69 +779,6 @@
             this.btnRefresh.TabIndex = 43;
             this.btnRefresh.Text = "Làm mới";
             // 
-            // btnUpload
-            // 
-            this.btnUpload.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
-            this.btnUpload.Appearance.Font = new System.Drawing.Font("Tahoma", 8.75F);
-            this.btnUpload.Appearance.Options.UseBackColor = true;
-            this.btnUpload.Appearance.Options.UseFont = true;
-            this.btnUpload.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(223)))), ((int)(((byte)(134)))));
-            this.btnUpload.AppearanceHovered.Font = new System.Drawing.Font("Tahoma", 8.75F);
-            this.btnUpload.AppearanceHovered.ForeColor = System.Drawing.Color.Black;
-            this.btnUpload.AppearanceHovered.Options.UseBackColor = true;
-            this.btnUpload.AppearanceHovered.Options.UseFont = true;
-            this.btnUpload.AppearanceHovered.Options.UseForeColor = true;
-            this.btnUpload.AppearancePressed.ForeColor = System.Drawing.Color.Black;
-            this.btnUpload.AppearancePressed.Options.UseForeColor = true;
-            this.btnUpload.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnUpload.ImageOptions.Image")));
-            this.btnUpload.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.btnUpload.Location = new System.Drawing.Point(936, 94);
-            this.btnUpload.Name = "btnUpload";
-            this.btnUpload.Size = new System.Drawing.Size(66, 22);
-            this.btnUpload.StyleController = this.layoutControl2;
-            this.btnUpload.TabIndex = 24;
-            this.btnUpload.Text = "Tải lên";
-            // 
-            // layoutControlItem4
-            // 
-            this.layoutControlItem4.Control = this.btnUpload;
-            this.layoutControlItem4.Location = new System.Drawing.Point(924, 82);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(70, 26);
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem4.TextVisible = false;
-            // 
-            // btnDownload
-            // 
-            this.btnDownload.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
-            this.btnDownload.Appearance.Font = new System.Drawing.Font("Tahoma", 8.75F);
-            this.btnDownload.Appearance.Options.UseBackColor = true;
-            this.btnDownload.Appearance.Options.UseFont = true;
-            this.btnDownload.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(223)))), ((int)(((byte)(134)))));
-            this.btnDownload.AppearanceHovered.Font = new System.Drawing.Font("Tahoma", 8.75F);
-            this.btnDownload.AppearanceHovered.ForeColor = System.Drawing.Color.Black;
-            this.btnDownload.AppearanceHovered.Options.UseBackColor = true;
-            this.btnDownload.AppearanceHovered.Options.UseFont = true;
-            this.btnDownload.AppearanceHovered.Options.UseForeColor = true;
-            this.btnDownload.AppearancePressed.ForeColor = System.Drawing.Color.Black;
-            this.btnDownload.AppearancePressed.Options.UseForeColor = true;
-            this.btnDownload.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDownload.ImageOptions.Image")));
-            this.btnDownload.Location = new System.Drawing.Point(1006, 94);
-            this.btnDownload.Name = "btnDownload";
-            this.btnDownload.Size = new System.Drawing.Size(82, 22);
-            this.btnDownload.StyleController = this.layoutControl2;
-            this.btnDownload.TabIndex = 25;
-            this.btnDownload.Text = "Tải xuống";
-            // 
-            // layoutControlItem5
-            // 
-            this.layoutControlItem5.Control = this.btnDownload;
-            this.layoutControlItem5.Location = new System.Drawing.Point(994, 82);
-            this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(86, 26);
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem5.TextVisible = false;
-            // 
             // TabPageQuaTrinhLuong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -810,7 +787,6 @@
             this.ControlBox = false;
             this.Controls.Add(this.txtRowIndex);
             this.Controls.Add(this.txtMaVienChuc);
-            this.Controls.Add(this.btnPrintReport);
             this.Controls.Add(this.btnExportExcel);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
@@ -864,10 +840,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtRowIndex.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMaVienChuc.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRowIndex.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMaVienChuc.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -924,7 +900,6 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
         private DevExpress.XtraEditors.TextEdit txtRowIndex;
         private DevExpress.XtraEditors.TextEdit txtMaVienChuc;
-        private DevExpress.XtraEditors.SimpleButton btnPrintReport;
         private DevExpress.XtraEditors.SimpleButton btnExportExcel;
         private DevExpress.XtraEditors.SimpleButton btnDelete;
         private DevExpress.XtraEditors.SimpleButton btnEdit;

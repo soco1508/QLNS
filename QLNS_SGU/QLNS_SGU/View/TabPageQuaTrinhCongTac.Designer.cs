@@ -42,7 +42,6 @@
             this.standaloneBarDockControl2 = new DevExpress.XtraBars.StandaloneBarDockControl();
             this.standaloneBarDockControl1 = new DevExpress.XtraBars.StandaloneBarDockControl();
             this.txtMaVienChuc = new DevExpress.XtraEditors.TextEdit();
-            this.btnPrintReportCV = new DevExpress.XtraEditors.SimpleButton();
             this.btnExportExcelCV = new DevExpress.XtraEditors.SimpleButton();
             this.btnDeleteCV = new DevExpress.XtraEditors.SimpleButton();
             this.btnEditCV = new DevExpress.XtraEditors.SimpleButton();
@@ -135,7 +134,6 @@
             this.layoutControlItem17 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem18 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem21 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.btnPrintReportHD = new DevExpress.XtraEditors.SimpleButton();
             this.btnExportExcelHD = new DevExpress.XtraEditors.SimpleButton();
             this.btnDeleteHD = new DevExpress.XtraEditors.SimpleButton();
             this.btnEditHD = new DevExpress.XtraEditors.SimpleButton();
@@ -245,7 +243,6 @@
             // 
             this.tabChucVuDonVi.Controls.Add(this.txtRowIndex);
             this.tabChucVuDonVi.Controls.Add(this.txtMaVienChuc);
-            this.tabChucVuDonVi.Controls.Add(this.btnPrintReportCV);
             this.tabChucVuDonVi.Controls.Add(this.btnExportExcelCV);
             this.tabChucVuDonVi.Controls.Add(this.btnDeleteCV);
             this.tabChucVuDonVi.Controls.Add(this.btnEditCV);
@@ -340,28 +337,6 @@
             this.txtMaVienChuc.TabIndex = 15;
             this.txtMaVienChuc.Visible = false;
             // 
-            // btnPrintReportCV
-            // 
-            this.btnPrintReportCV.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
-            this.btnPrintReportCV.Appearance.Font = new System.Drawing.Font("Tahoma", 8.75F);
-            this.btnPrintReportCV.Appearance.Options.UseBackColor = true;
-            this.btnPrintReportCV.Appearance.Options.UseFont = true;
-            this.btnPrintReportCV.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(223)))), ((int)(((byte)(134)))));
-            this.btnPrintReportCV.AppearanceHovered.Font = new System.Drawing.Font("Tahoma", 8.75F);
-            this.btnPrintReportCV.AppearanceHovered.ForeColor = System.Drawing.Color.Black;
-            this.btnPrintReportCV.AppearanceHovered.Options.UseBackColor = true;
-            this.btnPrintReportCV.AppearanceHovered.Options.UseFont = true;
-            this.btnPrintReportCV.AppearanceHovered.Options.UseForeColor = true;
-            this.btnPrintReportCV.AppearancePressed.ForeColor = System.Drawing.Color.Black;
-            this.btnPrintReportCV.AppearancePressed.Options.UseForeColor = true;
-            this.btnPrintReportCV.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.btnPrintReportCV.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnPrintReportCV.ImageOptions.Image")));
-            this.btnPrintReportCV.Location = new System.Drawing.Point(994, 0);
-            this.btnPrintReportCV.Name = "btnPrintReportCV";
-            this.btnPrintReportCV.Size = new System.Drawing.Size(88, 22);
-            this.btnPrintReportCV.TabIndex = 12;
-            this.btnPrintReportCV.Text = "In báo cáo";
-            // 
             // btnExportExcelCV
             // 
             this.btnExportExcelCV.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
@@ -378,7 +353,7 @@
             this.btnExportExcelCV.AppearancePressed.Options.UseForeColor = true;
             this.btnExportExcelCV.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.btnExportExcelCV.ImageOptions.Image = global::QLNS_SGU.Properties.Resources.excel;
-            this.btnExportExcelCV.Location = new System.Drawing.Point(903, 0);
+            this.btnExportExcelCV.Location = new System.Drawing.Point(997, 0);
             this.btnExportExcelCV.Name = "btnExportExcelCV";
             this.btnExportExcelCV.Size = new System.Drawing.Size(85, 22);
             this.btnExportExcelCV.TabIndex = 11;
@@ -1048,7 +1023,6 @@
             // tabHopDong
             // 
             this.tabHopDong.Controls.Add(this.layoutControl2);
-            this.tabHopDong.Controls.Add(this.btnPrintReportHD);
             this.tabHopDong.Controls.Add(this.btnExportExcelHD);
             this.tabHopDong.Controls.Add(this.btnDeleteHD);
             this.tabHopDong.Controls.Add(this.btnEditHD);
@@ -1438,28 +1412,6 @@
             this.layoutControlItem21.Text = "Link văn bản đính kèm:";
             this.layoutControlItem21.TextSize = new System.Drawing.Size(109, 13);
             // 
-            // btnPrintReportHD
-            // 
-            this.btnPrintReportHD.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
-            this.btnPrintReportHD.Appearance.Font = new System.Drawing.Font("Tahoma", 8.75F);
-            this.btnPrintReportHD.Appearance.Options.UseBackColor = true;
-            this.btnPrintReportHD.Appearance.Options.UseFont = true;
-            this.btnPrintReportHD.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(223)))), ((int)(((byte)(134)))));
-            this.btnPrintReportHD.AppearanceHovered.Font = new System.Drawing.Font("Tahoma", 8.75F);
-            this.btnPrintReportHD.AppearanceHovered.ForeColor = System.Drawing.Color.Black;
-            this.btnPrintReportHD.AppearanceHovered.Options.UseBackColor = true;
-            this.btnPrintReportHD.AppearanceHovered.Options.UseFont = true;
-            this.btnPrintReportHD.AppearanceHovered.Options.UseForeColor = true;
-            this.btnPrintReportHD.AppearancePressed.ForeColor = System.Drawing.Color.Black;
-            this.btnPrintReportHD.AppearancePressed.Options.UseForeColor = true;
-            this.btnPrintReportHD.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.btnPrintReportHD.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnPrintReportHD.ImageOptions.Image")));
-            this.btnPrintReportHD.Location = new System.Drawing.Point(994, 0);
-            this.btnPrintReportHD.Name = "btnPrintReportHD";
-            this.btnPrintReportHD.Size = new System.Drawing.Size(88, 22);
-            this.btnPrintReportHD.TabIndex = 21;
-            this.btnPrintReportHD.Text = "In báo cáo";
-            // 
             // btnExportExcelHD
             // 
             this.btnExportExcelHD.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
@@ -1476,7 +1428,7 @@
             this.btnExportExcelHD.AppearancePressed.Options.UseForeColor = true;
             this.btnExportExcelHD.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.btnExportExcelHD.ImageOptions.Image = global::QLNS_SGU.Properties.Resources.excel;
-            this.btnExportExcelHD.Location = new System.Drawing.Point(903, 0);
+            this.btnExportExcelHD.Location = new System.Drawing.Point(997, 0);
             this.btnExportExcelHD.Name = "btnExportExcelHD";
             this.btnExportExcelHD.Size = new System.Drawing.Size(85, 22);
             this.btnExportExcelHD.TabIndex = 20;
@@ -1712,7 +1664,6 @@
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private DevExpress.XtraBars.StandaloneBarDockControl standaloneBarDockControl2;
         private DevExpress.XtraEditors.SimpleButton btnUploadCV;
-        private DevExpress.XtraEditors.SimpleButton btnPrintReportCV;
         private DevExpress.XtraEditors.SimpleButton btnExportExcelCV;
         private DevExpress.XtraEditors.SimpleButton btnDeleteCV;
         private DevExpress.XtraEditors.SimpleButton btnEditCV;
@@ -1772,7 +1723,6 @@
         private DevExpress.XtraBars.StandaloneBarDockControl standaloneBarDockControl1;
         private DevExpress.XtraEditors.SimpleButton btnDownloadHD;
         private DevExpress.XtraEditors.SimpleButton btnUploadHD;
-        private DevExpress.XtraEditors.SimpleButton btnPrintReportHD;
         private DevExpress.XtraEditors.SimpleButton btnExportExcelHD;
         private DevExpress.XtraEditors.SimpleButton btnDeleteHD;
         private DevExpress.XtraEditors.SimpleButton btnEditHD;

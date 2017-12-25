@@ -24,6 +24,7 @@ namespace Model.Repository
                                                  from d in listDangHocNangCao
                                                  from e in _db.NganhVienChucs
                                                  where c.idVienChuc == d.idVienChuc && c.idHocHamHocViVienChuc == e.idHocHamHocViVienChuc
+                                                 orderby c.idHocHamHocViVienChuc
                                                  select new { c, d, e };
             foreach(var row in listHocHamHocVi_DangHocNangCao)
             {

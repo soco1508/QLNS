@@ -90,8 +90,9 @@ namespace QLNS_SGU.Presenter
                 linkVanBanDinhKem = _view.TXTLinkVanBanDinhKem.Text
             });
             unitOfWorks.Save();
-            XtraMessageBox.Show("Thêm dữ liệu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             LoadGridTabPageQuaTrinhLuong(_view.TXTMaVienChuc.Text);
+            XtraMessageBox.Show("Thêm dữ liệu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MainPresenter.RefreshRightViewQuaTrinhLuong();
         }
         private void UpdateData()
         {
@@ -105,8 +106,9 @@ namespace QLNS_SGU.Presenter
             quaTrinhLuong.dangHuongLuong = _view.CHKDangHuongLuong.Checked;
             quaTrinhLuong.linkVanBanDinhKem = _view.TXTLinkVanBanDinhKem.Text;
             unitOfWorks.Save();
-            XtraMessageBox.Show("Sửa dữ liệu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             LoadGridTabPageQuaTrinhLuong(_view.TXTMaVienChuc.Text);
+            XtraMessageBox.Show("Sửa dữ liệu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MainPresenter.RefreshRightViewQuaTrinhLuong();
         }
         private void Download(string linkvanbandinhkem)
         {
@@ -210,6 +212,7 @@ namespace QLNS_SGU.Presenter
                         unitOfWorks.Save();
                         _view.GVTabPageQuaTrinhLuong.DeleteRow(row_handle);
                         Refresh();
+                        MainPresenter.RefreshRightViewQuaTrinhLuong();
                     }
                 }
                 else XtraMessageBox.Show("Vui lòng chọn dòng cần xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);                

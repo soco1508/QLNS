@@ -157,7 +157,7 @@ namespace QLNS_SGU.Presenter
                 TabPageChuyenMonPresenter._mavienchuc = _view.TXTMaVienChuc.Text;
                 TabPageTrangThaiPresenter._mavienchuc = _view.TXTMaVienChuc.Text;           
                 _view.TXTMaVienChuc.Enabled = false;
-                MainPresenter.LoadGrid();
+                MainPresenter.LoadDataToMainGrid();
             }
             else
             {
@@ -192,6 +192,7 @@ namespace QLNS_SGU.Presenter
             vienChuc.anh = ConvertImageToBinary(_view.PICVienChuc.GetLoadedImageLocation());
             unitOfWorks.Save();
             XtraMessageBox.Show("Cập nhật dữ liệu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MainPresenter.LoadDataToMainGrid();
         }
 
         //public void AddNew()

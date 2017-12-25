@@ -2114,7 +2114,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>bikk+SXX4t62bzatsV9UnqWkFZMmE4IDS4gVwmQNlLY=</dsig:DigestValue>
+        <dsig:DigestValue>b90kho44/koXZkCK5gTZByySHjkSNtaKAdFiqEXdlyQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -2131,14 +2131,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="QLNS_SGU.exe" size="1634200">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="QLNS_SGU.exe" size="1388440">
       <assemblyIdentity name="QLNS_SGU" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>o15k+7/xWuxaojQ/97wRCP7dHYbM+VakpyzjgWzvnwA=</dsig:DigestValue>
+        <dsig:DigestValue>9exRfG6+2SUYeU8QxZxe7tUtWeGMeAaEFak3vF/U2xA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

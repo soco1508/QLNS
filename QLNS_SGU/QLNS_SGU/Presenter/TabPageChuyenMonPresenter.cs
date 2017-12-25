@@ -273,8 +273,9 @@ namespace QLNS_SGU.Presenter
                 linkVanBanDinhKem = _view.TXTLinkVanBanDinhKemHHHV.Text               
             });
             unitOfWorks.Save();
-            XtraMessageBox.Show("Thêm dữ liệu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             LoadGridTabPageHocHamHocVi(_view.TXTMaVienChuc.Text);
+            XtraMessageBox.Show("Thêm dữ liệu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MainPresenter.LoadGridHocHamHocVi_DangHocNangCao_Nganh();
         }
         private void InsertDataDHNC()
         {
@@ -296,8 +297,9 @@ namespace QLNS_SGU.Presenter
                 linkAnhQuyetDinh = _view.TXTLinkAnhQuyetDinh.Text
             });
             unitOfWorks.Save();
-            XtraMessageBox.Show("Thêm dữ liệu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             LoadGridTabPageDangHocNangCao(_view.TXTMaVienChuc.Text);
+            XtraMessageBox.Show("Thêm dữ liệu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MainPresenter.LoadGridHocHamHocVi_DangHocNangCao_Nganh();
         }
         private void InsertDataN()
         {
@@ -317,8 +319,9 @@ namespace QLNS_SGU.Presenter
                 linkVanBanDinhKem = _view.TXTLinkVanBanDinhKemN.Text
             });
             unitOfWorks.Save();
-            XtraMessageBox.Show("Thêm dữ liệu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             LoadGridTabPageNganh(_view.TXTMaVienChuc.Text);
+            XtraMessageBox.Show("Thêm dữ liệu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MainPresenter.LoadGridHocHamHocVi_DangHocNangCao_Nganh();
         }
         private void InsertDataCC()
         {
@@ -338,8 +341,9 @@ namespace QLNS_SGU.Presenter
                     linkVanBanDinhKem = _view.TXTGhiChuCC.Text
                 });
                 unitOfWorks.Save();
-                XtraMessageBox.Show("Thêm dữ liệu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadGridTabPageChungChi(_view.TXTMaVienChuc.Text);
+                XtraMessageBox.Show("Thêm dữ liệu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MainPresenter.LoadGridChungChi();
             }
             else XtraMessageBox.Show("Bạn chọn sai chứng chỉ hoặc cấp độ. Vui lòng chọn lại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
@@ -356,8 +360,9 @@ namespace QLNS_SGU.Presenter
             hocHamHocViVienChuc.ngayCapBang = unitOfWorks.HopDongVienChucRepository.ReturnDateTimeToDatabase(_view.DTNgayCapBang.Text);
             hocHamHocViVienChuc.linkVanBanDinhKem = _view.TXTLinkVanBanDinhKemHHHV.Text;
             unitOfWorks.Save();
-            XtraMessageBox.Show("Sửa dữ liệu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             LoadGridTabPageHocHamHocVi(_view.TXTMaVienChuc.Text);
+            XtraMessageBox.Show("Sửa dữ liệu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MainPresenter.LoadGridHocHamHocVi_DangHocNangCao_Nganh();
         }
         private void UpdateDataDHNC()
         {
@@ -375,8 +380,9 @@ namespace QLNS_SGU.Presenter
             dangHocNangCao.soQuyetDinh = _view.TXTSoQuyetDinh.Text;
             dangHocNangCao.linkAnhQuyetDinh = _view.TXTLinkAnhQuyetDinh.Text;
             unitOfWorks.Save();
-            XtraMessageBox.Show("Sửa dữ liệu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             LoadGridTabPageDangHocNangCao(_view.TXTMaVienChuc.Text);
+            XtraMessageBox.Show("Sửa dữ liệu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MainPresenter.LoadGridHocHamHocVi_DangHocNangCao_Nganh();
         }
         private void UpdateDataN()
         {
@@ -388,8 +394,9 @@ namespace QLNS_SGU.Presenter
             nganhVienChuc.ngayKetThuc = unitOfWorks.HopDongVienChucRepository.ReturnDateTimeToDatabase(_view.DTNgayKetThucN.Text);
             nganhVienChuc.linkVanBanDinhKem = _view.TXTLinkVanBanDinhKemN.Text;
             unitOfWorks.Save();
-            XtraMessageBox.Show("Sửa dữ liệu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             LoadGridTabPageNganh(_view.TXTMaVienChuc.Text);
+            XtraMessageBox.Show("Sửa dữ liệu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MainPresenter.LoadGridHocHamHocVi_DangHocNangCao_Nganh();
         }
         private void UpdateDataCC()
         {
@@ -399,6 +406,10 @@ namespace QLNS_SGU.Presenter
             chungChiVienChuc.ngayCapChungChi = unitOfWorks.HopDongVienChucRepository.ReturnDateTimeToDatabase(_view.DTNgayCapChungChi.Text);
             chungChiVienChuc.ghiChu = _view.TXTGhiChuCC.Text;
             chungChiVienChuc.linkVanBanDinhKem = _view.TXTLinkVanBanDinhKemCC.Text;
+            unitOfWorks.Save();
+            LoadGridTabPageChungChi(_view.TXTMaVienChuc.Text);
+            XtraMessageBox.Show("Sửa dữ liệu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MainPresenter.LoadGridChungChi();
         }
         private void Download(string linkvanbandinhkem)
         {
@@ -576,6 +587,7 @@ namespace QLNS_SGU.Presenter
                         unitOfWorks.Save();
                         _view.GVHocHamHocVi.DeleteRow(row_handle);
                         RefreshHHHV();
+                        MainPresenter.LoadGridHocHamHocVi_DangHocNangCao_Nganh();
                     }
                 }
                 else XtraMessageBox.Show("Vui lòng chọn dòng cần xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -743,6 +755,7 @@ namespace QLNS_SGU.Presenter
                         unitOfWorks.Save();
                         _view.GVDangHocNangCao.DeleteRow(row_handle);
                         RefreshDHNC();
+                        MainPresenter.LoadGridHocHamHocVi_DangHocNangCao_Nganh();
                     }
                 }
                 else XtraMessageBox.Show("Vui lòng chọn dòng cần xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -929,6 +942,7 @@ namespace QLNS_SGU.Presenter
                         unitOfWorks.Save();
                         _view.GVNganh.DeleteRow(row_handle);
                         RefreshN();
+                        MainPresenter.LoadGridHocHamHocVi_DangHocNangCao_Nganh();
                     }
                 }
                 else XtraMessageBox.Show("Vui lòng chọn dòng cần xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -1107,6 +1121,7 @@ namespace QLNS_SGU.Presenter
                         unitOfWorks.Save();
                         _view.GVChungChi.DeleteRow(row_handle);
                         RefreshCC();
+                        MainPresenter.LoadGridChungChi();
                     }
                 }
                 else XtraMessageBox.Show("Vui lòng chọn dòng cần xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);

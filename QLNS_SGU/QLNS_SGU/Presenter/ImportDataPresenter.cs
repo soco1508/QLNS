@@ -61,6 +61,7 @@ namespace QLNS_SGU.Presenter
         public void Initialize()
         {
             _view.Attach(this);
+            _view.XtraTabControl.SelectedTabPageIndex = 0;
         }
 #region --OpenTab--
         public void OpenTabThongTinVienChuc()

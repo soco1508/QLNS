@@ -35,11 +35,11 @@ namespace QLNS_SGU.View
 
         public void Attach(IBacPresenter presenter)
         {
-            btnRefresh.ItemClick += (s, e) => presenter.RefreshGrid();
-            btnAdd.ItemClick += (s, e) => presenter.AddNewRow();
-            btnSave.ItemClick += (s, e) => presenter.SaveData();
-            btnDelete.ItemClick += (s, e) => presenter.DeleteRow();
-            btnExportExcel.ItemClick += (s, e) => presenter.ExportExcel();
+            btnRefresh.Click += (s, e) => presenter.RefreshGrid();
+            btnAdd.Click += (s, e) => presenter.AddNewRow();
+            btnSave.Click += (s, e) => presenter.SaveData();
+            btnDelete.Click += (s, e) => presenter.DeleteRow();
+            btnExportExcel.Click += (s, e) => presenter.ExportExcel();
             gcBac.MouseDoubleClick += new MouseEventHandler(presenter.MouseDoubleClick);
             gvBac.HiddenEditor += new EventHandler(presenter.HiddenEditor);
             gvBac.InitNewRow += new InitNewRowEventHandler(presenter.InitNewRow);

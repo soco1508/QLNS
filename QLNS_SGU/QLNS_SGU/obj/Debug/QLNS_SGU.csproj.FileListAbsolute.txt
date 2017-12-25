@@ -256,7 +256,6 @@ C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\QLNS_SGU.View.TabPageThongTinCaNhan.resources
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\QLNS_SGU.View.ToChuyenMonForm.resources
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\QLNS_SGU.View.TrangThaiForm.resources
-C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\QLNS_SGU.View.VienChucForm.resources
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\QLNS_SGU.View.WaitForm1.resources
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\QLNS_SGU.csproj.GenerateResource.Cache
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\QLNS_SGU.exe.licenses

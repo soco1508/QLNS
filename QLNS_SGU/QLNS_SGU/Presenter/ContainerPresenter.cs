@@ -17,7 +17,7 @@ namespace QLNS_SGU.Presenter
         void NaviLoaiNganh();
         void NaviNganhDaoTao();
         void NaviMain();
-        void OpenImportData();
+        void NaviImportData();
         void OpenCreateAndEditPersonInfoForm();
         void NaviChuyenNganh();
         void NaviLoaiDonVi();
@@ -31,7 +31,6 @@ namespace QLNS_SGU.Presenter
         void NaviLoaiHocHamHocVi();
         void NaviLoaiChungChi();
         void NaviTrangThai();
-        void NaviVienChuc();
         void NaviExportData();
     }
     public class ContainerPresenter : IContainerPresenter
@@ -96,20 +95,23 @@ namespace QLNS_SGU.Presenter
             }
         }
 
-        public void OpenImportData()
-        {           
-            Form form = Application.OpenForms["ImportDataForm"];
-            if (form != null)
+        public void NaviImportData()
+        {
+            Form frm = CheckExistChildForm(typeof(ImportDataForm));
+            if (frm == null)
             {
-                form.Activate();
+                var mainpresenter = new ImportDataPresenter(new ImportDataForm());
+                mainpresenter.Initialize();
+                Form f = (Form)mainpresenter.UI;
+                f.MdiParent = _view;
+                f.WindowState = FormWindowState.Maximized;
+                f.Show();
             }
             else
             {
-                var importdatapresenter = new ImportDataPresenter(new ImportDataForm());
-                importdatapresenter.Initialize();
-                Form f = (Form)importdatapresenter.UI;
-                f.Show();
-            }            
+                frm.WindowState = FormWindowState.Maximized;
+                frm.Activate();
+            }
         }
 
         public void OpenCreateAndEditPersonInfoForm()
@@ -376,25 +378,6 @@ namespace QLNS_SGU.Presenter
             if (frm == null)
             {
                 var presenter = new TrangThaiPresenter(new TrangThaiForm());
-                presenter.Initialize();
-                Form f = (Form)presenter.UI;
-                f.MdiParent = _view;
-                f.WindowState = FormWindowState.Maximized;
-                f.Show();
-            }
-            else
-            {
-                frm.WindowState = FormWindowState.Maximized;
-                frm.Activate();
-            }
-        }
-
-        public void NaviVienChuc()
-        {
-            Form frm = CheckExistChildForm(typeof(VienChucForm));
-            if (frm == null)
-            {
-                var presenter = new VienChucPresenter(new VienChucForm());
                 presenter.Initialize();
                 Form f = (Form)presenter.UI;
                 f.MdiParent = _view;

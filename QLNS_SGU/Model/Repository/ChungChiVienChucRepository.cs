@@ -59,7 +59,7 @@ namespace Model.Repository
             int idvienchuc = _db.VienChucs.Where(x => x.maVienChuc == mavienchuc).Select(y => y.idVienChuc).FirstOrDefault();
             List<ChungChiVienChuc> listChungChiVienChuc = _db.ChungChiVienChucs.Where(x => x.idVienChuc == idvienchuc).ToList();
             List<ChungChiForView> listChungChiForView = new List<ChungChiForView>();
-            for(int i = 0; i < listChungChiVienChuc.Count; i++)
+            for(int i = listChungChiVienChuc.Count - 1; i >= 0; i--)
             {
                 listChungChiForView.Add(new ChungChiForView
                 {

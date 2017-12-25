@@ -169,7 +169,7 @@ namespace QLNS_SGU.Presenter
             unitOfWorks.Save();
             LoadGridTabPageQuaTrinhCongTac(_view.TXTMaVienChuc.Text);
             XtraMessageBox.Show("Thêm dữ liệu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);          
-            MainPresenter.LoadGrid();
+            MainPresenter.RefreshMainGridAndRightViewQuaTrinhCongTac();
         }
         private void InsertDataHD()
         {
@@ -185,8 +185,9 @@ namespace QLNS_SGU.Presenter
                 linkVanBanDinhKem = _view.TXTLinkVanBanDinhKemHD.Text
             });
             unitOfWorks.Save();
-            XtraMessageBox.Show("Thêm dữ liệu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             LoadGridTabPageHopDong(_view.TXTMaVienChuc.Text);
+            XtraMessageBox.Show("Thêm dữ liệu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MainPresenter.SetValueLbHopDong();
         }
         private void UpdateDataCV()
         {
@@ -208,7 +209,7 @@ namespace QLNS_SGU.Presenter
             unitOfWorks.Save();
             LoadGridTabPageQuaTrinhCongTac(_view.TXTMaVienChuc.Text);
             XtraMessageBox.Show("Sửa dữ liệu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);            
-            MainPresenter.LoadGrid();
+            MainPresenter.RefreshMainGridAndRightViewQuaTrinhCongTac();
         }
         private void UpdateDataHD()
         {
@@ -433,7 +434,7 @@ namespace QLNS_SGU.Presenter
                         unitOfWorks.Save();
                         _view.GVTabPageQuaTrinhCongTac.DeleteRow(row_handle);
                         RefreshCV();
-                        MainPresenter.LoadGrid();
+                        MainPresenter.RefreshMainGridAndRightViewQuaTrinhCongTac();
                     }
                 }
                 else XtraMessageBox.Show("Vui lòng chọn dòng cần xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);                

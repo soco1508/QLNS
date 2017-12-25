@@ -94,7 +94,6 @@
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.btnSave = new DevExpress.XtraBars.BarButtonItem();
-            this.btnPrint = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -829,8 +828,7 @@
             this.barManager1.DockControls.Add(this.barDockControlRight);
             this.barManager1.Form = this;
             this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.btnSave,
-            this.btnPrint});
+            this.btnSave});
             this.barManager1.MainMenu = this.bar2;
             this.barManager1.MaxItemId = 5;
             // 
@@ -841,8 +839,7 @@
             this.bar2.DockRow = 0;
             this.bar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnSave),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnPrint)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnSave)});
             this.bar2.OptionsBar.MultiLine = true;
             this.bar2.OptionsBar.UseWholeRow = true;
             this.bar2.Text = "Main menu";
@@ -855,15 +852,6 @@
             this.btnSave.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnSave.ImageOptions.LargeImage")));
             this.btnSave.Name = "btnSave";
             this.btnSave.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            // 
-            // btnPrint
-            // 
-            this.btnPrint.Caption = "In hồ sơ viên chức";
-            this.btnPrint.Id = 3;
-            this.btnPrint.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.ImageOptions.Image")));
-            this.btnPrint.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnPrint.ImageOptions.LargeImage")));
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
             // barDockControlTop
             // 
@@ -1047,7 +1035,6 @@
         private DevExpress.XtraBars.BarManager barManager1;
         private DevExpress.XtraBars.Bar bar2;
         private DevExpress.XtraBars.BarButtonItem btnSave;
-        private DevExpress.XtraBars.BarButtonItem btnPrint;
         private DevExpress.XtraBars.BarDockControl barDockControlTop;
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
