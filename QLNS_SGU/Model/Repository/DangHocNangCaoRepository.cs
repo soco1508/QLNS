@@ -17,7 +17,6 @@ namespace Model.Repository
         public List<DangHocNangCaoForView> GetListDangHocNangCao(string mavienchuc)
         {
             int idvienchuc = _db.VienChucs.Where(x => x.maVienChuc == mavienchuc).Select(y => y.idVienChuc).FirstOrDefault();
-            HocHamHocVi_DangHocNangCao_NganhRepository repo = new HocHamHocVi_DangHocNangCao_NganhRepository(_db);
             List<DangHocNangCao> listDangHocNangCao = _db.DangHocNangCaos.Where(x => x.idVienChuc == idvienchuc).ToList();
             List<DangHocNangCaoForView> listDangHocNangCaoForView = new List<DangHocNangCaoForView>();
             for (int i = 0; i < listDangHocNangCao.Count; i++)
@@ -28,7 +27,7 @@ namespace Model.Repository
                     LoaiHocHamHocVi = HardCodeLoaiHocHamHocViToGrid(listDangHocNangCao[i].LoaiHocHamHocVi.tenLoaiHocHamHocVi),
                     SoQuyetDinh = listDangHocNangCao[i].soQuyetDinh,
                     LinkAnhQuyetDinh = listDangHocNangCao[i].linkAnhQuyetDinh,
-                    TenHocHamHocVi = repo.HardCodeHocNangCao(listDangHocNangCao[i].tenHocHamHocVi),
+                    TenHocHamHocVi = HardCodeHocNangCao(listDangHocNangCao[i].tenHocHamHocVi),
                     CoSoDaoTao = listDangHocNangCao[i].coSoDaoTao,
                     NgonNguDaoTao = listDangHocNangCao[i].ngonNguDaoTao,
                     HinhThucDaoTao = listDangHocNangCao[i].hinhThucDaoTao,
@@ -41,7 +40,21 @@ namespace Model.Repository
             return listDangHocNangCaoForView;
         }
 
-        private string HardCodeLoaiHocHamHocViToGrid(string tenLoaiHocHamHocVi)
+        public string HardCodeHocNangCao(string hocnangcao)
+        {
+            string rs = "";
+            if (hocnangcao.Contains("TS ") && hocnangcao.Contains("ThS ") == false)
+            {
+                rs = hocnangcao.Replace("TS ", "Nghiên cứu sinh ");
+            }
+            else if (hocnangcao.Contains("TS ") == false && hocnangcao.Contains("ThS "))
+            {
+                rs = hocnangcao.Replace("ThS ", "Cao học ");
+            }
+            return rs;
+        }
+
+        public string HardCodeLoaiHocHamHocViToGrid(string tenLoaiHocHamHocVi)
         {
             switch (tenLoaiHocHamHocVi)
             {
@@ -54,7 +67,7 @@ namespace Model.Repository
             }
         }
 
-        private string HardCodeLoaiToGrid(int? loai)
+        public string HardCodeLoaiToGrid(int? loai)
         {
             switch (loai)
             {
@@ -117,53 +130,6 @@ namespace Model.Repository
             }
         }
 
-        public List<DangHocNangCaoForExport> GetListDangHocNangCaoForExport()
-        {
-            VienChucRepository vienChucRepository = new VienChucRepository(_db);
-            HocHamHocVi_DangHocNangCao_NganhRepository repo = new HocHamHocVi_DangHocNangCao_NganhRepository(_db);
-            List<DangHocNangCaoForExport> listDangHocNangCaoForExport = new List<DangHocNangCaoForExport>();
-            List<DangHocNangCao> listDangHocNangCao = _db.DangHocNangCaos.ToList();
-            for (int i = 0; i < listDangHocNangCao.Count; i++)
-            {
-                listDangHocNangCaoForExport.Add(new DangHocNangCaoForExport
-                {
-                    MaVienChuc = listDangHocNangCao[i].VienChuc.maVienChuc,
-                    Ho = listDangHocNangCao[i].VienChuc.ho,
-                    Ten = listDangHocNangCao[i].VienChuc.ten,
-                    SoDienThoai = listDangHocNangCao[i].VienChuc.sDT,
-                    GioiTinh = vienChucRepository.ReturnGenderToGrid(listDangHocNangCao[i].VienChuc.gioiTinh),
-                    NgaySinh = listDangHocNangCao[i].VienChuc.ngaySinh,
-                    NoiSinh = listDangHocNangCao[i].VienChuc.noiSinh,
-                    QueQuan = listDangHocNangCao[i].VienChuc.queQuan,
-                    DanToc = listDangHocNangCao[i].VienChuc.DanToc.tenDanToc,
-                    TonGiao = listDangHocNangCao[i].VienChuc.TonGiao.tenTonGiao,
-                    HoKhauThuongTru = listDangHocNangCao[i].VienChuc.hoKhauThuongTru,
-                    NoiOHienNay = listDangHocNangCao[i].VienChuc.noiOHienNay,
-                    LaDangVien = listDangHocNangCao[i].VienChuc.laDangVien,
-                    NgayVaoDang = listDangHocNangCao[i].VienChuc.ngayVaoDang,
-                    NgayThamGiaCongTac = listDangHocNangCao[i].VienChuc.ngayThamGiaCongTac,
-                    NgayVaoNganh = listDangHocNangCao[i].VienChuc.ngayVaoNganh,
-                    NgayVeTruong = listDangHocNangCao[i].VienChuc.ngayVeTruong,
-                    VanHoa = listDangHocNangCao[i].VienChuc.vanHoa,
-                    QuanLyNhaNuoc = listDangHocNangCao[i].VienChuc.QuanLyNhaNuoc.tenQuanLyNhaNuoc,
-                    ChinhTri = listDangHocNangCao[i].VienChuc.ChinhTri.tenChinhTri,
-                    GhiChu = listDangHocNangCao[i].VienChuc.ghiChu,
-                    LoaiHocHamHocVi = HardCodeLoaiHocHamHocViToGrid(listDangHocNangCao[i].LoaiHocHamHocVi.tenLoaiHocHamHocVi),
-                    SoQuyetDinh = listDangHocNangCao[i].soQuyetDinh,
-                    LinkAnhQuyetDinh = listDangHocNangCao[i].linkAnhQuyetDinh,
-                    TenHocHamHocVi = repo.HardCodeHocNangCao(listDangHocNangCao[i].tenHocHamHocVi),
-                    CoSoDaoTao = listDangHocNangCao[i].coSoDaoTao,
-                    NgonNguDaoTao = listDangHocNangCao[i].ngonNguDaoTao,
-                    HinhThucDaoTao = listDangHocNangCao[i].hinhThucDaoTao,
-                    NuocCapBang = listDangHocNangCao[i].nuocCapBang,
-                    NgayBatDau = listDangHocNangCao[i].ngayBatDau,
-                    NgayKetThuc = listDangHocNangCao[i].ngayKetThuc,
-                    Loai = HardCodeLoaiToGrid(listDangHocNangCao[i].loai)
-                });
-            }
-            return listDangHocNangCaoForExport;
-        }
-
         public DangHocNangCao GetObjectById(int iddanghocnangcao)
         {
             return _db.DangHocNangCaos.Where(x => x.idDangHocNangCao == iddanghocnangcao).FirstOrDefault();
@@ -173,6 +139,79 @@ namespace Model.Repository
         {
             var a = _db.DangHocNangCaos.Where(x => x.idDangHocNangCao == id).FirstOrDefault();
             _db.DangHocNangCaos.Remove(a);
+        }
+
+        public DangHocNangCao GetObjectByIdVienChucAndTimeline(int idVienChuc, DateTime dtTimeline)
+        {
+            var rows = _db.DangHocNangCaos.Where(x => x.idVienChuc == idVienChuc);
+            DangHocNangCao obj = null;
+            foreach (var row in rows)
+            {
+                if (row.ngayKetThuc != null)
+                {
+                    if (row.ngayBatDau <= dtTimeline && row.ngayKetThuc >= dtTimeline)
+                    {
+                        obj = new DangHocNangCao(rows.Where(x => x.idDangHocNangCao == row.idDangHocNangCao).FirstOrDefault());
+                    }
+                }
+                else
+                {
+                    if (row.ngayBatDau <= dtTimeline)
+                    {
+                        obj = new DangHocNangCao(rows.Where(x => x.idDangHocNangCao == row.idDangHocNangCao).FirstOrDefault());
+                    }
+                }
+            }
+            return obj;
+        }
+
+        public DangHocNangCao GetObjectByIdVienChucAndPeriodOfTime(int idVienChuc, DateTime dtFromPeriodOfTime, DateTime dtToPeriodOfTime)
+        {
+            var rows = _db.DangHocNangCaos.Where(x => x.idVienChuc == idVienChuc);
+            DangHocNangCao obj = null;
+            foreach (var row in rows)
+            {
+                if (row.ngayKetThuc != null)
+                {
+                    if (row.ngayBatDau >= dtFromPeriodOfTime && row.ngayKetThuc <= dtToPeriodOfTime)
+                    {
+                        obj = new DangHocNangCao(rows.Where(x => x.idDangHocNangCao == row.idDangHocNangCao).OrderByDescending(y => y.idDangHocNangCao).FirstOrDefault());
+                    }
+                }
+                else
+                {
+                    if (row.ngayBatDau >= dtFromPeriodOfTime)
+                    {
+                        obj = new DangHocNangCao(rows.Where(x => x.idDangHocNangCao == row.idDangHocNangCao).OrderByDescending(y => y.idDangHocNangCao).FirstOrDefault());
+                    }
+                }
+            }
+            return obj;
+        }
+
+        public List<string> GetListCoSoDaoTao()
+        {
+            return _db.DangHocNangCaos.Select(x => x.coSoDaoTao).Distinct().ToList();
+        }
+
+        public List<string> GetListHinhThucDaoTao()
+        {
+            return _db.DangHocNangCaos.Select(x => x.hinhThucDaoTao).Distinct().ToList();
+        }
+
+        public List<string> GetListNgonNguDaoTao()
+        {
+            return _db.DangHocNangCaos.Select(x => x.ngonNguDaoTao).Distinct().ToList();
+        }
+
+        public List<string> GetListNuocCapBang()
+        {
+            return _db.DangHocNangCaos.Select(x => x.nuocCapBang).Distinct().ToList();
+        }
+
+        public List<string> GetListLinkAnhQuyetDinh(string maVienChucForGetListLinkAnhQuyetDinh)
+        {
+            return _db.DangHocNangCaos.Where(x => x.VienChuc.maVienChuc == maVienChucForGetListLinkAnhQuyetDinh).Select(y => y.linkAnhQuyetDinh).ToList();
         }
     }
 }

@@ -56,10 +56,10 @@ namespace QLNS_SGU.Presenter
         public void Initialize(string name)
         {
             _view.Attach(this);
-            _view.XinChao = "Xin chào, " + name + "   |";
+            _view.XinChao = "Xin chào, " + name + "   ";
             _view.WindowState = FormWindowState.Maximized;
             var presenter = new MainPresenter(new MainForm());
-            //var presenter = new VienChucPresenter(new VienChucForm());
+            //var presenter = new ExportDataPresenter(new ExportDataForm());            
             presenter.Initialize();
             Form f = (Form)presenter.UI;
             f.MdiParent = _view;

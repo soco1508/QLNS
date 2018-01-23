@@ -14,6 +14,27 @@ namespace Model.Entities
     
     public partial class DangHocNangCao
     {
+        public DangHocNangCao() { }
+
+        public DangHocNangCao(DangHocNangCao dangHocNangCao)
+        {
+            idDangHocNangCao = dangHocNangCao.idDangHocNangCao;
+            idVienChuc = dangHocNangCao.idVienChuc;
+            soQuyetDinh = dangHocNangCao.soQuyetDinh;
+            linkAnhQuyetDinh = dangHocNangCao.linkAnhQuyetDinh;
+            ngayBatDau = dangHocNangCao.ngayBatDau;
+            ngayKetThuc = dangHocNangCao.ngayKetThuc;
+            loai = dangHocNangCao.loai;
+            idLoaiHocHamHocVi = dangHocNangCao.idLoaiHocHamHocVi;
+            tenHocHamHocVi = dangHocNangCao.tenHocHamHocVi;
+            coSoDaoTao = dangHocNangCao.coSoDaoTao;
+            ngonNguDaoTao = dangHocNangCao.ngonNguDaoTao;
+            nuocCapBang = dangHocNangCao.nuocCapBang;
+            hinhThucDaoTao = dangHocNangCao.hinhThucDaoTao;
+            LoaiHocHamHocVi = dangHocNangCao.LoaiHocHamHocVi;
+            VienChuc = dangHocNangCao.VienChuc;
+        }
+
         public int idDangHocNangCao { get; set; }
         public int idVienChuc { get; set; }
         public string soQuyetDinh { get; set; }

@@ -8,9 +8,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using QLNS_SGU.Presenter;
 using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Views.Grid;
-using QLNS_SGU.Presenter;
 
 namespace QLNS_SGU.View
 {
@@ -26,7 +26,6 @@ namespace QLNS_SGU.View
         {
             InitializeComponent();
         }
-
         #region Controls
         public SaveFileDialog SaveFileDialog { get => saveFileDialog1; set => saveFileDialog1 = value; }
         public GridControl GCBac { get => gcBac; set => gcBac = value; }

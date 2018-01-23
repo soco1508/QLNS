@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using QLNS_SGU.Presenter;
@@ -25,6 +26,7 @@ namespace QLNS_SGU
             var a = new ContainerPresenter(new ContainerForm());
             a.Initialize("DONG");
             Application.Run((Form)a.UI);
+            
         }
     }
 }

@@ -199,10 +199,11 @@
     <Compile Include="ObjectModels\ChungChiForView.cs" />
     <Compile Include="ObjectModels\DangHocNangCaoForExport.cs" />
     <Compile Include="ObjectModels\DangHocNangCaoForView.cs" />
-    <Compile Include="ObjectModels\HocHamHocViForView.cs" />
+    <Compile Include="ObjectModels\ExportObjects.cs" />
+    <Compile Include="ObjectModels\HocHamHocViForTabPageChuyenMon.cs" />
     <Compile Include="ObjectModels\GoogleDriveFile.cs" />
     <Compile Include="ObjectModels\GridViewMainData.cs" />
-    <Compile Include="ObjectModels\HocHamHocVi_DanghocNangCao_NganhForView.cs" />
+    <Compile Include="ObjectModels\HocHamHocViGridAtRightViewInMainForm.cs" />
     <Compile Include="ObjectModels\HopDongForExport.cs" />
     <Compile Include="ObjectModels\HopDongForView.cs" />
     <Compile Include="ObjectModels\NganhForView.cs" />
@@ -226,7 +227,6 @@
     <Compile Include="Repository\ChuyenNganhRepository.cs" />
     <Compile Include="Repository\DonViRepository.cs" />
     <Compile Include="Repository\GoogleDriveFileRepository.cs" />
-    <Compile Include="Repository\HocHamHocVi_DangHocNangCao_NganhRepository.cs" />
     <Compile Include="Repository\HopDongVienChucRepository.cs" />
     <Compile Include="Repository\DangHocNangCaoRepository.cs" />
     <Compile Include="Repository\LoaiHocHamHocViRepository.cs" />

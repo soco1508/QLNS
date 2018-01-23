@@ -93,55 +93,52 @@ namespace Model.Repository
             chucVuDonViVienChuc.linkVanBanDinhKem = linkfiledinhkem;
         }
 
-        public List<QuaTrinhCongTacForExport> GetListQuaTrinhCongTacForExport()
+        public ChucVuDonViVienChuc GetObjectByIdVienChucAndPeriodOfTime(int idVienChuc, DateTime dtFromPeriodOfTime, DateTime dtToPeriodOfTime)
         {
-            VienChucRepository vienChucRepository = new VienChucRepository(_db);
-            List<QuaTrinhCongTacForExport> listQuaTrinhCongTacForExport = new List<QuaTrinhCongTacForExport>();
-            List<ChucVuDonViVienChuc> listChucVuDonViVienChuc = _db.ChucVuDonViVienChucs.ToList();
-            for (int i = 0; i < listChucVuDonViVienChuc.Count; i++)
+            var rows = _db.ChucVuDonViVienChucs.Where(x => x.idVienChuc == idVienChuc);
+            ChucVuDonViVienChuc obj = null;
+            foreach (var row in rows)
             {
-                listQuaTrinhCongTacForExport.Add(new QuaTrinhCongTacForExport
+                if (row.ngayKetThuc != null)
                 {
-                    MaVienChuc = listChucVuDonViVienChuc[i].VienChuc.maVienChuc,
-                    Ho = listChucVuDonViVienChuc[i].VienChuc.ho,
-                    Ten = listChucVuDonViVienChuc[i].VienChuc.ten,
-                    SoDienThoai = listChucVuDonViVienChuc[i].VienChuc.sDT,
-                    GioiTinh = vienChucRepository.ReturnGenderToGrid(listChucVuDonViVienChuc[i].VienChuc.gioiTinh),
-                    NgaySinh = listChucVuDonViVienChuc[i].VienChuc.ngaySinh,
-                    NoiSinh = listChucVuDonViVienChuc[i].VienChuc.noiSinh,
-                    QueQuan = listChucVuDonViVienChuc[i].VienChuc.queQuan,
-                    DanToc = listChucVuDonViVienChuc[i].VienChuc.DanToc.tenDanToc,
-                    TonGiao = listChucVuDonViVienChuc[i].VienChuc.TonGiao.tenTonGiao,
-                    HoKhauThuongTru = listChucVuDonViVienChuc[i].VienChuc.hoKhauThuongTru,
-                    NoiOHienNay = listChucVuDonViVienChuc[i].VienChuc.noiOHienNay,
-                    LaDangVien = listChucVuDonViVienChuc[i].VienChuc.laDangVien,
-                    NgayVaoDang = listChucVuDonViVienChuc[i].VienChuc.ngayVaoDang,
-                    NgayThamGiaCongTac = listChucVuDonViVienChuc[i].VienChuc.ngayThamGiaCongTac,
-                    NgayVaoNganh = listChucVuDonViVienChuc[i].VienChuc.ngayVaoNganh,
-                    NgayVeTruong = listChucVuDonViVienChuc[i].VienChuc.ngayVeTruong,
-                    VanHoa = listChucVuDonViVienChuc[i].VienChuc.vanHoa,
-                    QuanLyNhaNuoc = listChucVuDonViVienChuc[i].VienChuc.QuanLyNhaNuoc.tenQuanLyNhaNuoc,
-                    ChinhTri = listChucVuDonViVienChuc[i].VienChuc.ChinhTri.tenChinhTri,
-                    GhiChu = listChucVuDonViVienChuc[i].VienChuc.ghiChu,
-                    LoaiChucVu = listChucVuDonViVienChuc[i].ChucVu.LoaiChucVu.tenLoaiChucVu,
-                    ChucVu = listChucVuDonViVienChuc[i].ChucVu.tenChucVu,
-                    HeSoChucVu=listChucVuDonViVienChuc[i].ChucVu.heSoChucVu,
-                    LoaiDonVi = listChucVuDonViVienChuc[i].DonVi.LoaiDonVi.tenLoaiDonVi,
-                    DonVi=listChucVuDonViVienChuc[i].DonVi.tenDonVi,
-                    DiaDiem=listChucVuDonViVienChuc[i].DonVi.diaDiem,
-                    DiaChi=listChucVuDonViVienChuc[i].DonVi.diaChi,
-                    SoDienThoaiDonVi=listChucVuDonViVienChuc[i].DonVi.sDT,
-                    ToChuyenMon=listChucVuDonViVienChuc[i].ToChuyenMon.tenToChuyenMon,
-                    PhanLoaiCongTac=listChucVuDonViVienChuc[i].phanLoaiCongTac,
-                    CheckPhanLoaiCongTac=HardCheckPhanLoaiCongTacToGrid(listChucVuDonViVienChuc[i].checkPhanLoaiCongTac),
-                    NgayBatDau = listChucVuDonViVienChuc[i].ngayBatDau,
-                    NgayKetThuc = listChucVuDonViVienChuc[i].ngayKetThuc,
-                    LoaiThayDoi = HardLoaiThayDoiToGrid(listChucVuDonViVienChuc[i].loaiThayDoi),
-                    KiemNhiem = HardKiemNhiemToGrid(listChucVuDonViVienChuc[i].kiemNhiem),
-                    LinkVanBanDinhKem = listChucVuDonViVienChuc[i].linkVanBanDinhKem
-                });
+                    if (row.ngayBatDau >= dtFromPeriodOfTime && row.ngayKetThuc <= dtToPeriodOfTime)
+                    {
+                        obj = new ChucVuDonViVienChuc(rows.Where(x => x.idViTriDonViVienChuc == row.idViTriDonViVienChuc).OrderByDescending(y => y.idViTriDonViVienChuc).FirstOrDefault());
+                    }
+                }
+                else
+                {
+                    if (row.ngayBatDau >= dtFromPeriodOfTime)
+                    {
+                        obj = new ChucVuDonViVienChuc(rows.Where(x => x.idViTriDonViVienChuc == row.idViTriDonViVienChuc).OrderByDescending(y => y.idViTriDonViVienChuc).FirstOrDefault());
+                    }
+                }
             }
-            return listQuaTrinhCongTacForExport;
+            return obj;
+        }
+
+        public List<ChucVuDonViVienChuc> GetListCongTacByIdVienChucAndTimeline(int idVienChuc, DateTime dtTimeline)
+        {
+            var rows = _db.ChucVuDonViVienChucs.Where(x => x.idVienChuc == idVienChuc);
+            List<ChucVuDonViVienChuc> listChucVuDonViVienChuc = new List<ChucVuDonViVienChuc>();
+            foreach(var row in rows)
+            {
+                if(row.ngayKetThuc != null)
+                {
+                    if(row.ngayBatDau <= dtTimeline && row.ngayKetThuc >= dtTimeline)
+                    {
+                        listChucVuDonViVienChuc.Add(new ChucVuDonViVienChuc(row));                       
+                    }
+                }
+                if(row.ngayKetThuc == null)
+                {
+                    if(row.ngayBatDau <= dtTimeline)
+                    {
+                        listChucVuDonViVienChuc.Add(new ChucVuDonViVienChuc(row));
+                    }
+                }
+            }
+            return listChucVuDonViVienChuc;
         }
 
         public double? GetHeSoChucVu(string hesochucvu)
@@ -154,7 +151,7 @@ namespace Model.Repository
             return 0;
         }
 
-        private string HardCheckPhanLoaiCongTacToGrid(int? checkphanloaicongtac)
+        public string HardCheckPhanLoaiCongTacToGrid(int? checkphanloaicongtac)
         {
             switch (checkphanloaicongtac)
             {
@@ -170,7 +167,7 @@ namespace Model.Repository
                     return "";
             }
         }
-        private string HardKiemNhiemToGrid(int? kiemnhiem)
+        public string HardKiemNhiemToGrid(int? kiemnhiem)
         {
             switch (kiemnhiem)
             {
@@ -184,7 +181,13 @@ namespace Model.Repository
                     return "";
             }
         }
-        private string HardLoaiThayDoiToGrid(int? loaithaydoi)
+
+        public List<string> GetListPhanLoaiCongTac()
+        {
+            return _db.ChucVuDonViVienChucs.Where(x => x.phanLoaiCongTac != null).Select(x => x.phanLoaiCongTac).Distinct().ToList();
+        }
+
+        public string HardLoaiThayDoiToGrid(int? loaithaydoi)
         {
             switch (loaithaydoi)
             {
@@ -273,6 +276,16 @@ namespace Model.Repository
                 ChucVuDonViVienChuc cv = _db.ChucVuDonViVienChucs.Where(x => x.idViTriDonViVienChuc == id).FirstOrDefault();
                 cv.ngayKetThuc = Convert.ToDateTime("01/01/2020");
             }
+        }
+
+        public List<ChucVuDonViVienChuc> GetObjectByIdVienChuc(int idVienChuc)
+        {
+            return _db.ChucVuDonViVienChucs.Where(x => x.idVienChuc == idVienChuc).Select(x => new ChucVuDonViVienChuc { ChucVu = x.ChucVu, phanLoaiCongTac = x.phanLoaiCongTac, kiemNhiem = x.kiemNhiem }).ToList();
+        }
+
+        public List<string> GetListLinkVanBanDinhKem(string maVienChucForGetListLinkVanBanDinhKemQTCT)
+        {
+            return _db.ChucVuDonViVienChucs.Where(x => x.VienChuc.maVienChuc == maVienChucForGetListLinkVanBanDinhKemQTCT).Select(y => y.linkVanBanDinhKem).ToList();
         }
     }
 }

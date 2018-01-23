@@ -17,7 +17,7 @@ namespace QLNS_SGU.View
     {
         PictureEdit PICVienChuc { get; set; }
         TextEdit TXTMaVienChuc { get; set; }
-        LookUpEdit CBXGioiTinh { get; set; }
+        RadioGroup RADGioiTinh { get; set; }
         TextEdit TXTHo { get; set; }
         TextEdit TXTTen { get; set; }
         DateEdit DTNgaySinh { get; set; }
@@ -47,7 +47,7 @@ namespace QLNS_SGU.View
         #region Controls
         public PictureEdit PICVienChuc { get => picVienChuc; set => picVienChuc = value; }
         public TextEdit TXTMaVienChuc { get => txtMaVienChuc; set => txtMaVienChuc = value; }
-        public LookUpEdit CBXGioiTinh { get => cbxGioiTinh; set => cbxGioiTinh = value; }
+        public RadioGroup RADGioiTinh { get => radGioiTinh; set => radGioiTinh = value; }
         public TextEdit TXTHo { get => txtHo; set => txtHo = value; }
         public TextEdit TXTTen { get => txtTen; set => txtTen = value; }
         public DateEdit DTNgaySinh { get => dtNgaySinh; set => dtNgaySinh = value; }
@@ -73,6 +73,8 @@ namespace QLNS_SGU.View
             Load += (s, e) => presenter.LoadForm();
             //btnAddNew.ItemClick += (s, e) => presenter.AddNew();
             btnSave.ItemClick += (s, e) => presenter.Save();
+            btnSaveAndClose.ItemClick += (s, e) => presenter.SaveAndClose();
+            chkLaDangVien.CheckedChanged += new EventHandler(presenter.CheckedLaDangVienChanged);
         }
     }
 }

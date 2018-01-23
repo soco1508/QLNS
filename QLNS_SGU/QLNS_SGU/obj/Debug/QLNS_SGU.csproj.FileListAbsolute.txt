@@ -238,6 +238,7 @@ C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\QLNS_SGU.View.ContainerForm.resources
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\QLNS_SGU.View.CreateAndEditPersonInfoForm.resources
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\QLNS_SGU.View.DonViForm.resources
+C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\QLNS_SGU.View.ExportDataForm.resources
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\QLNS_SGU.View.ImportDataForm.resources
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\QLNS_SGU.View.LoaiChucVuForm.resources
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\QLNS_SGU.View.LoaiChungChiForm.resources
@@ -251,9 +252,10 @@ C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\QLNS_SGU.View.NganhDaoTaoForm.resources
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\QLNS_SGU.View.StoreImageForm.resources
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\QLNS_SGU.View.TabPageChuyenMon.resources
-C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\QLNS_SGU.View.TabPageQuaTrinhCongTac.resources
+C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\QLNS_SGU.View.TabPageQuaTrinhCongTac1.resources
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\QLNS_SGU.View.TabPageQuaTrinhLuong.resources
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\QLNS_SGU.View.TabPageThongTinCaNhan.resources
+C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\QLNS_SGU.View.TabPageTrangThai.resources
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\QLNS_SGU.View.ToChuyenMonForm.resources
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\QLNS_SGU.View.TrangThaiForm.resources
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\QLNS_SGU.View.WaitForm1.resources
@@ -264,5 +266,3 @@ C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\QLNS_SGU.application
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\QLNS_SGU.exe
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\QLNS_SGU.pdb
-C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\QLNS_SGU.View.TabPageTrangThai.resources
-C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\QLNS_SGU.View.ExportDataForm.resources

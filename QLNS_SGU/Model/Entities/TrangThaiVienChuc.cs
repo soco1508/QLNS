@@ -14,6 +14,21 @@ namespace Model.Entities
     
     public partial class TrangThaiVienChuc
     {
+        public TrangThaiVienChuc() { }
+        public TrangThaiVienChuc(TrangThaiVienChuc trangThaiVienChuc)
+        {
+            idTrangThaiVienChuc = trangThaiVienChuc.idTrangThaiVienChuc;
+            idVienChuc = trangThaiVienChuc.idVienChuc;
+            idTrangThai = trangThaiVienChuc.idTrangThai;
+            ngayBatDau = trangThaiVienChuc.ngayBatDau;
+            ngayKetThuc = trangThaiVienChuc.ngayKetThuc;
+            moTa = trangThaiVienChuc.moTa;
+            diaDiem = trangThaiVienChuc.diaDiem;
+            linkVanBanDinhKem = trangThaiVienChuc.linkVanBanDinhKem;
+            TrangThai = trangThaiVienChuc.TrangThai;
+            VienChuc = trangThaiVienChuc.VienChuc;
+        }
+
         public int idTrangThaiVienChuc { get; set; }
         public int idVienChuc { get; set; }
         public int idTrangThai { get; set; }

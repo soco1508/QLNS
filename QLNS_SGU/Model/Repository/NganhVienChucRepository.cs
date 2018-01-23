@@ -42,7 +42,7 @@ namespace Model.Repository
             return listNganhForView;
         }
 
-        private string HardCodePhanLoaiToGrid(int? phanLoai)
+        public string HardCodePhanLoaiToGrid(int? phanLoai)
         {
             switch (phanLoai)
             {
@@ -75,6 +75,59 @@ namespace Model.Repository
         public NganhVienChuc GetObjectById(int idnganhvienchuc)
         {
             return _db.NganhVienChucs.Where(x => x.idNganhVienChuc == idnganhvienchuc).FirstOrDefault();
+        }
+
+        public NganhVienChuc GetObjectNganhHocByIdVienChuc(int idVienChuc)
+        {
+            return _db.NganhVienChucs.Where(x => x.idVienChuc == idVienChuc && x.phanLoai == 1).OrderByDescending(y => y.HocHamHocViVienChuc.bacHocHamHocVi).FirstOrDefault();
+        }
+
+        public NganhVienChuc GetObjectNganhDayByIdVienChucAndTimeline(int idVienChuc, DateTime dtTimeline)
+        {
+            var rows = _db.NganhVienChucs.Where(x => x.idVienChuc == idVienChuc && x.phanLoai == 2);
+            NganhVienChuc obj = null;
+            foreach (var row in rows)
+            {
+                if (row.ngayKetThuc != null)
+                {
+                    if (row.ngayBatDau <= dtTimeline && row.ngayKetThuc >= dtTimeline)
+                    {
+                        obj = new NganhVienChuc(rows.Where(x => x.idNganhVienChuc == row.idNganhVienChuc).FirstOrDefault());
+                    }
+                }
+                else
+                {
+                    if (row.ngayBatDau <= dtTimeline)
+                    {
+                        obj = new NganhVienChuc(rows.Where(x => x.idNganhVienChuc == row.idNganhVienChuc).FirstOrDefault());
+                    }
+                }
+            }
+            return obj;
+        }
+
+        public NganhVienChuc GetObjectByIdVienChucAndPeriodOfTime(int idVienChuc, DateTime dtFromPeriodOfTime, DateTime dtToPeriodOfTime)
+        {
+            var rows = _db.NganhVienChucs.Where(x => x.idVienChuc == idVienChuc && x.phanLoai == 2);
+            NganhVienChuc obj = null;
+            foreach (var row in rows)
+            {
+                if (row.ngayKetThuc != null)
+                {
+                    if (row.ngayBatDau >= dtFromPeriodOfTime && row.ngayKetThuc <= dtToPeriodOfTime)
+                    {
+                        obj = new NganhVienChuc(rows.Where(x => x.idNganhVienChuc == row.idNganhVienChuc).OrderByDescending(y => y.idNganhVienChuc).FirstOrDefault());
+                    }
+                }
+                else
+                {
+                    if (row.ngayBatDau >= dtFromPeriodOfTime)
+                    {
+                        obj = new NganhVienChuc(rows.Where(x => x.idNganhVienChuc == row.idNganhVienChuc).OrderByDescending(y => y.idNganhVienChuc).FirstOrDefault());
+                    }
+                }
+            }
+            return obj;
         }
     }
 }

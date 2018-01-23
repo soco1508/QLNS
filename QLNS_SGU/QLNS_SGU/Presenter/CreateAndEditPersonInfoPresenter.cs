@@ -8,91 +8,83 @@ using System.Windows.Forms;
 using DevExpress.XtraTab;
 using DevExpress.XtraTabbedMdi;
 using DevExpress.XtraSplashScreen;
+using DevExpress.XtraEditors;
 
 namespace QLNS_SGU.Presenter
 {
     public interface ICreateAndEditPersonInfoPresenter : IPresenterArgumentForTabPage
     {
-        void Close();
         void LoadForm();
+        void FormClosing(object sender, FormClosingEventArgs e);
     }
     public class CreateAndEditPersonInfoPresenter : ICreateAndEditPersonInfoPresenter
     {
-        private CreateAndEditPersonInfoForm _view;
-        private string _mavienchuc = "";
-        private int _tabOrder = -1;
-        public int _rowHandle = -1;
-        public bool checkGrid = false;
+        private static CreateAndEditPersonInfoForm _view;
+        private string maVienChucInMainForm = "";
+        private int tabOrderInRightViewMainForm = -1;
+        public int rowFocusFormMainForm = -1;
+        public bool checkClickGrid = false;
         public object UI => _view;
         public CreateAndEditPersonInfoPresenter(CreateAndEditPersonInfoForm view) => _view = view;
-        public void Close() => _view.Close();
-        public void Initialize(string mavienchuc, int tabOrder)
+        public static void CloseForm()
+        {
+            _view.Close();
+        }
+        public void Initialize(string mavienchucInMainForm, int taborderInRightViewMainForm)
         {
             _view.Attach(this);
-            _mavienchuc = mavienchuc;
-            _tabOrder = tabOrder;      
+            maVienChucInMainForm = mavienchucInMainForm;
+            tabOrderInRightViewMainForm = taborderInRightViewMainForm;      
         }
         public void LoadForm()
         {
             SplashScreenManager.ShowForm(_view, typeof(WaitForm1), true, true, false, 0);
             var tabPageThongTinCaNhanPresenter = new TabPageThongTinCaNhanPresenter(new TabPageThongTinCaNhan());
-            tabPageThongTinCaNhanPresenter.Initialize(_mavienchuc);
-            Form form1 = (Form)tabPageThongTinCaNhanPresenter.UI;
-            InitForm(form1);
-            var tabPageQuaTrinhCongTacPresenter = new TabPageQuaTrinhCongTacPresenter(new TabPageQuaTrinhCongTac());
-            tabPageQuaTrinhCongTacPresenter.Initialize(_mavienchuc);
-            tabPageQuaTrinhCongTacPresenter._rowHandle = _rowHandle;
-            Form form2 = (Form)tabPageQuaTrinhCongTacPresenter.UI;
-            InitForm(form2);
+            tabPageThongTinCaNhanPresenter.Initialize(maVienChucInMainForm);
+            Form frmThongTinCaNhan = (Form)tabPageThongTinCaNhanPresenter.UI;
+            InitForm(frmThongTinCaNhan);
+            var tabPageQuaTrinhCongTacPresenter = new TabPageQuaTrinhCongTacPresenter(new TabPageQuaTrinhCongTac1());
+            tabPageQuaTrinhCongTacPresenter.Initialize(maVienChucInMainForm);
+            tabPageQuaTrinhCongTacPresenter.rowFocusFromCreateAndEditPersonalInfoForm = rowFocusFormMainForm;
+            Form frmQuaTrinhCongTac = (Form)tabPageQuaTrinhCongTacPresenter.UI;
+            InitForm(frmQuaTrinhCongTac);
             var tabPageQuaTrinhLuongPresenter = new TabPageQuaTrinhLuongPresenter(new TabPageQuaTrinhLuong());
-            tabPageQuaTrinhLuongPresenter.Initialize(_mavienchuc);
-            tabPageQuaTrinhLuongPresenter._rowHandle = _rowHandle;
-            Form form3 = (Form)tabPageQuaTrinhLuongPresenter.UI;
-            InitForm(form3);
+            tabPageQuaTrinhLuongPresenter.Initialize(maVienChucInMainForm);
+            tabPageQuaTrinhLuongPresenter.rowFocusFromCreateAndEditPersonalInfoForm = rowFocusFormMainForm;
+            Form frmQuaTrinhLuong = (Form)tabPageQuaTrinhLuongPresenter.UI;
+            InitForm(frmQuaTrinhLuong);
             var tabPageChuyenMonPresenter = new TabPageChuyenMonPresenter(new TabPageChuyenMon());
-            tabPageChuyenMonPresenter.Initialize(_mavienchuc);
-            tabPageChuyenMonPresenter._rowHandle = _rowHandle;
-            tabPageChuyenMonPresenter.checkGrid = checkGrid;
-            Form form4 = (Form)tabPageChuyenMonPresenter.UI;
-            InitForm(form4);
+            tabPageChuyenMonPresenter.Initialize(maVienChucInMainForm);
+            tabPageChuyenMonPresenter.rowFocusFromCreateAndEditPersonalInfoForm = rowFocusFormMainForm;
+            tabPageChuyenMonPresenter.checkClickGridForLoadForm = checkClickGrid;
+            Form frmChuyenMon = (Form)tabPageChuyenMonPresenter.UI;
+            InitForm(frmChuyenMon);
             var tabPageTrangThaiPresenter = new TabPageTrangThaiPresenter(new TabPageTrangThai());
-            tabPageTrangThaiPresenter.Initialize(_mavienchuc);
-            tabPageTrangThaiPresenter._rowHandle = _rowHandle;
-            Form form5 = (Form)tabPageTrangThaiPresenter.UI;
-            InitForm(form5);
-            switch (_tabOrder)
+            tabPageTrangThaiPresenter.Initialize(maVienChucInMainForm);
+            tabPageTrangThaiPresenter.rowFocusFromCreateAndEditPersonalInfoForm = rowFocusFormMainForm;
+            Form frmTrangThai = (Form)tabPageTrangThaiPresenter.UI;
+            InitForm(frmTrangThai);
+            switch (tabOrderInRightViewMainForm)
             {
-                case 0:                   
-                    form1.Activate();
+                case 0:
+                    frmThongTinCaNhan.Activate();
                     break;
-                case 1:                    
-                    form2.Activate();
+                case 1:
+                    frmQuaTrinhCongTac.Activate();
                     break;
-                case 2:                    
-                    form3.Activate();
+                case 2:
+                    frmQuaTrinhLuong.Activate();
                     break;
-                case 3:                    
-                    form4.Activate();
+                case 3:
+                    frmChuyenMon.Activate();
                     break;
                 case 4:
-                    form5.Activate();                    
+                    frmTrangThai.Activate();                    
                     break;
                 case 5:
-                    form2.Activate();
-                    tabPageQuaTrinhCongTacPresenter.SelectTabHopDong();
-                    break;
-                case 6:
-                    form4.Activate();
-                    tabPageChuyenMonPresenter.SelectTabDangHocNangCao();
-                    break;
-                case 7:
-                    form4.Activate();
-                    tabPageChuyenMonPresenter.SelectTabNganh();
-                    break;
-                case 8:
-                    form4.Activate();
+                    frmChuyenMon.Activate();
                     tabPageChuyenMonPresenter.SelectTabChungChi();
-                    break;
+                    break;                    
             }
             SplashScreenManager.CloseForm(false);
         }
@@ -103,6 +95,34 @@ namespace QLNS_SGU.Presenter
             f.Dock = DockStyle.Fill;
             f.WindowState = FormWindowState.Maximized;
             f.Show();
+        }
+
+        public void FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (TabPageQuaTrinhCongTacPresenter.idFileUploadQTCT != string.Empty)
+            {
+                TabPageQuaTrinhCongTacPresenter.RemoveFileIfNotSaveQTCT(TabPageQuaTrinhCongTacPresenter.idFileUploadQTCT);
+            }
+            if (TabPageQuaTrinhCongTacPresenter.idFileUploadHD != string.Empty)
+            {
+                TabPageQuaTrinhCongTacPresenter.RemoveFileIfNotSaveHD(TabPageQuaTrinhCongTacPresenter.idFileUploadHD);
+            }
+            if (TabPageQuaTrinhLuongPresenter.idFileUpload != string.Empty)
+            {
+                TabPageQuaTrinhLuongPresenter.RemoveFileIfNotSave(TabPageQuaTrinhLuongPresenter.idFileUpload);
+            }
+            if(TabPageChuyenMonPresenter.idFileUploadCC != string.Empty)
+            {
+                TabPageChuyenMonPresenter.RemoveFileIfNotSaveCC(TabPageChuyenMonPresenter.idFileUploadCC);
+            }
+            if(TabPageChuyenMonPresenter.idFileUploadDHNC != string.Empty)
+            {
+                TabPageChuyenMonPresenter.RemoveFileIfNotSaveDHNC(TabPageChuyenMonPresenter.idFileUploadDHNC);
+            }
+            if(TabPageTrangThaiPresenter.idFileUpload != string.Empty)
+            {
+                TabPageTrangThaiPresenter.RemoveFileIfNotSave(TabPageTrangThaiPresenter.idFileUpload);
+            }            
         }
     }
 }

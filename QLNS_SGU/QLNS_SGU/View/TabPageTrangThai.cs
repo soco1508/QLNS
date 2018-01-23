@@ -56,11 +56,17 @@ namespace QLNS_SGU.View
             gvTrangThai.Click += (s, e) => presenter.ClickRowAndShowInfo();
             btnUpload.Click += (s, e) => presenter.UploadFileToGoogleDrive();
             btnDownload.Click += (s, e) => presenter.DownloadFileToDevice();
-            btnEdit.Click += (s, e) => presenter.Edit();
+            btnSave.Click += (s, e) => presenter.Save();
             btnRefresh.Click += (s, e) => presenter.Refresh();
             btnAdd.Click += (s, e) => presenter.Add();
             btnDelete.Click += (s, e) => presenter.Delete();
             btnExportExcel.Click += (s, e) => presenter.ExportExcel();
+            cbxTrangThai.EditValueChanged += new EventHandler(presenter.TrangThaiChanged);
+            txtMoTa.TextChanged += new EventHandler(presenter.MoTaChanged);
+            txtDiaDiem.TextChanged += new EventHandler(presenter.DiaDiemChanged);
+            dtNgayBatDau.TextChanged += new EventHandler(presenter.NgayBatDauChanged);
+            dtNgayKetThuc.TextChanged += new EventHandler(presenter.NgayKetThucChanged);
+            txtLinkVanBanDinhKem.TextChanged += new EventHandler(presenter.LinkVanBanDinhKemChanged);
         }
     }
 }

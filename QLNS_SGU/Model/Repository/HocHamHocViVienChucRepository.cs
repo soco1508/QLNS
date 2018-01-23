@@ -14,14 +14,19 @@ namespace Model.Repository
         {
         }
 
-        public List<HocHamHocViForView> GetListHocHamHocVi(string mavienchuc)
+        private int GetIdVienChuc(string mavienchuc)
         {
-            int idvienchuc = _db.VienChucs.Where(x => x.maVienChuc == mavienchuc).Select(y => y.idVienChuc).FirstOrDefault();
+            return _db.VienChucs.Where(x => x.maVienChuc == mavienchuc).Select(y => y.idVienChuc).FirstOrDefault();
+        }
+
+        public List<HocHamHocViForTabPageChuyenMon> GetListHocHamHocViForTabPageChuyenMon(string mavienchuc)
+        {
+            int idvienchuc = GetIdVienChuc(mavienchuc);
             List<HocHamHocViVienChuc> listHocHamHocViVienChuc = _db.HocHamHocViVienChucs.Where(x => x.idVienChuc == idvienchuc).ToList();
-            List<HocHamHocViForView> listHocHamHocViForView = new List<HocHamHocViForView>();
+            List<HocHamHocViForTabPageChuyenMon> listHocHamHocViForView = new List<HocHamHocViForTabPageChuyenMon>();
             for (int i = 0; i < listHocHamHocViVienChuc.Count; i++)
             {
-                listHocHamHocViForView.Add(new HocHamHocViForView
+                listHocHamHocViForView.Add(new HocHamHocViForTabPageChuyenMon
                 {
                     Id = listHocHamHocViVienChuc[i].idHocHamHocViVienChuc,
                     LoaiHocHamHocVi = listHocHamHocViVienChuc[i].LoaiHocHamHocVi.tenLoaiHocHamHocVi,
@@ -116,8 +121,26 @@ namespace Model.Repository
 
         public List<HocHamHocViVienChuc> GetListTenHocHamHocViVienChuc(string mavienchuc)
         {
-            int idvienchuc = _db.VienChucs.Where(x => x.maVienChuc == mavienchuc).Select(y => y.idVienChuc).FirstOrDefault();
+            int idvienchuc = GetIdVienChuc(mavienchuc);
             return _db.HocHamHocViVienChucs.Where(x => x.idVienChuc == idvienchuc).ToList();
+        }
+
+        public List<HocHamHocViGridAtRightViewInMainForm> GetListHocHamHocViGridAtRightViewInMainForm(string mavienchuc)
+        {
+            int idvienchuc = GetIdVienChuc(mavienchuc);
+            var listHocHamHocViVienChuc = _db.HocHamHocViVienChucs.Where(x => x.idVienChuc == idvienchuc).OrderByDescending(y => y.bacHocHamHocVi).ToList();
+            List<HocHamHocViGridAtRightViewInMainForm> list = new List<HocHamHocViGridAtRightViewInMainForm>();
+            listHocHamHocViVienChuc.ForEach(x =>
+            {
+                list.Add(new HocHamHocViGridAtRightViewInMainForm
+                {
+                    TenHocHamHocVi = x.tenHocHamHocVi,
+                    LoaiHocHamHocVi = x.LoaiHocHamHocVi.tenLoaiHocHamHocVi,
+                    NganhDaoTao = x.NganhDaoTao.tenNganhDaoTao,
+                    ChuyenNganh = x.ChuyenNganh.tenChuyenNganh
+                });
+            });
+            return list;
         }
     }
 }

@@ -22,6 +22,7 @@ namespace QLNS_SGU.View
         GridControl GCTabPageQuaTrinhLuong { get; set; }
         GridView GVTabPageQuaTrinhLuong { get; set; }
         LookUpEdit CBXMaNgach { get; set; }
+        TextEdit TXTTenNgach { get; set; }
         LookUpEdit CBXBac { get; set; }
         DateEdit DTNgayBatDau { get; set; }
         DateEdit DTNgayLenLuong { get; set; }
@@ -42,6 +43,7 @@ namespace QLNS_SGU.View
         public GridControl GCTabPageQuaTrinhLuong { get => gcQuaTrinhLuong; set => gcQuaTrinhLuong = value; }
         public GridView GVTabPageQuaTrinhLuong { get => gvQuaTrinhLuong; set => gvQuaTrinhLuong = value; }
         public LookUpEdit CBXMaNgach { get => cbxMaNgach; set => cbxMaNgach = value; }
+        public TextEdit TXTTenNgach { get => txtTenNgach; set => txtTenNgach = value; }
         public LookUpEdit CBXBac { get => cbxBac; set => cbxBac = value; }
         public DateEdit DTNgayBatDau { get => dtNgayBatDau; set => dtNgayBatDau = value; }
         public DateEdit DTNgayLenLuong { get => dtNgayLenLuong; set => dtNgayLenLuong = value; }
@@ -54,15 +56,21 @@ namespace QLNS_SGU.View
         public void Attach(ITabPageQuaTrinhLuongPresenter presenter)
         {
             Load += (s, e) => presenter.LoadForm();
+            cbxMaNgach.EditValueChanged += new EventHandler(presenter.MaNgachChanged);
+            txtTenNgach.TextChanged += new EventHandler(presenter.TenNgachChanged);
             cbxBac.EditValueChanged += new EventHandler(presenter.BacChanged);
+            dtNgayBatDau.DateTimeChanged += new EventHandler(presenter.NgayBatDauChanged);
+            dtNgayLenLuong.DateTimeChanged += new EventHandler(presenter.NgayLenLuongChanged);
+            chkDangHuongLuong.CheckedChanged += new EventHandler(presenter.DangHuongLuongChanged);
+            txtLinkVanBanDinhKem.TextChanged += new EventHandler(presenter.LinkVanBanDinhKemChanged);
             gvQuaTrinhLuong.Click += (s, e) => presenter.ClickRowAndShowInfo();
             btnUpload.Click += (s, e) => presenter.UploadFileToGoogleDrive();
             btnDownload.Click += (s, e) => presenter.DownloadFileToDevice();
-            btnEdit.Click += (s, e) => presenter.Edit();
+            btnSave.Click += (s, e) => presenter.Save();
             btnRefresh.Click += (s, e) => presenter.Refresh();
             btnAdd.Click += (s, e) => presenter.Add();
             btnDelete.Click += (s, e) => presenter.Delete();
-            btnExportExcel.Click += (s, e) => presenter.ExportExcel();
+            btnExportExcel.Click += (s, e) => presenter.ExportExcel();            
         }
     }
 }

@@ -19,27 +19,23 @@ namespace QLNS_SGU.View
 {
     public interface IExportDataForm : IView<IExportDataPresenter>
     {
-        SaveFileDialog SaveFileDialog { get; set; }
-        BarEditItem CBXNhanh { get; set; }
-
-        GridControl GCQuaTrinhCongTac { get; set; }
-        GridView GVQuaTrinhCongTac { get; set; }
-        LayoutControlItem LCIQuaTrinhCongTac { get; set; }
-        GridControl GCHopDong { get; set; }
-        GridView GVHopDong { get; set; }
-        LayoutControlItem LCIHopDong { get; set; }
-        GridControl GCQuaTrinhLuong { get; set; }
-        GridView GVQuaTrinhLuong { get; set; }
-        LayoutControlItem LCIQuaTrinhLuong { get; set; }
-        GridControl GCDangHocNangCao { get; set; }
-        GridView GVDangHocNangCao { get; set; }
-        LayoutControlItem LCIDangHocNangCao { get; set; }
-        GridControl GCChungChi { get; set; }
-        GridView GVChungChi { get; set; }
-        LayoutControlItem LCIChungChi { get; set; }
-        GridControl GCTrangThai { get; set; }
-        GridView GVTrangThai { get; set; }
-        LayoutControlItem LCITrangThai { get; set; }                        
+        SaveFileDialog SaveFileDialog { get; set; }        
+        GridControl GCCustom { get; set; }
+        GridView GVCustom { get; set; }
+        RadioGroup RADSelectTimeToFilter { get; set; }
+        DateEdit DTTimeline { get; set; }
+        DateEdit DTFromPeriodOfTime { get; set; }
+        DateEdit DTToPeriodOfTime { get; set; }
+        CheckEdit CHKThongTinCaNhan { get; set; }
+        CheckEdit CHKCongTac { get; set; }
+        CheckEdit CHKQuaTrinhLuong { get; set; }
+        CheckEdit CHKHopDong { get; set; }
+        CheckEdit CHKTrangThai { get; set; }
+        CheckEdit CHKNganhHoc { get; set; }
+        CheckEdit CHKNganhDay { get; set; }
+        CheckEdit CHKChungChi { get; set; }
+        CheckEdit CHKDangHocNangCao { get; set; }
+        CheckEdit CHKSaveFilter { get; set; }
     }
     public partial class ExportDataForm : XtraForm, IExportDataForm
     {
@@ -48,38 +44,41 @@ namespace QLNS_SGU.View
             InitializeComponent();
         }
         #region Controls
-        public BarEditItem CBXNhanh { get => cbxNhanh1; set => cbxNhanh1 = value; }
         public SaveFileDialog SaveFileDialog { get => saveFileDialog1; set => saveFileDialog1 = value; }
-
-        public GridControl GCQuaTrinhCongTac { get => gcQuaTrinhCongTac; set => gcQuaTrinhCongTac = value; }
-        public GridView GVQuaTrinhCongTac { get => gvQuaTrinhCongTac; set => gvQuaTrinhCongTac = value; }
-        public LayoutControlItem LCIQuaTrinhCongTac { get => lciQuaTrinhCongTac; set => lciQuaTrinhCongTac = value; }
-        public GridControl GCHopDong { get => gcHopDong; set => gcHopDong = value; }
-        public GridView GVHopDong { get => gvHopDong; set => gvHopDong = value; }       
-        public LayoutControlItem LCIHopDong { get => lciHopDong; set => lciHopDong = value; }      
-        public GridControl GCQuaTrinhLuong { get => gcQuaTrinhLuong; set => gcQuaTrinhLuong = value; }
-        public GridView GVQuaTrinhLuong { get => gvQuaTrinhLuong; set => gvQuaTrinhLuong = value; }
-        public LayoutControlItem LCIQuaTrinhLuong { get => lciQuaTrinhLuong; set => lciQuaTrinhLuong = value; }
-        public GridControl GCTrangThai { get => gcTrangThai; set => gcTrangThai = value; }
-        public GridView GVTrangThai { get => gvTrangThai; set => gvTrangThai = value; }
-        public LayoutControlItem LCITrangThai { get => lciTrangThai; set => lciTrangThai = value; }
-        public GridControl GCDangHocNangCao { get => gcDangHocNangCao; set => gcDangHocNangCao = value; }
-        public GridView GVDangHocNangCao { get => gvDangHocNangCao; set => gvDangHocNangCao = value; }
-        public LayoutControlItem LCIDangHocNangCao { get => lciDangHocNangCao; set => lciDangHocNangCao = value; }
-        public GridControl GCChungChi { get => gcChungChi; set => gcChungChi = value; }
-        public GridView GVChungChi { get => gvChungChi; set => gvChungChi = value; }
-        public LayoutControlItem LCIChungChi { get => lciChungChi; set => lciChungChi = value; }
+        public GridControl GCCustom { get => gcCustom; set => gcCustom = value; }
+        public GridView GVCustom { get => gvCustom; set => gvCustom = value; }
+        public CheckEdit CHKThongTinCaNhan { get => chkThongTinCaNhan; set => chkThongTinCaNhan = value; }
+        public CheckEdit CHKCongTac { get => chkCongTac; set => chkCongTac = value; }
+        public CheckEdit CHKQuaTrinhLuong { get => chkQuaTrinhLuong; set => chkQuaTrinhLuong = value; }
+        public CheckEdit CHKHopDong { get => chkHopDong; set => chkHopDong = value; }
+        public CheckEdit CHKTrangThai { get => chkTrangThai; set => chkTrangThai = value; }
+        public CheckEdit CHKNganhHoc { get => chkNganhHoc; set => chkNganhHoc = value; }
+        public CheckEdit CHKNganhDay { get => chkNganhDay; set => chkNganhDay = value; }
+        public CheckEdit CHKChungChi { get => chkChungChi; set => chkChungChi = value; }
+        public CheckEdit CHKDangHocNangCao { get => chkDangHocNangCao; set => chkDangHocNangCao = value; }
+        public RadioGroup RADSelectTimeToFilter { get => radSelectTimeToFilter; set => radSelectTimeToFilter = value; }
+        public DateEdit DTTimeline { get => dtTimeline; set => dtTimeline = value; }
+        public DateEdit DTFromPeriodOfTime { get => dtFromPeriodOfTime; set => dtFromPeriodOfTime = value; }
+        public DateEdit DTToPeriodOfTime { get => dtToPeriodOfTime; set => dtToPeriodOfTime = value; }
+        public CheckEdit CHKSaveFilter { get => chkSaveFilter; set => chkSaveFilter = value; }
         #endregion
         public void Attach(IExportDataPresenter presenter)
         {
+            chkThongTinCaNhan.CheckedChanged += new EventHandler(presenter.CHKThongTinCaNhanChanged);
+            chkCongTac.CheckedChanged += new EventHandler(presenter.CHKCongTacChanged);
+            chkQuaTrinhLuong.CheckedChanged += new EventHandler(presenter.CHKQuaTrinhLuongChanged);
+            chkHopDong.CheckedChanged += new EventHandler(presenter.CHKHopDongChanged);
+            chkTrangThai.CheckedChanged += new EventHandler(presenter.CHKTrangThaiChanged);
+            chkNganhHoc.CheckedChanged += new EventHandler(presenter.CHKNganhHocChanged);
+            chkNganhDay.CheckedChanged += new EventHandler(presenter.CHKNganhDayChanged);
+            chkChungChi.CheckedChanged += new EventHandler(presenter.CHKChungChiChanged);
+            chkDangHocNangCao.CheckedChanged += new EventHandler(presenter.CHKDangHocNangCaoChanged);
+            gvCustom.CustomDrawRowIndicator += new RowIndicatorCustomDrawEventHandler(presenter.RowIndicator);
             btnExportExcel.ItemClick += (s, e) => presenter.ExportExcel();
-            cbxNhanh1.EditValueChanged += new EventHandler(presenter.CBXChanged);
-            gvHopDong.CustomDrawRowIndicator += new RowIndicatorCustomDrawEventHandler(presenter.RowIndicatorHopDong);
-            gvQuaTrinhCongTac.CustomDrawRowIndicator += new RowIndicatorCustomDrawEventHandler(presenter.RowIndicatorQuaTrinhCongTac);
-            gvQuaTrinhLuong.CustomDrawRowIndicator += new RowIndicatorCustomDrawEventHandler(presenter.RowIndicatorQuaTrinhLuong);
-            gvDangHocNangCao.CustomDrawRowIndicator += new RowIndicatorCustomDrawEventHandler(presenter.RowIndicatorDangHocNangCao);
-            gvChungChi.CustomDrawRowIndicator += new RowIndicatorCustomDrawEventHandler(presenter.RowIndicatorChungChi);
-            gvTrangThai.CustomDrawRowIndicator += new RowIndicatorCustomDrawEventHandler(presenter.RowIndicatorTrangThai);
+            btnCheckAllAndUncheckAll.Click += (s, e) => presenter.CheckAllAndUncheckAll();
+            radSelectTimeToFilter.SelectedIndexChanged += new EventHandler(presenter.EnableFilterDatetime);
+            btnCancel.Click += (s, e) => presenter.Cancel();
+            btnExportData.Click += (s, e) => presenter.ExportData();
         }
     }
 }

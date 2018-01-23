@@ -1,5 +1,9 @@
 ﻿using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.Repository;
+using DevExpress.XtraGrid;
+using DevExpress.XtraGrid.Columns;
+using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using DevExpress.XtraSplashScreen;
@@ -48,17 +52,17 @@ namespace QLNS_SGU.Presenter
             UnitOfWorks unitOfWorks = new UnitOfWorks(new QLNSSGU_1Entities());
             BindingList<Bac> listBac = new BindingList<Bac>(unitOfWorks.BacRepository.GetListBac());
             _view.GCBac.DataSource = listBac;
-            RepositoryItemLookUpEdit mylookup = new RepositoryItemLookUpEdit();
-            mylookup.DataSource = unitOfWorks.NgachRepository.GetListNgach();
+            RepositoryItemLookUpEdit mylookup = new RepositoryItemLookUpEdit();            
             mylookup.ValueMember = "idNgach";
             mylookup.DisplayMember = "maNgach";
-            mylookup.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
+            mylookup.DataSource = unitOfWorks.NgachRepository.GetListNgach();
+            mylookup.BestFitMode = BestFitMode.BestFitResizePopup;
             mylookup.DropDownRows = unitOfWorks.NgachRepository.GetListNgach().Count;
-            mylookup.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoFilter;
+            mylookup.SearchMode = SearchMode.AutoFilter;
             mylookup.ShowHeader = false;
             mylookup.ShowFooter = false;
             mylookup.AutoSearchColumnIndex = 1;
-            mylookup.ShowDropDown = DevExpress.XtraEditors.Controls.ShowDropDown.DoubleClick;
+            mylookup.ShowDropDown = ShowDropDown.DoubleClick;
             _view.GVBac.Columns[3].ColumnEdit = mylookup;
             mylookup.PopulateColumns();
             mylookup.Columns[0].Visible = false;
@@ -96,13 +100,13 @@ namespace QLNS_SGU.Presenter
             _view.GVBac.CloseEditor();
             _view.GVBac.UpdateCurrentRow();
             UnitOfWorks unitOfWorks = new UnitOfWorks(new QLNSSGU_1Entities());
-            int row_handle = _view.GVBac.FocusedRowHandle;
-            int idRowFocused = Convert.ToInt32(_view.GVBac.GetFocusedRowCellDisplayText("idBac"));
+            int rowFocus = _view.GVBac.FocusedRowHandle;
+            int idRowFocused = Convert.ToInt32(_view.GVBac.GetRowCellValue(rowFocus, "idBac"));
             if (idRowFocused == 0)
             {
-                int bac = Convert.ToInt32(_view.GVBac.GetFocusedRowCellDisplayText("tenBac"));
+                int bac = Convert.ToInt32(_view.GVBac.GetFocusedRowCellDisplayText("bac1"));
                 double hesobac = Convert.ToDouble(_view.GVBac.GetFocusedRowCellDisplayText("heSoBac"));
-                int idngach = Convert.ToInt32(_view.GVBac.GetRowCellValue(row_handle, "idNgach"));
+                int idngach = Convert.ToInt32(_view.GVBac.GetRowCellValue(rowFocus, "idNgach"));
                 if (bac > 0 && idngach > 0)
                 {
                     unitOfWorks.BacRepository.Create(bac, hesobac, idngach);
@@ -112,21 +116,21 @@ namespace QLNS_SGU.Presenter
                 }
                 else if (bac == 0 && idngach > 0)
                 {
-                    _view.GVBac.DeleteRow(row_handle);
+                    _view.GVBac.DeleteRow(rowFocus);
                     XtraMessageBox.Show("Bạn chưa chọn Bậc.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    _view.GVBac.DeleteRow(row_handle);
+                    _view.GVBac.DeleteRow(rowFocus);
                     XtraMessageBox.Show("Bạn chưa chọn Ngạch.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                int id = Convert.ToInt32(_view.GVBac.GetRowCellValue(row_handle, "idBac"));
+                int id = Convert.ToInt32(_view.GVBac.GetRowCellValue(rowFocus, "idBac"));
                 int bac = Convert.ToInt32(_view.GVBac.GetFocusedRowCellDisplayText("tenBac"));
                 double hesobac = Convert.ToDouble(_view.GVBac.GetFocusedRowCellDisplayText("heSoBac"));
-                int idngach = Convert.ToInt32(_view.GVBac.GetRowCellValue(row_handle, "idNgach"));
+                int idngach = Convert.ToInt32(_view.GVBac.GetRowCellValue(rowFocus, "idNgach"));
                 if (bac > 0)
                 {
                     unitOfWorks.BacRepository.Update(id, bac, hesobac,  idngach);
@@ -136,9 +140,9 @@ namespace QLNS_SGU.Presenter
                 {
                     XtraMessageBox.Show("Bạn chưa chọn Bậc.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     LoadDataToGrid();
-                    _view.GVBac.SelectRow(row_handle);
+                    _view.GVBac.SelectRow(rowFocus);
                 }
-            }
+            }           
         }
 
         public void DeleteRow()
@@ -178,12 +182,17 @@ namespace QLNS_SGU.Presenter
         public void MouseDoubleClick(object sender, MouseEventArgs e)
         {
             GridHitInfo hinfo = _view.GVBac.CalcHitInfo(e.Location);
+            if(hinfo.Column == _view.GVBac.Columns[0])
+            {
+                _view.GVBac.Columns[0].OptionsColumn.AllowEdit = true;
+                _view.GVBac.ShowEditor();
+            }
             if (hinfo.Column == _view.GVBac.Columns[1])
             {
                 _view.GVBac.Columns[1].OptionsColumn.AllowEdit = true;
                 _view.GVBac.ShowEditor();
             }
-            else if (hinfo.Column == _view.GVBac.Columns[2])
+            if (hinfo.Column == _view.GVBac.Columns[2])
             {
                 _view.GVBac.Columns[2].OptionsColumn.AllowEdit = true;
                 _view.GVBac.ShowEditor();
@@ -192,6 +201,7 @@ namespace QLNS_SGU.Presenter
 
         public void HiddenEditor(object sender, EventArgs e)
         {
+            _view.GVBac.Columns[0].OptionsColumn.AllowEdit = false;
             _view.GVBac.Columns[1].OptionsColumn.AllowEdit = false;
             _view.GVBac.Columns[2].OptionsColumn.AllowEdit = false;
         }
@@ -199,7 +209,8 @@ namespace QLNS_SGU.Presenter
         public void InitNewRow(object sender, InitNewRowEventArgs e)
         {
             GridView gridView = sender as GridView;
-            gridView.SetRowCellValue(e.RowHandle, gridView.Columns[1], 1);
+            gridView.SetRowCellValue(e.RowHandle, gridView.Columns["bac1"], 1);
+            gridView.SetRowCellValue(e.RowHandle, gridView.Columns["heSoBac"], 0);
         }
 
         public void EnterToCloseEditor(object sender, KeyEventArgs e)

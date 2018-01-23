@@ -137,22 +137,22 @@ namespace QLNS_SGU.Presenter
                 _view.GVNgach.Columns[1].OptionsColumn.AllowEdit = true;
                 _view.GVNgach.ShowEditor();
             }
-            else if (hinfo.Column == _view.GVNgach.Columns[2])
+            if (hinfo.Column == _view.GVNgach.Columns[2])
             {
                 _view.GVNgach.Columns[2].OptionsColumn.AllowEdit = true;
                 _view.GVNgach.ShowEditor();
             }
-            else if (hinfo.Column == _view.GVNgach.Columns[3])
+            if (hinfo.Column == _view.GVNgach.Columns[3])
             {
                 _view.GVNgach.Columns[3].OptionsColumn.AllowEdit = true;
                 _view.GVNgach.ShowEditor();
             }
-            else if (hinfo.Column == _view.GVNgach.Columns[4])
+            if (hinfo.Column == _view.GVNgach.Columns[4])
             {
                 _view.GVNgach.Columns[4].OptionsColumn.AllowEdit = true;
                 _view.GVNgach.ShowEditor();
             }
-            else if (hinfo.Column == _view.GVNgach.Columns[5])
+            if (hinfo.Column == _view.GVNgach.Columns[5])
             {
                 _view.GVNgach.Columns[5].OptionsColumn.AllowEdit = true;
                 _view.GVNgach.ShowEditor();

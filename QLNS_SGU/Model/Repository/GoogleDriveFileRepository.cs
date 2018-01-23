@@ -123,13 +123,8 @@ namespace Model.Repository
         public void UploadFile(string filename)
         {
             DriveService driveService = GetService();
-            var folderId = "0B-LJyxw-z5AtWl9VQU51NHpRZzg";
             var FileMetaData = new Google.Apis.Drive.v3.Data.File();
             FileMetaData.Name = Path.GetFileName(filename);
-            FileMetaData.Parents = new List<string>
-            {
-                folderId
-            };
             FilesResource.CreateMediaUpload request;
             using (var stream = new FileStream(filename, FileMode.Open))
             {
@@ -145,8 +140,9 @@ namespace Model.Repository
         {
             DriveService service = GetService();
             FilesResource.GetRequest request = service.Files.Get(fileId);
-            string FileName = request.Execute().Name;
-            string FilePath = Path.Combine(KnownFolders.Downloads.Path, FileName);
+            string fileName = request.Execute().Name;
+            string newFileName = RemoveCodeInFileName(fileName);
+            string FilePath = Path.Combine(KnownFolders.Downloads.Path, newFileName);
             var stream = new MemoryStream();
             request.MediaDownloader.ProgressChanged +=
                     (IDownloadProgress progress) =>
@@ -172,6 +168,18 @@ namespace Model.Repository
                         }
                     };
             request.Download(stream);
+        }
+
+        private string RemoveCodeInFileName(string fileName)
+        {
+            string newFileName = "";
+            string[] arrFileName = fileName.Split('-');
+            arrFileName = arrFileName.Where(x => x != arrFileName[arrFileName.Length - 1] && x != arrFileName[arrFileName.Length - 2]).ToArray();
+            for (int i = 0; i < arrFileName.Length; i++)
+            {
+                newFileName += arrFileName[i];
+            }
+            return newFileName + ".pdf";
         }
 
         private static void SaveStream(MemoryStream stream, string FilePath)

@@ -30,13 +30,9 @@ namespace Model.Repository
             return 0;
         }
 
-        public int GetIdBac(double hesobac, int idngach)
+        public int GetIdBac(int bac, int idngach)
         {
-            int a = (from bac in _db.Bacs
-                    from ngach in _db.Ngaches
-                    where bac.idNgach == ngach.idNgach && bac.heSoBac == hesobac && ngach.idNgach == idngach
-                    select bac.idBac).FirstOrDefault();
-            return a;
+            return _db.Bacs.Where(x => x.bac1 == bac && x.idNgach == idngach).Select(y => y.idBac).FirstOrDefault();
         }
 
         public IList<Bac> GetListBac()

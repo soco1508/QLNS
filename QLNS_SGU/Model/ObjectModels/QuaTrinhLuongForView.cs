@@ -10,6 +10,7 @@ namespace Model.ObjectModels
     {
         public int Id { get; set; }
         public string MaNgach { get; set; }
+        public string TenNgach { get; set; }
         public int? Bac { get; set; }
         public double? HeSoBac { get; set; }
         public DateTime? NgayBatDau { get; set; }
@@ -19,13 +20,14 @@ namespace Model.ObjectModels
         public QuaTrinhLuongForView()
         {
             Id = -1;
-            MaNgach = "";
+            MaNgach = string.Empty;
+            TenNgach = string.Empty;
             Bac = -1;
             HeSoBac = -1;
             NgayBatDau = Convert.ToDateTime("01/01/1900");
             NgayLenLuong = Convert.ToDateTime("01/01/1900");
             DangHuongLuong = false;
-            LinkVanBanDinhKem = "";
+            LinkVanBanDinhKem = string.Empty;
         }
     }
 }

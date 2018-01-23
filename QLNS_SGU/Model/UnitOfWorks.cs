@@ -41,24 +41,11 @@ namespace Model
         private TonGiaoRepository _tonGiaoRepository;
         private QuanLyNhaNuocRepository _quanLyNhaNuocRepository;
         private ChinhTriRepository _chinhTriRepository;
-        private HocHamHocVi_DangHocNangCao_NganhRepository _hocHamHocVi_DangHocNangCaoRepository;
 
         private QLNSSGU_1Entities _db;
         public UnitOfWorks(QLNSSGU_1Entities db)
         {
             _db = db;
-        }
-
-        public HocHamHocVi_DangHocNangCao_NganhRepository HocHamHocVi_DangHocNangCaoRepository
-        {
-            get
-            {
-                if (_hocHamHocVi_DangHocNangCaoRepository == null)
-                {
-                    _hocHamHocVi_DangHocNangCaoRepository = new HocHamHocVi_DangHocNangCao_NganhRepository(_db);
-                }
-                return _hocHamHocVi_DangHocNangCaoRepository;
-            }
         }
 
         public ChinhTriRepository ChinhTriRepository

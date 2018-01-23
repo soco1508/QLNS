@@ -14,47 +14,6 @@ namespace Model.Repository
         {
         }
 
-        public List<TrangThaiForExport> GetListTrangThaiForExport()
-        {
-            VienChucRepository vienChucRepository = new VienChucRepository(_db);
-            List<TrangThaiForExport> listTrangThaiForExport = new List<TrangThaiForExport>();
-            List<TrangThaiVienChuc> listTrangThaiVienChuc = _db.TrangThaiVienChucs.ToList();
-            for (int i = 0; i < listTrangThaiVienChuc.Count; i++)
-            {
-                listTrangThaiForExport.Add(new TrangThaiForExport
-                {
-                    MaVienChuc = listTrangThaiVienChuc[i].VienChuc.maVienChuc,
-                    Ho = listTrangThaiVienChuc[i].VienChuc.ho,
-                    Ten = listTrangThaiVienChuc[i].VienChuc.ten,
-                    SoDienThoai = listTrangThaiVienChuc[i].VienChuc.sDT,
-                    GioiTinh = vienChucRepository.ReturnGenderToGrid(listTrangThaiVienChuc[i].VienChuc.gioiTinh),
-                    NgaySinh = listTrangThaiVienChuc[i].VienChuc.ngaySinh,
-                    NoiSinh = listTrangThaiVienChuc[i].VienChuc.noiSinh,
-                    QueQuan = listTrangThaiVienChuc[i].VienChuc.queQuan,
-                    DanToc = listTrangThaiVienChuc[i].VienChuc.DanToc.tenDanToc,
-                    TonGiao = listTrangThaiVienChuc[i].VienChuc.TonGiao.tenTonGiao,
-                    HoKhauThuongTru = listTrangThaiVienChuc[i].VienChuc.hoKhauThuongTru,
-                    NoiOHienNay = listTrangThaiVienChuc[i].VienChuc.noiOHienNay,
-                    LaDangVien = listTrangThaiVienChuc[i].VienChuc.laDangVien,
-                    NgayVaoDang = listTrangThaiVienChuc[i].VienChuc.ngayVaoDang,
-                    NgayThamGiaCongTac = listTrangThaiVienChuc[i].VienChuc.ngayThamGiaCongTac,
-                    NgayVaoNganh = listTrangThaiVienChuc[i].VienChuc.ngayVaoNganh,
-                    NgayVeTruong = listTrangThaiVienChuc[i].VienChuc.ngayVeTruong,
-                    VanHoa = listTrangThaiVienChuc[i].VienChuc.vanHoa,
-                    QuanLyNhaNuoc = listTrangThaiVienChuc[i].VienChuc.QuanLyNhaNuoc.tenQuanLyNhaNuoc,
-                    ChinhTri = listTrangThaiVienChuc[i].VienChuc.ChinhTri.tenChinhTri,
-                    GhiChu = listTrangThaiVienChuc[i].VienChuc.ghiChu,
-                    TrangThai = listTrangThaiVienChuc[i].TrangThai.tenTrangThai,
-                    DiaDiem = listTrangThaiVienChuc[i].diaDiem,
-                    NgayBatDau = listTrangThaiVienChuc[i].ngayBatDau,
-                    NgayKetThuc = listTrangThaiVienChuc[i].ngayKetThuc,
-                    MoTa = listTrangThaiVienChuc[i].moTa,
-                    LinkVanBanDinhKem = listTrangThaiVienChuc[i].linkVanBanDinhKem
-                });
-            }
-            return listTrangThaiForExport;
-        }
-
         public void Update(string mavienchuc, DateTime ngaybatdau, DateTime ngayketthuc, string mota, string diadiem)
         {
             int idvienchuc = _db.VienChucs.Where(x => x.maVienChuc == mavienchuc).Select(y => y.idVienChuc).FirstOrDefault();
@@ -97,6 +56,59 @@ namespace Model.Repository
         {
             var a = _db.TrangThaiVienChucs.Where(x => x.idTrangThaiVienChuc == id).FirstOrDefault();
             _db.TrangThaiVienChucs.Remove(a);
+        }
+
+        public List<TrangThaiVienChuc> GetListTrangThaiByIdVienChucAndTimeline(int idVienChuc, DateTime dtTimeline)
+        {
+            var rows = _db.TrangThaiVienChucs.Where(x => x.idVienChuc == idVienChuc);
+            List<TrangThaiVienChuc> listTrangThaiVienChuc = new List<TrangThaiVienChuc>();
+            foreach (var row in rows)
+            {
+                if (row.ngayKetThuc != null)
+                {
+                    if (row.ngayBatDau <= dtTimeline && row.ngayKetThuc >= dtTimeline)
+                    {
+                        listTrangThaiVienChuc.Add(new TrangThaiVienChuc(row));
+                    }
+                }
+                if (row.ngayKetThuc == null)
+                {
+                    if (row.ngayBatDau <= dtTimeline)
+                    {
+                        listTrangThaiVienChuc.Add(new TrangThaiVienChuc(row));
+                    }
+                }
+            }
+            return listTrangThaiVienChuc;
+        }
+
+        public TrangThaiVienChuc GetObjectByIdVienChucAndPeriodOfTime(int idVienChuc, DateTime dtFromPeriodOfTime, DateTime dtToPeriodOfTime)
+        {
+            var rows = _db.TrangThaiVienChucs.Where(x => x.idVienChuc == idVienChuc);
+            TrangThaiVienChuc obj = null;
+            foreach (var row in rows)
+            {
+                if (row.ngayKetThuc != null)
+                {
+                    if (row.ngayBatDau >= dtFromPeriodOfTime && row.ngayKetThuc <= dtToPeriodOfTime)
+                    {
+                        obj = new TrangThaiVienChuc(rows.Where(x => x.idTrangThaiVienChuc == row.idTrangThaiVienChuc).OrderByDescending(y => y.idTrangThaiVienChuc).FirstOrDefault());
+                    }
+                }
+                else
+                {
+                    if (row.ngayBatDau >= dtFromPeriodOfTime)
+                    {
+                        obj = new TrangThaiVienChuc(rows.Where(x => x.idTrangThaiVienChuc == row.idTrangThaiVienChuc).OrderByDescending(y => y.idTrangThaiVienChuc).FirstOrDefault());
+                    }
+                }
+            }
+            return obj;
+        }
+
+        public List<string> GetListLinkVanBanDinhKem(string maVienChucForGetListLinkVanBanDinhKem)
+        {
+            return _db.TrangThaiVienChucs.Where(x => x.VienChuc.maVienChuc == maVienChucForGetListLinkVanBanDinhKem).Select(y => y.linkVanBanDinhKem).ToList();
         }
     }
 }

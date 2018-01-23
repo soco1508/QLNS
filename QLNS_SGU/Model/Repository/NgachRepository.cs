@@ -54,5 +54,20 @@ namespace Model.Repository
             }
             return false;
         }
+
+        public string GetTenNgachByIdNgach(int idngach)
+        {
+            return _db.Ngaches.Where(x => x.idNgach == idngach).Select(y => y.tenNgach).FirstOrDefault();
+        }
+
+        public List<string> GetListTenNgach()
+        {
+            return _db.Ngaches.Select(x => x.tenNgach).Distinct().ToList();
+        }
+
+        public IList<Ngach> GetListNgachByTenNgach(string tenngach)
+        {
+            return _db.Ngaches.Where(x => x.tenNgach == tenngach).ToList();
+        }
     }
 }

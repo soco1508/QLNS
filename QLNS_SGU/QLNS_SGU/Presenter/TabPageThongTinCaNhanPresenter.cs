@@ -10,14 +10,16 @@ using DevExpress.XtraEditors;
 using System.Windows.Forms;
 using System.IO;
 using System.ComponentModel;
+using System.Globalization;
 
 namespace QLNS_SGU.Presenter
 {
     public interface ITabPageThongTinCaNhanPresenter : IPresenterArgument
     {
         void LoadForm();
-        //void AddNew();
         void Save();
+        void SaveAndClose();
+        void CheckedLaDangVienChanged(object sender, EventArgs e);
     }
     public class TabPageThongTinCaNhanPresenter : ITabPageThongTinCaNhanPresenter
     {
@@ -28,7 +30,7 @@ namespace QLNS_SGU.Presenter
         public void Initialize(string mavienchuc)
         {
             _view.Attach(this);
-            if(mavienchuc == "")
+            if(mavienchuc == string.Empty)
             {
                 checkAddNew = true;
                 _view.TXTMaVienChuc.Enabled = true;
@@ -47,42 +49,39 @@ namespace QLNS_SGU.Presenter
             _view.CBXDanToc.Properties.DisplayMember = "tenDanToc";
             _view.CBXDanToc.Properties.ValueMember = "idDanToc";
             _view.CBXDanToc.Properties.DropDownRows = listDanToc.Count;
-            _view.CBXDanToc.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("idDanToc", ""));
-            _view.CBXDanToc.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("tenDanToc", ""));
+            _view.CBXDanToc.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("idDanToc", string.Empty));
+            _view.CBXDanToc.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("tenDanToc", string.Empty));
             _view.CBXDanToc.Properties.Columns[0].Visible = false;
             List<TonGiao> listTonGiao = unitOfWorks.TonGiaoRepository.GetListTonGiao();
             _view.CBXTonGiao.Properties.DataSource = listTonGiao;
             _view.CBXTonGiao.Properties.DisplayMember = "tenTonGiao";
             _view.CBXTonGiao.Properties.ValueMember = "idTonGiao";
             _view.CBXTonGiao.Properties.DropDownRows = listTonGiao.Count;
-            _view.CBXTonGiao.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("idTonGiao", ""));
-            _view.CBXTonGiao.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("tenTonGiao", ""));
+            _view.CBXTonGiao.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("idTonGiao", string.Empty));
+            _view.CBXTonGiao.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("tenTonGiao", string.Empty));
             _view.CBXTonGiao.Properties.Columns[0].Visible = false;
             List<ChinhTri> listChinhTri = unitOfWorks.ChinhTriRepository.GetListChinhTri();
             _view.CBXChinhTri.Properties.DataSource = listChinhTri;
             _view.CBXChinhTri.Properties.DisplayMember = "tenChinhTri";
             _view.CBXChinhTri.Properties.ValueMember = "idChinhTri";
             _view.CBXChinhTri.Properties.DropDownRows = listChinhTri.Count;
-            _view.CBXChinhTri.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("idChinhTri", ""));
-            _view.CBXChinhTri.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("tenChinhTri", ""));
+            _view.CBXChinhTri.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("idChinhTri", string.Empty));
+            _view.CBXChinhTri.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("tenChinhTri", string.Empty));
             _view.CBXChinhTri.Properties.Columns[0].Visible = false;
             List<QuanLyNhaNuoc> listQuanLyNhaNuoc = unitOfWorks.QuanLyNhaNuocRepository.GetListQuanLyNhaNuoc();
             _view.CBXQuanLyNhaNuoc.Properties.DataSource = listQuanLyNhaNuoc;
             _view.CBXQuanLyNhaNuoc.Properties.DisplayMember = "tenQuanLyNhaNuoc";
             _view.CBXQuanLyNhaNuoc.Properties.ValueMember = "idQuanLyNhaNuoc";
             _view.CBXQuanLyNhaNuoc.Properties.DropDownRows = listQuanLyNhaNuoc.Count;
-            _view.CBXQuanLyNhaNuoc.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("idQuanLyNhaNuoc", ""));
-            _view.CBXQuanLyNhaNuoc.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("tenQuanLyNhaNuoc", ""));
+            _view.CBXQuanLyNhaNuoc.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("idQuanLyNhaNuoc", string.Empty));
+            _view.CBXQuanLyNhaNuoc.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("tenQuanLyNhaNuoc", string.Empty));
             _view.CBXQuanLyNhaNuoc.Properties.Columns[0].Visible = false;
-            List<string> listGioiTinh = new List<string>() { "Nam", "Nữ"};
-            _view.CBXGioiTinh.Properties.DataSource = listGioiTinh;
-            _view.CBXGioiTinh.Properties.DropDownRows = listGioiTinh.Count;
         }
         private void SelectEmptyValueCbx()
         {            
             UnitOfWorks unitOfWorks = new UnitOfWorks(new QLNSSGU_1Entities());
             _view.CBXDanToc.EditValue = unitOfWorks.DanTocRepository.SelectIdEmptyValue();
-            _view.CBXTonGiao.EditValue = unitOfWorks.TonGiaoRepository.SelectIdEmptyValue(x => x.tenTonGiao == "");
+            _view.CBXTonGiao.EditValue = unitOfWorks.TonGiaoRepository.SelectIdEmptyValue(x => x.tenTonGiao == string.Empty);
             _view.CBXQuanLyNhaNuoc.EditValue = unitOfWorks.QuanLyNhaNuocRepository.SelectIdEmptyValue();
             _view.CBXChinhTri.EditValue = unitOfWorks.ChinhTriRepository.SelectIdEmptyValue();
         }
@@ -120,7 +119,7 @@ namespace QLNS_SGU.Presenter
                 unitOfWorks.VienChucRepository.Insert(new VienChuc
                 {
                     maVienChuc = mavienchuc,
-                    gioiTinh = unitOfWorks.VienChucRepository.ReturnGenderToDatabase(_view.CBXGioiTinh.SelectedText),
+                    gioiTinh = unitOfWorks.VienChucRepository.ReturnGenderToDatabase(_view.RADGioiTinh.SelectedIndex),
                     ho = _view.TXTHo.Text.Trim(),
                     ten = _view.TXTTen.Text.Trim(),
                     ngaySinh = unitOfWorks.HopDongVienChucRepository.ReturnDateTimeToDatabase(_view.DTNgaySinh.Text),
@@ -145,19 +144,20 @@ namespace QLNS_SGU.Presenter
                 unitOfWorks.ChucVuDonViVienChucRepository.Insert(new ChucVuDonViVienChuc
                 {
                     idVienChuc = unitOfWorks.VienChucRepository.GetIdVienChuc(mavienchuc),
-                    idChucVu = unitOfWorks.ChucVuRepository.GetIdChucVu(""),
-                    idDonVi = unitOfWorks.DonViRepository.GetIdDonVi(""),
-                    idToChuyenMon = unitOfWorks.ToChuyenMonRepository.GetIdToChuyenMon("", ""),
+                    idChucVu = unitOfWorks.ChucVuRepository.GetIdChucVu(string.Empty),
+                    idDonVi = unitOfWorks.DonViRepository.GetIdDonVi(string.Empty),
+                    idToChuyenMon = unitOfWorks.ToChuyenMonRepository.GetIdToChuyenMon(string.Empty, string.Empty),
                     ngayBatDau = Convert.ToDateTime("01/01/2000")
                 });
                 unitOfWorks.Save();
-                XtraMessageBox.Show("Lưu dữ liệu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                TabPageQuaTrinhCongTacPresenter._mavienchuc = _view.TXTMaVienChuc.Text;
-                TabPageQuaTrinhLuongPresenter._mavienchuc = _view.TXTMaVienChuc.Text;
-                TabPageChuyenMonPresenter._mavienchuc = _view.TXTMaVienChuc.Text;
-                TabPageTrangThaiPresenter._mavienchuc = _view.TXTMaVienChuc.Text;           
-                _view.TXTMaVienChuc.Enabled = false;
                 MainPresenter.LoadDataToMainGrid();
+                MainPresenter.MoveRowManaging(mavienchuc);
+                XtraMessageBox.Show("Lưu dữ liệu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                TabPageQuaTrinhCongTacPresenter.maVienChucFromTabPageThongTinCaNhan = _view.TXTMaVienChuc.Text;
+                TabPageQuaTrinhLuongPresenter.maVienChucFromTabPageThongTinCaNhan = _view.TXTMaVienChuc.Text;
+                TabPageChuyenMonPresenter.maVienChucFromTabPageThongTinCaNhan = _view.TXTMaVienChuc.Text;
+                TabPageTrangThaiPresenter.maVienChucFromTabPageThongTinCaNhan = _view.TXTMaVienChuc.Text;           
+                _view.TXTMaVienChuc.Enabled = false;                
             }
             else
             {
@@ -171,7 +171,7 @@ namespace QLNS_SGU.Presenter
             VienChuc vienChuc = unitOfWorks.VienChucRepository.GetVienChucByMaVienChuc(mavienchuc);
             vienChuc.ho = _view.TXTHo.Text;
             vienChuc.ten = _view.TXTTen.Text;
-            vienChuc.gioiTinh = unitOfWorks.VienChucRepository.ReturnGenderToDatabase(_view.CBXGioiTinh.EditValue.ToString());
+            vienChuc.gioiTinh = unitOfWorks.VienChucRepository.ReturnGenderToDatabase(_view.RADGioiTinh.SelectedIndex);
             vienChuc.ngaySinh = unitOfWorks.HopDongVienChucRepository.ReturnDateTimeToDatabase(_view.DTNgaySinh.Text);
             vienChuc.ngayThamGiaCongTac = unitOfWorks.HopDongVienChucRepository.ReturnDateTimeToDatabase(_view.DTNgayThamGiaCongTac.Text);
             vienChuc.ngayVeTruong = unitOfWorks.HopDongVienChucRepository.ReturnDateTimeToDatabase(_view.DTNgayVeTruong.Text);
@@ -191,37 +191,10 @@ namespace QLNS_SGU.Presenter
             vienChuc.ghiChu = _view.TXTGhiChu.Text;
             vienChuc.anh = ConvertImageToBinary(_view.PICVienChuc.GetLoadedImageLocation());
             unitOfWorks.Save();
-            XtraMessageBox.Show("Cập nhật dữ liệu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             MainPresenter.LoadDataToMainGrid();
+            MainPresenter.MoveRowManaging(mavienchuc);
+            XtraMessageBox.Show("Cập nhật dữ liệu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);            
         }
-
-        //public void AddNew()
-        //{            
-        //    _view.TXTMaVienChuc.ErrorText = null;
-        //    _view.TXTHo.ErrorText = null;
-        //    _view.TXTTen.ErrorText = null;
-        //    _view.CBXGioiTinh.ErrorText = null;
-        //    _view.PICVienChuc.Image = null;
-        //    _view.TXTMaVienChuc.Text = "";
-        //    _view.CBXGioiTinh.Text = "";
-        //    _view.TXTHo.Text = "";
-        //    _view.TXTTen.Text = "";
-        //    _view.DTNgaySinh.EditValue = null;
-        //    _view.DTNgayThamGiaCongTac.EditValue = null;
-        //    _view.DTNgayVeTruong.EditValue = null;
-        //    _view.DTNgayVaoNganh.EditValue = null;
-        //    _view.TXTSoDienThoai.Text = "";
-        //    _view.TXTNoiSinh.Text = "";
-        //    _view.TXTQueQuan.Text = "";
-        //    _view.TXTHoKhauThuongTru.Text = "";
-        //    _view.TXTNoiOHienNay.Text = "";
-        //    _view.TXTGhiChu.Text = "";
-        //    _view.CHKLaDangVien.Checked = false;
-        //    _view.DTNgayVaoDang.EditValue = null;
-        //    _view.TXTVanHoa.Text = "";
-        //    SelectEmptyValueCbx();
-        //    checkAddNew = true;            
-        //}
 
         public void LoadForm()
         {
@@ -232,7 +205,7 @@ namespace QLNS_SGU.Presenter
             {
                 VienChuc vienChuc = unitOfWorks.VienChucRepository.GetVienChucByMaVienChuc(mavienchuc);
                 _view.PICVienChuc.Image = ConvertBinaryToImage(vienChuc.anh);
-                _view.CBXGioiTinh.EditValue = unitOfWorks.VienChucRepository.ReturnGenderToGrid(vienChuc.gioiTinh);
+                _view.RADGioiTinh.SelectedIndex = unitOfWorks.VienChucRepository.ReturnGenderToTabThongTinCaNhan(vienChuc.gioiTinh);
                 _view.TXTHo.Text = vienChuc.ho;
                 _view.TXTTen.Text = vienChuc.ten;
                 _view.DTNgaySinh.EditValue = vienChuc.ngaySinh;
@@ -264,30 +237,24 @@ namespace QLNS_SGU.Presenter
             string mavienchuc = _view.TXTMaVienChuc.Text;
             string ho = _view.TXTHo.Text;
             string ten = _view.TXTTen.Text;
-            string gioitinh = _view.CBXGioiTinh.EditValue.ToString();
             if(checkAddNew == true)
             {
-                if(mavienchuc == "")
+                if(mavienchuc == string.Empty)
                 {
                     _view.TXTMaVienChuc.ErrorText = "Vui lòng nhập Mã Viên Chức.";
                     _view.TXTMaVienChuc.ErrorIconAlignment = ErrorIconAlignment.MiddleRight;
                 }
-                if (ho == "")
+                if (ho == string.Empty)
                 {
                     _view.TXTHo.ErrorText = "Vui lòng nhập Họ.";
                     _view.TXTHo.ErrorIconAlignment = ErrorIconAlignment.MiddleRight;
                 }
-                if (ten == "")
+                if (ten == string.Empty)
                 {
                     _view.TXTTen.ErrorText = "Vui lòng nhập Tên.";
                     _view.TXTTen.ErrorIconAlignment = ErrorIconAlignment.MiddleRight;
                 }
-                if (gioitinh == "")
-                {
-                    _view.CBXGioiTinh.ErrorText = "Vui lòng chọn Giới Tính.";
-                    _view.CBXGioiTinh.ErrorIconAlignment = ErrorIconAlignment.MiddleRight;
-                }
-                if(mavienchuc != "" && ho != "" && ten != "" && gioitinh != "")
+                if(mavienchuc != string.Empty && ho != string.Empty && ten != string.Empty)
                 {
                     InsertData();
                     checkAddNew = false;
@@ -295,32 +262,88 @@ namespace QLNS_SGU.Presenter
             }
             else
             {
-                if (mavienchuc == "")
+                if (mavienchuc == string.Empty)
                 {
                     _view.TXTMaVienChuc.ErrorText = "Vui lòng nhập Mã Viên Chức.";
                     _view.TXTMaVienChuc.ErrorIconAlignment = ErrorIconAlignment.MiddleRight;
                 }
-                if (ho == "")
+                if (ho == string.Empty)
                 {
                     _view.TXTHo.ErrorText = "Vui lòng nhập Họ.";
                     _view.TXTHo.ErrorIconAlignment = ErrorIconAlignment.MiddleRight;
                 }
-                if (ten == "")
+                if (ten == string.Empty)
                 {
                     _view.TXTTen.ErrorText = "Vui lòng nhập Tên.";
                     _view.TXTTen.ErrorIconAlignment = ErrorIconAlignment.MiddleRight;
                 }
-                if (gioitinh == "")
-                {
-                    _view.CBXGioiTinh.ErrorText = "Vui lòng chọn Giới Tính.";
-                    _view.CBXGioiTinh.ErrorIconAlignment = ErrorIconAlignment.MiddleRight;
-                }
-                if (mavienchuc != "" && ho != "" && ten != "" && gioitinh != "")
+                if (mavienchuc != string.Empty && ho != string.Empty && ten != string.Empty)
                 {
                     UpdateData();
                 }
             }
         }
         
+        public void SaveAndClose()
+        {
+            string mavienchuc = _view.TXTMaVienChuc.Text;
+            string ho = _view.TXTHo.Text;
+            string ten = _view.TXTTen.Text;
+            if (checkAddNew == true)
+            {
+                if (mavienchuc == string.Empty)
+                {
+                    _view.TXTMaVienChuc.ErrorText = "Vui lòng nhập Mã Viên Chức.";
+                    _view.TXTMaVienChuc.ErrorIconAlignment = ErrorIconAlignment.MiddleRight;
+                }
+                if (ho == string.Empty)
+                {
+                    _view.TXTHo.ErrorText = "Vui lòng nhập Họ.";
+                    _view.TXTHo.ErrorIconAlignment = ErrorIconAlignment.MiddleRight;
+                }
+                if (ten == string.Empty)
+                {
+                    _view.TXTTen.ErrorText = "Vui lòng nhập Tên.";
+                    _view.TXTTen.ErrorIconAlignment = ErrorIconAlignment.MiddleRight;
+                }
+                if (mavienchuc != string.Empty && ho != string.Empty && ten != string.Empty)
+                {
+                    InsertData();
+                    checkAddNew = false;
+                    CreateAndEditPersonInfoPresenter.CloseForm();
+                }
+            }
+            else
+            {
+                if (mavienchuc == string.Empty)
+                {
+                    _view.TXTMaVienChuc.ErrorText = "Vui lòng nhập Mã Viên Chức.";
+                    _view.TXTMaVienChuc.ErrorIconAlignment = ErrorIconAlignment.MiddleRight;
+                }
+                if (ho == string.Empty)
+                {
+                    _view.TXTHo.ErrorText = "Vui lòng nhập Họ.";
+                    _view.TXTHo.ErrorIconAlignment = ErrorIconAlignment.MiddleRight;
+                }
+                if (ten == string.Empty)
+                {
+                    _view.TXTTen.ErrorText = "Vui lòng nhập Tên.";
+                    _view.TXTTen.ErrorIconAlignment = ErrorIconAlignment.MiddleRight;
+                }
+                if (mavienchuc != string.Empty && ho != string.Empty && ten != string.Empty)
+                {
+                    UpdateData();
+                    CreateAndEditPersonInfoPresenter.CloseForm();
+                }
+            }
+        }
+
+        public void CheckedLaDangVienChanged(object sender, EventArgs e)
+        {
+            if(_view.CHKLaDangVien.Checked == false)
+            {
+                _view.DTNgayVaoDang.Text = string.Empty;
+            }
+        }
     }
 }

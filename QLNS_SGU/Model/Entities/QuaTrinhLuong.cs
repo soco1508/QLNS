@@ -14,6 +14,23 @@ namespace Model.Entities
     
     public partial class QuaTrinhLuong
     {
+        public QuaTrinhLuong(QuaTrinhLuong quaTrinhLuong)
+        {
+            idQuaTrinhLuong = quaTrinhLuong.idQuaTrinhLuong;
+            idVienChuc = quaTrinhLuong.idVienChuc;
+            idBac = quaTrinhLuong.idBac;
+            ngayBatDau = quaTrinhLuong.ngayBatDau;
+            ngayLenLuong = quaTrinhLuong.ngayLenLuong;
+            //dangHuongLuong = quaTrinhLuong.dangHuongLuong;
+            linkVanBanDinhKem = quaTrinhLuong.linkVanBanDinhKem;
+            Bac = quaTrinhLuong.Bac;
+            VienChuc = quaTrinhLuong.VienChuc;
+        }
+
+        public QuaTrinhLuong()
+        {
+
+        }
         public int idQuaTrinhLuong { get; set; }
         public int idVienChuc { get; set; }
         public int idBac { get; set; }

@@ -2,6 +2,7 @@
 using Model.ObjectModels;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,45 +15,9 @@ namespace Model.Repository
         {
         }
 
-        public List<HopDongForExport> GetListHopDongForExport()
+        public List<HopDongVienChuc> GetListNull()
         {
-            VienChucRepository vienChucRepository = new VienChucRepository(_db);
-            List<HopDongForExport> listHopDongForExport = new List<HopDongForExport>();
-            List<HopDongVienChuc> listHopDongVienChuc = _db.HopDongVienChucs.ToList();
-            for(int i = 0; i < listHopDongVienChuc.Count; i++)
-            {
-                listHopDongForExport.Add(new HopDongForExport
-                {
-                    MaVienChuc = listHopDongVienChuc[i].VienChuc.maVienChuc,
-                    Ho = listHopDongVienChuc[i].VienChuc.ho,
-                    Ten = listHopDongVienChuc[i].VienChuc.ten,
-                    SoDienThoai = listHopDongVienChuc[i].VienChuc.sDT,
-                    GioiTinh = vienChucRepository.ReturnGenderToGrid(listHopDongVienChuc[i].VienChuc.gioiTinh),
-                    NgaySinh = listHopDongVienChuc[i].VienChuc.ngaySinh,
-                    NoiSinh = listHopDongVienChuc[i].VienChuc.noiSinh,
-                    QueQuan = listHopDongVienChuc[i].VienChuc.queQuan,
-                    DanToc = listHopDongVienChuc[i].VienChuc.DanToc.tenDanToc,
-                    TonGiao = listHopDongVienChuc[i].VienChuc.TonGiao.tenTonGiao,
-                    HoKhauThuongTru = listHopDongVienChuc[i].VienChuc.hoKhauThuongTru,
-                    NoiOHienNay = listHopDongVienChuc[i].VienChuc.noiOHienNay,
-                    LaDangVien = listHopDongVienChuc[i].VienChuc.laDangVien,
-                    NgayVaoDang = listHopDongVienChuc[i].VienChuc.ngayVaoDang,
-                    NgayThamGiaCongTac = listHopDongVienChuc[i].VienChuc.ngayThamGiaCongTac,
-                    NgayVaoNganh = listHopDongVienChuc[i].VienChuc.ngayVaoNganh,
-                    NgayVeTruong = listHopDongVienChuc[i].VienChuc.ngayVeTruong,
-                    VanHoa = listHopDongVienChuc[i].VienChuc.vanHoa,
-                    QuanLyNhaNuoc = listHopDongVienChuc[i].VienChuc.QuanLyNhaNuoc.tenQuanLyNhaNuoc,
-                    ChinhTri = listHopDongVienChuc[i].VienChuc.ChinhTri.tenChinhTri,
-                    GhiChu = listHopDongVienChuc[i].VienChuc.ghiChu,
-                    MaHopDong = listHopDongVienChuc[i].LoaiHopDong.maLoaiHopDong,
-                    TenHopDong = listHopDongVienChuc[i].LoaiHopDong.tenLoaiHopDong,
-                    NgayBatDau = listHopDongVienChuc[i].ngayBatDau,
-                    NgayKetThuc = listHopDongVienChuc[i].ngayKetThuc,
-                    MoTa = listHopDongVienChuc[i].moTa,
-                    LinkVanBanDinhKem = listHopDongVienChuc[i].linkVanBanDinhKem
-                });
-            }
-            return listHopDongForExport;
+            return _db.HopDongVienChucs.Where(x => x.ngayBatDau == null).ToList();
         }
 
         public List<HopDongForView> GetListHopDongVienChuc(string mavienchuc)
@@ -84,6 +49,13 @@ namespace Model.Repository
                                                      .FirstOrDefault();
         }
 
+        public object ReturnNullIfDateTimeNull(string datetime)
+        {
+            if (datetime != string.Empty)
+                return DateTime.ParseExact(datetime, "dd'/'MM'/'yyyy", CultureInfo.InvariantCulture); ;
+            return null;
+        }
+
         public DateTime? ReturnDateTimeToDatabase(string datetime)
         {
             if (datetime == "")
@@ -92,7 +64,7 @@ namespace Model.Repository
             }
             else
             {
-                return Convert.ToDateTime(datetime);
+                return DateTime.ParseExact(datetime, "dd'/'MM'/'yyyy", CultureInfo.InvariantCulture);
             }
         }
 
@@ -105,6 +77,59 @@ namespace Model.Repository
         {
             var a = _db.HopDongVienChucs.Where(x => x.idHopDongVienChuc == id).FirstOrDefault();
             _db.HopDongVienChucs.Remove(a);
+        }
+
+        public HopDongVienChuc GetObjectByIdVienChucAndTimeline(int idVienChuc, DateTime dtTimeline)
+        {
+            var rows = _db.HopDongVienChucs.Where(x => x.idVienChuc == idVienChuc);
+            HopDongVienChuc obj = null;
+            foreach (var row in rows)
+            {
+                if (row.ngayKetThuc != null)
+                {
+                    if (row.ngayBatDau <= dtTimeline && row.ngayKetThuc >= dtTimeline)
+                    {
+                        obj = new HopDongVienChuc(rows.Where(x => x.idHopDongVienChuc == row.idHopDongVienChuc).FirstOrDefault());
+                    }
+                }
+                else
+                {
+                    if (row.ngayBatDau <= dtTimeline)
+                    {
+                        obj = new HopDongVienChuc(rows.Where(x => x.idHopDongVienChuc == row.idHopDongVienChuc).FirstOrDefault());
+                    }
+                }
+            }
+            return obj;
+        }
+
+        public HopDongVienChuc GetObjectByIdVienChucAndPeriodOfTime(int idVienChuc, DateTime dtFromPeriodOfTime, DateTime dtToPeriodOfTime)
+        {
+            var rows = _db.HopDongVienChucs.Where(x => x.idVienChuc == idVienChuc);
+            HopDongVienChuc obj = null;
+            foreach (var row in rows)
+            {
+                if (row.ngayKetThuc != null)
+                {
+                    if (row.ngayBatDau >= dtFromPeriodOfTime && row.ngayKetThuc <= dtToPeriodOfTime)
+                    {
+                        obj = new HopDongVienChuc(rows.Where(x => x.idHopDongVienChuc == row.idHopDongVienChuc).OrderByDescending(y => y.idHopDongVienChuc).FirstOrDefault());
+                    }
+                }
+                else
+                {
+                    if (row.ngayBatDau >= dtFromPeriodOfTime)
+                    {
+                        obj = new HopDongVienChuc(rows.Where(x => x.idHopDongVienChuc == row.idHopDongVienChuc).OrderByDescending(y => y.idHopDongVienChuc).FirstOrDefault());
+                    }
+                }
+            }
+            return obj;
+        }
+
+        public List<string> GetListLinkVanBanDinhKem(string maVienChucForGetListLinkVanBanDinhKemHD)
+        {
+            return _db.HopDongVienChucs.Where(x => x.VienChuc.maVienChuc == maVienChucForGetListLinkVanBanDinhKemHD).Select(y => y.linkVanBanDinhKem).ToList();
         }
     }
 }

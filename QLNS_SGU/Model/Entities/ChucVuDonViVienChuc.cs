@@ -31,5 +31,29 @@ namespace Model.Entities
         public virtual DonVi DonVi { get; set; }
         public virtual ToChuyenMon ToChuyenMon { get; set; }
         public virtual VienChuc VienChuc { get; set; }
+
+        public ChucVuDonViVienChuc(ChucVuDonViVienChuc chucVuDonViVienChuc)
+        {
+            idViTriDonViVienChuc = chucVuDonViVienChuc.idViTriDonViVienChuc;
+            idVienChuc = chucVuDonViVienChuc.idVienChuc;
+            idChucVu = chucVuDonViVienChuc.idDonVi;
+            idToChuyenMon = chucVuDonViVienChuc.idToChuyenMon;
+            phanLoaiCongTac = chucVuDonViVienChuc.phanLoaiCongTac;
+            checkPhanLoaiCongTac = chucVuDonViVienChuc.checkPhanLoaiCongTac;
+            ngayBatDau = chucVuDonViVienChuc.ngayBatDau;
+            ngayKetThuc = chucVuDonViVienChuc.ngayKetThuc;
+            linkVanBanDinhKem = chucVuDonViVienChuc.linkVanBanDinhKem;
+            loaiThayDoi = chucVuDonViVienChuc.loaiThayDoi;
+            kiemNhiem = chucVuDonViVienChuc.kiemNhiem;
+            ChucVu = chucVuDonViVienChuc.ChucVu;
+            DonVi = chucVuDonViVienChuc.DonVi;
+            ToChuyenMon = chucVuDonViVienChuc.ToChuyenMon;
+            VienChuc = chucVuDonViVienChuc.VienChuc;
+        }
+
+        public ChucVuDonViVienChuc()
+        {
+
+        }
     }
 }

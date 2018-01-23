@@ -13,9 +13,9 @@ namespace Model.Repository
         {
         }
 
-        public IList<LoaiChungChi> GetListLoaiChungChi()
+        public List<string> GetListTenLoaiChungChi()
         {
-            return _db.LoaiChungChis.ToList();
+            return _db.LoaiChungChis.Select(y => y.tenLoaiChungChi).Distinct().ToList();
         }
 
         public void Update(int id, string loaichungchi, string capdo)
@@ -60,9 +60,34 @@ namespace Model.Repository
             }
         }
 
+        public IList<LoaiChungChi> GetListLoaiChungChiForCRUD()
+        {
+            return _db.LoaiChungChis.ToList();
+        }
+
         public int GetIdLoaiChungChi(string loaichungchi, string capdo)
         {
             return _db.LoaiChungChis.Where(x => x.tenLoaiChungChi == loaichungchi && x.capDo == capdo).Select(y => y.idLoaiChungChi).FirstOrDefault();
+        }
+
+        public List<string> GetListCapDoChungChiByTenLoaiChungChi(string tenloaichungchi)
+        {
+            return _db.LoaiChungChis.Where(x => x.tenLoaiChungChi.Contains(tenloaichungchi)).Select(y => y.capDo).Distinct().ToList();
+        }
+
+        public List<string> GetListTenLoaiChungChiByCapDo(string capdo)
+        {
+            return _db.LoaiChungChis.Where(x => x.capDo.Contains(capdo)).Select(y => y.tenLoaiChungChi).Distinct().ToList();
+        }
+
+        public List<string> GetListCapDoChungChi()
+        {
+            return _db.LoaiChungChis.Select(x => x.capDo).Distinct().ToList();
+        }
+
+        public int GetIdLoaiChungChiByTenAndCapDo(string tenloaichungchi, string capdo)
+        {
+            return _db.LoaiChungChis.Where(x => x.tenLoaiChungChi == tenloaichungchi && x.capDo == capdo).Select(y => y.idLoaiChungChi).FirstOrDefault();
         }
     }
 }

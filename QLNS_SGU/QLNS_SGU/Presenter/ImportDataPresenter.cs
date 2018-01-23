@@ -196,7 +196,7 @@ namespace QLNS_SGU.Presenter
                             ho = row["ho"].ToString().Trim(),
                             ten = row["ten"].ToString().Trim(),
                             sDT = row["sdt"].ToString().Trim(),
-                            gioiTinh = unitOfWorks.VienChucRepository.ReturnGenderToDatabase(row["gioitinh"].ToString().Trim()),
+                            gioiTinh = unitOfWorks.VienChucRepository.ReturnGenderToDatabaseFromImport(row["gioitinh"].ToString().Trim()),
                             ngaySinh = unitOfWorks.VienChucRepository.ParseDatetimeMatchDatetimeDatabase(row["ngaysinh"].ToString().Trim()),
                             noiSinh = row["noisinh"].ToString().Trim(),
                             queQuan = row["quequan"].ToString().Trim(),
@@ -617,14 +617,14 @@ namespace QLNS_SGU.Presenter
             foreach (var row in rows)
             {
                 string mavienchuc = row["mavienchuc"].ToString().Trim();
-                double hesobac = unitOfWorks.BacRepository.ParseHeSoBacToDouble(row["heso"].ToString().Trim());
+                //double hesobac = unitOfWorks.BacRepository.ParseHeSoBacToDouble(row["heso"].ToString().Trim());
                 int idngach = unitOfWorks.NgachRepository.GetIdNgach(row["mschucdanh"].ToString().Trim());
                 if(list.Any(x => x == mavienchuc))
                 {
                     unitOfWorks.QuaTrinhLuongRepository.Insert(new QuaTrinhLuong
                     {
                         idVienChuc = unitOfWorks.VienChucRepository.GetIdVienChuc(mavienchuc),
-                        idBac = unitOfWorks.BacRepository.GetIdBac(hesobac, idngach),
+                        //idBac = unitOfWorks.BacRepository.GetIdBac(hesobac, idngach),
                         ngayBatDau = unitOfWorks.QuaTrinhLuongRepository.ParseDatetimeMatchDatetimeDatabase(row["mocthoigian"].ToString().Trim()),
                         ngayLenLuong = null,
                         dangHuongLuong = true,

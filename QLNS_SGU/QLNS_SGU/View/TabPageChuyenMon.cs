@@ -63,7 +63,7 @@ namespace QLNS_SGU.View
         GridControl GCChungChi { get; set; }
         GridView GVChungChi { get; set; }
         LookUpEdit CBXLoaiChungChi { get; set; }
-        LookUpEdit CBXCapDoChungChi { get; set; }
+        TextEdit TXTCapDoChungChi { get; set; }
         DateEdit DTNgayCapChungChi { get; set; }
         TextEdit TXTGhiChuCC { get; set; }
         TextEdit TXTLinkVanBanDinhKemCC { get; set; }
@@ -113,7 +113,7 @@ namespace QLNS_SGU.View
         public LookUpEdit CBXNganhDaoTaoN { get => cbxNganhDaoTaoN; set => cbxNganhDaoTaoN = value; }
         public LookUpEdit CBXChuyenNganhN { get => cbxChuyenNganhN; set => cbxChuyenNganhN = value; }
         public LookUpEdit CBXPhanLoaiN { get => cbxPhanLoaiN; set => cbxPhanLoaiN = value; }
-        public LookUpEdit CBXTenHocHamHocViN { get => cbxTenHocHamHocViN; set => cbxTenHocHamHocViN = value; }
+        public LookUpEdit CBXTenHocHamHocViN { get => cbxLoaiHocHamHocViN; set => cbxLoaiHocHamHocViN = value; }
         public DateEdit DTNgayBatDauN { get => dtNgayBatDauN; set => dtNgayBatDauN = value; }
         public DateEdit DTNgayKetThucN { get => dtNgayKetThucN; set => dtNgayKetThucN = value; }
         public TextEdit TXTLinkVanBanDinhKemN { get => txtLinkVanBanDinhKemN; set => txtLinkVanBanDinhKemN = value; }
@@ -121,7 +121,7 @@ namespace QLNS_SGU.View
         public GridControl GCChungChi { get => gcChungChi; set => gcChungChi = value; }
         public GridView GVChungChi { get => gvChungChi; set => gvChungChi = value; }
         public LookUpEdit CBXLoaiChungChi { get => cbxLoaiChungChi; set => cbxLoaiChungChi = value; }
-        public LookUpEdit CBXCapDoChungChi { get => cbxCapDoChungChi; set => cbxCapDoChungChi = value; }
+        public TextEdit TXTCapDoChungChi { get => txtCapDoChungChi; set => txtCapDoChungChi = value; }
         public DateEdit DTNgayCapChungChi { get => dtNgayCapChungChi; set => dtNgayCapChungChi = value; }
         public TextEdit TXTGhiChuCC { get => txtGhiChuCC; set => txtGhiChuCC = value; }
         public TextEdit TXTLinkVanBanDinhKemCC { get => txtLinkVanBanDinhKemCC; set => txtLinkVanBanDinhKemCC = value; }
@@ -130,44 +130,60 @@ namespace QLNS_SGU.View
         public void Attach(ITabPageChuyenMonPresenter presenter)
         {
             Load += (s, e) => presenter.LoadForm();
-            //tab1
+            //HHHV
             cbxNganhDaoTaoHHHV.EditValueChanged += new EventHandler(presenter.CbxNganhDaoTaoHHHVChanged);
             gvHocHamHocVi.Click += (s, e) => presenter.ClickRowAndShowInfoHHHV();                                  
             btnRefreshHHHV.Click += (s, e) => presenter.RefreshHHHV();
             btnAddHHHV.Click += (s, e) => presenter.AddHHHV();
-            btnEditHHHV.Click += (s, e) => presenter.EditHHHV();
+            btnSaveHHHV.Click += (s, e) => presenter.EditHHHV();
             btnDeleteHHHV.Click += (s, e) => presenter.DeleteHHHV();
             btnExportExcelHHHV.Click += (s, e) => presenter.ExportExcelHHHV();
             btnUploadHHHV.Click += (s, e) => presenter.UploadFileToGoogleDriveHHHV();
             btnDownloadHHHV.Click += (s, e) => presenter.DownloadFileToDeviceHHHV();
-            //tab2
+            //DHNC
             gvDangHocNangCao.Click += (s, e) => presenter.ClickRowAndShowInfoDHNC();
             btnRefreshDHNC.Click += (s, e) => presenter.RefreshDHNC();
             btnAddDHNC.Click += (s, e) => presenter.AddDHNC();
-            btnEditDHNC.Click += (s, e) => presenter.EditDHNC();
+            btnSaveDHNC.Click += (s, e) => presenter.SaveDHNC();
             btnDeleteDHNC.Click += (s, e) => presenter.DeleteDHNC();
             btnExportExcelDHNC.Click += (s, e) => presenter.ExportExcelDHNC();
             btnUploadDHNC.Click += (s, e) => presenter.UploadFileToGoogleDriveDHNC();
             btnDownloadDHNC.Click += (s, e) => presenter.DownloadFileToDeviceDHNC();
-            //tab3
+            txtSoQuyetDinh.TextChanged += new EventHandler(presenter.SoQuyetDinhChanged);
+            cbxLoaiHocHamHocViDHNC.EditValueChanged += new EventHandler(presenter.LoaiHocHamHocViDangHocNangCaoChanged);
+            txtTenHocHamHocViDHNC.TextChanged += new EventHandler(presenter.TenHocHamHocViDangHocNangCaoChanged);
+            dtNgayBatDauDHNC.EditValueChanged += new EventHandler(presenter.NgayBatDauDangHocNangCaoChanged);
+            dtNgayKetThucDHNC.EditValueChanged += new EventHandler(presenter.NgayKetThucDangHocNangCaoChanged);
+            txtCoSoDaoTaoDHNC.TextChanged += new EventHandler(presenter.CoSoDaoTaoDangHocNangCaoChanged);
+            txtNgonNguDaoTaoDHNC.TextChanged += new EventHandler(presenter.NgonNguDaoTaoDangHocNangCaoChanged);
+            txtHinhThucDaoTaoDHNC.TextChanged += new EventHandler(presenter.HinhThucDaoTaoDangHocNangCaoChanged);
+            txtNuocCapBangDHNC.TextChanged += new EventHandler(presenter.NuocCapBangDangHocNangCaoChanged);
+            cbxLoai.EditValueChanged += new EventHandler(presenter.LoaiDangHocNangCaoChanged);
+            txtLinkAnhQuyetDinh.TextChanged += new EventHandler(presenter.LinkAnhQuyetDinhChanged);
+            //Nganh
             cbxNganhDaoTaoN.EditValueChanged += new EventHandler(presenter.CbxNganhDaoTaoNChanged);
             gvNganh.Click += (s, e) => presenter.ClickRowAndShowInfoN();
             btnRefreshN.Click += (s, e) => presenter.RefreshN();
             btnAddN.Click += (s, e) => presenter.AddN();
-            btnEditN.Click += (s, e) => presenter.EditN();
+            btnSaveN.Click += (s, e) => presenter.EditN();
             btnDeleteN.Click += (s, e) => presenter.DeleteN();
             btnExportExcelN.Click += (s, e) => presenter.ExportExcelN();
             btnUploadN.Click += (s, e) => presenter.UploadFileToGoogleDriveN();
             btnDownloadN.Click += (s, e) => presenter.DownloadFileToDeviceN();
-            //tab4
+            //ChungChi
             gvChungChi.Click += (s, e) => presenter.ClickRowAndShowInfoCC();
             btnRefreshCC.Click += (s, e) => presenter.RefreshCC();
             btnAddCC.Click += (s, e) => presenter.AddCC();
-            btnEditCC.Click += (s, e) => presenter.EditCC();
+            btnSaveCC.Click += (s, e) => presenter.SaveCC();
             btnDeleteCC.Click += (s, e) => presenter.DeleteCC();
             btnExportExcelCC.Click += (s, e) => presenter.ExportExcelCC();
             btnUploadCC.Click += (s, e) => presenter.UploadFileToGoogleDriveCC();
             btnDownloadCC.Click += (s, e) => presenter.DownloadFileToDeviceCC();
+            cbxLoaiChungChi.EditValueChanged += new EventHandler(presenter.LoaiChungChiChanged);
+            txtCapDoChungChi.EditValueChanged += new EventHandler(presenter.CapDoChungChiChanged);
+            dtNgayCapChungChi.EditValueChanged += new EventHandler(presenter.NgayCapChungChiChanged);
+            txtGhiChuCC.TextChanged += new EventHandler(presenter.GhiChuChungChiChanged);
+            txtLinkVanBanDinhKemCC.TextChanged += new EventHandler(presenter.LinkVanBanDinhKemChungChiChanged);
         }
     }
 }

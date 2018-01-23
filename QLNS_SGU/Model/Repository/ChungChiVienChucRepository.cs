@@ -14,46 +14,6 @@ namespace Model.Repository
         {
         }
 
-        public List<ChungChiForExport> GetListChungChiForExport()
-        {
-            VienChucRepository vienChucRepository = new VienChucRepository(_db);
-            List<ChungChiForExport> listChungChiForExport = new List<ChungChiForExport>();
-            List<ChungChiVienChuc> listChungChiVienChuc = _db.ChungChiVienChucs.ToList();
-            for (int i = 0; i < listChungChiVienChuc.Count; i++)
-            {
-                listChungChiForExport.Add(new ChungChiForExport
-                {
-                    MaVienChuc = listChungChiVienChuc[i].VienChuc.maVienChuc,
-                    Ho = listChungChiVienChuc[i].VienChuc.ho,
-                    Ten = listChungChiVienChuc[i].VienChuc.ten,
-                    SoDienThoai = listChungChiVienChuc[i].VienChuc.sDT,
-                    GioiTinh = vienChucRepository.ReturnGenderToGrid(listChungChiVienChuc[i].VienChuc.gioiTinh),
-                    NgaySinh = listChungChiVienChuc[i].VienChuc.ngaySinh,
-                    NoiSinh = listChungChiVienChuc[i].VienChuc.noiSinh,
-                    QueQuan = listChungChiVienChuc[i].VienChuc.queQuan,
-                    DanToc = listChungChiVienChuc[i].VienChuc.DanToc.tenDanToc,
-                    TonGiao = listChungChiVienChuc[i].VienChuc.TonGiao.tenTonGiao,
-                    HoKhauThuongTru = listChungChiVienChuc[i].VienChuc.hoKhauThuongTru,
-                    NoiOHienNay = listChungChiVienChuc[i].VienChuc.noiOHienNay,
-                    LaDangVien = listChungChiVienChuc[i].VienChuc.laDangVien,
-                    NgayVaoDang = listChungChiVienChuc[i].VienChuc.ngayVaoDang,
-                    NgayThamGiaCongTac = listChungChiVienChuc[i].VienChuc.ngayThamGiaCongTac,
-                    NgayVaoNganh = listChungChiVienChuc[i].VienChuc.ngayVaoNganh,
-                    NgayVeTruong = listChungChiVienChuc[i].VienChuc.ngayVeTruong,
-                    VanHoa = listChungChiVienChuc[i].VienChuc.vanHoa,
-                    QuanLyNhaNuoc = listChungChiVienChuc[i].VienChuc.QuanLyNhaNuoc.tenQuanLyNhaNuoc,
-                    ChinhTri = listChungChiVienChuc[i].VienChuc.ChinhTri.tenChinhTri,
-                    GhiChu = listChungChiVienChuc[i].VienChuc.ghiChu,
-                    LoaiChungChi = listChungChiVienChuc[i].LoaiChungChi.tenLoaiChungChi,
-                    CapDo = listChungChiVienChuc[i].LoaiChungChi.capDo,
-                    NgayCapChungChi = listChungChiVienChuc[i].ngayCapChungChi,
-                    LinkVanBanDinhKem = listChungChiVienChuc[i].linkVanBanDinhKem,
-                    GhiChuCC = listChungChiVienChuc[i].ghiChu
-                });
-            }
-            return listChungChiForExport;
-        }
-
         public List<ChungChiForView> GetListChungChiVienChuc(string mavienchuc)
         {
             int idvienchuc = _db.VienChucs.Where(x => x.maVienChuc == mavienchuc).Select(y => y.idVienChuc).FirstOrDefault();
@@ -83,6 +43,16 @@ namespace Model.Repository
         public ChungChiVienChuc GetObjectById(int idchungchivienchuc)
         {
             return _db.ChungChiVienChucs.Where(x => x.idChungChiVienChuc == idchungchivienchuc).FirstOrDefault();
+        }
+
+        public ChungChiVienChuc GetObjectByIdVienChuc(int idVienChuc)
+        {
+            return _db.ChungChiVienChucs.Where(x => x.idVienChuc == idVienChuc).OrderByDescending(y => y.idChungChiVienChuc).FirstOrDefault();
+        }
+
+        public List<string> GetListLinkVanBanDinhKem(string maVienChucForGetListLinkVanBanDinhKemCC)
+        {
+            return _db.ChungChiVienChucs.Where(x => x.VienChuc.maVienChuc == maVienChucForGetListLinkVanBanDinhKemCC).Select(y => y.linkVanBanDinhKem).ToList();
         }
     }
 }

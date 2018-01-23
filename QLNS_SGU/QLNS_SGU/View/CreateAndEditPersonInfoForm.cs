@@ -30,6 +30,7 @@ namespace QLNS_SGU.View
         public void Attach(ICreateAndEditPersonInfoPresenter presenter)
         {
             Load += (s, e) => presenter.LoadForm();
+            FormClosing += new FormClosingEventHandler(presenter.FormClosing);
         }
     }
 }

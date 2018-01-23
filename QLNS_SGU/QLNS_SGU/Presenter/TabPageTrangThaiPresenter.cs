@@ -19,17 +19,32 @@ namespace QLNS_SGU.Presenter
         void ClickRowAndShowInfo();
         void UploadFileToGoogleDrive();
         void DownloadFileToDevice();
-        void Edit();
+        void Save();
         void Refresh();
         void Add();
         void Delete();
         void LoadForm();
         void ExportExcel();
+        void TrangThaiChanged(object sender, EventArgs e);
+        void MoTaChanged(object sender, EventArgs e);
+        void DiaDiemChanged(object sender, EventArgs e);
+        void NgayBatDauChanged(object sender, EventArgs e);
+        void NgayKetThucChanged(object sender, EventArgs e);
+        void LinkVanBanDinhKemChanged(object sender, EventArgs e);
     }
     public class TabPageTrangThaiPresenter : ITabPageTrangThaiPresenter
     {
-        public static string _mavienchuc = "";
-        public int _rowHandle = -1;
+        public static string idFileUpload = string.Empty;
+        private static string maVienChucForGetListLinkVanBanDinhKem = string.Empty;
+        public static string maVienChucFromTabPageThongTinCaNhan = string.Empty;
+        private bool checkAddNew = true;
+        private bool trangThaiChanged = false;
+        private bool moTaChanged = false;
+        private bool diaDiemChanged = false;
+        private bool ngayBatDauChanged = false;
+        private bool ngayKetThucChanged = false;        
+        private bool linkVanBanDinhKemChanged = false;
+        public int rowFocusFromCreateAndEditPersonalInfoForm = -1;
         private static CreateAndEditPersonInfoForm _createAndEditPersonInfoForm = new CreateAndEditPersonInfoForm();
         private TabPageTrangThai _view;
         public object UI => _view;
@@ -54,19 +69,20 @@ namespace QLNS_SGU.Presenter
             _view.CBXTrangThai.Properties.DisplayMember = "tenTrangThai";
             _view.CBXTrangThai.Properties.ValueMember = "idTrangThai";
             _view.CBXTrangThai.Properties.DropDownRows = listTrangThai.Count;
-            _view.CBXTrangThai.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("idTrangThai", ""));
-            _view.CBXTrangThai.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("tenTrangThai", ""));
+            _view.CBXTrangThai.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("idTrangThai", string.Empty));
+            _view.CBXTrangThai.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("tenTrangThai", string.Empty));
             _view.CBXTrangThai.Properties.Columns[0].Visible = false;
         }
         private void SetDefaultValueControl()
         {
-            _view.CBXTrangThai.ErrorText = null;
-            _view.CBXTrangThai.EditValue = null;
-            _view.DTNgayBatDau.EditValue = null;
-            _view.DTNgayKetThuc.EditValue = null;
-            _view.TXTMoTa.Text = "";
-            _view.TXTDiaDiem.Text = "";
-            _view.TXTLinkVanBanDinhKem.Text = "";
+            checkAddNew = true;
+            _view.CBXTrangThai.ErrorText = string.Empty;
+            _view.CBXTrangThai.Text = string.Empty;
+            _view.DTNgayBatDau.Text = string.Empty;
+            _view.DTNgayKetThuc.Text = string.Empty;
+            _view.TXTMoTa.Text = string.Empty;
+            _view.TXTDiaDiem.Text = string.Empty;
+            _view.TXTLinkVanBanDinhKem.Text = string.Empty;
         }
         private void InsertData()
         {
@@ -86,6 +102,7 @@ namespace QLNS_SGU.Presenter
             LoadGridTabPageTrangThai(_view.TXTMaVienChuc.Text);
             XtraMessageBox.Show("Thêm dữ liệu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             MainPresenter.RefreshRightViewTrangThai();
+            SetDefaultValueControl();
         }
         private void UpdateData()
         {
@@ -94,11 +111,36 @@ namespace QLNS_SGU.Presenter
             DateTime? ngaybatdau = unitOfWorks.HopDongVienChucRepository.ReturnDateTimeToDatabase(_view.DTNgayBatDau.Text);
             DateTime? ngayketthuc = unitOfWorks.HopDongVienChucRepository.ReturnDateTimeToDatabase(_view.DTNgayKetThuc.Text);
             TrangThaiVienChuc trangThaiVienChuc = unitOfWorks.TrangThaiVienChucRepository.GetObjectById(idtrangthaivienchuc);
-            trangThaiVienChuc.moTa = _view.TXTMoTa.Text;
-            trangThaiVienChuc.diaDiem = _view.TXTDiaDiem.Text;
-            trangThaiVienChuc.ngayBatDau = ngaybatdau;
-            trangThaiVienChuc.ngayKetThuc = ngayketthuc;
-            trangThaiVienChuc.linkVanBanDinhKem = _view.TXTLinkVanBanDinhKem.Text;
+            if (trangThaiChanged)
+            {
+                trangThaiVienChuc.idTrangThai = Convert.ToInt32(_view.CBXTrangThai.EditValue);
+                trangThaiChanged = false;
+            }
+            if (moTaChanged)
+            {
+                trangThaiVienChuc.moTa = _view.TXTMoTa.Text;
+                moTaChanged = false;
+            }
+            if (diaDiemChanged)
+            {
+                trangThaiVienChuc.diaDiem = _view.TXTDiaDiem.Text;
+                diaDiemChanged = false;
+            }
+            if (ngayBatDauChanged)
+            {
+                trangThaiVienChuc.ngayBatDau = ngaybatdau;
+                ngayBatDauChanged = false;
+            }
+            if (ngayKetThucChanged)
+            {
+                trangThaiVienChuc.ngayKetThuc = ngayketthuc;
+                ngayKetThucChanged = false;
+            }
+            if (linkVanBanDinhKemChanged)
+            {
+                trangThaiVienChuc.linkVanBanDinhKem = _view.TXTLinkVanBanDinhKem.Text;
+                linkVanBanDinhKemChanged = false;
+            }
             unitOfWorks.Save();
             LoadGridTabPageTrangThai(_view.TXTMaVienChuc.Text);
             XtraMessageBox.Show("Sửa dữ liệu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -106,7 +148,7 @@ namespace QLNS_SGU.Presenter
         }
         private void Download(string linkvanbandinhkem)
         {
-            if(linkvanbandinhkem != "")
+            if(linkvanbandinhkem != string.Empty)
             {
                 string[] arr_linkvanbandinhkem = linkvanbandinhkem.Split('=');
                 string idvanbandinhkem = arr_linkvanbandinhkem[1];
@@ -134,52 +176,22 @@ namespace QLNS_SGU.Presenter
             else XtraMessageBox.Show("Không có văn bản đính kèm.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        public void Add()
-        {
-            if(_view.TXTMaVienChuc.Text != "" && _mavienchuc == "")
-            {
-                if (_view.CBXTrangThai.Text != "")
-                {
-                    InsertData();
-                }
-                else
-                {
-                    _view.CBXTrangThai.ErrorText = "Vui lòng chọn trạng thái.";
-                    _view.CBXTrangThai.ErrorIconAlignment = ErrorIconAlignment.MiddleRight;
-                }
-            }
-            else if(_view.TXTMaVienChuc.Text == "" && _mavienchuc != "")
-            {
-                _view.TXTMaVienChuc.Text = _mavienchuc;
-                if (_view.CBXTrangThai.Text != "")
-                {
-                    InsertData();
-                }
-                else
-                {
-                    _view.CBXTrangThai.ErrorText = "Vui lòng chọn trạng thái.";
-                    _view.CBXTrangThai.ErrorIconAlignment = ErrorIconAlignment.MiddleRight;
-                }
-            }
-            else XtraMessageBox.Show("Vui lòng thêm thông tin viên chức trước.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
+        public void Add() => SetDefaultValueControl();
 
         public void ClickRowAndShowInfo()
         {
-            _view.CBXTrangThai.ReadOnly = true;
+            checkAddNew = false;
             UnitOfWorks unitOfWorks = new UnitOfWorks(new QLNSSGU_1Entities());
             int row_handle = _view.GVTabPageTrangThai.FocusedRowHandle;
             if (row_handle >= 0)
             {
                 string trangthai = _view.GVTabPageTrangThai.GetFocusedRowCellDisplayText("TrangThai").ToString();
-                string ngaybatdau = _view.GVTabPageTrangThai.GetFocusedRowCellDisplayText("NgayBatDau");
-                string ngayketthuc = _view.GVTabPageTrangThai.GetFocusedRowCellDisplayText("NgayKetThuc");
                 string mota = _view.GVTabPageTrangThai.GetFocusedRowCellDisplayText("MoTa").ToString();
                 string diadiem = _view.GVTabPageTrangThai.GetFocusedRowCellDisplayText("DiaDiem").ToString();
                 string linkvanbandinhkem = _view.GVTabPageTrangThai.GetFocusedRowCellDisplayText("LinkVanBanDinhKem").ToString();
                 _view.CBXTrangThai.EditValue = unitOfWorks.TrangThaiRepository.GetIdTrangThai(trangthai);
-                _view.DTNgayBatDau.EditValue = _view.GVTabPageTrangThai.GetFocusedRowCellDisplayText("NgayBatDau");
-                _view.DTNgayKetThuc.EditValue = _view.GVTabPageTrangThai.GetFocusedRowCellDisplayText("NgayKetThuc");
+                _view.DTNgayBatDau.EditValue = unitOfWorks.HopDongVienChucRepository.ReturnNullIfDateTimeNull(_view.GVTabPageTrangThai.GetFocusedRowCellDisplayText("NgayBatDau"));
+                _view.DTNgayKetThuc.EditValue = unitOfWorks.HopDongVienChucRepository.ReturnNullIfDateTimeNull(_view.GVTabPageTrangThai.GetFocusedRowCellDisplayText("NgayKetThuc"));
                 _view.TXTMoTa.Text = mota;
                 _view.TXTDiaDiem.Text = diadiem;
                 _view.TXTLinkVanBanDinhKem.Text = linkvanbandinhkem;
@@ -215,23 +227,61 @@ namespace QLNS_SGU.Presenter
 
         public void DownloadFileToDevice()
         {
-            string linkvanbandinhkem = _view.GVTabPageTrangThai.GetFocusedRowCellDisplayText("LinkVanBanDinhKem").ToString().Trim();
+            string linkvanbandinhkem = _view.TXTLinkVanBanDinhKem.ToString().Trim();
             Download(linkvanbandinhkem);
         }
 
-        public void Edit()
+        public void Save()
         {
-            int row_handle = _view.GVTabPageTrangThai.FocusedRowHandle;
-            if (row_handle >= 0)
+            if (checkAddNew)
             {
-                UpdateData();
+                if (_view.TXTMaVienChuc.Text != string.Empty && maVienChucFromTabPageThongTinCaNhan == string.Empty)
+                {
+                    if (_view.CBXTrangThai.Text != string.Empty)
+                    {
+                        InsertData();
+                    }
+                    else
+                    {
+                        _view.CBXTrangThai.ErrorText = "Vui lòng chọn trạng thái.";
+                        _view.CBXTrangThai.ErrorIconAlignment = ErrorIconAlignment.MiddleRight;
+                    }
+                }
+                else if (_view.TXTMaVienChuc.Text == string.Empty && maVienChucFromTabPageThongTinCaNhan != string.Empty)
+                {
+                    _view.TXTMaVienChuc.Text = maVienChucFromTabPageThongTinCaNhan;
+                    if (_view.CBXTrangThai.Text != string.Empty)
+                    {
+                        InsertData();
+                    }
+                    else
+                    {
+                        _view.CBXTrangThai.ErrorText = "Vui lòng chọn trạng thái.";
+                        _view.CBXTrangThai.ErrorIconAlignment = ErrorIconAlignment.MiddleRight;
+                    }
+                }
+                else XtraMessageBox.Show("Vui lòng thêm thông tin viên chức trước.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                int row_handle = _view.GVTabPageTrangThai.FocusedRowHandle;
+                if (row_handle >= 0)
+                {
+                    UpdateData();
+                }
             }
         }     
 
-        public void Refresh()
+        public void Refresh() => SetDefaultValueControl();
+
+        public static void RemoveFileIfNotSave(string id)
         {
-            SetDefaultValueControl();
-            _view.CBXTrangThai.ReadOnly = false;
+            UnitOfWorks unitOfWorks = new UnitOfWorks(new QLNSSGU_1Entities());
+            List<string> listLinkVanBanDinhKem = unitOfWorks.TrangThaiVienChucRepository.GetListLinkVanBanDinhKem(maVienChucForGetListLinkVanBanDinhKem);
+            if (listLinkVanBanDinhKem.Any(x => x.Equals("https://drive.google.com/open?id=" + id + "")) == false)
+            {
+                unitOfWorks.GoogleDriveFileRepository.DeleteFile(id);
+            }
         }
 
         public void UploadFileToGoogleDrive()
@@ -240,7 +290,7 @@ namespace QLNS_SGU.Presenter
             {
                 string mavienchuc = _view.TXTMaVienChuc.Text;
                 _view.OpenFileDialog.FileName = string.Empty;
-                _view.OpenFileDialog.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
+                _view.OpenFileDialog.Filter = "Pdf Files|*.pdf";
                 if (_view.OpenFileDialog.ShowDialog() == DialogResult.Cancel) return;
                 UnitOfWorks unitOfWorks = new UnitOfWorks(new QLNSSGU_1Entities());
                 if (unitOfWorks.GoogleDriveFileRepository.InternetAvailable() == true)
@@ -253,24 +303,19 @@ namespace QLNS_SGU.Presenter
                         string code = GenerateCode(); // code xac dinh file duy nhat
                         string filename = _view.OpenFileDialog.FileName;
                         string[] temp = filename.Split('\\');
-                        if (temp[temp.Length - 1].Contains(mavienchuc))
-                        {
-                            unitOfWorks.GoogleDriveFileRepository.UploadFile(filename);
-                            string id = unitOfWorks.GoogleDriveFileRepository.GetIdDriveFile(mavienchuc, code);
-                            _view.TXTLinkVanBanDinhKem.Text = "https://drive.google.com/open?id=" + id + "";
-                        }
-                        else
-                        {
-                            string[] split_filename = filename.Split('.');
-                            string new_filename = split_filename[0] + "-" + mavienchuc + "-" + code + "." + split_filename[1];
-                            FileInfo fileInfo = new FileInfo(filename);
-                            fileInfo.MoveTo(new_filename);
-                            unitOfWorks.GoogleDriveFileRepository.UploadFile(new_filename);
-                            string id = unitOfWorks.GoogleDriveFileRepository.GetIdDriveFile(mavienchuc, code);
-                            _view.TXTLinkVanBanDinhKem.Text = "https://drive.google.com/open?id=" + id + "";
-                        }
+                        string[] split_filename = filename.Split('.');
+                        string new_filename = split_filename[0] + "-" + mavienchuc + "-" + code + "." + split_filename[1];
+                        FileInfo fileInfo = new FileInfo(filename);
+                        fileInfo.MoveTo(new_filename);
+                        unitOfWorks.GoogleDriveFileRepository.UploadFile(new_filename);
+                        FileInfo fileInfo1 = new FileInfo(new_filename); //doi lai filename cu~
+                        fileInfo1.MoveTo(filename);
+                        string id = unitOfWorks.GoogleDriveFileRepository.GetIdDriveFile(mavienchuc, code);
+                        idFileUpload = id;
+                        maVienChucForGetListLinkVanBanDinhKem = mavienchuc;
+                        _view.TXTLinkVanBanDinhKem.Text = string.Empty;
+                        _view.TXTLinkVanBanDinhKem.Text = "https://drive.google.com/open?id=" + id + "";
                         SplashScreenManager.CloseForm();
-                        LoadGridTabPageTrangThai(mavienchuc);
                     }
                     catch
                     {
@@ -292,12 +337,12 @@ namespace QLNS_SGU.Presenter
         {
             LoadCbxData();
             string mavienchuc = _view.TXTMaVienChuc.Text;
-            if (mavienchuc != "")
+            if (mavienchuc != string.Empty)
             {
                 LoadGridTabPageTrangThai(mavienchuc);
-                if(_rowHandle >= 0)
+                if(rowFocusFromCreateAndEditPersonalInfoForm >= 0)
                 {
-                    _view.GVTabPageTrangThai.FocusedRowHandle = _rowHandle;
+                    _view.GVTabPageTrangThai.FocusedRowHandle = rowFocusFromCreateAndEditPersonalInfoForm;
                     ClickRowAndShowInfo();
                 }
             }
@@ -310,6 +355,36 @@ namespace QLNS_SGU.Presenter
             if (_view.SaveFileDialog.ShowDialog() == DialogResult.Cancel) return;
             _view.GVTabPageTrangThai.ExportToXlsx(_view.SaveFileDialog.FileName);
             XtraMessageBox.Show("Xuất Excel thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        public void TrangThaiChanged(object sender, EventArgs e)
+        {
+            trangThaiChanged = true;
+        }
+
+        public void MoTaChanged(object sender, EventArgs e)
+        {
+            moTaChanged = true;
+        }
+
+        public void DiaDiemChanged(object sender, EventArgs e)
+        {
+            diaDiemChanged = true;
+        }
+
+        public void NgayBatDauChanged(object sender, EventArgs e)
+        {
+            ngayBatDauChanged = true;
+        }
+
+        public void NgayKetThucChanged(object sender, EventArgs e)
+        {
+            ngayKetThucChanged = true;
+        }
+
+        public void LinkVanBanDinhKemChanged(object sender, EventArgs e)
+        {
+            linkVanBanDinhKemChanged = true;
         }
     }
 }

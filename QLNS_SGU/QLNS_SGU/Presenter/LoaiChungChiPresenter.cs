@@ -46,7 +46,7 @@ namespace QLNS_SGU.Presenter
         {
             SplashScreenManager.ShowForm(_view, typeof(WaitForm1), true, true, false, 0);
             UnitOfWorks unitOfWorks = new UnitOfWorks(new QLNSSGU_1Entities());
-            BindingList<LoaiChungChi> listLoaiChungChi = new BindingList<LoaiChungChi>(unitOfWorks.LoaiChungChiRepository.GetListLoaiChungChi());
+            BindingList<LoaiChungChi> listLoaiChungChi = new BindingList<LoaiChungChi>(unitOfWorks.LoaiChungChiRepository.GetListLoaiChungChiForCRUD());
             _view.GCLoaiChungChi.DataSource = listLoaiChungChi;
             SplashScreenManager.CloseForm(false);
             

@@ -12,53 +12,7 @@ namespace Model.Repository
     {
         public QuaTrinhLuongRepository(QLNSSGU_1Entities db) : base(db)
         {
-        }
-
-        public List<QuaTrinhLuongForExport> GetListQuaTrinhLuongForExport()
-        {
-            VienChucRepository vienChucRepository = new VienChucRepository(_db);
-            List<QuaTrinhLuongForExport> listQuaTrinhLuongForExport = new List<QuaTrinhLuongForExport>();
-            List<QuaTrinhLuong> listQuaTrinhLuong = _db.QuaTrinhLuongs.ToList();
-            for(int i = 0; i < listQuaTrinhLuong.Count; i++)
-            {
-                listQuaTrinhLuongForExport.Add(new QuaTrinhLuongForExport
-                {
-                    MaVienChuc = listQuaTrinhLuong[i].VienChuc.maVienChuc,
-                    Ho = listQuaTrinhLuong[i].VienChuc.ho,
-                    Ten = listQuaTrinhLuong[i].VienChuc.ten,
-                    SoDienThoai = listQuaTrinhLuong[i].VienChuc.sDT,
-                    GioiTinh = vienChucRepository.ReturnGenderToGrid(listQuaTrinhLuong[i].VienChuc.gioiTinh),
-                    NgaySinh = listQuaTrinhLuong[i].VienChuc.ngaySinh,
-                    NoiSinh = listQuaTrinhLuong[i].VienChuc.noiSinh,
-                    QueQuan = listQuaTrinhLuong[i].VienChuc.queQuan,
-                    DanToc = listQuaTrinhLuong[i].VienChuc.DanToc.tenDanToc,
-                    TonGiao = listQuaTrinhLuong[i].VienChuc.TonGiao.tenTonGiao,
-                    HoKhauThuongTru = listQuaTrinhLuong[i].VienChuc.hoKhauThuongTru,
-                    NoiOHienNay = listQuaTrinhLuong[i].VienChuc.noiOHienNay,
-                    LaDangVien = listQuaTrinhLuong[i].VienChuc.laDangVien,
-                    NgayVaoDang = listQuaTrinhLuong[i].VienChuc.ngayVaoDang,
-                    NgayThamGiaCongTac = listQuaTrinhLuong[i].VienChuc.ngayThamGiaCongTac,
-                    NgayVaoNganh = listQuaTrinhLuong[i].VienChuc.ngayVaoNganh,
-                    NgayVeTruong = listQuaTrinhLuong[i].VienChuc.ngayVeTruong,
-                    VanHoa = listQuaTrinhLuong[i].VienChuc.vanHoa,
-                    QuanLyNhaNuoc = listQuaTrinhLuong[i].VienChuc.QuanLyNhaNuoc.tenQuanLyNhaNuoc,
-                    ChinhTri = listQuaTrinhLuong[i].VienChuc.ChinhTri.tenChinhTri,
-                    GhiChu = listQuaTrinhLuong[i].VienChuc.ghiChu,
-                    MaNgach = listQuaTrinhLuong[i].Bac.Ngach.maNgach,
-                    TenNgach = listQuaTrinhLuong[i].Bac.Ngach.tenNgach,
-                    HeSoVuotKhungBaNamDau = listQuaTrinhLuong[i].Bac.Ngach.heSoVuotKhungBaNamDau,
-                    HeSoVuotKhungTrenBaNam = listQuaTrinhLuong[i].Bac.Ngach.heSoVuotKhungTrenBaNam,
-                    ThoiHanNangBac = listQuaTrinhLuong[i].Bac.Ngach.thoiHanNangBac,
-                    Bac = listQuaTrinhLuong[i].Bac.bac1,
-                    HeSoBac = listQuaTrinhLuong[i].Bac.heSoBac,
-                    NgayBatDau = listQuaTrinhLuong[i].ngayBatDau,
-                    NgayLenLuong = listQuaTrinhLuong[i].ngayLenLuong,
-                    DangHuongLuong = listQuaTrinhLuong[i].dangHuongLuong,
-                    LinkVanBanDinhKem = listQuaTrinhLuong[i].linkVanBanDinhKem
-                });
-            }
-            return listQuaTrinhLuongForExport;
-        }
+        }       
 
         public List<QuaTrinhLuongForView> GetListQuaTrinhLuong(string mavienchuc)
         {
@@ -71,6 +25,7 @@ namespace Model.Repository
                 {
                     Id = listQuaTrinhLuong[i].idQuaTrinhLuong,
                     MaNgach = listQuaTrinhLuong[i].Bac.Ngach.maNgach,
+                    TenNgach = listQuaTrinhLuong[i].Bac.Ngach.tenNgach,
                     Bac = listQuaTrinhLuong[i].Bac.bac1,
                     HeSoBac = listQuaTrinhLuong[i].Bac.heSoBac,
                     NgayBatDau = listQuaTrinhLuong[i].ngayBatDau,
@@ -103,6 +58,59 @@ namespace Model.Repository
         {
             var a = _db.QuaTrinhLuongs.Where(x => x.idQuaTrinhLuong == id).FirstOrDefault();
             _db.QuaTrinhLuongs.Remove(a);
+        }
+
+        public QuaTrinhLuong GetObjectByIdVienChucAndTimeline(int idVienChuc, DateTime dtTimeline)
+        {
+            var rows = _db.QuaTrinhLuongs.Where(x => x.idVienChuc == idVienChuc);
+            QuaTrinhLuong obj = null;
+            foreach (var row in rows)
+            {
+                if (row.ngayLenLuong != null)
+                {
+                    if (row.ngayBatDau <= dtTimeline && row.ngayLenLuong >= dtTimeline)
+                    {
+                        obj = new QuaTrinhLuong(rows.Where(x => x.idQuaTrinhLuong == row.idQuaTrinhLuong).OrderByDescending(y => y.idQuaTrinhLuong).FirstOrDefault());
+                    }
+                }
+                else
+                {
+                    if (row.ngayBatDau <= dtTimeline)
+                    {
+                        obj = new QuaTrinhLuong(rows.Where(x => x.idQuaTrinhLuong == row.idQuaTrinhLuong).OrderByDescending(y => y.idQuaTrinhLuong).FirstOrDefault());
+                    }
+                }
+            }
+            return obj;
+        }
+
+        public QuaTrinhLuong GetObjectByIdVienChucAndPeriodOfTime(int idVienChuc, DateTime dtFromPeriodOfTime, DateTime dtToPeriodOfTime)
+        {
+            var rows = _db.QuaTrinhLuongs.Where(x => x.idVienChuc == idVienChuc);
+            QuaTrinhLuong obj = null;
+            foreach (var row in rows)
+            {
+                if (row.ngayLenLuong != null)
+                {
+                    if (row.ngayBatDau >= dtFromPeriodOfTime && row.ngayLenLuong <= dtToPeriodOfTime)
+                    {
+                        obj = new QuaTrinhLuong(rows.Where(x => x.idQuaTrinhLuong == row.idQuaTrinhLuong).FirstOrDefault());
+                    }
+                }
+                else
+                {
+                    if (row.ngayBatDau >= dtFromPeriodOfTime)
+                    {
+                        obj = new QuaTrinhLuong(rows.Where(x => x.idQuaTrinhLuong == row.idQuaTrinhLuong).FirstOrDefault());
+                    }
+                }
+            }
+            return obj;
+        }
+
+        public List<string> GetListLinkVanBanDinhKem(string maVienChucForGetListLinkAnhQuyetDinh)
+        {
+            return _db.QuaTrinhLuongs.Where(x => x.VienChuc.maVienChuc == maVienChucForGetListLinkAnhQuyetDinh).Select(y => y.linkVanBanDinhKem).ToList();
         }
     }
 }

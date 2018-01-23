@@ -14,6 +14,21 @@ namespace Model.Entities
     
     public partial class HopDongVienChuc
     {
+        public HopDongVienChuc() { }
+
+        public HopDongVienChuc(HopDongVienChuc hopDongVienChuc)
+        {
+            idHopDongVienChuc = hopDongVienChuc.idHopDongVienChuc;
+            idVienChuc = hopDongVienChuc.idVienChuc;
+            idLoaiHopDong = hopDongVienChuc.idLoaiHopDong;
+            ngayBatDau = hopDongVienChuc.ngayBatDau;
+            ngayKetThuc = hopDongVienChuc.ngayKetThuc;
+            moTa = hopDongVienChuc.moTa;
+            linkVanBanDinhKem = hopDongVienChuc.linkVanBanDinhKem;
+            LoaiHopDong = hopDongVienChuc.LoaiHopDong;
+            VienChuc = hopDongVienChuc.VienChuc;
+        }
+
         public int idHopDongVienChuc { get; set; }
         public int idVienChuc { get; set; }
         public int idLoaiHopDong { get; set; }
