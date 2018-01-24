@@ -2107,14 +2107,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Model.dll" size="328704">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Model.dll" size="331264">
       <assemblyIdentity name="Model" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>5R9KJ3Gc4DV7v0mqgQO6zJRtm8Y8O60AFdsZ/8YtHJo=</dsig:DigestValue>
+        <dsig:DigestValue>YslGOCNHLuNfuBBtGWTItjpjaRSQOAg7MKam7qRrN+I=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -2131,14 +2131,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="QLNS_SGU.exe" size="1413528">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="QLNS_SGU.exe" size="1417624">
       <assemblyIdentity name="QLNS_SGU" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>gvnl0a/bpurgc5lR6UbSaFcPz4o4mKx+wVQzqCYlXuI=</dsig:DigestValue>
+        <dsig:DigestValue>6TAYeAyJbM7qrrXit3Yy8oikTu+e6lI/wyKXcus4vI8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

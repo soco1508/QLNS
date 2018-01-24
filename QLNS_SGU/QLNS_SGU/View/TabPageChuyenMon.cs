@@ -26,6 +26,7 @@ namespace QLNS_SGU.View
         GridControl GCHocHamHocVi { get; set; }
         GridView GVHocHamHocVi { get; set; }
         LookUpEdit CBXLoaiHocHamHocViHHHV { get; set; }
+        LookUpEdit CBXLoaiNganhHHHV { get; set; }
         LookUpEdit CBXNganhDaoTaoHHHV { get; set; }
         LookUpEdit CBXChuyenNganhHHHV { get; set; }
         TextEdit TXTTenHocHamHocViHHHV { get; set; }
@@ -84,6 +85,7 @@ namespace QLNS_SGU.View
         public GridControl GCHocHamHocVi { get => gcHocHamHocVi; set => gcHocHamHocVi = value; }
         public GridView GVHocHamHocVi { get => gvHocHamHocVi; set => gvHocHamHocVi = value; }
         public LookUpEdit CBXLoaiHocHamHocViHHHV { get => cbxLoaiHocHamHocViHHHV; set => cbxLoaiHocHamHocViHHHV = value; }
+        public LookUpEdit CBXLoaiNganhHHHV { get => cbxLoaiNganhHHHV; set => cbxLoaiNganhHHHV = value; }
         public LookUpEdit CBXNganhDaoTaoHHHV { get => cbxNganhDaoTaoHHHV; set => cbxNganhDaoTaoHHHV = value; }
         public LookUpEdit CBXChuyenNganhHHHV { get => cbxChuyenNganhHHHV; set => cbxChuyenNganhHHHV = value; }
         public TextEdit TXTTenHocHamHocViHHHV { get => txtTenHocHamHocViHHHV; set => txtTenHocHamHocViHHHV = value; }
@@ -125,13 +127,11 @@ namespace QLNS_SGU.View
         public DateEdit DTNgayCapChungChi { get => dtNgayCapChungChi; set => dtNgayCapChungChi = value; }
         public TextEdit TXTGhiChuCC { get => txtGhiChuCC; set => txtGhiChuCC = value; }
         public TextEdit TXTLinkVanBanDinhKemCC { get => txtLinkVanBanDinhKemCC; set => txtLinkVanBanDinhKemCC = value; }
-
         #endregion
         public void Attach(ITabPageChuyenMonPresenter presenter)
         {
             Load += (s, e) => presenter.LoadForm();
             //HHHV
-            cbxNganhDaoTaoHHHV.EditValueChanged += new EventHandler(presenter.CbxNganhDaoTaoHHHVChanged);
             gvHocHamHocVi.Click += (s, e) => presenter.ClickRowAndShowInfoHHHV();                                  
             btnRefreshHHHV.Click += (s, e) => presenter.RefreshHHHV();
             btnAddHHHV.Click += (s, e) => presenter.AddHHHV();
@@ -140,6 +140,17 @@ namespace QLNS_SGU.View
             btnExportExcelHHHV.Click += (s, e) => presenter.ExportExcelHHHV();
             btnUploadHHHV.Click += (s, e) => presenter.UploadFileToGoogleDriveHHHV();
             btnDownloadHHHV.Click += (s, e) => presenter.DownloadFileToDeviceHHHV();
+            cbxLoaiHocHamHocViHHHV.EditValueChanged += new EventHandler(presenter.LoaiHocHamHocViHHHVChanged);
+            cbxLoaiNganhHHHV.EditValueChanged += new EventHandler(presenter.LoaiNganhHHHVChanged);
+            cbxNganhDaoTaoHHHV.EditValueChanged += new EventHandler(presenter.NganhDaoTaoHHHVChanged);
+            cbxChuyenNganhHHHV.EditValueChanged += new EventHandler(presenter.ChuyenNganhHHHVChanged);
+            txtTenHocHamHocViHHHV.EditValueChanged += new EventHandler(presenter.TenHocHamHocViHHHVChanged);
+            dtNgayCapBangHHHV.DateTimeChanged += new EventHandler(presenter.NgayCapBangHHHVChanged);
+            txtCoSoDaoTaoHHHV.TextChanged += new EventHandler(presenter.CoSoDaoTaoHHHVChanged);
+            txtNgonNguDaoTaoHHHV.TextChanged += new EventHandler(presenter.NgonNguDaoTaoHHHVChanged);
+            txtHinhThucDaoTaoHHHV.TextChanged += new EventHandler(presenter.HinhThucDaoTaoHHHVChanged);
+            txtNuocCapBangHHHV.TextChanged += new EventHandler(presenter.NuocCapBangHHHVChanged);
+            txtLinkVanBanDinhKemHHHV.TextChanged += new EventHandler(presenter.LinkVanBanDinhKemHHHVChanged);
             //DHNC
             gvDangHocNangCao.Click += (s, e) => presenter.ClickRowAndShowInfoDHNC();
             btnRefreshDHNC.Click += (s, e) => presenter.RefreshDHNC();
@@ -183,7 +194,7 @@ namespace QLNS_SGU.View
             txtCapDoChungChi.EditValueChanged += new EventHandler(presenter.CapDoChungChiChanged);
             dtNgayCapChungChi.EditValueChanged += new EventHandler(presenter.NgayCapChungChiChanged);
             txtGhiChuCC.TextChanged += new EventHandler(presenter.GhiChuChungChiChanged);
-            txtLinkVanBanDinhKemCC.TextChanged += new EventHandler(presenter.LinkVanBanDinhKemChungChiChanged);
+            txtLinkVanBanDinhKemCC.TextChanged += new EventHandler(presenter.LinkVanBanDinhKemHHHVChanged);
         }
     }
 }

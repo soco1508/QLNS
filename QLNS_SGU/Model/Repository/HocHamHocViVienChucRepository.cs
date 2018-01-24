@@ -142,5 +142,35 @@ namespace Model.Repository
             });
             return list;
         }
+
+        public List<string> GetListCoSoDaoTao()
+        {
+            return _db.HocHamHocViVienChucs.Where(x => x.coSoDaoTao != null).Select(y => y.coSoDaoTao).ToList();
+        }
+
+        public List<string> GetListHinhThucDaoTao()
+        {
+            return _db.HocHamHocViVienChucs.Where(x => x.hinhThucDaoTao != null).Select(y => y.hinhThucDaoTao).ToList();
+        }
+
+        public List<string> GetListNgonNguDaoTao()
+        {
+            return _db.HocHamHocViVienChucs.Where(x => x.ngonNguDaoTao != null).Select(y => y.ngonNguDaoTao).ToList();
+        }
+
+        public List<string> GetListNuocCapBang()
+        {
+            return _db.HocHamHocViVienChucs.Where(x => x.nuocCapBang != null).Select(y => y.nuocCapBang).ToList();
+        }
+
+        public List<string> GetListLinkVanBanDinhKem(string maVienChucForGetListLinkVanBanDinhKemHHHV)
+        {
+            return _db.HocHamHocViVienChucs.Where(x => x.VienChuc.maVienChuc == maVienChucForGetListLinkVanBanDinhKemHHHV).Select(y => y.linkVanBanDinhKem).ToList();
+        }
+
+        public int GetNewestIdHocHamHocViVienChuc()
+        {
+            return _db.HocHamHocViVienChucs.Max(m => m.idHocHamHocViVienChuc);
+        }
     }
 }

@@ -129,5 +129,10 @@ namespace Model.Repository
             }
             return obj;
         }
+
+        public NganhVienChuc GetObjectByIdHocHamHocViVienChuc(int idhochamhocvi)
+        {
+            return _db.NganhVienChucs.Where(x => x.idHocHamHocViVienChuc == idhochamhocvi).FirstOrDefault();
+        }
     }
 }

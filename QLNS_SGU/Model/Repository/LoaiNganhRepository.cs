@@ -54,9 +54,14 @@ namespace Model.Repository
             return false;
         }
 
-        public int GetIdLoaiNganh(string loainganh)
+        public int GetIdLoaiNganh(string tenloainganh)
         {
-            return _db.LoaiNganhs.Where(x => x.tenLoaiNganh == loainganh).Select(y => y.idLoaiNganh).FirstOrDefault();
+            return _db.LoaiNganhs.Where(x => x.tenLoaiNganh == tenloainganh).Select(y => y.idLoaiNganh).FirstOrDefault();
+        }
+
+        public int GetIdLoaiNganhByIdNganhDaoTao(int idnganhdaotao)
+        {
+            return _db.NganhDaoTaos.Where(x => x.idNganhDaoTao == idnganhdaotao).Select(y => y.idLoaiNganh).FirstOrDefault();
         }
     }
 }

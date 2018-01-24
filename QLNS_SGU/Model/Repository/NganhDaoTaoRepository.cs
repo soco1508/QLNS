@@ -58,5 +58,15 @@ namespace Model.Repository
         {
             return _db.NganhDaoTaos.Where(x => x.idNganhDaoTao == idnganhdaotao).Select(y => y.idLoaiNganh).FirstOrDefault();
         }
+
+        public List<NganhDaoTao> GetListNganhDaoTaoByIdLoaiNganh(int idloainganh)
+        {
+            return _db.NganhDaoTaos.Where(x => x.idLoaiNganh == idloainganh).ToList();
+        }
+
+        public int GetIdNganhDaoTaoByIdChuyenNganh(int idchuyennganh)
+        {
+            return _db.ChuyenNganhs.Where(x => x.idChuyenNganh == idchuyennganh).Select(y => y.idNganhDaoTao).FirstOrDefault();
+        }
     }
 }

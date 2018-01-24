@@ -83,5 +83,17 @@ namespace Model.Repository
                     return -1;
             }
         }
+
+        public string ReturnFirstCharOfLoaiHocHamHocVi(string text)
+        {
+            string[] arrText = text.Split(' ');
+            string result = string.Empty;
+            for (int i = 0; i < arrText.Length; i++)
+            {
+                string temp = arrText[i];
+                result += temp[0];
+            }
+            return result;
+        }
     }
 }

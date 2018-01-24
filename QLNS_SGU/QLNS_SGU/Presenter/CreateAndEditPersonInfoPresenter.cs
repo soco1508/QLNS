@@ -111,7 +111,11 @@ namespace QLNS_SGU.Presenter
             {
                 TabPageQuaTrinhLuongPresenter.RemoveFileIfNotSave(TabPageQuaTrinhLuongPresenter.idFileUpload);
             }
-            if(TabPageChuyenMonPresenter.idFileUploadCC != string.Empty)
+            if (TabPageChuyenMonPresenter.idFileUploadHHHV != string.Empty)
+            {
+                TabPageChuyenMonPresenter.RemoveFileIfNotSaveHHHV(TabPageChuyenMonPresenter.idFileUploadHHHV);
+            }
+            if (TabPageChuyenMonPresenter.idFileUploadCC != string.Empty)
             {
                 TabPageChuyenMonPresenter.RemoveFileIfNotSaveCC(TabPageChuyenMonPresenter.idFileUploadCC);
             }

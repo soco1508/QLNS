@@ -15,7 +15,10 @@ namespace Model.Repository
 
         public List<string> GetListTenLoaiChungChi()
         {
-            return _db.LoaiChungChis.Select(y => y.tenLoaiChungChi).Distinct().ToList();
+            var list = from a in _db.LoaiChungChis
+                       group a.tenLoaiChungChi by a.tenLoaiChungChi into g
+                       select g.Key;
+            return list.ToList();
         }
 
         public void Update(int id, string loaichungchi, string capdo)
