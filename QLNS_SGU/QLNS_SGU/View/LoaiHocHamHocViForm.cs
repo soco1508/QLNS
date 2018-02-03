@@ -12,6 +12,7 @@ namespace QLNS_SGU.View
         GridControl GCLoaiHocHamHocVi { get; set; }
         GridView GVLoaiHocHamHocVi { get; set; }
         SaveFileDialog SaveFileDialog { get; set; }
+        SimpleButton BTNExportExcel { get; set; }
     }
     public partial class LoaiHocHamHocViForm : XtraForm, ILoaiHocHamHocViForm
     {
@@ -24,6 +25,7 @@ namespace QLNS_SGU.View
         public GridControl GCLoaiHocHamHocVi { get => gcLoaiHocHamHocVi; set => gcLoaiHocHamHocVi = value; }
         public GridView GVLoaiHocHamHocVi { get => gvLoaiHocHamHocVi; set => gvLoaiHocHamHocVi = value; }
         public SaveFileDialog SaveFileDialog { get => saveFileDialog1; set => saveFileDialog1 = value; }
+        public SimpleButton BTNExportExcel { get => btnExportExcel; set => btnExportExcel = value; }
         #endregion
 
         public void Attach(ILoaiHocHamHocViPresenter presenter)

@@ -12,6 +12,7 @@ using QLNS_SGU.Presenter;
 using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraTab;
+using DevExpress.XtraLayout;
 
 namespace QLNS_SGU.View
 {
@@ -22,7 +23,8 @@ namespace QLNS_SGU.View
         OpenFileDialog OpenFileDialog { get; set; }
         TextEdit TXTMaVienChuc { get; set; }
         TextEdit TXTRowIndex { get; set; }
-        //tab1
+        SimpleLabelItem LBCopyAndPasteInfo { get; set; }
+        //HHHV
         GridControl GCHocHamHocVi { get; set; }
         GridView GVHocHamHocVi { get; set; }
         LookUpEdit CBXLoaiHocHamHocViHHHV { get; set; }
@@ -36,7 +38,8 @@ namespace QLNS_SGU.View
         TextEdit TXTNuocCapBangHHHV { get; set; }
         DateEdit DTNgayCapBang { get; set; }
         TextEdit TXTLinkVanBanDinhKemHHHV { get; set; }
-        //tab2
+        SimpleButton BTNExportExcelHHHV { get; set; }
+        //DHNC
         GridControl GCDangHocNangCao { get; set; }
         GridView GVDangHocNangCao { get; set; }
         LookUpEdit CBXLoaiHocHamHocViDHNC { get; set; }
@@ -50,17 +53,21 @@ namespace QLNS_SGU.View
         DateEdit DTNgayKetThucDHNC { get; set; }
         TextEdit TXTSoQuyetDinh { get; set; }
         TextEdit TXTLinkAnhQuyetDinh { get; set; }
-        //tab3
+        SimpleButton BTNExportExcelDHNC { get; set; }
+        //Nganh
         GridControl GCNganh { get; set; }
         GridView GVNganh { get; set; }
+        LookUpEdit CBXLoaiNganhN { get; set; }
         LookUpEdit CBXNganhDaoTaoN { get; set; }
-        LookUpEdit CBXChuyenNganhN { get; set; }
-        LookUpEdit CBXPhanLoaiN { get; set; }
+        LookUpEdit CBXChuyenNganhN { get; set; }        
         LookUpEdit CBXTenHocHamHocViN { get; set; }
+        TextEdit TXTTrinhDoDay { get; set; }
+        RadioGroup RADPhanLoaiN { get; set; }
         DateEdit DTNgayBatDauN { get; set; }
         DateEdit DTNgayKetThucN { get; set; }
         TextEdit TXTLinkVanBanDinhKemN { get; set; }
-        //tab4
+        SimpleButton BTNExportExcelN { get; set; }
+        //ChungChi
         GridControl GCChungChi { get; set; }
         GridView GVChungChi { get; set; }
         LookUpEdit CBXLoaiChungChi { get; set; }
@@ -68,6 +75,7 @@ namespace QLNS_SGU.View
         DateEdit DTNgayCapChungChi { get; set; }
         TextEdit TXTGhiChuCC { get; set; }
         TextEdit TXTLinkVanBanDinhKemCC { get; set; }
+        SimpleButton BTNExportExcelCC { get; set; }
     }
     public partial class TabPageChuyenMon : XtraForm, ITabPageChuyenMon
     {
@@ -79,7 +87,9 @@ namespace QLNS_SGU.View
         public XtraTabControl XtraTabControl { get => xtraTabControl1; set => xtraTabControl1 = value; }
         public SaveFileDialog SaveFileDialog { get => saveFileDialog1; set => saveFileDialog1 = value; }
         public OpenFileDialog OpenFileDialog { get => openFileDialog1; set => openFileDialog1 = value; }
-        //tab1
+        public SimpleLabelItem LBCopyAndPasteInfo { get => lbCopyAndPasteInfo; set => lbCopyAndPasteInfo = value; }
+        //HHHV
+        public SimpleButton BTNExportExcelHHHV { get => btnExportExcelHHHV; set => btnExportExcelHHHV = value; }
         public TextEdit TXTMaVienChuc { get => txtMaVienChuc; set => txtMaVienChuc = value; }
         public TextEdit TXTRowIndex { get => txtRowIndex; set => txtRowIndex = value; }
         public GridControl GCHocHamHocVi { get => gcHocHamHocVi; set => gcHocHamHocVi = value; }
@@ -95,7 +105,8 @@ namespace QLNS_SGU.View
         public TextEdit TXTNuocCapBangHHHV { get => txtNuocCapBangHHHV; set => txtNuocCapBangHHHV = value; }
         public DateEdit DTNgayCapBang { get => dtNgayCapBangHHHV; set => dtNgayCapBangHHHV = value; }
         public TextEdit TXTLinkVanBanDinhKemHHHV { get => txtLinkVanBanDinhKemHHHV; set => txtLinkVanBanDinhKemHHHV = value; }
-        //tab2
+        //DHNC
+        public SimpleButton BTNExportExcelDHNC { get => btnExportExcelDHNC; set => btnExportExcelDHNC = value; }
         public GridControl GCDangHocNangCao { get => gcDangHocNangCao; set => gcDangHocNangCao = value; }
         public GridView GVDangHocNangCao { get => gvDangHocNangCao; set => gvDangHocNangCao = value; }
         public LookUpEdit CBXLoaiHocHamHocViDHNC { get => cbxLoaiHocHamHocViDHNC; set => cbxLoaiHocHamHocViDHNC = value; }
@@ -109,17 +120,21 @@ namespace QLNS_SGU.View
         public DateEdit DTNgayKetThucDHNC { get => dtNgayKetThucDHNC; set => dtNgayKetThucDHNC = value; }
         public TextEdit TXTSoQuyetDinh { get => txtSoQuyetDinh; set => txtSoQuyetDinh = value; }
         public TextEdit TXTLinkAnhQuyetDinh { get => txtLinkAnhQuyetDinh; set => txtLinkAnhQuyetDinh = value; }
-        //tab3
+        //Nganh
+        public SimpleButton BTNExportExcelN { get => btnExportExcelN; set => btnExportExcelN = value; }
         public GridControl GCNganh { get => gcNganh; set => gcNganh = value; }
         public GridView GVNganh { get => gvNganh; set => gvNganh = value; }
+        public LookUpEdit CBXLoaiNganhN { get => cbxLoaiNganhN; set => cbxLoaiNganhN = value; }
         public LookUpEdit CBXNganhDaoTaoN { get => cbxNganhDaoTaoN; set => cbxNganhDaoTaoN = value; }
-        public LookUpEdit CBXChuyenNganhN { get => cbxChuyenNganhN; set => cbxChuyenNganhN = value; }
-        public LookUpEdit CBXPhanLoaiN { get => cbxPhanLoaiN; set => cbxPhanLoaiN = value; }
-        public LookUpEdit CBXTenHocHamHocViN { get => cbxLoaiHocHamHocViN; set => cbxLoaiHocHamHocViN = value; }
+        public LookUpEdit CBXChuyenNganhN { get => cbxChuyenNganhN; set => cbxChuyenNganhN = value; }        
+        public LookUpEdit CBXTenHocHamHocViN { get => cbxTenHocHamHocViN; set => cbxTenHocHamHocViN = value; }
+        public TextEdit TXTTrinhDoDay { get => txtTrinhDoDay; set => txtTrinhDoDay = value; }
+        public RadioGroup RADPhanLoaiN { get => radPhanLoaiN; set => radPhanLoaiN = value; }
         public DateEdit DTNgayBatDauN { get => dtNgayBatDauN; set => dtNgayBatDauN = value; }
         public DateEdit DTNgayKetThucN { get => dtNgayKetThucN; set => dtNgayKetThucN = value; }
         public TextEdit TXTLinkVanBanDinhKemN { get => txtLinkVanBanDinhKemN; set => txtLinkVanBanDinhKemN = value; }
-        //tab4
+        //ChungChi
+        public SimpleButton BTNExportExcelCC { get => btnExportExcelCC; set => btnExportExcelCC = value; }
         public GridControl GCChungChi { get => gcChungChi; set => gcChungChi = value; }
         public GridView GVChungChi { get => gvChungChi; set => gvChungChi = value; }
         public LookUpEdit CBXLoaiChungChi { get => cbxLoaiChungChi; set => cbxLoaiChungChi = value; }
@@ -131,11 +146,12 @@ namespace QLNS_SGU.View
         public void Attach(ITabPageChuyenMonPresenter presenter)
         {
             Load += (s, e) => presenter.LoadForm();
+            lbCopyAndPasteInfo.Click += (s, e) => presenter.CopyAndPasteInfoNganhVienChuc();
             //HHHV
             gvHocHamHocVi.Click += (s, e) => presenter.ClickRowAndShowInfoHHHV();                                  
             btnRefreshHHHV.Click += (s, e) => presenter.RefreshHHHV();
             btnAddHHHV.Click += (s, e) => presenter.AddHHHV();
-            btnSaveHHHV.Click += (s, e) => presenter.EditHHHV();
+            btnSaveHHHV.Click += (s, e) => presenter.SaveHHHV();
             btnDeleteHHHV.Click += (s, e) => presenter.DeleteHHHV();
             btnExportExcelHHHV.Click += (s, e) => presenter.ExportExcelHHHV();
             btnUploadHHHV.Click += (s, e) => presenter.UploadFileToGoogleDriveHHHV();
@@ -171,16 +187,24 @@ namespace QLNS_SGU.View
             txtNuocCapBangDHNC.TextChanged += new EventHandler(presenter.NuocCapBangDangHocNangCaoChanged);
             cbxLoai.EditValueChanged += new EventHandler(presenter.LoaiDangHocNangCaoChanged);
             txtLinkAnhQuyetDinh.TextChanged += new EventHandler(presenter.LinkAnhQuyetDinhChanged);
-            //Nganh
-            cbxNganhDaoTaoN.EditValueChanged += new EventHandler(presenter.CbxNganhDaoTaoNChanged);
+            //Nganh            
             gvNganh.Click += (s, e) => presenter.ClickRowAndShowInfoN();
             btnRefreshN.Click += (s, e) => presenter.RefreshN();
             btnAddN.Click += (s, e) => presenter.AddN();
-            btnSaveN.Click += (s, e) => presenter.EditN();
+            btnSaveN.Click += (s, e) => presenter.SaveN();
             btnDeleteN.Click += (s, e) => presenter.DeleteN();
             btnExportExcelN.Click += (s, e) => presenter.ExportExcelN();
             btnUploadN.Click += (s, e) => presenter.UploadFileToGoogleDriveN();
             btnDownloadN.Click += (s, e) => presenter.DownloadFileToDeviceN();
+            cbxLoaiNganhN.EditValueChanged += new EventHandler(presenter.LoaiNganhNChanged);
+            cbxNganhDaoTaoN.EditValueChanged += new EventHandler(presenter.NganhDaoTaoNChanged);
+            cbxChuyenNganhN.EditValueChanged += new EventHandler(presenter.ChuyenNganhNChanged);
+            cbxTenHocHamHocViN.EditValueChanged += new EventHandler(presenter.TenHocHamHocViNChanged);
+            dtNgayBatDauN.DateTimeChanged += new EventHandler(presenter.NgayBatDauNChanged);
+            dtNgayKetThucN.DateTimeChanged += new EventHandler(presenter.NgayKetThucNChanged);
+            txtTrinhDoDay.TextChanged += new EventHandler(presenter.TrinhDoDayNChanged);
+            radPhanLoaiN.SelectedIndexChanged += new EventHandler(presenter.PhanLoaiNChanged);
+            txtLinkVanBanDinhKemN.TextChanged += new EventHandler(presenter.LinkVanBanDinhKemNChanged);
             //ChungChi
             gvChungChi.Click += (s, e) => presenter.ClickRowAndShowInfoCC();
             btnRefreshCC.Click += (s, e) => presenter.RefreshCC();

@@ -12,7 +12,7 @@ namespace Model.Repository
     {
         public QuaTrinhLuongRepository(QLNSSGU_1Entities db) : base(db)
         {
-        }       
+        }
 
         public List<QuaTrinhLuongForView> GetListQuaTrinhLuong(string mavienchuc)
         {
@@ -54,63 +54,115 @@ namespace Model.Repository
             return _db.QuaTrinhLuongs.Where(x => x.idQuaTrinhLuong == idquatrinhluong).FirstOrDefault();
         }
 
+        public List<string> GetListLinkVanBanDinhKem(string maVienChucForGetListLinkAnhQuyetDinh)
+        {
+            return _db.QuaTrinhLuongs.Where(x => x.VienChuc.maVienChuc == maVienChucForGetListLinkAnhQuyetDinh).Select(y => y.linkVanBanDinhKem).ToList();
+        }
+
         public void DeleteById(int id)
         {
             var a = _db.QuaTrinhLuongs.Where(x => x.idQuaTrinhLuong == id).FirstOrDefault();
             _db.QuaTrinhLuongs.Remove(a);
         }
 
-        public QuaTrinhLuong GetObjectByIdVienChucAndTimeline(int idVienChuc, DateTime dtTimeline)
+        public QuaTrinhLuong GetQuaTrinhLuongByIdVienChucAndTimelineForExportOne(int idVienChuc, DateTime dtTimeline)
         {
             var rows = _db.QuaTrinhLuongs.Where(x => x.idVienChuc == idVienChuc);
-            QuaTrinhLuong obj = null;
+            List<QuaTrinhLuong> listQuaTrinhLuong = new List<QuaTrinhLuong>();
             foreach (var row in rows)
             {
                 if (row.ngayLenLuong != null)
                 {
                     if (row.ngayBatDau <= dtTimeline && row.ngayLenLuong >= dtTimeline)
                     {
-                        obj = new QuaTrinhLuong(rows.Where(x => x.idQuaTrinhLuong == row.idQuaTrinhLuong).OrderByDescending(y => y.idQuaTrinhLuong).FirstOrDefault());
+                        listQuaTrinhLuong.Add(row);
                     }
                 }
                 else
                 {
                     if (row.ngayBatDau <= dtTimeline)
                     {
-                        obj = new QuaTrinhLuong(rows.Where(x => x.idQuaTrinhLuong == row.idQuaTrinhLuong).OrderByDescending(y => y.idQuaTrinhLuong).FirstOrDefault());
+                        listQuaTrinhLuong.Add(row);
                     }
                 }
             }
-            return obj;
+            if (listQuaTrinhLuong.Count > 0)
+                return listQuaTrinhLuong.OrderByDescending(x => x.ngayBatDau).FirstOrDefault();
+            return null;
         }
 
-        public QuaTrinhLuong GetObjectByIdVienChucAndPeriodOfTime(int idVienChuc, DateTime dtFromPeriodOfTime, DateTime dtToPeriodOfTime)
+        public QuaTrinhLuong GetQuaTrinhLuongByIdVienChucAndDurationForExportOne(int idVienChuc, DateTime dtFromDuration, DateTime dtToDuration)
         {
             var rows = _db.QuaTrinhLuongs.Where(x => x.idVienChuc == idVienChuc);
-            QuaTrinhLuong obj = null;
+            List<QuaTrinhLuong> listQuaTrinhLuong = new List<QuaTrinhLuong>();
             foreach (var row in rows)
             {
                 if (row.ngayLenLuong != null)
                 {
-                    if (row.ngayBatDau >= dtFromPeriodOfTime && row.ngayLenLuong <= dtToPeriodOfTime)
+                    if (row.ngayBatDau >= dtFromDuration && row.ngayLenLuong <= dtToDuration)
                     {
-                        obj = new QuaTrinhLuong(rows.Where(x => x.idQuaTrinhLuong == row.idQuaTrinhLuong).FirstOrDefault());
+                        listQuaTrinhLuong.Add(row);
                     }
                 }
                 else
                 {
-                    if (row.ngayBatDau >= dtFromPeriodOfTime)
+                    if (row.ngayBatDau >= dtFromDuration)
                     {
-                        obj = new QuaTrinhLuong(rows.Where(x => x.idQuaTrinhLuong == row.idQuaTrinhLuong).FirstOrDefault());
+                        listQuaTrinhLuong.Add(row);
                     }
                 }
             }
-            return obj;
+            if (listQuaTrinhLuong.Count > 0)
+                return listQuaTrinhLuong.OrderByDescending(x => x.ngayBatDau).FirstOrDefault();
+            return null;
         }
 
-        public List<string> GetListLinkVanBanDinhKem(string maVienChucForGetListLinkAnhQuyetDinh)
+        public List<QuaTrinhLuong> GetListQuaTrinhLuongByIdVienChucAndDurationForExportFull(int idVienChuc, DateTime dtFromDuration, DateTime dtToDuration)
         {
-            return _db.QuaTrinhLuongs.Where(x => x.VienChuc.maVienChuc == maVienChucForGetListLinkAnhQuyetDinh).Select(y => y.linkVanBanDinhKem).ToList();
+            var rows = _db.QuaTrinhLuongs.Where(x => x.idVienChuc == idVienChuc);
+            List<QuaTrinhLuong> listQuaTrinhLuong = new List<QuaTrinhLuong>();
+            foreach (var row in rows)
+            {
+                if (row.ngayLenLuong != null)
+                {
+                    if (row.ngayBatDau >= dtFromDuration && row.ngayLenLuong <= dtToDuration)
+                    {
+                        listQuaTrinhLuong.Add(row);
+                    }
+}
+                else
+                {
+                    if (row.ngayBatDau >= dtFromDuration)
+                    {
+                        listQuaTrinhLuong.Add(row);
+                    }
+                }
+            }
+            return listQuaTrinhLuong;
+        }
+
+        public List<QuaTrinhLuong> GetListQuaTrinhLuongByIdVienChucAndTimelineForExportFull(int idVienChuc, DateTime dtTimeline)
+        {
+            var rows = _db.QuaTrinhLuongs.Where(x => x.idVienChuc == idVienChuc);
+            List<QuaTrinhLuong> listQuaTrinhLuong = new List<QuaTrinhLuong>();
+            foreach (var row in rows)
+            {
+                if (row.ngayLenLuong != null)
+                {
+                    if (row.ngayBatDau <= dtTimeline && row.ngayLenLuong >= dtTimeline)
+                    {
+                        listQuaTrinhLuong.Add(row);
+                    }
+                }
+                else
+                {
+                    if (row.ngayBatDau <= dtTimeline)
+                    {
+                        listQuaTrinhLuong.Add(row);
+                    }
+                }
+            }
+            return listQuaTrinhLuong;
         }
     }
 }

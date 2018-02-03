@@ -14,6 +14,18 @@ namespace Model.Entities
     
     public partial class TrangThaiVienChuc
     {
+        public int idTrangThaiVienChuc { get; set; }
+        public int idVienChuc { get; set; }
+        public int idTrangThai { get; set; }
+        public Nullable<System.DateTime> ngayBatDau { get; set; }
+        public Nullable<System.DateTime> ngayKetThuc { get; set; }
+        public string moTa { get; set; }
+        public string diaDiem { get; set; }
+        public string linkVanBanDinhKem { get; set; }
+    
+        public virtual TrangThai TrangThai { get; set; }
+        public virtual VienChuc VienChuc { get; set; }
+
         public TrangThaiVienChuc() { }
         public TrangThaiVienChuc(TrangThaiVienChuc trangThaiVienChuc)
         {
@@ -28,17 +40,5 @@ namespace Model.Entities
             TrangThai = trangThaiVienChuc.TrangThai;
             VienChuc = trangThaiVienChuc.VienChuc;
         }
-
-        public int idTrangThaiVienChuc { get; set; }
-        public int idVienChuc { get; set; }
-        public int idTrangThai { get; set; }
-        public Nullable<System.DateTime> ngayBatDau { get; set; }
-        public Nullable<System.DateTime> ngayKetThuc { get; set; }
-        public string moTa { get; set; }
-        public string diaDiem { get; set; }
-        public string linkVanBanDinhKem { get; set; }
-    
-        public virtual TrangThai TrangThai { get; set; }
-        public virtual VienChuc VienChuc { get; set; }
     }
 }

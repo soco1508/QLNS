@@ -11,14 +11,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ChinhTris">
-      <EntityTypeMapping TypeName="QLNSSGU_1Model.ChinhTri">
-        <MappingFragment StoreEntitySet="ChinhTri">
-          <ScalarProperty Name="idChinhTri" ColumnName="idChinhTri" />
-          <ScalarProperty Name="tenChinhTri" ColumnName="tenChinhTri" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="ChucVus">
       <EntityTypeMapping TypeName="QLNSSGU_1Model.ChucVu">
         <MappingFragment StoreEntitySet="ChucVu">
@@ -56,6 +48,7 @@
           <ScalarProperty Name="ngayCapChungChi" ColumnName="ngayCapChungChi" />
           <ScalarProperty Name="ghiChu" ColumnName="ghiChu" />
           <ScalarProperty Name="linkVanBanDinhKem" ColumnName="linkVanBanDinhKem" />
+          <ScalarProperty Name="capDoChungChi" ColumnName="capDoChungChi" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -153,7 +146,6 @@
         <MappingFragment StoreEntitySet="LoaiChungChi">
           <ScalarProperty Name="idLoaiChungChi" ColumnName="idLoaiChungChi" />
           <ScalarProperty Name="tenLoaiChungChi" ColumnName="tenLoaiChungChi" />
-          <ScalarProperty Name="capDo" ColumnName="capDo" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -220,10 +212,11 @@
           <ScalarProperty Name="idNganhDaoTao" ColumnName="idNganhDaoTao" />
           <ScalarProperty Name="idChuyenNganh" ColumnName="idChuyenNganh" />
           <ScalarProperty Name="idHocHamHocViVienChuc" ColumnName="idHocHamHocViVienChuc" />
-          <ScalarProperty Name="phanLoai" ColumnName="phanLoai" />
           <ScalarProperty Name="ngayBatDau" ColumnName="ngayBatDau" />
           <ScalarProperty Name="ngayKetThuc" ColumnName="ngayKetThuc" />
           <ScalarProperty Name="linkVanBanDinhKem" ColumnName="linkVanBanDinhKem" />
+          <ScalarProperty Name="trinhDoDay" ColumnName="trinhDoDay" />
+          <ScalarProperty Name="phanLoai" ColumnName="phanLoai" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -330,7 +323,6 @@
           <ScalarProperty Name="ngayVeTruong" ColumnName="ngayVeTruong" />
           <ScalarProperty Name="vanHoa" ColumnName="vanHoa" />
           <ScalarProperty Name="idQuanLyNhaNuoc" ColumnName="idQuanLyNhaNuoc" />
-          <ScalarProperty Name="idChinhTri" ColumnName="idChinhTri" />
           <ScalarProperty Name="ghiChu" ColumnName="ghiChu" />
           <ScalarProperty Name="anh" ColumnName="anh" />
         </MappingFragment>

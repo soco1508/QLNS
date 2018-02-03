@@ -47,11 +47,9 @@ namespace Model.Entities
         public Nullable<System.DateTime> ngayVeTruong { get; set; }
         public string vanHoa { get; set; }
         public int idQuanLyNhaNuoc { get; set; }
-        public int idChinhTri { get; set; }
         public string ghiChu { get; set; }
         public byte[] anh { get; set; }
     
-        public virtual ChinhTri ChinhTri { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChucVuDonViVienChuc> ChucVuDonViVienChucs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

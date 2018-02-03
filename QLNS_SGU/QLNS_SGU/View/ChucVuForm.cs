@@ -19,8 +19,9 @@ namespace QLNS_SGU.View
         SaveFileDialog SaveFileDialog { get; set; }
         GridControl GCChucVu { get; set; }
         GridView GVChucVu { get; set; }
+        SimpleButton BTNExportExcel { get; set; }
     }
-    public partial class ChucVuForm : XtraForm
+    public partial class ChucVuForm : XtraForm, IChucVuForm
     {
         public ChucVuForm()
         {
@@ -31,6 +32,7 @@ namespace QLNS_SGU.View
         public SaveFileDialog SaveFileDialog { get => saveFileDialog1; set => saveFileDialog1 = value; }
         public GridControl GCChucVu { get => gcChucVu; set => gcChucVu = value; }
         public GridView GVChucVu { get => gvChucVu; set => gvChucVu = value; }
+        public SimpleButton BTNExportExcel { get => btnExportExcel; set => btnExportExcel = value; }
         #endregion
 
         public void Attach(IChucVuPresenter presenter)

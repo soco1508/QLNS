@@ -51,7 +51,6 @@
             this.cbxDanToc = new DevExpress.XtraEditors.LookUpEdit();
             this.cbxTonGiao = new DevExpress.XtraEditors.LookUpEdit();
             this.cbxQuanLyNhaNuoc = new DevExpress.XtraEditors.LookUpEdit();
-            this.cbxChinhTri = new DevExpress.XtraEditors.LookUpEdit();
             this.radGioiTinh = new DevExpress.XtraEditors.RadioGroup();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -84,7 +83,6 @@
             this.layoutControlItem15 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem18 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem19 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem20 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem12 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem13 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem14 = new DevExpress.XtraLayout.EmptySpaceItem();
@@ -126,7 +124,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.cbxDanToc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbxTonGiao.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbxQuanLyNhaNuoc.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbxChinhTri.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radGioiTinh.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
@@ -159,7 +156,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem14)).BeginInit();
@@ -191,7 +187,6 @@
             this.layoutControl1.Controls.Add(this.cbxDanToc);
             this.layoutControl1.Controls.Add(this.cbxTonGiao);
             this.layoutControl1.Controls.Add(this.cbxQuanLyNhaNuoc);
-            this.layoutControl1.Controls.Add(this.cbxChinhTri);
             this.layoutControl1.Controls.Add(this.radGioiTinh);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 24);
@@ -251,7 +246,9 @@
             this.dtNgayVaoDang.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtNgayVaoDang.Properties.DisplayFormat.FormatString = "";
+            this.dtNgayVaoDang.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dtNgayVaoDang.Properties.EditFormat.FormatString = "";
+            this.dtNgayVaoDang.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dtNgayVaoDang.Properties.Mask.EditMask = "dd/MM/yyyy";
             this.dtNgayVaoDang.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.dtNgayVaoDang.Size = new System.Drawing.Size(183, 20);
@@ -332,7 +329,9 @@
             this.dtNgaySinh.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtNgaySinh.Properties.DisplayFormat.FormatString = "";
+            this.dtNgaySinh.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dtNgaySinh.Properties.EditFormat.FormatString = "";
+            this.dtNgaySinh.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dtNgaySinh.Properties.Mask.EditMask = "dd/MM/yyyy";
             this.dtNgaySinh.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.dtNgaySinh.Size = new System.Drawing.Size(459, 20);
@@ -349,7 +348,9 @@
             this.dtNgayThamGiaCongTac.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtNgayThamGiaCongTac.Properties.DisplayFormat.FormatString = "";
+            this.dtNgayThamGiaCongTac.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dtNgayThamGiaCongTac.Properties.EditFormat.FormatString = "";
+            this.dtNgayThamGiaCongTac.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dtNgayThamGiaCongTac.Properties.Mask.EditMask = "dd/MM/yyyy";
             this.dtNgayThamGiaCongTac.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.dtNgayThamGiaCongTac.Size = new System.Drawing.Size(459, 20);
@@ -366,7 +367,9 @@
             this.dtNgayVeTruong.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtNgayVeTruong.Properties.DisplayFormat.FormatString = "";
+            this.dtNgayVeTruong.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dtNgayVeTruong.Properties.EditFormat.FormatString = "";
+            this.dtNgayVeTruong.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dtNgayVeTruong.Properties.Mask.EditMask = "dd/MM/yyyy";
             this.dtNgayVeTruong.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.dtNgayVeTruong.Size = new System.Drawing.Size(459, 20);
@@ -383,7 +386,9 @@
             this.dtNgayVaoNganh.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtNgayVaoNganh.Properties.DisplayFormat.FormatString = "";
+            this.dtNgayVaoNganh.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dtNgayVaoNganh.Properties.EditFormat.FormatString = "";
+            this.dtNgayVaoNganh.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dtNgayVaoNganh.Properties.Mask.EditMask = "dd/MM/yyyy";
             this.dtNgayVaoNganh.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.dtNgayVaoNganh.Size = new System.Drawing.Size(459, 20);
@@ -441,23 +446,6 @@
             this.cbxQuanLyNhaNuoc.StyleController = this.layoutControl1;
             this.cbxQuanLyNhaNuoc.TabIndex = 22;
             // 
-            // cbxChinhTri
-            // 
-            this.cbxChinhTri.Location = new System.Drawing.Point(746, 311);
-            this.cbxChinhTri.Name = "cbxChinhTri";
-            this.cbxChinhTri.Properties.AutoSearchColumnIndex = 1;
-            this.cbxChinhTri.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbxChinhTri.Properties.NullText = "";
-            this.cbxChinhTri.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
-            this.cbxChinhTri.Properties.PopupSizeable = false;
-            this.cbxChinhTri.Properties.ShowFooter = false;
-            this.cbxChinhTri.Properties.ShowHeader = false;
-            this.cbxChinhTri.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.cbxChinhTri.Size = new System.Drawing.Size(342, 20);
-            this.cbxChinhTri.StyleController = this.layoutControl1;
-            this.cbxChinhTri.TabIndex = 23;
-            // 
             // radGioiTinh
             // 
             this.radGioiTinh.Location = new System.Drawing.Point(477, 46);
@@ -508,7 +496,6 @@
             this.layoutControlItem15,
             this.layoutControlItem18,
             this.layoutControlItem19,
-            this.layoutControlItem20,
             this.emptySpaceItem12,
             this.emptySpaceItem13,
             this.emptySpaceItem14,
@@ -788,21 +775,12 @@
             this.layoutControlItem19.Text = "Quản lý nhà nước:";
             this.layoutControlItem19.TextSize = new System.Drawing.Size(117, 13);
             // 
-            // layoutControlItem20
-            // 
-            this.layoutControlItem20.Control = this.cbxChinhTri;
-            this.layoutControlItem20.Location = new System.Drawing.Point(614, 299);
-            this.layoutControlItem20.Name = "layoutControlItem20";
-            this.layoutControlItem20.Size = new System.Drawing.Size(466, 24);
-            this.layoutControlItem20.Text = "Chính trị:";
-            this.layoutControlItem20.TextSize = new System.Drawing.Size(117, 13);
-            // 
             // emptySpaceItem12
             // 
             this.emptySpaceItem12.AllowHotTrack = false;
-            this.emptySpaceItem12.Location = new System.Drawing.Point(614, 323);
+            this.emptySpaceItem12.Location = new System.Drawing.Point(614, 299);
             this.emptySpaceItem12.Name = "emptySpaceItem12";
-            this.emptySpaceItem12.Size = new System.Drawing.Size(466, 72);
+            this.emptySpaceItem12.Size = new System.Drawing.Size(466, 96);
             this.emptySpaceItem12.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem13
@@ -973,7 +951,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.cbxDanToc.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbxTonGiao.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbxQuanLyNhaNuoc.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbxChinhTri.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radGioiTinh.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
@@ -1006,7 +983,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem14)).EndInit();
@@ -1045,7 +1021,6 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem10;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem14;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem20;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem5;
@@ -1087,7 +1062,6 @@
         private DevExpress.XtraEditors.LookUpEdit cbxDanToc;
         private DevExpress.XtraEditors.LookUpEdit cbxTonGiao;
         private DevExpress.XtraEditors.LookUpEdit cbxQuanLyNhaNuoc;
-        private DevExpress.XtraEditors.LookUpEdit cbxChinhTri;
         private DevExpress.XtraEditors.RadioGroup radGioiTinh;
         private DevExpress.XtraBars.BarButtonItem btnSaveAndClose;
     }

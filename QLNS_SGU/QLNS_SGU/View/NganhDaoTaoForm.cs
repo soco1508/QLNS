@@ -19,6 +19,7 @@ namespace QLNS_SGU.View
         GridControl GCNganhDaoTao { get; set; }
         GridView GVNganhDaoTao { get; set; }
         SaveFileDialog SaveFileDialog { get; set; }
+        SimpleButton BTNExportExcel { get; set; }
     }
     public partial class NganhDaoTaoForm : XtraForm, INganhDaoTaoForm
     {
@@ -30,6 +31,7 @@ namespace QLNS_SGU.View
         public GridControl GCNganhDaoTao { get => gcNganhDaoTao; set => gcNganhDaoTao = value; }
         public GridView GVNganhDaoTao { get => gvNganhDaoTao; set => gvNganhDaoTao = value; }
         public SaveFileDialog SaveFileDialog { get => saveFileDialog1; set => saveFileDialog1 = value; }
+        public SimpleButton BTNExportExcel { get => btnExportExcel; set => btnExportExcel = value; }
 
         public void Attach(INganhDaoTaoPresenter presenter)
         {

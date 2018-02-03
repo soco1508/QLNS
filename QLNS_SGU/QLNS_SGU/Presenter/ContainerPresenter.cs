@@ -31,7 +31,8 @@ namespace QLNS_SGU.Presenter
         void NaviLoaiHocHamHocVi();
         void NaviLoaiChungChi();
         void NaviTrangThai();
-        void NaviExportData();
+        void NaviExportDataMultiDomain();
+        void NaviExportDataOneDomain();
     }
     public class ContainerPresenter : IContainerPresenter
     {
@@ -391,12 +392,31 @@ namespace QLNS_SGU.Presenter
             }
         }
 
-        public void NaviExportData()
+        public void NaviExportDataMultiDomain()
         {
-            Form frm = CheckExistChildForm(typeof(ExportDataForm));
+            Form frm = CheckExistChildForm(typeof(ExportDataMultiDomainForm));
             if (frm == null)
             {
-                var presenter = new ExportDataPresenter(new ExportDataForm());
+                var presenter = new ExportDataMultiDomainPresenter(new ExportDataMultiDomainForm());
+                presenter.Initialize();
+                Form f = (Form)presenter.UI;
+                f.MdiParent = _view;
+                f.WindowState = FormWindowState.Maximized;
+                f.Show();
+            }
+            else
+            {
+                frm.WindowState = FormWindowState.Maximized;
+                frm.Activate();
+            }
+        }
+
+        public void NaviExportDataOneDomain()
+        {
+            Form frm = CheckExistChildForm(typeof(ExportDataOneDomainForm));
+            if (frm == null)
+            {
+                var presenter = new ExportDataOneDomainPresenter(new ExportDataOneDomainForm());
                 presenter.Initialize();
                 Form f = (Form)presenter.UI;
                 f.MdiParent = _view;

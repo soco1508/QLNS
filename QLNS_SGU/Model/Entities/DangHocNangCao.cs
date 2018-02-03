@@ -14,6 +14,23 @@ namespace Model.Entities
     
     public partial class DangHocNangCao
     {
+        public int idDangHocNangCao { get; set; }
+        public int idVienChuc { get; set; }
+        public string soQuyetDinh { get; set; }
+        public string linkAnhQuyetDinh { get; set; }
+        public Nullable<System.DateTime> ngayBatDau { get; set; }
+        public Nullable<System.DateTime> ngayKetThuc { get; set; }
+        public Nullable<int> loai { get; set; }
+        public int idLoaiHocHamHocVi { get; set; }
+        public string tenHocHamHocVi { get; set; }
+        public string coSoDaoTao { get; set; }
+        public string nuocCapBang { get; set; }
+        public string ngonNguDaoTao { get; set; }
+        public string hinhThucDaoTao { get; set; }
+    
+        public virtual LoaiHocHamHocVi LoaiHocHamHocVi { get; set; }
+        public virtual VienChuc VienChuc { get; set; }
+
         public DangHocNangCao() { }
 
         public DangHocNangCao(DangHocNangCao dangHocNangCao)
@@ -34,22 +51,5 @@ namespace Model.Entities
             LoaiHocHamHocVi = dangHocNangCao.LoaiHocHamHocVi;
             VienChuc = dangHocNangCao.VienChuc;
         }
-
-        public int idDangHocNangCao { get; set; }
-        public int idVienChuc { get; set; }
-        public string soQuyetDinh { get; set; }
-        public string linkAnhQuyetDinh { get; set; }
-        public Nullable<System.DateTime> ngayBatDau { get; set; }
-        public Nullable<System.DateTime> ngayKetThuc { get; set; }
-        public Nullable<int> loai { get; set; }
-        public int idLoaiHocHamHocVi { get; set; }
-        public string tenHocHamHocVi { get; set; }
-        public string coSoDaoTao { get; set; }
-        public string nuocCapBang { get; set; }
-        public string ngonNguDaoTao { get; set; }
-        public string hinhThucDaoTao { get; set; }
-    
-        public virtual LoaiHocHamHocVi LoaiHocHamHocVi { get; set; }
-        public virtual VienChuc VienChuc { get; set; }
     }
 }

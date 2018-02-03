@@ -30,6 +30,7 @@ namespace Model.Repository
                 {
                     Id = listHocHamHocViVienChuc[i].idHocHamHocViVienChuc,
                     LoaiHocHamHocVi = listHocHamHocViVienChuc[i].LoaiHocHamHocVi.tenLoaiHocHamHocVi,
+                    LoaiNganh = listHocHamHocViVienChuc[i].LoaiNganh.tenLoaiNganh,
                     NganhDaoTao = listHocHamHocViVienChuc[i].NganhDaoTao.tenNganhDaoTao,
                     ChuyenNganh = listHocHamHocViVienChuc[i].ChuyenNganh.tenChuyenNganh,
                     TenHocHamHocVi = listHocHamHocViVienChuc[i].tenHocHamHocVi,
@@ -55,22 +56,24 @@ namespace Model.Repository
         {
             switch (trinhdo)
             {
-                case "PT":
+                case "Phổ thông":
                     return 1;
-                case "TC":
+                case "Trung cấp":
                     return 2;
-                case "CĐ":
+                case "Cao đẳng":
                     return 3;
-                case "ĐH":
+                case "Đại học":
                     return 4;
-                case "ThS":
+                case "Thạc sĩ":
                     return 5;
-                case "TS":
+                case "Tiến sĩ":
                     return 6;
-                case "PGS":
+                case "Phó giáo sư":
                     return 7;
-                case "GS":
+                case "Giáo sư":
                     return 8;
+                case "Khác":
+                    return 0;
                 default:
                     return 0;
             }
@@ -102,9 +105,9 @@ namespace Model.Repository
                 case "Giáo sư":
                     return 8;
                 case "Khác":
-                    return 9;
+                    return 0;
                 default:
-                    return 9;
+                    return 0;
             }
         }
 
@@ -121,8 +124,7 @@ namespace Model.Repository
 
         public List<HocHamHocViVienChuc> GetListTenHocHamHocViVienChuc(string mavienchuc)
         {
-            int idvienchuc = GetIdVienChuc(mavienchuc);
-            return _db.HocHamHocViVienChucs.Where(x => x.idVienChuc == idvienchuc).ToList();
+            return _db.HocHamHocViVienChucs.Where(x => x.VienChuc.maVienChuc == mavienchuc).ToList();
         }
 
         public List<HocHamHocViGridAtRightViewInMainForm> GetListHocHamHocViGridAtRightViewInMainForm(string mavienchuc)
@@ -171,6 +173,11 @@ namespace Model.Repository
         public int GetNewestIdHocHamHocViVienChuc()
         {
             return _db.HocHamHocViVienChucs.Max(m => m.idHocHamHocViVienChuc);
+        }
+
+        public int GetIdHocHamHocViVienChucEmpty()
+        {
+            return _db.HocHamHocViVienChucs.Where(x => x.tenHocHamHocVi == string.Empty).Select(y => y.idHocHamHocViVienChuc).FirstOrDefault();
         }
     }
 }

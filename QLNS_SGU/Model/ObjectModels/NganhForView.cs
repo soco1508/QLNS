@@ -10,9 +10,11 @@ namespace Model.ObjectModels
     {
         public int Id { get; set; }
         public int IdHocHamHocViVienChuc { get; set; }
+        public string LoaiNganh { get; set; }
         public string NganhDaoTao { get; set; }
         public string ChuyenNganh { get; set; }
         public string TenHocHamHocVi { get; set; }
+        public string TrinhDoDay { get; set; }
         public string PhanLoai { get; set; }
         public DateTime? NgayBatDau { get; set; }
         public DateTime? NgayKetThuc { get; set; }
@@ -21,13 +23,15 @@ namespace Model.ObjectModels
         {
             Id = -1;
             IdHocHamHocViVienChuc = -1;
-            NganhDaoTao = "";
-            ChuyenNganh = "";
-            TenHocHamHocVi = "";
-            PhanLoai = "";
+            LoaiNganh = string.Empty;
+            NganhDaoTao = string.Empty;
+            ChuyenNganh = string.Empty;
+            TenHocHamHocVi = string.Empty;
+            TrinhDoDay = string.Empty;
+            PhanLoai = string.Empty;
             NgayBatDau = null;
             NgayKetThuc = null;
-            LinkVanBanDinhKem = "";
+            LinkVanBanDinhKem = string.Empty;
         }
     }
 }

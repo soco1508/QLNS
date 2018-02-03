@@ -26,7 +26,6 @@ namespace Model.Entities
         }
     
         public virtual DbSet<Bac> Bacs { get; set; }
-        public virtual DbSet<ChinhTri> ChinhTris { get; set; }
         public virtual DbSet<ChucVu> ChucVus { get; set; }
         public virtual DbSet<ChucVuDonViVienChuc> ChucVuDonViVienChucs { get; set; }
         public virtual DbSet<ChungChiVienChuc> ChungChiVienChucs { get; set; }

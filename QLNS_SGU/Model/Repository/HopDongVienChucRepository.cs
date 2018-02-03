@@ -52,7 +52,7 @@ namespace Model.Repository
         public object ReturnNullIfDateTimeNull(string datetime)
         {
             if (datetime != string.Empty)
-                return DateTime.ParseExact(datetime, "dd'/'MM'/'yyyy", CultureInfo.InvariantCulture); ;
+                return DateTime.ParseExact(datetime, "dd'/'MM'/'yyyy", CultureInfo.InvariantCulture);
             return null;
         }
 
@@ -79,57 +79,109 @@ namespace Model.Repository
             _db.HopDongVienChucs.Remove(a);
         }
 
-        public HopDongVienChuc GetObjectByIdVienChucAndTimeline(int idVienChuc, DateTime dtTimeline)
+        public HopDongVienChuc GetListHopDongByIdVienChucAndTimelineForExportOne(int idVienChuc, DateTime dtTimeline)
         {
             var rows = _db.HopDongVienChucs.Where(x => x.idVienChuc == idVienChuc);
-            HopDongVienChuc obj = null;
+            List<HopDongVienChuc> listHopDongVienChuc = new List<HopDongVienChuc>();
             foreach (var row in rows)
             {
                 if (row.ngayKetThuc != null)
                 {
                     if (row.ngayBatDau <= dtTimeline && row.ngayKetThuc >= dtTimeline)
                     {
-                        obj = new HopDongVienChuc(rows.Where(x => x.idHopDongVienChuc == row.idHopDongVienChuc).FirstOrDefault());
+                        listHopDongVienChuc.Add(row);
                     }
                 }
                 else
                 {
                     if (row.ngayBatDau <= dtTimeline)
                     {
-                        obj = new HopDongVienChuc(rows.Where(x => x.idHopDongVienChuc == row.idHopDongVienChuc).FirstOrDefault());
+                        listHopDongVienChuc.Add(row);
                     }
                 }
             }
-            return obj;
+            if (listHopDongVienChuc.Count > 0)
+                return listHopDongVienChuc.OrderByDescending(x => x.ngayBatDau).FirstOrDefault();
+            return null;
         }
 
-        public HopDongVienChuc GetObjectByIdVienChucAndPeriodOfTime(int idVienChuc, DateTime dtFromPeriodOfTime, DateTime dtToPeriodOfTime)
+        public HopDongVienChuc GetListHopDongByIdVienChucAndDurationForExportOne(int idVienChuc, DateTime dtFromDuration, DateTime dtToDuration)
         {
             var rows = _db.HopDongVienChucs.Where(x => x.idVienChuc == idVienChuc);
-            HopDongVienChuc obj = null;
+            List<HopDongVienChuc> listHopDongVienChuc = new List<HopDongVienChuc>();
             foreach (var row in rows)
             {
                 if (row.ngayKetThuc != null)
                 {
-                    if (row.ngayBatDau >= dtFromPeriodOfTime && row.ngayKetThuc <= dtToPeriodOfTime)
+                    if (row.ngayBatDau >= dtFromDuration && row.ngayKetThuc <= dtToDuration)
                     {
-                        obj = new HopDongVienChuc(rows.Where(x => x.idHopDongVienChuc == row.idHopDongVienChuc).OrderByDescending(y => y.idHopDongVienChuc).FirstOrDefault());
+                        listHopDongVienChuc.Add(row);
                     }
                 }
                 else
                 {
-                    if (row.ngayBatDau >= dtFromPeriodOfTime)
+                    if (row.ngayBatDau >= dtFromDuration)
                     {
-                        obj = new HopDongVienChuc(rows.Where(x => x.idHopDongVienChuc == row.idHopDongVienChuc).OrderByDescending(y => y.idHopDongVienChuc).FirstOrDefault());
+                        listHopDongVienChuc.Add(row);
                     }
                 }
             }
-            return obj;
+            if (listHopDongVienChuc.Count > 0)
+                return listHopDongVienChuc.OrderByDescending(x => x.ngayBatDau).FirstOrDefault();
+            return null;
         }
 
         public List<string> GetListLinkVanBanDinhKem(string maVienChucForGetListLinkVanBanDinhKemHD)
         {
             return _db.HopDongVienChucs.Where(x => x.VienChuc.maVienChuc == maVienChucForGetListLinkVanBanDinhKemHD).Select(y => y.linkVanBanDinhKem).ToList();
+        }
+
+        public List<HopDongVienChuc> GetListHopDongByIdVienChucAndDurationForExportFull(int idVienChuc, DateTime dtFromDuration, DateTime dtToDuration)
+        {
+            var rows = _db.HopDongVienChucs.Where(x => x.idVienChuc == idVienChuc);
+            List<HopDongVienChuc> listHopDongVienChuc = new List<HopDongVienChuc>();
+            foreach (var row in rows)
+            {
+                if (row.ngayKetThuc != null)
+                {
+                    if (row.ngayBatDau >= dtFromDuration && row.ngayKetThuc <= dtToDuration)
+                    {
+                        listHopDongVienChuc.Add(row);
+                    }
+                }
+                else
+                {
+                    if (row.ngayBatDau >= dtFromDuration)
+                    {
+                        listHopDongVienChuc.Add(row);
+                    }
+                }
+            }
+            return listHopDongVienChuc;
+        }
+
+        public List<HopDongVienChuc> GetListHopDongByIdVienChucAndTimelineForExportFull(int idVienChuc, DateTime dtTimeline)
+        {
+            var rows = _db.HopDongVienChucs.Where(x => x.idVienChuc == idVienChuc);
+            List<HopDongVienChuc> listHopDongVienChuc = new List<HopDongVienChuc>();
+            foreach (var row in rows)
+            {
+                if (row.ngayKetThuc != null)
+                {
+                    if (row.ngayBatDau <= dtTimeline && row.ngayKetThuc >= dtTimeline)
+                    {
+                        listHopDongVienChuc.Add(row);
+                    }
+                }
+                else
+                {
+                    if (row.ngayBatDau <= dtTimeline)
+                    {
+                        listHopDongVienChuc.Add(row);
+                    }
+                }
+            }
+            return listHopDongVienChuc;
         }
     }
 }

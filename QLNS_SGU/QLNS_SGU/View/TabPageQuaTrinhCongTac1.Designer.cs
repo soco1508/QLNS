@@ -34,14 +34,14 @@
             this.tabChucVuDonVi = new DevExpress.XtraTab.XtraTabPage();
             this.txtRowIndex = new DevExpress.XtraEditors.TextEdit();
             this.txtMaVienChuc = new DevExpress.XtraEditors.TextEdit();
-            this.btnExportExcelCV = new DevExpress.XtraEditors.SimpleButton();
-            this.btnDeleteCV = new DevExpress.XtraEditors.SimpleButton();
-            this.btnEditCV = new DevExpress.XtraEditors.SimpleButton();
-            this.btnAddCV = new DevExpress.XtraEditors.SimpleButton();
-            this.btnRefreshCV = new DevExpress.XtraEditors.SimpleButton();
+            this.btnExportExcelQTCT = new DevExpress.XtraEditors.SimpleButton();
+            this.btnDeleteQTCT = new DevExpress.XtraEditors.SimpleButton();
+            this.btnEditQTCT = new DevExpress.XtraEditors.SimpleButton();
+            this.btnAddQTCT = new DevExpress.XtraEditors.SimpleButton();
+            this.btnRefreshQTCT = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.btnUploadCV = new DevExpress.XtraEditors.SimpleButton();
-            this.btnDownloadCV = new DevExpress.XtraEditors.SimpleButton();
+            this.btnUploadQTCT = new DevExpress.XtraEditors.SimpleButton();
+            this.btnDownloadQTCT = new DevExpress.XtraEditors.SimpleButton();
             this.gcTabPageQuaTrinhCongTac = new DevExpress.XtraGrid.GridControl();
             this.gvTabPageQuaTrinhCongTac = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -243,11 +243,11 @@
             // 
             this.tabChucVuDonVi.Controls.Add(this.txtRowIndex);
             this.tabChucVuDonVi.Controls.Add(this.txtMaVienChuc);
-            this.tabChucVuDonVi.Controls.Add(this.btnExportExcelCV);
-            this.tabChucVuDonVi.Controls.Add(this.btnDeleteCV);
-            this.tabChucVuDonVi.Controls.Add(this.btnEditCV);
-            this.tabChucVuDonVi.Controls.Add(this.btnAddCV);
-            this.tabChucVuDonVi.Controls.Add(this.btnRefreshCV);
+            this.tabChucVuDonVi.Controls.Add(this.btnExportExcelQTCT);
+            this.tabChucVuDonVi.Controls.Add(this.btnDeleteQTCT);
+            this.tabChucVuDonVi.Controls.Add(this.btnEditQTCT);
+            this.tabChucVuDonVi.Controls.Add(this.btnAddQTCT);
+            this.tabChucVuDonVi.Controls.Add(this.btnRefreshQTCT);
             this.tabChucVuDonVi.Controls.Add(this.layoutControl1);
             this.tabChucVuDonVi.Controls.Add(this.standaloneBarDockControl2);
             this.tabChucVuDonVi.Name = "tabChucVuDonVi";
@@ -272,120 +272,121 @@
             this.txtMaVienChuc.TabIndex = 15;
             this.txtMaVienChuc.Visible = false;
             // 
-            // btnExportExcelCV
+            // btnExportExcelQTCT
             // 
-            this.btnExportExcelCV.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
-            this.btnExportExcelCV.Appearance.Font = new System.Drawing.Font("Tahoma", 8.75F);
-            this.btnExportExcelCV.Appearance.Options.UseBackColor = true;
-            this.btnExportExcelCV.Appearance.Options.UseFont = true;
-            this.btnExportExcelCV.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(223)))), ((int)(((byte)(134)))));
-            this.btnExportExcelCV.AppearanceHovered.Font = new System.Drawing.Font("Tahoma", 8.75F);
-            this.btnExportExcelCV.AppearanceHovered.ForeColor = System.Drawing.Color.Black;
-            this.btnExportExcelCV.AppearanceHovered.Options.UseBackColor = true;
-            this.btnExportExcelCV.AppearanceHovered.Options.UseFont = true;
-            this.btnExportExcelCV.AppearanceHovered.Options.UseForeColor = true;
-            this.btnExportExcelCV.AppearancePressed.ForeColor = System.Drawing.Color.Black;
-            this.btnExportExcelCV.AppearancePressed.Options.UseForeColor = true;
-            this.btnExportExcelCV.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.btnExportExcelCV.ImageOptions.Image = global::QLNS_SGU.Properties.Resources.excel;
-            this.btnExportExcelCV.Location = new System.Drawing.Point(997, 0);
-            this.btnExportExcelCV.Name = "btnExportExcelCV";
-            this.btnExportExcelCV.Size = new System.Drawing.Size(85, 22);
-            this.btnExportExcelCV.TabIndex = 11;
-            this.btnExportExcelCV.Text = "Xuất Excel";
+            this.btnExportExcelQTCT.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExportExcelQTCT.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
+            this.btnExportExcelQTCT.Appearance.Font = new System.Drawing.Font("Tahoma", 8.75F);
+            this.btnExportExcelQTCT.Appearance.Options.UseBackColor = true;
+            this.btnExportExcelQTCT.Appearance.Options.UseFont = true;
+            this.btnExportExcelQTCT.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(223)))), ((int)(((byte)(134)))));
+            this.btnExportExcelQTCT.AppearanceHovered.Font = new System.Drawing.Font("Tahoma", 8.75F);
+            this.btnExportExcelQTCT.AppearanceHovered.ForeColor = System.Drawing.Color.Black;
+            this.btnExportExcelQTCT.AppearanceHovered.Options.UseBackColor = true;
+            this.btnExportExcelQTCT.AppearanceHovered.Options.UseFont = true;
+            this.btnExportExcelQTCT.AppearanceHovered.Options.UseForeColor = true;
+            this.btnExportExcelQTCT.AppearancePressed.ForeColor = System.Drawing.Color.Black;
+            this.btnExportExcelQTCT.AppearancePressed.Options.UseForeColor = true;
+            this.btnExportExcelQTCT.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.btnExportExcelQTCT.ImageOptions.Image = global::QLNS_SGU.Properties.Resources.excel;
+            this.btnExportExcelQTCT.Location = new System.Drawing.Point(997, 0);
+            this.btnExportExcelQTCT.Name = "btnExportExcelQTCT";
+            this.btnExportExcelQTCT.Size = new System.Drawing.Size(85, 22);
+            this.btnExportExcelQTCT.TabIndex = 11;
+            this.btnExportExcelQTCT.Text = "Xuất Excel";
             // 
-            // btnDeleteCV
+            // btnDeleteQTCT
             // 
-            this.btnDeleteCV.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
-            this.btnDeleteCV.Appearance.Font = new System.Drawing.Font("Tahoma", 8.75F);
-            this.btnDeleteCV.Appearance.Options.UseBackColor = true;
-            this.btnDeleteCV.Appearance.Options.UseFont = true;
-            this.btnDeleteCV.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(223)))), ((int)(((byte)(134)))));
-            this.btnDeleteCV.AppearanceHovered.Font = new System.Drawing.Font("Tahoma", 8.75F);
-            this.btnDeleteCV.AppearanceHovered.ForeColor = System.Drawing.Color.Black;
-            this.btnDeleteCV.AppearanceHovered.Options.UseBackColor = true;
-            this.btnDeleteCV.AppearanceHovered.Options.UseFont = true;
-            this.btnDeleteCV.AppearanceHovered.Options.UseForeColor = true;
-            this.btnDeleteCV.AppearancePressed.ForeColor = System.Drawing.Color.Black;
-            this.btnDeleteCV.AppearancePressed.Options.UseForeColor = true;
-            this.btnDeleteCV.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.btnDeleteCV.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteCV.ImageOptions.Image")));
-            this.btnDeleteCV.Location = new System.Drawing.Point(213, 0);
-            this.btnDeleteCV.Name = "btnDeleteCV";
-            this.btnDeleteCV.Size = new System.Drawing.Size(48, 22);
-            this.btnDeleteCV.TabIndex = 10;
-            this.btnDeleteCV.Text = "Xóa";
+            this.btnDeleteQTCT.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
+            this.btnDeleteQTCT.Appearance.Font = new System.Drawing.Font("Tahoma", 8.75F);
+            this.btnDeleteQTCT.Appearance.Options.UseBackColor = true;
+            this.btnDeleteQTCT.Appearance.Options.UseFont = true;
+            this.btnDeleteQTCT.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(223)))), ((int)(((byte)(134)))));
+            this.btnDeleteQTCT.AppearanceHovered.Font = new System.Drawing.Font("Tahoma", 8.75F);
+            this.btnDeleteQTCT.AppearanceHovered.ForeColor = System.Drawing.Color.Black;
+            this.btnDeleteQTCT.AppearanceHovered.Options.UseBackColor = true;
+            this.btnDeleteQTCT.AppearanceHovered.Options.UseFont = true;
+            this.btnDeleteQTCT.AppearanceHovered.Options.UseForeColor = true;
+            this.btnDeleteQTCT.AppearancePressed.ForeColor = System.Drawing.Color.Black;
+            this.btnDeleteQTCT.AppearancePressed.Options.UseForeColor = true;
+            this.btnDeleteQTCT.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.btnDeleteQTCT.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteQTCT.ImageOptions.Image")));
+            this.btnDeleteQTCT.Location = new System.Drawing.Point(213, 0);
+            this.btnDeleteQTCT.Name = "btnDeleteQTCT";
+            this.btnDeleteQTCT.Size = new System.Drawing.Size(48, 22);
+            this.btnDeleteQTCT.TabIndex = 10;
+            this.btnDeleteQTCT.Text = "Xóa";
             // 
-            // btnEditCV
+            // btnEditQTCT
             // 
-            this.btnEditCV.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
-            this.btnEditCV.Appearance.Font = new System.Drawing.Font("Tahoma", 8.75F);
-            this.btnEditCV.Appearance.Options.UseBackColor = true;
-            this.btnEditCV.Appearance.Options.UseFont = true;
-            this.btnEditCV.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(223)))), ((int)(((byte)(134)))));
-            this.btnEditCV.AppearanceHovered.Font = new System.Drawing.Font("Tahoma", 8.75F);
-            this.btnEditCV.AppearanceHovered.ForeColor = System.Drawing.Color.Black;
-            this.btnEditCV.AppearanceHovered.Options.UseBackColor = true;
-            this.btnEditCV.AppearanceHovered.Options.UseFont = true;
-            this.btnEditCV.AppearanceHovered.Options.UseForeColor = true;
-            this.btnEditCV.AppearancePressed.ForeColor = System.Drawing.Color.Black;
-            this.btnEditCV.AppearancePressed.Options.UseForeColor = true;
-            this.btnEditCV.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.btnEditCV.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEditCV.ImageOptions.Image")));
-            this.btnEditCV.Location = new System.Drawing.Point(158, 0);
-            this.btnEditCV.Name = "btnEditCV";
-            this.btnEditCV.Size = new System.Drawing.Size(49, 22);
-            this.btnEditCV.TabIndex = 5;
-            this.btnEditCV.Text = "Lưu";
+            this.btnEditQTCT.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
+            this.btnEditQTCT.Appearance.Font = new System.Drawing.Font("Tahoma", 8.75F);
+            this.btnEditQTCT.Appearance.Options.UseBackColor = true;
+            this.btnEditQTCT.Appearance.Options.UseFont = true;
+            this.btnEditQTCT.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(223)))), ((int)(((byte)(134)))));
+            this.btnEditQTCT.AppearanceHovered.Font = new System.Drawing.Font("Tahoma", 8.75F);
+            this.btnEditQTCT.AppearanceHovered.ForeColor = System.Drawing.Color.Black;
+            this.btnEditQTCT.AppearanceHovered.Options.UseBackColor = true;
+            this.btnEditQTCT.AppearanceHovered.Options.UseFont = true;
+            this.btnEditQTCT.AppearanceHovered.Options.UseForeColor = true;
+            this.btnEditQTCT.AppearancePressed.ForeColor = System.Drawing.Color.Black;
+            this.btnEditQTCT.AppearancePressed.Options.UseForeColor = true;
+            this.btnEditQTCT.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.btnEditQTCT.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEditQTCT.ImageOptions.Image")));
+            this.btnEditQTCT.Location = new System.Drawing.Point(158, 0);
+            this.btnEditQTCT.Name = "btnEditQTCT";
+            this.btnEditQTCT.Size = new System.Drawing.Size(49, 22);
+            this.btnEditQTCT.TabIndex = 5;
+            this.btnEditQTCT.Text = "Lưu";
             // 
-            // btnAddCV
+            // btnAddQTCT
             // 
-            this.btnAddCV.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
-            this.btnAddCV.Appearance.Font = new System.Drawing.Font("Tahoma", 8.75F);
-            this.btnAddCV.Appearance.Options.UseBackColor = true;
-            this.btnAddCV.Appearance.Options.UseFont = true;
-            this.btnAddCV.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(223)))), ((int)(((byte)(134)))));
-            this.btnAddCV.AppearanceHovered.Font = new System.Drawing.Font("Tahoma", 8.75F);
-            this.btnAddCV.AppearanceHovered.ForeColor = System.Drawing.Color.Black;
-            this.btnAddCV.AppearanceHovered.Options.UseBackColor = true;
-            this.btnAddCV.AppearanceHovered.Options.UseFont = true;
-            this.btnAddCV.AppearanceHovered.Options.UseForeColor = true;
-            this.btnAddCV.AppearancePressed.ForeColor = System.Drawing.Color.Black;
-            this.btnAddCV.AppearancePressed.Options.UseForeColor = true;
-            this.btnAddCV.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.btnAddCV.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAddCV.ImageOptions.Image")));
-            this.btnAddCV.Location = new System.Drawing.Point(91, 0);
-            this.btnAddCV.Name = "btnAddCV";
-            this.btnAddCV.Size = new System.Drawing.Size(61, 22);
-            this.btnAddCV.TabIndex = 4;
-            this.btnAddCV.Text = "Thêm";
+            this.btnAddQTCT.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
+            this.btnAddQTCT.Appearance.Font = new System.Drawing.Font("Tahoma", 8.75F);
+            this.btnAddQTCT.Appearance.Options.UseBackColor = true;
+            this.btnAddQTCT.Appearance.Options.UseFont = true;
+            this.btnAddQTCT.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(223)))), ((int)(((byte)(134)))));
+            this.btnAddQTCT.AppearanceHovered.Font = new System.Drawing.Font("Tahoma", 8.75F);
+            this.btnAddQTCT.AppearanceHovered.ForeColor = System.Drawing.Color.Black;
+            this.btnAddQTCT.AppearanceHovered.Options.UseBackColor = true;
+            this.btnAddQTCT.AppearanceHovered.Options.UseFont = true;
+            this.btnAddQTCT.AppearanceHovered.Options.UseForeColor = true;
+            this.btnAddQTCT.AppearancePressed.ForeColor = System.Drawing.Color.Black;
+            this.btnAddQTCT.AppearancePressed.Options.UseForeColor = true;
+            this.btnAddQTCT.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.btnAddQTCT.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAddQTCT.ImageOptions.Image")));
+            this.btnAddQTCT.Location = new System.Drawing.Point(91, 0);
+            this.btnAddQTCT.Name = "btnAddQTCT";
+            this.btnAddQTCT.Size = new System.Drawing.Size(61, 22);
+            this.btnAddQTCT.TabIndex = 4;
+            this.btnAddQTCT.Text = "Thêm";
             // 
-            // btnRefreshCV
+            // btnRefreshQTCT
             // 
-            this.btnRefreshCV.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
-            this.btnRefreshCV.Appearance.Font = new System.Drawing.Font("Tahoma", 8.75F);
-            this.btnRefreshCV.Appearance.Options.UseBackColor = true;
-            this.btnRefreshCV.Appearance.Options.UseFont = true;
-            this.btnRefreshCV.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(223)))), ((int)(((byte)(134)))));
-            this.btnRefreshCV.AppearanceHovered.Font = new System.Drawing.Font("Tahoma", 8.75F);
-            this.btnRefreshCV.AppearanceHovered.ForeColor = System.Drawing.Color.Black;
-            this.btnRefreshCV.AppearanceHovered.Options.UseBackColor = true;
-            this.btnRefreshCV.AppearanceHovered.Options.UseFont = true;
-            this.btnRefreshCV.AppearanceHovered.Options.UseForeColor = true;
-            this.btnRefreshCV.AppearancePressed.ForeColor = System.Drawing.Color.Black;
-            this.btnRefreshCV.AppearancePressed.Options.UseForeColor = true;
-            this.btnRefreshCV.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.btnRefreshCV.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnRefreshCV.ImageOptions.Image")));
-            this.btnRefreshCV.Location = new System.Drawing.Point(10, 0);
-            this.btnRefreshCV.Name = "btnRefreshCV";
-            this.btnRefreshCV.Size = new System.Drawing.Size(75, 22);
-            this.btnRefreshCV.TabIndex = 3;
-            this.btnRefreshCV.Text = "Làm mới";
+            this.btnRefreshQTCT.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
+            this.btnRefreshQTCT.Appearance.Font = new System.Drawing.Font("Tahoma", 8.75F);
+            this.btnRefreshQTCT.Appearance.Options.UseBackColor = true;
+            this.btnRefreshQTCT.Appearance.Options.UseFont = true;
+            this.btnRefreshQTCT.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(223)))), ((int)(((byte)(134)))));
+            this.btnRefreshQTCT.AppearanceHovered.Font = new System.Drawing.Font("Tahoma", 8.75F);
+            this.btnRefreshQTCT.AppearanceHovered.ForeColor = System.Drawing.Color.Black;
+            this.btnRefreshQTCT.AppearanceHovered.Options.UseBackColor = true;
+            this.btnRefreshQTCT.AppearanceHovered.Options.UseFont = true;
+            this.btnRefreshQTCT.AppearanceHovered.Options.UseForeColor = true;
+            this.btnRefreshQTCT.AppearancePressed.ForeColor = System.Drawing.Color.Black;
+            this.btnRefreshQTCT.AppearancePressed.Options.UseForeColor = true;
+            this.btnRefreshQTCT.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.btnRefreshQTCT.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnRefreshQTCT.ImageOptions.Image")));
+            this.btnRefreshQTCT.Location = new System.Drawing.Point(10, 0);
+            this.btnRefreshQTCT.Name = "btnRefreshQTCT";
+            this.btnRefreshQTCT.Size = new System.Drawing.Size(75, 22);
+            this.btnRefreshQTCT.TabIndex = 3;
+            this.btnRefreshQTCT.Text = "Làm mới";
             // 
             // layoutControl1
             // 
-            this.layoutControl1.Controls.Add(this.btnUploadCV);
-            this.layoutControl1.Controls.Add(this.btnDownloadCV);
+            this.layoutControl1.Controls.Add(this.btnUploadQTCT);
+            this.layoutControl1.Controls.Add(this.btnDownloadQTCT);
             this.layoutControl1.Controls.Add(this.gcTabPageQuaTrinhCongTac);
             this.layoutControl1.Controls.Add(this.dtNgayBatDau);
             this.layoutControl1.Controls.Add(this.dtNgayKetThuc);
@@ -406,49 +407,49 @@
             this.layoutControl1.TabIndex = 2;
             this.layoutControl1.Text = "layoutControl1";
             // 
-            // btnUploadCV
+            // btnUploadQTCT
             // 
-            this.btnUploadCV.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
-            this.btnUploadCV.Appearance.Font = new System.Drawing.Font("Tahoma", 8.75F);
-            this.btnUploadCV.Appearance.Options.UseBackColor = true;
-            this.btnUploadCV.Appearance.Options.UseFont = true;
-            this.btnUploadCV.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(223)))), ((int)(((byte)(134)))));
-            this.btnUploadCV.AppearanceHovered.Font = new System.Drawing.Font("Tahoma", 8.75F);
-            this.btnUploadCV.AppearanceHovered.ForeColor = System.Drawing.Color.Black;
-            this.btnUploadCV.AppearanceHovered.Options.UseBackColor = true;
-            this.btnUploadCV.AppearanceHovered.Options.UseFont = true;
-            this.btnUploadCV.AppearanceHovered.Options.UseForeColor = true;
-            this.btnUploadCV.AppearancePressed.ForeColor = System.Drawing.Color.Black;
-            this.btnUploadCV.AppearancePressed.Options.UseForeColor = true;
-            this.btnUploadCV.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnUploadCV.ImageOptions.Image")));
-            this.btnUploadCV.Location = new System.Drawing.Point(918, 130);
-            this.btnUploadCV.Name = "btnUploadCV";
-            this.btnUploadCV.Size = new System.Drawing.Size(66, 22);
-            this.btnUploadCV.StyleController = this.layoutControl1;
-            this.btnUploadCV.TabIndex = 13;
-            this.btnUploadCV.Text = "Tải lên";
+            this.btnUploadQTCT.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
+            this.btnUploadQTCT.Appearance.Font = new System.Drawing.Font("Tahoma", 8.75F);
+            this.btnUploadQTCT.Appearance.Options.UseBackColor = true;
+            this.btnUploadQTCT.Appearance.Options.UseFont = true;
+            this.btnUploadQTCT.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(223)))), ((int)(((byte)(134)))));
+            this.btnUploadQTCT.AppearanceHovered.Font = new System.Drawing.Font("Tahoma", 8.75F);
+            this.btnUploadQTCT.AppearanceHovered.ForeColor = System.Drawing.Color.Black;
+            this.btnUploadQTCT.AppearanceHovered.Options.UseBackColor = true;
+            this.btnUploadQTCT.AppearanceHovered.Options.UseFont = true;
+            this.btnUploadQTCT.AppearanceHovered.Options.UseForeColor = true;
+            this.btnUploadQTCT.AppearancePressed.ForeColor = System.Drawing.Color.Black;
+            this.btnUploadQTCT.AppearancePressed.Options.UseForeColor = true;
+            this.btnUploadQTCT.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnUploadQTCT.ImageOptions.Image")));
+            this.btnUploadQTCT.Location = new System.Drawing.Point(918, 130);
+            this.btnUploadQTCT.Name = "btnUploadQTCT";
+            this.btnUploadQTCT.Size = new System.Drawing.Size(66, 22);
+            this.btnUploadQTCT.StyleController = this.layoutControl1;
+            this.btnUploadQTCT.TabIndex = 13;
+            this.btnUploadQTCT.Text = "Tải lên";
             // 
-            // btnDownloadCV
+            // btnDownloadQTCT
             // 
-            this.btnDownloadCV.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
-            this.btnDownloadCV.Appearance.Font = new System.Drawing.Font("Tahoma", 8.75F);
-            this.btnDownloadCV.Appearance.Options.UseBackColor = true;
-            this.btnDownloadCV.Appearance.Options.UseFont = true;
-            this.btnDownloadCV.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(223)))), ((int)(((byte)(134)))));
-            this.btnDownloadCV.AppearanceHovered.Font = new System.Drawing.Font("Tahoma", 8.75F);
-            this.btnDownloadCV.AppearanceHovered.ForeColor = System.Drawing.Color.Black;
-            this.btnDownloadCV.AppearanceHovered.Options.UseBackColor = true;
-            this.btnDownloadCV.AppearanceHovered.Options.UseFont = true;
-            this.btnDownloadCV.AppearanceHovered.Options.UseForeColor = true;
-            this.btnDownloadCV.AppearancePressed.ForeColor = System.Drawing.Color.Black;
-            this.btnDownloadCV.AppearancePressed.Options.UseForeColor = true;
-            this.btnDownloadCV.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDownloadCV.ImageOptions.Image")));
-            this.btnDownloadCV.Location = new System.Drawing.Point(988, 130);
-            this.btnDownloadCV.Name = "btnDownloadCV";
-            this.btnDownloadCV.Size = new System.Drawing.Size(82, 22);
-            this.btnDownloadCV.StyleController = this.layoutControl1;
-            this.btnDownloadCV.TabIndex = 14;
-            this.btnDownloadCV.Text = "Tải xuống";
+            this.btnDownloadQTCT.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
+            this.btnDownloadQTCT.Appearance.Font = new System.Drawing.Font("Tahoma", 8.75F);
+            this.btnDownloadQTCT.Appearance.Options.UseBackColor = true;
+            this.btnDownloadQTCT.Appearance.Options.UseFont = true;
+            this.btnDownloadQTCT.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(223)))), ((int)(((byte)(134)))));
+            this.btnDownloadQTCT.AppearanceHovered.Font = new System.Drawing.Font("Tahoma", 8.75F);
+            this.btnDownloadQTCT.AppearanceHovered.ForeColor = System.Drawing.Color.Black;
+            this.btnDownloadQTCT.AppearanceHovered.Options.UseBackColor = true;
+            this.btnDownloadQTCT.AppearanceHovered.Options.UseFont = true;
+            this.btnDownloadQTCT.AppearanceHovered.Options.UseForeColor = true;
+            this.btnDownloadQTCT.AppearancePressed.ForeColor = System.Drawing.Color.Black;
+            this.btnDownloadQTCT.AppearancePressed.Options.UseForeColor = true;
+            this.btnDownloadQTCT.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDownloadQTCT.ImageOptions.Image")));
+            this.btnDownloadQTCT.Location = new System.Drawing.Point(988, 130);
+            this.btnDownloadQTCT.Name = "btnDownloadQTCT";
+            this.btnDownloadQTCT.Size = new System.Drawing.Size(82, 22);
+            this.btnDownloadQTCT.StyleController = this.layoutControl1;
+            this.btnDownloadQTCT.TabIndex = 14;
+            this.btnDownloadQTCT.Text = "Tải xuống";
             // 
             // gcTabPageQuaTrinhCongTac
             // 
@@ -905,7 +906,7 @@
             // 
             // layoutControlItem15
             // 
-            this.layoutControlItem15.Control = this.btnUploadCV;
+            this.layoutControlItem15.Control = this.btnUploadQTCT;
             this.layoutControlItem15.Location = new System.Drawing.Point(260, 24);
             this.layoutControlItem15.MaxSize = new System.Drawing.Size(70, 26);
             this.layoutControlItem15.MinSize = new System.Drawing.Size(70, 26);
@@ -917,7 +918,7 @@
             // 
             // layoutControlItem14
             // 
-            this.layoutControlItem14.Control = this.btnDownloadCV;
+            this.layoutControlItem14.Control = this.btnDownloadQTCT;
             this.layoutControlItem14.Location = new System.Drawing.Point(330, 24);
             this.layoutControlItem14.Name = "layoutControlItem14";
             this.layoutControlItem14.Size = new System.Drawing.Size(86, 26);
@@ -1463,6 +1464,7 @@
             // 
             // btnExportExcelHD
             // 
+            this.btnExportExcelHD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExportExcelHD.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
             this.btnExportExcelHD.Appearance.Font = new System.Drawing.Font("Tahoma", 8.75F);
             this.btnExportExcelHD.Appearance.Options.UseBackColor = true;
@@ -1695,14 +1697,14 @@
         private DevExpress.XtraTab.XtraTabPage tabChucVuDonVi;
         private DevExpress.XtraEditors.TextEdit txtRowIndex;
         private DevExpress.XtraEditors.TextEdit txtMaVienChuc;
-        private DevExpress.XtraEditors.SimpleButton btnExportExcelCV;
-        private DevExpress.XtraEditors.SimpleButton btnDeleteCV;
-        private DevExpress.XtraEditors.SimpleButton btnEditCV;
-        private DevExpress.XtraEditors.SimpleButton btnAddCV;
-        private DevExpress.XtraEditors.SimpleButton btnRefreshCV;
+        private DevExpress.XtraEditors.SimpleButton btnExportExcelQTCT;
+        private DevExpress.XtraEditors.SimpleButton btnDeleteQTCT;
+        private DevExpress.XtraEditors.SimpleButton btnEditQTCT;
+        private DevExpress.XtraEditors.SimpleButton btnAddQTCT;
+        private DevExpress.XtraEditors.SimpleButton btnRefreshQTCT;
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
-        private DevExpress.XtraEditors.SimpleButton btnUploadCV;
-        private DevExpress.XtraEditors.SimpleButton btnDownloadCV;
+        private DevExpress.XtraEditors.SimpleButton btnUploadQTCT;
+        private DevExpress.XtraEditors.SimpleButton btnDownloadQTCT;
         private DevExpress.XtraGrid.GridControl gcTabPageQuaTrinhCongTac;
         private DevExpress.XtraGrid.Views.Grid.GridView gvTabPageQuaTrinhCongTac;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;

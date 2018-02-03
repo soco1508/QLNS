@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -18,11 +19,12 @@ namespace QLNS_SGU.Presenter
     public interface ITabPageChuyenMonPresenter : IPresenterArgument
     {
         void LoadForm();
+        void CopyAndPasteInfoNganhVienChuc();
         //HHHV
         void ClickRowAndShowInfoHHHV();
         void RefreshHHHV();
         void AddHHHV();
-        void EditHHHV();
+        void SaveHHHV();
         void DeleteHHHV();
         void ExportExcelHHHV();
         void UploadFileToGoogleDriveHHHV();
@@ -62,12 +64,20 @@ namespace QLNS_SGU.Presenter
         void ClickRowAndShowInfoN();
         void RefreshN();
         void AddN();
-        void EditN();
+        void SaveN();
         void DeleteN();
         void ExportExcelN();
         void UploadFileToGoogleDriveN();
         void DownloadFileToDeviceN();
-        void CbxNganhDaoTaoNChanged(object sender, EventArgs e);
+        void LoaiNganhNChanged(object sender, EventArgs e);
+        void NganhDaoTaoNChanged(object sender, EventArgs e);
+        void ChuyenNganhNChanged(object sender, EventArgs e);
+        void TenHocHamHocViNChanged(object sender, EventArgs e);
+        void NgayBatDauNChanged(object sender, EventArgs e);
+        void NgayKetThucNChanged(object sender, EventArgs e);
+        void TrinhDoDayNChanged(object sender, EventArgs e);
+        void PhanLoaiNChanged(object sender, EventArgs e);
+        void LinkVanBanDinhKemNChanged(object sender, EventArgs e);
         //ChungChi
         void ClickRowAndShowInfoCC();
         void RefreshCC();
@@ -88,6 +98,7 @@ namespace QLNS_SGU.Presenter
         public static string maVienChucFromTabPageThongTinCaNhan = string.Empty;
         public int rowFocusFromCreateAndEditPersonalInfoForm = -1;
         public bool checkClickGridForLoadForm = false;
+        private bool checkCopyOrPaste = false; // copy
         private static CreateAndEditPersonInfoForm _createAndEditPersonInfoForm = new CreateAndEditPersonInfoForm();
         private TabPageChuyenMon _view;
         public object UI => _view;
@@ -165,6 +176,101 @@ namespace QLNS_SGU.Presenter
                 }
             }
         }
+        public void CopyAndPasteInfoNganhVienChuc()
+        {
+            if (checkCopyOrPaste)
+            {
+                checkCopyOrPaste = false;
+                _view.LBCopyAndPasteInfo.Text = "Sao chép thông tin";
+                IDataObject data_object = Clipboard.GetDataObject();
+                if (data_object.GetDataPresent("loainganh"))
+                {
+                    _view.CBXLoaiNganhN.EditValue = Convert.ToInt32(data_object.GetData("loainganh"));
+                }
+                if (data_object.GetDataPresent("nganhdaotao"))
+                {
+                    _view.CBXNganhDaoTaoN.EditValue = Convert.ToInt32(data_object.GetData("nganhdaotao"));
+                }
+                if (data_object.GetDataPresent("chuyennganh"))
+                {
+                    _view.CBXChuyenNganhN.EditValue = Convert.ToInt32(data_object.GetData("chuyennganh"));
+                }
+                if (data_object.GetDataPresent("hochamhocvi"))
+                {
+                    _view.CBXTenHocHamHocViN.EditValue = Convert.ToInt32(data_object.GetData("hochamhocvi"));
+                }
+                if (data_object.GetDataPresent("ngaybatdau"))
+                {
+                    _view.DTNgayBatDauN.DateTime = DateTime.ParseExact(data_object.GetData("ngaybatdau").ToString(), "dd'/'MM'/'yyyy", CultureInfo.InvariantCulture);
+                }
+                if (data_object.GetDataPresent("ngayketthuc"))
+                {
+                    _view.DTNgayKetThucN.DateTime = DateTime.ParseExact(data_object.GetData("ngayketthuc").ToString(), "dd'/'MM'/'yyyy", CultureInfo.InvariantCulture);
+                }
+                if (data_object.GetDataPresent("trinhdoday"))
+                {
+                    _view.TXTTrinhDoDay.Text = data_object.GetData("trinhdoday").ToString();
+                }
+                if (data_object.GetDataPresent("phanloai"))
+                {
+                    _view.RADPhanLoaiN.SelectedIndex = Convert.ToInt32(data_object.GetData("phanloai"));
+                }
+                if (data_object.GetDataPresent("linkvanbandinhkem"))
+                {
+                    _view.TXTLinkVanBanDinhKemN.Text = data_object.GetData("linkvanbandinhkem").ToString();
+                }
+            }
+            else
+            {
+                checkCopyOrPaste = true;
+                _view.LBCopyAndPasteInfo.Text = "Dán thông tin";
+                Clipboard.Clear();
+                IDataObject clipboard = new DataObject();
+                if (_view.CBXLoaiNganhN.Text != string.Empty)
+                {
+                    object loainganh = _view.CBXLoaiNganhN.EditValue;
+                    clipboard.SetData("loainganh", loainganh);
+                }
+                if (_view.CBXNganhDaoTaoN.Text != string.Empty)
+                {
+                    object nganhdaotao = _view.CBXNganhDaoTaoN.EditValue;
+                    clipboard.SetData("nganhdaotao", nganhdaotao);
+                }
+                if (_view.CBXChuyenNganhN.Text != string.Empty)
+                {
+                    object chuyennganh = _view.CBXChuyenNganhN.EditValue;
+                    clipboard.SetData("chuyennganh", chuyennganh);
+                }
+                if(_view.CBXTenHocHamHocViN.Text != string.Empty)
+                {
+                    object hochamhocvi = _view.CBXTenHocHamHocViN.EditValue;
+                    clipboard.SetData("hochamhocvi", hochamhocvi);
+                }
+                if(_view.DTNgayBatDauN.Text != string.Empty)
+                {
+                    string ngaybatdau = _view.DTNgayBatDauN.Text;
+                    clipboard.SetData("ngaybatdau", ngaybatdau);
+                }
+                if (_view.DTNgayKetThucN.Text != string.Empty)
+                {
+                    string ngayketthuc = _view.DTNgayKetThucN.Text;
+                    clipboard.SetData("ngayketthuc", ngayketthuc);
+                }
+                if (_view.TXTTrinhDoDay.Text != string.Empty)
+                {
+                    string trinhdoday = _view.TXTTrinhDoDay.Text;
+                    clipboard.SetData("trinhdoday", trinhdoday);
+                }
+                if (_view.TXTLinkVanBanDinhKemN.Text != string.Empty)
+                {
+                    string linkvanbandinhkem = _view.TXTLinkVanBanDinhKemN.Text;
+                    clipboard.SetData("linkvanbandinhkem", linkvanbandinhkem);
+                }
+                string phanloai = _view.RADPhanLoaiN.SelectedIndex.ToString();
+                clipboard.SetData("phanloai", phanloai);
+                Clipboard.SetDataObject(clipboard, true);
+            }
+        }
         #region HHHV        
         public static string idFileUploadHHHV = string.Empty;
         private static string maVienChucForGetListLinkVanBanDinhKemHHHV = string.Empty;
@@ -183,6 +289,14 @@ namespace QLNS_SGU.Presenter
         private void LoadCbxDataHHHV()
         {
             UnitOfWorks unitOfWorks = new UnitOfWorks(new QLNSSGU_1Entities());
+            List<LoaiNganh> listLoaiNganh = unitOfWorks.LoaiNganhRepository.GetListLoaiNganh().ToList();
+            _view.CBXLoaiNganhHHHV.Properties.DataSource = listLoaiNganh;
+            _view.CBXLoaiNganhHHHV.Properties.DisplayMember = "tenLoaiNganh";
+            _view.CBXLoaiNganhHHHV.Properties.ValueMember = "idLoaiNganh";
+            _view.CBXLoaiNganhHHHV.Properties.DropDownRows = listLoaiNganh.Count;
+            _view.CBXLoaiNganhHHHV.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("idLoaiNganh", string.Empty));
+            _view.CBXLoaiNganhHHHV.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("tenLoaiNganh", string.Empty));
+            _view.CBXLoaiNganhHHHV.Properties.Columns[0].Visible = false;
             List<NganhDaoTao> listNganhDaoTao = unitOfWorks.NganhDaoTaoRepository.GetListNganhDaoTao().ToList();
             _view.CBXNganhDaoTaoHHHV.Properties.DataSource = listNganhDaoTao;
             _view.CBXNganhDaoTaoHHHV.Properties.DisplayMember = "tenNganhDaoTao";
@@ -239,12 +353,14 @@ namespace QLNS_SGU.Presenter
         private void SetDefaultValueControlHHHV()
         {
             checkAddNewHHHV = true;
+            UnitOfWorks unitOfWorks = new UnitOfWorks(new QLNSSGU_1Entities());
             _view.CBXLoaiHocHamHocViHHHV.ErrorText = string.Empty;
             _view.CBXNganhDaoTaoHHHV.ErrorText = string.Empty;
             _view.CBXChuyenNganhHHHV.ErrorText = string.Empty;
-            _view.CBXLoaiHocHamHocViHHHV.Text = string.Empty;
-            _view.CBXNganhDaoTaoHHHV.Text = string.Empty;
-            _view.CBXChuyenNganhHHHV.Text = string.Empty;
+            _view.CBXLoaiHocHamHocViHHHV.EditValue = -1;
+            _view.CBXLoaiNganhHHHV.EditValue = unitOfWorks.LoaiNganhRepository.GetIdLoaiNganhEmpty();
+            _view.CBXNganhDaoTaoHHHV.EditValue = -1;
+            _view.CBXChuyenNganhHHHV.EditValue = -1;
             _view.TXTTenHocHamHocViHHHV.Text = string.Empty;
             _view.TXTCoSoDaoTaoHHHV.Text = string.Empty;
             _view.TXTNgonNguDaoTaoHHHV.Text = string.Empty;
@@ -261,7 +377,7 @@ namespace QLNS_SGU.Presenter
                 string loaihochamhocvi = unitOfWorks.LoaiHocHamHocViRepository.ReturnFirstCharOfLoaiHocHamHocVi(_view.CBXLoaiHocHamHocViHHHV.Text);
                 string nganhdaotao = _view.CBXNganhDaoTaoHHHV.Text;
                 string chuyennganh = _view.CBXChuyenNganhHHHV.Text;
-                string tenhochamhocvi = loaihochamhocvi + " " + nganhdaotao + " " + chuyennganh;
+                string tenhochamhocvi = loaihochamhocvi + " " + nganhdaotao + " - " + chuyennganh;
                 _view.TXTTenHocHamHocViHHHV.Text = tenhochamhocvi;
             }
         }
@@ -303,13 +419,15 @@ namespace QLNS_SGU.Presenter
                 idLoaiNganh = idloainganh,
                 idNganhDaoTao = idnganhdaotao,
                 idChuyenNganh = idchuyennganh,
-                phanLoai = 1
+                trinhDoDay = string.Empty,
+                phanLoai = true
             });
             unitOfWorks.Save();
             LoadGridTabPageHocHamHocVi(_view.TXTMaVienChuc.Text);
+            LoadGridTabPageNganh(_view.TXTMaVienChuc.Text);
             XtraMessageBox.Show("Thêm dữ liệu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            MainPresenter.LoadGridHocHamHocViAtRightViewInMainForm();
             SetDefaultValueControlHHHV();
+            MainPresenter.LoadGridHocHamHocViAtRightViewInMainForm();            
         }
         private void UpdateDataHHHV()
         {
@@ -393,10 +511,12 @@ namespace QLNS_SGU.Presenter
             int row_handle = _view.GVHocHamHocVi.FocusedRowHandle;
             if(row_handle >= 0)
             {
-                string loaihochamhocvi = _view.GVHocHamHocVi.GetFocusedRowCellDisplayText("LoaiHocHamHocVi");
-                string nganhdaotao = _view.GVHocHamHocVi.GetFocusedRowCellDisplayText("NganhDaoTao");
-                string chuyennganh = _view.GVHocHamHocVi.GetFocusedRowCellDisplayText("ChuyenNganh");
-                _view.CBXLoaiHocHamHocViHHHV.EditValue = unitOfWorks.LoaiHocHamHocViRepository.GetIdLoaiHocHamHocVi(loaihochamhocvi);
+                string loaihochamhocvi = _view.GVHocHamHocVi.GetFocusedRowCellDisplayText("LoaiHocHamHocVi").ToString();
+                string loainganh = _view.GVHocHamHocVi.GetFocusedRowCellDisplayText("LoaiNganh").ToString();
+                string nganhdaotao = _view.GVHocHamHocVi.GetFocusedRowCellDisplayText("NganhDaoTao").ToString();
+                string chuyennganh = _view.GVHocHamHocVi.GetFocusedRowCellDisplayText("ChuyenNganh").ToString();
+                _view.CBXLoaiHocHamHocViHHHV.EditValue = unitOfWorks.LoaiHocHamHocViRepository.GetIdLoaiHocHamHocViByTenLoaiHocHamHocVi(loaihochamhocvi);
+                _view.CBXLoaiNganhHHHV.EditValue = unitOfWorks.LoaiNganhRepository.GetIdLoaiNganh(loainganh);
                 _view.CBXNganhDaoTaoHHHV.EditValue = unitOfWorks.NganhDaoTaoRepository.GetIdNganhDaoTao(nganhdaotao);
                 _view.CBXChuyenNganhHHHV.EditValue = unitOfWorks.ChuyenNganhRepository.GetIdChuyenNganh(chuyennganh);
                 _view.TXTTenHocHamHocViHHHV.Text = _view.GVHocHamHocVi.GetFocusedRowCellDisplayText("TenHocHamHocVi");
@@ -413,7 +533,7 @@ namespace QLNS_SGU.Presenter
 
         public void AddHHHV() => SetDefaultValueControlHHHV();
 
-        public void EditHHHV()
+        public void SaveHHHV()
         {
             if (checkAddNewHHHV)
             {
@@ -811,7 +931,7 @@ namespace QLNS_SGU.Presenter
             if (row_handle >= 0)
             {
                 string loaihochamhocvi = _view.GVDangHocNangCao.GetFocusedRowCellDisplayText("LoaiHocHamHocVi");
-                _view.CBXLoaiHocHamHocViDHNC.EditValue = unitOfWorks.LoaiHocHamHocViRepository.GetIdLoaiHocHamHocVi(loaihochamhocvi);
+                _view.CBXLoaiHocHamHocViDHNC.EditValue = unitOfWorks.LoaiHocHamHocViRepository.GetIdLoaiHocHamHocViByTenLoaiHocHamHocVi(loaihochamhocvi);
                 _view.CBXLoai.EditValue = _view.GVDangHocNangCao.GetFocusedRowCellDisplayText("Loai");
                 _view.TXTTenHocHamHocViDHNC.Text = _view.GVDangHocNangCao.GetFocusedRowCellDisplayText("TenHocHamHocVi");
                 _view.TXTCoSoDaoTaoDHNC.Text = _view.GVDangHocNangCao.GetFocusedRowCellDisplayText("CoSoDaoTao");
@@ -1020,9 +1140,29 @@ namespace QLNS_SGU.Presenter
         }
         #endregion
         #region Nganh
+        public static string idFileUploadN = string.Empty;
+        private static string maVienChucForGetListLinkVanBanDinhKemN = string.Empty;
+        private bool checkAddNewN = true;
+        private bool loaiNganhNChanged = false;
+        private bool nganhDaoTaoNChanged = false;
+        private bool chuyenNganhNChanged = false;
+        private bool tenHocHamHocViNChanged = false;
+        private bool ngayBatDauNChanged = false;
+        private bool ngayKetThucNChanged = false;
+        private bool trinhDoDayNChanged = false;
+        private bool phanLoaiNChanged = false;
+        private bool linkVanBanDinhKemNChanged = false;
         private void LoadCbxDataN()
         {
             UnitOfWorks unitOfWorks = new UnitOfWorks(new QLNSSGU_1Entities());
+            List<LoaiNganh> listLoaiNganh = unitOfWorks.LoaiNganhRepository.GetListLoaiNganh().ToList();
+            _view.CBXLoaiNganhN.Properties.DataSource = listLoaiNganh;
+            _view.CBXLoaiNganhN.Properties.DisplayMember = "tenLoaiNganh";
+            _view.CBXLoaiNganhN.Properties.ValueMember = "idLoaiNganh";
+            _view.CBXLoaiNganhN.Properties.DropDownRows = listLoaiNganh.Count;
+            _view.CBXLoaiNganhN.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("idLoaiNganh", string.Empty));
+            _view.CBXLoaiNganhN.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("tenLoaiNganh", string.Empty));
+            _view.CBXLoaiNganhN.Properties.Columns[0].Visible = false;
             List<NganhDaoTao> listNganhDaoTao = unitOfWorks.NganhDaoTaoRepository.GetListNganhDaoTao().ToList();
             _view.CBXNganhDaoTaoN.Properties.DataSource = listNganhDaoTao;
             _view.CBXNganhDaoTaoN.Properties.DisplayMember = "tenNganhDaoTao";
@@ -1048,20 +1188,24 @@ namespace QLNS_SGU.Presenter
             _view.CBXTenHocHamHocViN.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("idHocHamHocViVienChuc", string.Empty));
             _view.CBXTenHocHamHocViN.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("tenHocHamHocVi", string.Empty));
             _view.CBXTenHocHamHocViN.Properties.Columns[0].Visible = false;
-            List<string> listPhanLoai = new List<string>() { "Vừa học vừa dạy", "Chỉ học", "Chỉ dạy" };
-            _view.CBXPhanLoaiN.Properties.DataSource = listPhanLoai;
-            _view.CBXPhanLoaiN.Properties.DropDownRows = listPhanLoai.Count;
+            List<string> listTrinhDoDay = unitOfWorks.NganhVienChucRepository.GetListTrinhDoDay();
+            AutoCompleteStringCollection trinhdodaySource = new AutoCompleteStringCollection();
+            listTrinhDoDay.ForEach(x => trinhdodaySource.Add(x)); // autocompleteStringCollection if add null value app will be crashed
+            _view.TXTTrinhDoDay.MaskBox.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            _view.TXTTrinhDoDay.MaskBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            _view.TXTTrinhDoDay.MaskBox.AutoCompleteCustomSource = trinhdodaySource;
         }
         private void SetDefaultValueControlN()
         {
+            checkAddNewN = true;
+            UnitOfWorks unitOfWorks = new UnitOfWorks(new QLNSSGU_1Entities());
             _view.CBXTenHocHamHocViN.ErrorText = string.Empty;
             _view.CBXNganhDaoTaoN.ErrorText = string.Empty;
             _view.CBXChuyenNganhN.ErrorText = string.Empty;
-            _view.CBXPhanLoaiN.ErrorText = string.Empty;
-            _view.CBXTenHocHamHocViN.Text = string.Empty;
-            _view.CBXNganhDaoTaoN.Text = string.Empty;
-            _view.CBXChuyenNganhN.Text = string.Empty;
-            _view.CBXPhanLoaiN.Text = string.Empty;
+            _view.CBXTenHocHamHocViN.EditValue = unitOfWorks.HocHamHocViVienChucRepository.GetIdHocHamHocViVienChucEmpty();
+            _view.CBXLoaiNganhN.EditValue = unitOfWorks.LoaiNganhRepository.GetIdLoaiNganhEmpty();
+            _view.CBXNganhDaoTaoN.EditValue = -1;
+            _view.CBXChuyenNganhN.EditValue = -1;
             _view.DTNgayBatDauN.Text = string.Empty;
             _view.DTNgayKetThucN.Text = string.Empty;
             _view.TXTLinkVanBanDinhKemN.Text = string.Empty;
@@ -1078,29 +1222,74 @@ namespace QLNS_SGU.Presenter
                 idHocHamHocViVienChuc = Convert.ToInt32(_view.CBXTenHocHamHocViN.EditValue),
                 idNganhDaoTao = nganhdaotao,
                 idChuyenNganh = Convert.ToInt32(_view.CBXChuyenNganhN.EditValue),
-                phanLoai = unitOfWorks.NganhVienChucRepository.HardCodePhanLoaiToDatabase(_view.CBXPhanLoaiN.EditValue.ToString()),
+                phanLoai = unitOfWorks.NganhVienChucRepository.HardCodePhanLoaiToDatabase(_view.RADPhanLoaiN.SelectedIndex),
                 ngayBatDau = unitOfWorks.HopDongVienChucRepository.ReturnDateTimeToDatabase(_view.DTNgayBatDauN.Text),
                 ngayKetThuc = unitOfWorks.HopDongVienChucRepository.ReturnDateTimeToDatabase(_view.DTNgayKetThucN.Text),
-                linkVanBanDinhKem = _view.TXTLinkVanBanDinhKemN.Text
+                linkVanBanDinhKem = _view.TXTLinkVanBanDinhKemN.Text,
+                trinhDoDay = _view.TXTTrinhDoDay.Text.Trim()
             });
             unitOfWorks.Save();
             LoadGridTabPageNganh(_view.TXTMaVienChuc.Text);
             XtraMessageBox.Show("Thêm dữ liệu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            MainPresenter.LoadGridHocHamHocViAtRightViewInMainForm();
+            SetDefaultValueControlN();
         }
         private void UpdateDataN()
         {
             UnitOfWorks unitOfWorks = new UnitOfWorks(new QLNSSGU_1Entities());
             int idnganhvienchuc = Convert.ToInt32(_view.GVNganh.GetFocusedRowCellDisplayText("Id"));
+            int idLoaiNganh = Convert.ToInt32(_view.CBXLoaiNganhN.EditValue);
+            int idNganhDaoTao = Convert.ToInt32(_view.CBXNganhDaoTaoN.EditValue);
+            int idChuyenNganh = Convert.ToInt32(_view.CBXChuyenNganhN.EditValue);
+            int idHocHamHocViVienChuc = Convert.ToInt32(_view.CBXTenHocHamHocViN.EditValue);
             NganhVienChuc nganhVienChuc = unitOfWorks.NganhVienChucRepository.GetObjectById(idnganhvienchuc);
-            nganhVienChuc.phanLoai = unitOfWorks.NganhVienChucRepository.HardCodePhanLoaiToDatabase(_view.CBXPhanLoaiN.EditValue.ToString());
-            nganhVienChuc.ngayBatDau = unitOfWorks.HopDongVienChucRepository.ReturnDateTimeToDatabase(_view.DTNgayBatDauN.Text);
-            nganhVienChuc.ngayKetThuc = unitOfWorks.HopDongVienChucRepository.ReturnDateTimeToDatabase(_view.DTNgayKetThucN.Text);
-            nganhVienChuc.linkVanBanDinhKem = _view.TXTLinkVanBanDinhKemN.Text;
+            if (loaiNganhNChanged)
+            {
+                nganhVienChuc.idLoaiNganh = idLoaiNganh;
+                loaiNganhNChanged = false;
+            }
+            if (nganhDaoTaoNChanged)
+            {
+                nganhVienChuc.idNganhDaoTao = idNganhDaoTao;
+                nganhDaoTaoNChanged = false;
+            }
+            if (chuyenNganhNChanged)
+            {
+                nganhVienChuc.idChuyenNganh = idChuyenNganh;
+                chuyenNganhNChanged = false;
+            }
+            if (tenHocHamHocViNChanged)
+            {
+                nganhVienChuc.idHocHamHocViVienChuc = idHocHamHocViVienChuc;
+                tenHocHamHocViNChanged = false;
+            }
+            if (phanLoaiNChanged)
+            {
+                nganhVienChuc.phanLoai = unitOfWorks.NganhVienChucRepository.HardCodePhanLoaiToDatabase(_view.RADPhanLoaiN.SelectedIndex);
+                phanLoaiNChanged = false;
+            }
+            if (ngayBatDauNChanged)
+            {
+                nganhVienChuc.ngayBatDau = unitOfWorks.HopDongVienChucRepository.ReturnDateTimeToDatabase(_view.DTNgayBatDauN.Text);
+                ngayBatDauNChanged = false;
+            }
+            if (ngayKetThucNChanged)
+            {
+                nganhVienChuc.ngayKetThuc = unitOfWorks.HopDongVienChucRepository.ReturnDateTimeToDatabase(_view.DTNgayKetThucN.Text);
+                ngayKetThucNChanged = false;
+            }
+            if (trinhDoDayNChanged)
+            {
+                nganhVienChuc.trinhDoDay = _view.TXTTrinhDoDay.Text.Trim();
+                trinhDoDayNChanged = false;
+            }
+            if (linkVanBanDinhKemNChanged)
+            {
+                nganhVienChuc.linkVanBanDinhKem = _view.TXTLinkVanBanDinhKemN.Text;
+                linkVanBanDinhKemNChanged = false;
+            }
             unitOfWorks.Save();
             LoadGridTabPageNganh(_view.TXTMaVienChuc.Text);
             XtraMessageBox.Show("Sửa dữ liệu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            MainPresenter.LoadGridHocHamHocViAtRightViewInMainForm();
         }
         private void LoadGridTabPageNganh(string mavienchuc)
         {
@@ -1113,93 +1302,78 @@ namespace QLNS_SGU.Presenter
 
         public void ClickRowAndShowInfoN()
         {
+            checkAddNewN = false;
             UnitOfWorks unitOfWorks = new UnitOfWorks(new QLNSSGU_1Entities());
             int row_handle = _view.GVNganh.FocusedRowHandle;
             if (row_handle >= 0)
             {
+                string loainganh = _view.GVNganh.GetFocusedRowCellDisplayText("LoaiNganh");
                 string nganhdaotao = _view.GVNganh.GetFocusedRowCellDisplayText("NganhDaoTao");
                 string chuyennganh = _view.GVNganh.GetFocusedRowCellDisplayText("ChuyenNganh");
                 _view.CBXTenHocHamHocViN.EditValue = Convert.ToInt32(_view.GVNganh.GetFocusedRowCellDisplayText("IdHocHamHocViVienChuc"));
+                _view.CBXLoaiNganhN.EditValue = unitOfWorks.LoaiNganhRepository.GetIdLoaiNganh(loainganh);
                 _view.CBXNganhDaoTaoN.EditValue = unitOfWorks.NganhDaoTaoRepository.GetIdNganhDaoTao(nganhdaotao);
                 _view.CBXChuyenNganhN.EditValue = unitOfWorks.ChuyenNganhRepository.GetIdChuyenNganh(chuyennganh);
-                _view.CBXPhanLoaiN.EditValue = _view.GVNganh.GetFocusedRowCellDisplayText("PhanLoai");
-                _view.DTNgayBatDauN.EditValue = _view.GVNganh.GetFocusedRowCellDisplayText("NgayBatDau");
-                _view.DTNgayKetThucN.EditValue = _view.GVNganh.GetFocusedRowCellDisplayText("NgayKetThuc");
+                _view.TXTTrinhDoDay.Text = _view.GVNganh.GetRowCellValue(row_handle, "TrinhDoDay").ToString();
+                _view.RADPhanLoaiN.SelectedIndex = unitOfWorks.NganhVienChucRepository.HardCodePhanLoaiToRadioGroup(_view.GVNganh.GetFocusedRowCellDisplayText("PhanLoai"));
+                _view.DTNgayBatDauN.EditValue = unitOfWorks.HopDongVienChucRepository.ReturnNullIfDateTimeNull(_view.GVNganh.GetFocusedRowCellDisplayText("NgayBatDau"));
+                _view.DTNgayKetThucN.EditValue = unitOfWorks.HopDongVienChucRepository.ReturnNullIfDateTimeNull(_view.GVNganh.GetFocusedRowCellDisplayText("NgayKetThuc"));
                 _view.TXTLinkVanBanDinhKemN.Text = _view.GVNganh.GetFocusedRowCellDisplayText("LinkVanBanDinhKem");
             }
         }
 
-        public void RefreshN()
-        {
-            SetDefaultValueControlN();
-        }
+        public void RefreshN() => SetDefaultValueControlN();
 
-        public void AddN()
-        {
-            if (_view.TXTMaVienChuc.Text != string.Empty && maVienChucFromTabPageThongTinCaNhan == string.Empty)
-            {
-                if (_view.CBXNganhDaoTaoN.Text != string.Empty && _view.CBXChuyenNganhN.Text != string.Empty && _view.CBXTenHocHamHocViN.Text != string.Empty)
-                {
-                    InsertDataN();
-                }
-                if(_view.CBXNganhDaoTaoN.Text == string.Empty)
-                {
-                    _view.CBXNganhDaoTaoN.ErrorText = "Vui lòng chọn ngành đào tạo.";
-                    _view.CBXNganhDaoTaoN.ErrorIconAlignment = ErrorIconAlignment.MiddleRight;
-                }
-                if (_view.CBXChuyenNganhN.Text == string.Empty)
-                {
-                    _view.CBXChuyenNganhN.ErrorText = "Vui lòng chọn chuyên ngành.";
-                    _view.CBXChuyenNganhN.ErrorIconAlignment = ErrorIconAlignment.MiddleRight;
-                }
-                if (_view.CBXTenHocHamHocViN.Text == string.Empty)
-                {
-                    _view.CBXTenHocHamHocViN.ErrorText = "Vui lòng chọn tên Học hàm/Học vị.";
-                    _view.CBXTenHocHamHocViN.ErrorIconAlignment = ErrorIconAlignment.MiddleRight;
-                }
-                if (_view.CBXPhanLoaiN.Text == string.Empty)
-                {
-                    _view.CBXTenHocHamHocViN.ErrorText = "Vui lòng chọn phân loại.";
-                    _view.CBXTenHocHamHocViN.ErrorIconAlignment = ErrorIconAlignment.MiddleRight;
-                }
-            }
-            else if (_view.TXTMaVienChuc.Text == string.Empty && maVienChucFromTabPageThongTinCaNhan != string.Empty)
-            {
-                _view.TXTMaVienChuc.Text = maVienChucFromTabPageThongTinCaNhan;
-                if (_view.CBXNganhDaoTaoN.Text != string.Empty && _view.CBXChuyenNganhN.Text != string.Empty && _view.CBXTenHocHamHocViN.Text != string.Empty)
-                {
-                    InsertDataN();
-                }
-                if (_view.CBXNganhDaoTaoN.Text == string.Empty)
-                {
-                    _view.CBXNganhDaoTaoN.ErrorText = "Vui lòng chọn ngành đào tạo.";
-                    _view.CBXNganhDaoTaoN.ErrorIconAlignment = ErrorIconAlignment.MiddleRight;
-                }
-                if (_view.CBXChuyenNganhN.Text == string.Empty)
-                {
-                    _view.CBXChuyenNganhN.ErrorText = "Vui lòng chọn chuyên ngành.";
-                    _view.CBXChuyenNganhN.ErrorIconAlignment = ErrorIconAlignment.MiddleRight;
-                }
-                if (_view.CBXTenHocHamHocViN.Text == string.Empty)
-                {
-                    _view.CBXTenHocHamHocViN.ErrorText = "Vui lòng chọn tên Học hàm/Học vị.";
-                    _view.CBXTenHocHamHocViN.ErrorIconAlignment = ErrorIconAlignment.MiddleRight;
-                }
-                if (_view.CBXPhanLoaiN.Text == string.Empty)
-                {
-                    _view.CBXTenHocHamHocViN.ErrorText = "Vui lòng chọn phân loại.";
-                    _view.CBXTenHocHamHocViN.ErrorIconAlignment = ErrorIconAlignment.MiddleRight;
-                }
-            }
-            else XtraMessageBox.Show("Vui lòng thêm thông tin viên chức trước.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
+        public void AddN() => SetDefaultValueControlN();
 
-        public void EditN()
+        public void SaveN()
         {
-            int row_handle = _view.GVNganh.FocusedRowHandle;
-            if (row_handle >= 0)
+            if (checkAddNewN)
             {
-                UpdateDataN();
+                if (_view.TXTMaVienChuc.Text != string.Empty && maVienChucFromTabPageThongTinCaNhan == string.Empty)
+                {                    
+                    if (_view.CBXNganhDaoTaoN.Text == string.Empty)
+                    {
+                        _view.CBXNganhDaoTaoN.ErrorText = "Vui lòng chọn ngành đào tạo.";
+                        _view.CBXNganhDaoTaoN.ErrorIconAlignment = ErrorIconAlignment.MiddleRight;
+                    }
+                    if (_view.CBXChuyenNganhN.Text == string.Empty)
+                    {
+                        _view.CBXChuyenNganhN.ErrorText = "Vui lòng chọn chuyên ngành.";
+                        _view.CBXChuyenNganhN.ErrorIconAlignment = ErrorIconAlignment.MiddleRight;
+                    }
+                    if (_view.CBXNganhDaoTaoN.Text != string.Empty && _view.CBXChuyenNganhN.Text != string.Empty && _view.CBXTenHocHamHocViN.Text != string.Empty)
+                    {
+                        InsertDataN();
+                    }
+                }
+                else if (_view.TXTMaVienChuc.Text == string.Empty && maVienChucFromTabPageThongTinCaNhan != string.Empty)
+                {
+                    _view.TXTMaVienChuc.Text = maVienChucFromTabPageThongTinCaNhan;                    
+                    if (_view.CBXNganhDaoTaoN.Text == string.Empty)
+                    {
+                        _view.CBXNganhDaoTaoN.ErrorText = "Vui lòng chọn ngành đào tạo.";
+                        _view.CBXNganhDaoTaoN.ErrorIconAlignment = ErrorIconAlignment.MiddleRight;
+                    }
+                    if (_view.CBXChuyenNganhN.Text == string.Empty)
+                    {
+                        _view.CBXChuyenNganhN.ErrorText = "Vui lòng chọn chuyên ngành.";
+                        _view.CBXChuyenNganhN.ErrorIconAlignment = ErrorIconAlignment.MiddleRight;
+                    }
+                    if (_view.CBXNganhDaoTaoN.Text != string.Empty && _view.CBXChuyenNganhN.Text != string.Empty && _view.CBXTenHocHamHocViN.Text != string.Empty)
+                    {
+                        InsertDataN();
+                    }
+                }
+                else XtraMessageBox.Show("Vui lòng thêm thông tin viên chức trước.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                int row_handle = _view.GVNganh.FocusedRowHandle;
+                if (row_handle >= 0)
+                {
+                    UpdateDataN();
+                }
             }
         }
 
@@ -1219,7 +1393,6 @@ namespace QLNS_SGU.Presenter
                         unitOfWorks.Save();
                         _view.GVNganh.DeleteRow(row_handle);
                         RefreshN();
-                        MainPresenter.LoadGridHocHamHocViAtRightViewInMainForm();
                     }
                 }
                 else XtraMessageBox.Show("Vui lòng chọn dòng cần xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -1231,6 +1404,16 @@ namespace QLNS_SGU.Presenter
         }
 
         public void ExportExcelN() => ExportExcel(_view.GVNganh);
+
+        public static void RemoveFileIfNotSaveN(string id)
+        {
+            UnitOfWorks unitOfWorks = new UnitOfWorks(new QLNSSGU_1Entities());
+            List<string> listLinkVanBanDinhKem = unitOfWorks.NganhVienChucRepository.GetListLinkVanBanDinhKem(maVienChucForGetListLinkVanBanDinhKemN);
+            if (listLinkVanBanDinhKem.Any(x => x.Equals("https://drive.google.com/open?id=" + id + "")) == false)
+            {
+                unitOfWorks.GoogleDriveFileRepository.DeleteFile(id);
+            }
+        }
 
         public void UploadFileToGoogleDriveN()
         {
@@ -1251,24 +1434,19 @@ namespace QLNS_SGU.Presenter
                         string code = GenerateCode(); // code xac dinh file duy nhat
                         string filename = _view.OpenFileDialog.FileName;
                         string[] temp = filename.Split('\\');
-                        if (temp[temp.Length - 1].Contains(mavienchuc))
-                        {
-                            unitOfWorks.GoogleDriveFileRepository.UploadFile(filename);
-                            string id = unitOfWorks.GoogleDriveFileRepository.GetIdDriveFile(mavienchuc, code);
-                            _view.TXTLinkVanBanDinhKemN.Text = "https://drive.google.com/open?id=" + id + "";
-                        }
-                        else
-                        {
-                            string[] split_filename = filename.Split('.');
-                            string new_filename = split_filename[0] + "-" + mavienchuc + "-" + code + "." + split_filename[1];
-                            FileInfo fileInfo = new FileInfo(filename);
-                            fileInfo.MoveTo(new_filename);
-                            unitOfWorks.GoogleDriveFileRepository.UploadFile(new_filename);
-                            string id = unitOfWorks.GoogleDriveFileRepository.GetIdDriveFile(mavienchuc, code);
-                            _view.TXTLinkVanBanDinhKemN.Text = "https://drive.google.com/open?id=" + id + "";
-                        }
+                        string[] split_filename = filename.Split('.');
+                        string new_filename = split_filename[0] + "-" + mavienchuc + "-" + code + "." + split_filename[1];
+                        FileInfo fileInfo = new FileInfo(filename);
+                        fileInfo.MoveTo(new_filename);
+                        unitOfWorks.GoogleDriveFileRepository.UploadFile(new_filename);
+                        FileInfo fileInfo1 = new FileInfo(new_filename); //doi lai filename cu~
+                        fileInfo1.MoveTo(filename);
+                        string id = unitOfWorks.GoogleDriveFileRepository.GetIdDriveFile(mavienchuc, code);
+                        idFileUploadN = id;
+                        maVienChucForGetListLinkVanBanDinhKemN = mavienchuc;
+                        _view.TXTLinkVanBanDinhKemN.Text = string.Empty;
+                        _view.TXTLinkVanBanDinhKemN.Text = "https://drive.google.com/open?id=" + id + "";
                         SplashScreenManager.CloseForm();
-                        LoadGridTabPageNganh(mavienchuc);
                     }
                     catch
                     {
@@ -1288,24 +1466,100 @@ namespace QLNS_SGU.Presenter
 
         public void DownloadFileToDeviceN()
         {
-            string linkvanbandinhkem = _view.GVNganh.GetFocusedRowCellDisplayText("LinkVanBanDinhKem").ToString().Trim();
+            string linkvanbandinhkem = _view.TXTLinkVanBanDinhKemN.Text;
             Download(linkvanbandinhkem);
         }
 
-        public void CbxNganhDaoTaoNChanged(object sender, EventArgs e)
+        public void NganhDaoTaoNChanged(object sender, EventArgs e)
         {
-            UnitOfWorks unitOfWorks = new UnitOfWorks(new QLNSSGU_1Entities());
-            int idnganhdaotao = Convert.ToInt32(_view.CBXNganhDaoTaoN.EditValue);
-            List<ChuyenNganh> list = unitOfWorks.ChuyenNganhRepository.GetListChuyenNganhByIdNganhDaoTao(idnganhdaotao);
-            _view.CBXChuyenNganhN.Properties.DataSource = list;
-            _view.CBXChuyenNganhN.Properties.DisplayMember = "tenChuyenNganh";
-            _view.CBXChuyenNganhN.Properties.ValueMember = "idChuyenNganh";
-            _view.CBXChuyenNganhN.Properties.DropDownRows = list.Count;
-            _view.CBXChuyenNganhN.Properties.Columns[0].Visible = false;
+            nganhDaoTaoNChanged = true;
+            if (_view.CBXNganhDaoTaoN.Text != string.Empty)
+            {
+                UnitOfWorks unitOfWorks = new UnitOfWorks(new QLNSSGU_1Entities());
+                int idnganhdaotao = Convert.ToInt32(_view.CBXNganhDaoTaoN.EditValue);
+                int idloainganh = unitOfWorks.NganhDaoTaoRepository.GetIdLoaiNganhByIdNganhDaoTao(idnganhdaotao);
+                _view.CBXLoaiNganhHHHV.EditValue = idloainganh;
+                List<ChuyenNganh> list = unitOfWorks.ChuyenNganhRepository.GetListChuyenNganhByIdNganhDaoTao(idnganhdaotao);
+                _view.CBXChuyenNganhHHHV.Properties.DisplayMember = "tenChuyenNganh";
+                _view.CBXChuyenNganhHHHV.Properties.ValueMember = "idChuyenNganh";
+                _view.CBXChuyenNganhHHHV.Properties.DataSource = list;
+                _view.CBXChuyenNganhHHHV.Properties.DropDownRows = list.Count;
+                _view.CBXChuyenNganhHHHV.Properties.Columns[0].Visible = false;
+            }
+        }
+
+        public void LoaiNganhNChanged(object sender, EventArgs e)
+        {
+            loaiNganhNChanged = true;
+            if (_view.CBXLoaiNganhN.Text != string.Empty)
+            {
+                UnitOfWorks unitOfWorks = new UnitOfWorks(new QLNSSGU_1Entities());
+                int idloainganh = Convert.ToInt32(_view.CBXLoaiNganhN.EditValue);
+                List<NganhDaoTao> list = unitOfWorks.NganhDaoTaoRepository.GetListNganhDaoTaoByIdLoaiNganh(idloainganh);
+                _view.CBXNganhDaoTaoN.Properties.DisplayMember = "tenNganhDaoTao";
+                _view.CBXNganhDaoTaoN.Properties.ValueMember = "idNganhDaoTao";
+                _view.CBXNganhDaoTaoN.Properties.DataSource = list;
+                _view.CBXNganhDaoTaoN.Properties.DropDownRows = list.Count;
+                _view.CBXNganhDaoTaoN.Properties.Columns[0].Visible = false;
+            }
+        }
+
+        public void ChuyenNganhNChanged(object sender, EventArgs e)
+        {
+            chuyenNganhNChanged = true;
+            if (_view.CBXChuyenNganhN.Text != string.Empty)
+            {
+                UnitOfWorks unitOfWorks = new UnitOfWorks(new QLNSSGU_1Entities());
+                if (_view.CBXLoaiNganhN.Text == string.Empty && _view.CBXNganhDaoTaoN.Text == string.Empty)
+                {
+                    int idchuyennganh = Convert.ToInt32(_view.CBXChuyenNganhN.EditValue);
+                    int idnganhdaotao = unitOfWorks.NganhDaoTaoRepository.GetIdNganhDaoTaoByIdChuyenNganh(idchuyennganh);
+                    int idloainganh = unitOfWorks.LoaiNganhRepository.GetIdLoaiNganhByIdNganhDaoTao(idnganhdaotao);
+                    _view.CBXLoaiNganhN.EditValue = idloainganh;
+                    _view.CBXNganhDaoTaoN.EditValue = idnganhdaotao;
+                }
+                if (_view.CBXLoaiNganhN.Text != string.Empty && _view.CBXNganhDaoTaoN.Text == string.Empty)
+                {
+                    int idchuyennganh = Convert.ToInt32(_view.CBXChuyenNganhN.EditValue);
+                    int idnganhdaotao = unitOfWorks.NganhDaoTaoRepository.GetIdNganhDaoTaoByIdChuyenNganh(idchuyennganh);
+                    _view.CBXNganhDaoTaoN.EditValue = idnganhdaotao;
+                }
+            }
+        }
+
+        public void TenHocHamHocViNChanged(object sender, EventArgs e)
+        {
+            tenHocHamHocViNChanged = true;
+        }
+
+        public void NgayBatDauNChanged(object sender, EventArgs e)
+        {
+            ngayBatDauNChanged = true;
+        }
+
+        public void NgayKetThucNChanged(object sender, EventArgs e)
+        {
+            ngayKetThucNChanged = true;
+        }
+
+        public void TrinhDoDayNChanged(object sender, EventArgs e)
+        {
+            trinhDoDayNChanged = true;
+        }
+
+        public void PhanLoaiNChanged(object sender, EventArgs e)
+        {
+            phanLoaiNChanged = true;
+        }
+
+        public void LinkVanBanDinhKemNChanged(object sender, EventArgs e)
+        {
+            linkVanBanDinhKemNChanged = true;
         }
         #endregion
         #region ChungChi
-        private bool loaiChungChiOrCapDoChanged = false;
+        private bool loaiChungChiChanged = false;
+        private bool capDoChungChiChanged = false;
         private bool ngayCapChungChiChanged = false;
         private bool ghiChuChungChiChanged = false;
         private bool linkVanBanDinhKemChungChiChanged = false;
@@ -1327,7 +1581,7 @@ namespace QLNS_SGU.Presenter
             _view.CBXLoaiChungChi.Properties.DataSource = listTenLoaiChungChi;
             _view.CBXLoaiChungChi.Properties.DropDownRows = listTenLoaiChungChi.Count;
 
-            List<string> listCapDoChungChi = unitOfWorks.LoaiChungChiRepository.GetListCapDoChungChi();
+            List<string> listCapDoChungChi = unitOfWorks.NganhVienChucRepository.GetListCapDoChungChi();
             AutoCompleteStringCollection capdoSource = new AutoCompleteStringCollection();
             listCapDoChungChi.ForEach(x => capdoSource.Add(x)); // autocompleteStringCollection if add null value app will be crashed
             _view.TXTCapDoChungChi.MaskBox.AutoCompleteSource = AutoCompleteSource.CustomSource;
@@ -1350,14 +1604,15 @@ namespace QLNS_SGU.Presenter
             UnitOfWorks unitOfWorks = new UnitOfWorks(new QLNSSGU_1Entities());
             string mavienchuc = _view.TXTMaVienChuc.Text;
             string loaichungchi = _view.CBXLoaiChungChi.Text;
-            string capdo = _view.TXTCapDoChungChi.Text;
-            int idloaichungchi = unitOfWorks.LoaiChungChiRepository.GetIdLoaiChungChi(loaichungchi, capdo);
+            string capdo = _view.TXTCapDoChungChi.Text.Trim();
+            int idloaichungchi = unitOfWorks.LoaiChungChiRepository.GetIdLoaiChungChi(loaichungchi);
             if (idloaichungchi > 0)
             {
                 unitOfWorks.ChungChiVienChucRepository.Insert(new ChungChiVienChuc
                 {
                     idVienChuc = unitOfWorks.VienChucRepository.GetIdVienChuc(mavienchuc),
                     idLoaiChungChi = idloaichungchi,
+                    capDoChungChi = capdo,
                     ngayCapChungChi = unitOfWorks.HopDongVienChucRepository.ReturnDateTimeToDatabase(_view.DTNgayCapChungChi.Text),
                     ghiChu = _view.TXTGhiChuCC.Text,
                     linkVanBanDinhKem = _view.TXTGhiChuCC.Text
@@ -1365,8 +1620,8 @@ namespace QLNS_SGU.Presenter
                 unitOfWorks.Save();
                 LoadGridTabPageChungChi(_view.TXTMaVienChuc.Text);
                 XtraMessageBox.Show("Thêm dữ liệu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                MainPresenter.LoadGridChungChi();
                 SetDefaultValueControlCC();
+                MainPresenter.LoadGridChungChi();                
             }
             else XtraMessageBox.Show("Bạn chọn sai chứng chỉ hoặc cấp độ. Vui lòng chọn lại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
@@ -1377,10 +1632,15 @@ namespace QLNS_SGU.Presenter
             string tenloaichungchi = _view.CBXLoaiChungChi.EditValue.ToString();
             string capdo = _view.TXTCapDoChungChi.Text;
             ChungChiVienChuc chungChiVienChuc = unitOfWorks.ChungChiVienChucRepository.GetObjectById(idchungchivienchuc);
-            if (loaiChungChiOrCapDoChanged)
+            if (loaiChungChiChanged)
             {
-                chungChiVienChuc.idLoaiChungChi = unitOfWorks.LoaiChungChiRepository.GetIdLoaiChungChiByTenAndCapDo(tenloaichungchi, capdo);
-                loaiChungChiOrCapDoChanged = false;
+                chungChiVienChuc.idLoaiChungChi = unitOfWorks.LoaiChungChiRepository.GetIdLoaiChungChiByTen(tenloaichungchi);
+                loaiChungChiChanged = false;
+            }
+            if (capDoChungChiChanged)
+            {
+                chungChiVienChuc.capDoChungChi = capdo;
+                capDoChungChiChanged = false;
             }
             if (ngayCapChungChiChanged)
             {
@@ -1429,39 +1689,29 @@ namespace QLNS_SGU.Presenter
             if (checkAddNewCC)
             {
                 if (_view.TXTMaVienChuc.Text != string.Empty && maVienChucFromTabPageThongTinCaNhan == string.Empty)
-                {
-                    if (_view.CBXLoaiChungChi.Text != string.Empty && _view.TXTCapDoChungChi.Text != string.Empty)
-                    {
-                        InsertDataCC();
-                    }
+                {                    
                     if (_view.CBXLoaiChungChi.Text == string.Empty)
                     {
                         _view.CBXLoaiChungChi.ErrorText = "Vui lòng chọn chứng chỉ.";
                         _view.CBXLoaiChungChi.ErrorIconAlignment = ErrorIconAlignment.MiddleRight;
                     }
-                    if (_view.TXTCapDoChungChi.Text == string.Empty)
+                    if (_view.CBXLoaiChungChi.Text != string.Empty && _view.TXTCapDoChungChi.Text != string.Empty)
                     {
-                        _view.TXTCapDoChungChi.ErrorText = "Vui lòng chọn cấp độ.";
-                        _view.TXTCapDoChungChi.ErrorIconAlignment = ErrorIconAlignment.MiddleRight;
+                        InsertDataCC();
                     }
                 }
                 else if (_view.TXTMaVienChuc.Text == string.Empty && maVienChucFromTabPageThongTinCaNhan != string.Empty)
                 {
                     _view.TXTMaVienChuc.Text = maVienChucFromTabPageThongTinCaNhan;
-                    if (_view.CBXLoaiChungChi.Text != string.Empty && _view.TXTCapDoChungChi.Text != string.Empty)
-                    {
-                        InsertDataCC();
-                    }
                     if (_view.CBXLoaiChungChi.Text == string.Empty)
                     {
                         _view.CBXLoaiChungChi.ErrorText = "Vui lòng chọn chứng chỉ.";
                         _view.CBXLoaiChungChi.ErrorIconAlignment = ErrorIconAlignment.MiddleRight;
                     }
-                    if (_view.TXTCapDoChungChi.Text == string.Empty)
+                    if (_view.CBXLoaiChungChi.Text != string.Empty && _view.TXTCapDoChungChi.Text != string.Empty)
                     {
-                        _view.TXTCapDoChungChi.ErrorText = "Vui lòng chọn cấp độ.";
-                        _view.TXTCapDoChungChi.ErrorIconAlignment = ErrorIconAlignment.MiddleRight;
-                    }
+                        InsertDataCC();
+                    }                    
                 }
                 else XtraMessageBox.Show("Vui lòng thêm thông tin viên chức trước.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -1571,41 +1821,12 @@ namespace QLNS_SGU.Presenter
 
         public void LoaiChungChiChanged(object sender, EventArgs e)
         {
-            loaiChungChiOrCapDoChanged = true;
-            string tenloaichungchi = _view.CBXLoaiChungChi.Properties.DisplayMember;
-            if(tenloaichungchi != string.Empty)
-            {
-                UnitOfWorks unitOfWorks = new UnitOfWorks(new QLNSSGU_1Entities());
-                List<string> listCapDoChungChi = unitOfWorks.LoaiChungChiRepository.GetListCapDoChungChiByTenLoaiChungChi(tenloaichungchi);
-                AutoCompleteStringCollection capdoSource = new AutoCompleteStringCollection();
-                listCapDoChungChi.ForEach(x => capdoSource.Add(x));
-                _view.TXTCapDoChungChi.MaskBox.AutoCompleteSource = AutoCompleteSource.CustomSource;
-                _view.TXTCapDoChungChi.MaskBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-                _view.TXTCapDoChungChi.MaskBox.AutoCompleteCustomSource = capdoSource;
-            }
-            else
-            {
-                LoadCbxDataCC();
-            }
+            loaiChungChiChanged = true;
         }
 
         public void CapDoChungChiChanged(object sender, EventArgs e)
         {
-            loaiChungChiOrCapDoChanged = true;
-            string capdo = _view.TXTCapDoChungChi.Text;
-            if(capdo != string.Empty)
-            {
-                _view.CBXLoaiChungChi.Properties.DataSource = null;
-                _view.CBXLoaiChungChi.Properties.Columns.Clear();
-                UnitOfWorks unitOfWorks = new UnitOfWorks(new QLNSSGU_1Entities());
-                List<string> listTenLoaiChungChi = unitOfWorks.LoaiChungChiRepository.GetListTenLoaiChungChiByCapDo(capdo);
-                _view.CBXLoaiChungChi.Properties.DataSource = listTenLoaiChungChi;
-                _view.CBXLoaiChungChi.Properties.DropDownRows = listTenLoaiChungChi.Count;
-            }
-            else
-            {
-                LoadCbxDataCC();
-            }
+            capDoChungChiChanged = true;
         }
 
         public void NgayCapChungChiChanged(object sender, EventArgs e)
@@ -1621,7 +1842,7 @@ namespace QLNS_SGU.Presenter
         public void LinkVanBanDinhKemChungChiChanged(object sender, EventArgs e)
         {
             linkVanBanDinhKemChungChiChanged = true;
-        }     
+        }       
         #endregion
     }
 }

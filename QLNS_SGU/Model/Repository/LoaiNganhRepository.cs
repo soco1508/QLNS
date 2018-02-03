@@ -21,8 +21,6 @@ namespace Model.Repository
 
         public List<LoaiNganh> GetListLoaiNganh()
         {
-            //var list = _db.LoaiNganhs.Select(x => new { x.idLoaiNganh, x.tenLoaiNganh});
-            //return list.AsEnumerable().Select(y => new LoaiNganh { idLoaiNganh = y.idLoaiNganh, tenLoaiNganh = y.tenLoaiNganh}).ToList();
             return _db.LoaiNganhs.ToList();
         }
 
@@ -62,6 +60,11 @@ namespace Model.Repository
         public int GetIdLoaiNganhByIdNganhDaoTao(int idnganhdaotao)
         {
             return _db.NganhDaoTaos.Where(x => x.idNganhDaoTao == idnganhdaotao).Select(y => y.idLoaiNganh).FirstOrDefault();
+        }
+
+        public int GetIdLoaiNganhEmpty()
+        {
+            return _db.LoaiNganhs.Where(x => x.tenLoaiNganh == string.Empty).Select(y => y.idLoaiNganh).FirstOrDefault();
         }
     }
 }

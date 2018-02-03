@@ -227,6 +227,6 @@ namespace QLNS_SGU.Presenter
         {
             if (e.RowHandle >= 0)
                 e.Info.DisplayText = (e.RowHandle + 1).ToString();
-        }
+        }       
     }
 }

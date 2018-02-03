@@ -195,7 +195,7 @@ namespace QLNS_SGU.Presenter
             UnitOfWorks unitOfWorks = new UnitOfWorks(new QLNSSGU_1Entities());
             _view.CBXChucVu.ErrorText = string.Empty;
             _view.DTNgayBatDau.ErrorText = string.Empty;
-            _view.CBXChucVu.Text = string.Empty;
+            _view.CBXChucVu.EditValue = unitOfWorks.ChucVuRepository.GetIdChucVuByTenChucVu(string.Empty);
             _view.CBXDonVi.EditValue = unitOfWorks.DonViRepository.GetIdDonVi(string.Empty);
             _view.CBXToChuyenMon.EditValue = unitOfWorks.ToChuyenMonRepository.GetIdToChuyenMon(string.Empty, string.Empty);
             _view.CBXPhanLoai.EditValue = string.Empty;
@@ -231,8 +231,8 @@ namespace QLNS_SGU.Presenter
             unitOfWorks.Save();
             LoadGridTabPageQuaTrinhCongTac(_view.TXTMaVienChuc.Text);
             XtraMessageBox.Show("Thêm dữ liệu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            MainPresenter.RefreshMainGridAndRightViewQuaTrinhCongTac();
             SetDefaultValueControlQTCT();
+            MainPresenter.RefreshMainGridAndRightViewQuaTrinhCongTac();            
         }
         private void UpdateDataQTCT()
         {
@@ -382,7 +382,7 @@ namespace QLNS_SGU.Presenter
                 string phanloaicongtac = _view.GVTabPageQuaTrinhCongTac.GetFocusedRowCellDisplayText("PhanLoaiCongTac").ToString();
                 string loaithaydoi = _view.GVTabPageQuaTrinhCongTac.GetFocusedRowCellDisplayText("LoaiThayDoi").ToString();
                 string linkvanbandinhkem = _view.GVTabPageQuaTrinhCongTac.GetFocusedRowCellDisplayText("LinkVanBanDinhKem").ToString();
-                _view.CBXChucVu.EditValue = unitOfWorks.ChucVuRepository.GetIdChucVu(chucvu);
+                _view.CBXChucVu.EditValue = unitOfWorks.ChucVuRepository.GetIdChucVuByTenChucVu(chucvu);
                 _view.CBXDonVi.EditValue = unitOfWorks.DonViRepository.GetIdDonVi(donvi);
                 _view.CBXToChuyenMon.EditValue = unitOfWorks.ToChuyenMonRepository.GetIdToChuyenMon(donvi, tochuyenmon);
                 _view.CBXPhanLoai.EditValue = checkphanloaicongtac;
@@ -401,11 +401,7 @@ namespace QLNS_SGU.Presenter
             if (checkAddNewQTCT)
             {
                 if (_view.TXTMaVienChuc.Text != string.Empty && maVienChucFromTabPageThongTinCaNhan == string.Empty)
-                {
-                    if (_view.CBXChucVu.Text != string.Empty && _view.DTNgayBatDau.Text != string.Empty)
-                    {
-                        InsertDataQTCT();
-                    }
+                {                   
                     if (_view.CBXChucVu.Text == string.Empty)
                     {
                         _view.CBXChucVu.ErrorText = "Vui lòng chọn chức vụ.";
@@ -415,15 +411,15 @@ namespace QLNS_SGU.Presenter
                     {
                         _view.DTNgayBatDau.ErrorText = "Vui lòng chọn ngày bắt đầu.";
                         _view.DTNgayBatDau.ErrorIconAlignment = ErrorIconAlignment.MiddleRight;
+                    }
+                    if (_view.CBXChucVu.Text != string.Empty && _view.DTNgayBatDau.Text != string.Empty)
+                    {
+                        InsertDataQTCT();
                     }
                 }
                 else if (_view.TXTMaVienChuc.Text == string.Empty && maVienChucFromTabPageThongTinCaNhan != string.Empty)
                 {
                     _view.TXTMaVienChuc.Text = maVienChucFromTabPageThongTinCaNhan;
-                    if (_view.CBXChucVu.Text != string.Empty && _view.DTNgayBatDau.Text != string.Empty)
-                    {
-                        InsertDataQTCT();
-                    }
                     if (_view.CBXChucVu.Text == string.Empty)
                     {
                         _view.CBXChucVu.ErrorText = "Vui lòng chọn chức vụ.";
@@ -433,6 +429,10 @@ namespace QLNS_SGU.Presenter
                     {
                         _view.DTNgayBatDau.ErrorText = "Vui lòng chọn ngày bắt đầu.";
                         _view.DTNgayBatDau.ErrorIconAlignment = ErrorIconAlignment.MiddleRight;
+                    }
+                    if (_view.CBXChucVu.Text != string.Empty && _view.DTNgayBatDau.Text != string.Empty)
+                    {
+                        InsertDataQTCT();
                     }
                 }
                 else XtraMessageBox.Show("Vui lòng thêm thông tin viên chức trước.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -604,8 +604,8 @@ namespace QLNS_SGU.Presenter
             unitOfWorks.Save();
             LoadGridTabPageHopDong(_view.TXTMaVienChuc.Text);
             XtraMessageBox.Show("Thêm dữ liệu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            MainPresenter.SetValueLbHopDong();
             SetDefaultValueControlHD();
+            MainPresenter.SetValueLbHopDong();            
         }
         private void UpdateDataHD()
         {

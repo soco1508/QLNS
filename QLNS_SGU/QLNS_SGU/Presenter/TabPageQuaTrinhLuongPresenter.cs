@@ -199,11 +199,7 @@ namespace QLNS_SGU.Presenter
             if (checkAddNew)
             {
                 if (_view.TXTMaVienChuc.Text != string.Empty && maVienChucFromTabPageThongTinCaNhan == string.Empty)
-                {
-                    if (_view.CBXMaNgach.Text != string.Empty && _view.CBXBac.Text != string.Empty)
-                    {
-                        InsertData();
-                    }
+                {                    
                     if (_view.CBXMaNgach.Text == string.Empty)
                     {
                         _view.CBXMaNgach.ErrorText = "Vui lòng chọn ngạch.";
@@ -213,15 +209,15 @@ namespace QLNS_SGU.Presenter
                     {
                         _view.CBXBac.ErrorText = "Vui lòng chọn bậc.";
                         _view.CBXBac.ErrorIconAlignment = ErrorIconAlignment.MiddleRight;
+                    }
+                    if (_view.CBXMaNgach.Text != string.Empty && _view.CBXBac.Text != string.Empty)
+                    {
+                        InsertData();
                     }
                 }
                 else if (_view.TXTMaVienChuc.Text == string.Empty && maVienChucFromTabPageThongTinCaNhan != string.Empty)
                 {
-                    _view.TXTMaVienChuc.Text = maVienChucFromTabPageThongTinCaNhan;
-                    if (_view.CBXMaNgach.Text != string.Empty && _view.CBXBac.Text != string.Empty)
-                    {
-                        InsertData();
-                    }
+                    _view.TXTMaVienChuc.Text = maVienChucFromTabPageThongTinCaNhan;                    
                     if (_view.CBXMaNgach.Text == string.Empty)
                     {
                         _view.CBXMaNgach.ErrorText = "Vui lòng chọn ngạch.";
@@ -231,6 +227,10 @@ namespace QLNS_SGU.Presenter
                     {
                         _view.CBXBac.ErrorText = "Vui lòng chọn bậc.";
                         _view.CBXBac.ErrorIconAlignment = ErrorIconAlignment.MiddleRight;
+                    }
+                    if (_view.CBXMaNgach.Text != string.Empty && _view.CBXBac.Text != string.Empty)
+                    {
+                        InsertData();
                     }
                 }
                 else XtraMessageBox.Show("Vui lòng thêm thông tin viên chức trước.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);

@@ -60,14 +60,6 @@ namespace QLNS_SGU.Presenter
             _view.CBXTonGiao.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("idTonGiao", string.Empty));
             _view.CBXTonGiao.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("tenTonGiao", string.Empty));
             _view.CBXTonGiao.Properties.Columns[0].Visible = false;
-            List<ChinhTri> listChinhTri = unitOfWorks.ChinhTriRepository.GetListChinhTri();
-            _view.CBXChinhTri.Properties.DataSource = listChinhTri;
-            _view.CBXChinhTri.Properties.DisplayMember = "tenChinhTri";
-            _view.CBXChinhTri.Properties.ValueMember = "idChinhTri";
-            _view.CBXChinhTri.Properties.DropDownRows = listChinhTri.Count;
-            _view.CBXChinhTri.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("idChinhTri", string.Empty));
-            _view.CBXChinhTri.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("tenChinhTri", string.Empty));
-            _view.CBXChinhTri.Properties.Columns[0].Visible = false;
             List<QuanLyNhaNuoc> listQuanLyNhaNuoc = unitOfWorks.QuanLyNhaNuocRepository.GetListQuanLyNhaNuoc();
             _view.CBXQuanLyNhaNuoc.Properties.DataSource = listQuanLyNhaNuoc;
             _view.CBXQuanLyNhaNuoc.Properties.DisplayMember = "tenQuanLyNhaNuoc";
@@ -83,7 +75,6 @@ namespace QLNS_SGU.Presenter
             _view.CBXDanToc.EditValue = unitOfWorks.DanTocRepository.SelectIdEmptyValue();
             _view.CBXTonGiao.EditValue = unitOfWorks.TonGiaoRepository.SelectIdEmptyValue(x => x.tenTonGiao == string.Empty);
             _view.CBXQuanLyNhaNuoc.EditValue = unitOfWorks.QuanLyNhaNuocRepository.SelectIdEmptyValue();
-            _view.CBXChinhTri.EditValue = unitOfWorks.ChinhTriRepository.SelectIdEmptyValue();
         }
         private byte[] ConvertImageToBinary(string filename)
         {
@@ -134,20 +125,11 @@ namespace QLNS_SGU.Presenter
                     idDanToc = Convert.ToInt32(_view.CBXDanToc.EditValue),
                     idTonGiao = Convert.ToInt32(_view.CBXTonGiao.EditValue),
                     vanHoa = _view.TXTVanHoa.Text,
-                    idChinhTri = Convert.ToInt32(_view.CBXChinhTri.EditValue),
                     idQuanLyNhaNuoc = Convert.ToInt32(_view.CBXQuanLyNhaNuoc.EditValue),
                     hoKhauThuongTru = _view.TXTHoKhauThuongTru.Text,
                     noiOHienNay = _view.TXTNoiOHienNay.Text,
                     ghiChu = _view.TXTGhiChu.Text,
                     anh = ConvertImageToBinary(_view.PICVienChuc.GetLoadedImageLocation())
-                });
-                unitOfWorks.ChucVuDonViVienChucRepository.Insert(new ChucVuDonViVienChuc
-                {
-                    idVienChuc = unitOfWorks.VienChucRepository.GetIdVienChuc(mavienchuc),
-                    idChucVu = unitOfWorks.ChucVuRepository.GetIdChucVu(string.Empty),
-                    idDonVi = unitOfWorks.DonViRepository.GetIdDonVi(string.Empty),
-                    idToChuyenMon = unitOfWorks.ToChuyenMonRepository.GetIdToChuyenMon(string.Empty, string.Empty),
-                    ngayBatDau = Convert.ToDateTime("01/01/2000")
                 });
                 unitOfWorks.Save();
                 MainPresenter.LoadDataToMainGrid();
@@ -184,7 +166,6 @@ namespace QLNS_SGU.Presenter
             vienChuc.idDanToc = Convert.ToInt32(_view.CBXDanToc.EditValue);
             vienChuc.idTonGiao = Convert.ToInt32(_view.CBXTonGiao.EditValue);
             vienChuc.vanHoa = _view.TXTVanHoa.Text;
-            vienChuc.idChinhTri = Convert.ToInt32(_view.CBXChinhTri.EditValue);
             vienChuc.idQuanLyNhaNuoc = Convert.ToInt32(_view.CBXQuanLyNhaNuoc.EditValue);
             vienChuc.hoKhauThuongTru = _view.TXTHoKhauThuongTru.Text;
             vienChuc.noiOHienNay = _view.TXTNoiOHienNay.Text;
@@ -223,7 +204,6 @@ namespace QLNS_SGU.Presenter
                 _view.CBXDanToc.EditValue = vienChuc.idDanToc;
                 _view.CBXTonGiao.EditValue = vienChuc.idTonGiao;
                 _view.CBXQuanLyNhaNuoc.EditValue = vienChuc.idQuanLyNhaNuoc;
-                _view.CBXChinhTri.EditValue = vienChuc.idChinhTri;
                 _view.TXTGhiChu.Text = vienChuc.ghiChu;
             }
             else

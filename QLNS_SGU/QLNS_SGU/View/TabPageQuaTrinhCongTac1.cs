@@ -24,6 +24,7 @@ namespace QLNS_SGU.View
         OpenFileDialog OpenFileDialog { get; set; }
         SaveFileDialog SaveFileDialog { get; set; }
         //QTCT
+        SimpleButton BTNExportExcelQTCT { get; set; }
         GridControl GCTabPageQuaTrinhCongTac { get; set; }
         GridView GVTabPageQuaTrinhCongTac { get; set; }
         TextEdit TXTMaVienChuc { get; set; }
@@ -40,6 +41,7 @@ namespace QLNS_SGU.View
         DateEdit DTNgayBatDau { get; set; }
         DateEdit DTNgayKetThuc { get; set; }
         //HD
+        SimpleButton BTNExportExcelHD { get; set; }
         GridControl GCTabPageHopDong { get; set; }
         GridView GVTabPageHopDong { get; set; }
         LookUpEdit CBXLoaiHopDong { get; set; }
@@ -59,6 +61,7 @@ namespace QLNS_SGU.View
         public OpenFileDialog OpenFileDialog { get => openFileDialog1; set => openFileDialog1 = value; }
         public SaveFileDialog SaveFileDialog { get => saveFileDialog1; set => saveFileDialog1 = value; }
         //QTCT
+        public SimpleButton BTNExportExcelQTCT { get => btnExportExcelQTCT; set => btnExportExcelQTCT = value; }
         public GridControl GCTabPageQuaTrinhCongTac { get => gcTabPageQuaTrinhCongTac; set => gcTabPageQuaTrinhCongTac = value; }
         public GridView GVTabPageQuaTrinhCongTac { get => gvTabPageQuaTrinhCongTac; set => gvTabPageQuaTrinhCongTac = value; }
         public TextEdit TXTMaVienChuc { get => txtMaVienChuc; set => txtMaVienChuc = value; }
@@ -75,6 +78,7 @@ namespace QLNS_SGU.View
         public DateEdit DTNgayBatDau { get => dtNgayBatDau; set => dtNgayBatDau = value; }
         public DateEdit DTNgayKetThuc { get => dtNgayKetThuc; set => dtNgayKetThuc = value; }
         //HD
+        public SimpleButton BTNExportExcelHD { get => btnExportExcelHD; set => btnExportExcelHD = value; }
         public GridControl GCTabPageHopDong { get => gcHopDong; set => gcHopDong = value; }
         public GridView GVTabPageHopDong { get => gvHopDong; set => gvHopDong = value; }
         public LookUpEdit CBXLoaiHopDong { get => cbxLoaiHopDong; set => cbxLoaiHopDong = value; }
@@ -88,13 +92,13 @@ namespace QLNS_SGU.View
             Load += (s, e) => presenter.LoadForm();
             //QTCT           
             gvTabPageQuaTrinhCongTac.Click += (s, e) => presenter.ClickRowAndShowInfoQTCT();
-            btnUploadCV.Click += (s, e) => presenter.UploadFileToGoogleDriveQTCT();
-            btnDownloadCV.Click += (s, e) => presenter.DownloadFileToDeviceQTCT();
-            btnEditCV.Click += (s, e) => presenter.SaveQTCT();
-            btnRefreshCV.Click += (s, e) => presenter.RefreshQTCT();
-            btnAddCV.Click += (s, e) => presenter.AddQTCT();
-            btnDeleteCV.Click += (s, e) => presenter.DeleteQTCT();
-            btnExportExcelCV.Click += (s, e) => presenter.ExportExcelQTCT();
+            btnUploadQTCT.Click += (s, e) => presenter.UploadFileToGoogleDriveQTCT();
+            btnDownloadQTCT.Click += (s, e) => presenter.DownloadFileToDeviceQTCT();
+            btnEditQTCT.Click += (s, e) => presenter.SaveQTCT();
+            btnRefreshQTCT.Click += (s, e) => presenter.RefreshQTCT();
+            btnAddQTCT.Click += (s, e) => presenter.AddQTCT();
+            btnDeleteQTCT.Click += (s, e) => presenter.DeleteQTCT();
+            btnExportExcelQTCT.Click += (s, e) => presenter.ExportExcelQTCT();
             cbxChucVu.EditValueChanged += new EventHandler(presenter.ChucVuChanged);
             cbxDonVi.EditValueChanged += new EventHandler(presenter.DonViChanged);
             cbxToChuyenMon.EditValueChanged += new EventHandler(presenter.ToChuyenMonChanged);

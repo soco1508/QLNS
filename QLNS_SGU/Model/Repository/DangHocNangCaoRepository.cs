@@ -141,52 +141,116 @@ namespace Model.Repository
             _db.DangHocNangCaos.Remove(a);
         }
 
-        public DangHocNangCao GetObjectByIdVienChucAndTimeline(int idVienChuc, DateTime dtTimeline)
+        public DangHocNangCao GetMaxLoaiHocHamHocVi(List<DangHocNangCao> list)
+        {
+            DangHocNangCao dangHocNangCao = null;
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (list[i].LoaiHocHamHocVi.tenLoaiHocHamHocVi.Equals("Giáo sư"))
+                {
+                    dangHocNangCao = new DangHocNangCao(list[i]);
+                    break;
+                }
+                if (list[i].LoaiHocHamHocVi.tenLoaiHocHamHocVi.Equals("Phó giáo sư"))
+                {
+                    dangHocNangCao = new DangHocNangCao(list[i]);
+                    break;
+                }
+                if (list[i].LoaiHocHamHocVi.tenLoaiHocHamHocVi.Equals("Tiến sĩ"))
+                {
+                    dangHocNangCao = new DangHocNangCao(list[i]);
+                    break;
+                }
+                if (list[i].LoaiHocHamHocVi.tenLoaiHocHamHocVi.Equals("Thạc sĩ"))
+                {
+                    dangHocNangCao = new DangHocNangCao(list[i]);
+                    break;
+                }
+                if (list[i].LoaiHocHamHocVi.tenLoaiHocHamHocVi.Equals("Đại học"))
+                {
+                    dangHocNangCao = new DangHocNangCao(list[i]);
+                    break;
+                }
+                if (list[i].LoaiHocHamHocVi.tenLoaiHocHamHocVi.Equals("Cao đẳng"))
+                {
+                    dangHocNangCao = new DangHocNangCao(list[i]);
+                    break;
+                }
+                if (list[i].LoaiHocHamHocVi.tenLoaiHocHamHocVi.Equals("Trung cấp"))
+                {
+                    dangHocNangCao = new DangHocNangCao(list[i]);
+                    break;
+                }
+                if (list[i].LoaiHocHamHocVi.tenLoaiHocHamHocVi.Equals("Phổ thông"))
+                {
+                    dangHocNangCao = new DangHocNangCao(list[i]);
+                    break;
+                }
+                if (list[i].LoaiHocHamHocVi.tenLoaiHocHamHocVi.Equals("Khác"))
+                {
+                    dangHocNangCao = new DangHocNangCao(list[i]);
+                    break;
+                }
+            }
+            return dangHocNangCao;
+        }
+
+        public DangHocNangCao GetDangHocNangCaoByIdVienChucAndTimelineForExportOne(int idVienChuc, DateTime dtTimeline)
         {
             var rows = _db.DangHocNangCaos.Where(x => x.idVienChuc == idVienChuc);
-            DangHocNangCao obj = null;
+            List<DangHocNangCao> listDangHocNangCao = new List<DangHocNangCao>();
             foreach (var row in rows)
             {
                 if (row.ngayKetThuc != null)
                 {
                     if (row.ngayBatDau <= dtTimeline && row.ngayKetThuc >= dtTimeline)
                     {
-                        obj = new DangHocNangCao(rows.Where(x => x.idDangHocNangCao == row.idDangHocNangCao).FirstOrDefault());
+                        listDangHocNangCao.Add(row);
                     }
                 }
                 else
                 {
                     if (row.ngayBatDau <= dtTimeline)
                     {
-                        obj = new DangHocNangCao(rows.Where(x => x.idDangHocNangCao == row.idDangHocNangCao).FirstOrDefault());
+                        listDangHocNangCao.Add(row);
                     }
                 }
             }
-            return obj;
+            if(listDangHocNangCao.Count > 0)
+            {
+                DangHocNangCao dangHocNangCao = GetMaxLoaiHocHamHocVi(listDangHocNangCao);
+                return dangHocNangCao;
+            }
+            return null;            
         }
 
-        public DangHocNangCao GetObjectByIdVienChucAndPeriodOfTime(int idVienChuc, DateTime dtFromPeriodOfTime, DateTime dtToPeriodOfTime)
+        public DangHocNangCao GetDangHocNangCaoByIdVienChucAndDurationForExportOne(int idVienChuc, DateTime dtFromDuration, DateTime dtToDuration)
         {
             var rows = _db.DangHocNangCaos.Where(x => x.idVienChuc == idVienChuc);
-            DangHocNangCao obj = null;
+            List<DangHocNangCao> listDangHocNangCao = new List<DangHocNangCao>();
             foreach (var row in rows)
             {
                 if (row.ngayKetThuc != null)
                 {
-                    if (row.ngayBatDau >= dtFromPeriodOfTime && row.ngayKetThuc <= dtToPeriodOfTime)
+                    if (row.ngayBatDau >= dtFromDuration && row.ngayKetThuc <= dtToDuration)
                     {
-                        obj = new DangHocNangCao(rows.Where(x => x.idDangHocNangCao == row.idDangHocNangCao).OrderByDescending(y => y.idDangHocNangCao).FirstOrDefault());
+                        listDangHocNangCao.Add(row);
                     }
                 }
                 else
                 {
-                    if (row.ngayBatDau >= dtFromPeriodOfTime)
+                    if (row.ngayBatDau >= dtFromDuration)
                     {
-                        obj = new DangHocNangCao(rows.Where(x => x.idDangHocNangCao == row.idDangHocNangCao).OrderByDescending(y => y.idDangHocNangCao).FirstOrDefault());
+                        listDangHocNangCao.Add(row);
                     }
                 }
             }
-            return obj;
+            if (listDangHocNangCao.Count > 0)
+            {
+                DangHocNangCao dangHocNangCao = GetMaxLoaiHocHamHocVi(listDangHocNangCao);
+                return dangHocNangCao;
+            }
+            return null;
         }
 
         public List<string> GetListCoSoDaoTao()
@@ -212,6 +276,54 @@ namespace Model.Repository
         public List<string> GetListLinkAnhQuyetDinh(string maVienChucForGetListLinkAnhQuyetDinh)
         {
             return _db.DangHocNangCaos.Where(x => x.VienChuc.maVienChuc == maVienChucForGetListLinkAnhQuyetDinh).Select(y => y.linkAnhQuyetDinh).ToList();
+        }
+
+        public List<DangHocNangCao> GetListDangHocNangCaoByIdVienChucAndDurationForExportFull(int idVienChuc, DateTime dtFromDuration, DateTime dtToDuration)
+        {
+            var rows = _db.DangHocNangCaos.Where(x => x.idVienChuc == idVienChuc);
+            List<DangHocNangCao> listDangHocNangCao = new List<DangHocNangCao>();
+            foreach (var row in rows)
+            {
+                if (row.ngayKetThuc != null)
+                {
+                    if (row.ngayBatDau >= dtFromDuration && row.ngayKetThuc <= dtToDuration)
+                    {
+                        listDangHocNangCao.Add(row);
+                    }
+                }
+                else
+                {
+                    if (row.ngayBatDau >= dtFromDuration)
+                    {
+                        listDangHocNangCao.Add(row);
+                    }
+                }
+            }
+            return listDangHocNangCao;
+        }
+
+        public List<DangHocNangCao> GetListDangHocNangCaoByIdVienChucAndTimelineForExportFull(int idVienChuc, DateTime dtTimeline)
+        {
+            var rows = _db.DangHocNangCaos.Where(x => x.idVienChuc == idVienChuc);
+            List<DangHocNangCao> listDangHocNangCao = new List<DangHocNangCao>();
+            foreach (var row in rows)
+            {
+                if (row.ngayKetThuc != null)
+                {
+                    if (row.ngayBatDau <= dtTimeline && row.ngayKetThuc >= dtTimeline)
+                    {
+                        listDangHocNangCao.Add(row);
+                    }
+                }
+                else
+                {
+                    if (row.ngayBatDau <= dtTimeline)
+                    {
+                        listDangHocNangCao.Add(row);
+                    }
+                }
+            }
+            return listDangHocNangCao;
         }
     }
 }

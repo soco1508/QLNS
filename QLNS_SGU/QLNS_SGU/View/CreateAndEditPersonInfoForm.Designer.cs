@@ -62,6 +62,7 @@
             this.ClientSize = new System.Drawing.Size(1100, 701);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
+            this.MaximizeBox = false;
             this.Name = "CreateAndEditPersonInfoForm";
             this.Text = "Quản lý hồ sơ viên chức";
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).EndInit();

@@ -331,6 +331,18 @@
     </dependentAssembly>
   </dependency>
   <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DevExpress.Images.v17.1.dll" size="4293360">
+      <assemblyIdentity name="DevExpress.Images.v17.1" version="17.1.3.0" publicKeyToken="B88D1754D700E49A" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>LKH25ljGVS7NYBbf4kGVNDKqACfRePT5+pvI40JVWK8=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DevExpress.Office.v17.1.Core.dll" size="2056432">
       <assemblyIdentity name="DevExpress.Office.v17.1.Core" version="17.1.3.0" publicKeyToken="B88D1754D700E49A" language="neutral" processorArchitecture="msil" />
       <hash>
@@ -2107,14 +2119,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Model.dll" size="331264">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Model.dll" size="340480">
       <assemblyIdentity name="Model" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>YslGOCNHLuNfuBBtGWTItjpjaRSQOAg7MKam7qRrN+I=</dsig:DigestValue>
+        <dsig:DigestValue>6LbdIfHsjOXja2XPULIEaR0fvYS2IGUBAA3QM+FGhwo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -2131,14 +2143,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="QLNS_SGU.exe" size="1417624">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="QLNS_SGU.exe" size="1462680">
       <assemblyIdentity name="QLNS_SGU" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>6TAYeAyJbM7qrrXit3Yy8oikTu+e6lI/wyKXcus4vI8=</dsig:DigestValue>
+        <dsig:DigestValue>bVwl/3mCOlAjlwkMMLCJk07j1eZZfwvBpjeRRlpODWM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -2178,13 +2190,13 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="QLNS_SGU.exe.config" size="2748">
+  <file name="QLNS_SGU.exe.config" size="2775">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>XeZBZWdz3el+6/cp8amAf+OksAIQNVYUpTr+9PgRcAg=</dsig:DigestValue>
+      <dsig:DigestValue>cRMI6BZY4t6PYWpBklCF8d6OFfwSrCpAUcyXT9xpQRk=</dsig:DigestValue>
     </hash>
   </file>
   <file name="users.ico" size="67646">

@@ -26,7 +26,7 @@ namespace Model.Repository
                     Id = listChungChiVienChuc[i].idChungChiVienChuc,
                     IdLoaiChungChi = listChungChiVienChuc[i].idLoaiChungChi,
                     LoaiChungChi = listChungChiVienChuc[i].LoaiChungChi.tenLoaiChungChi,
-                    CapDo = listChungChiVienChuc[i].LoaiChungChi.capDo,
+                    CapDo = listChungChiVienChuc[i].capDoChungChi,
                     NgayCapChungChi = listChungChiVienChuc[i].ngayCapChungChi,
                     LinkVanBanDinhKem = listChungChiVienChuc[i].linkVanBanDinhKem,
                     GhiChu = listChungChiVienChuc[i].ghiChu
@@ -48,6 +48,56 @@ namespace Model.Repository
         public ChungChiVienChuc GetObjectByIdVienChuc(int idVienChuc)
         {
             return _db.ChungChiVienChucs.Where(x => x.idVienChuc == idVienChuc).OrderByDescending(y => y.idChungChiVienChuc).FirstOrDefault();
+        }
+
+        public List<ChungChiVienChuc> GetListChungChiByIdVienChucAndDurationForExportFull(int idvienchuc, DateTime dtFromDuration, DateTime dtToDuration)
+        {
+            return _db.ChungChiVienChucs.Where(x => x.idVienChuc == idvienchuc && x.ngayCapChungChi >= dtFromDuration && x.ngayCapChungChi <= dtToDuration).ToList();
+        }
+
+        public List<ChungChiVienChuc> GetListChungChiByIdVienChucAndTimelineForExportFull(int idvienchuc, DateTime dtTimeline)
+        {
+            return _db.ChungChiVienChucs.Where(x => x.idVienChuc == idvienchuc && x.ngayCapChungChi <= dtTimeline).ToList();
+        }
+
+        public ChungChiVienChuc GetChungChiNgoaiNguByIdVienChucAndDuration(int idvienchuc, DateTime dtFromDuration, DateTime dtToDuration)
+        {
+            return _db.ChungChiVienChucs.Where(x => x.idVienChuc == idvienchuc && x.LoaiChungChi.tenLoaiChungChi.Contains("Ngoại ngữ") && x.ngayCapChungChi >= dtFromDuration && x.ngayCapChungChi <= dtToDuration).OrderByDescending(d => d.ngayCapChungChi).FirstOrDefault();
+        }
+
+        public ChungChiVienChuc GetChungChiTinHocByIdVienChucAndDuration(int idvienchuc, DateTime dtFromDuration, DateTime dtToDuration)
+        {
+            return _db.ChungChiVienChucs.Where(x => x.idVienChuc == idvienchuc && x.LoaiChungChi.tenLoaiChungChi.Contains("Tin học") && x.ngayCapChungChi >= dtFromDuration && x.ngayCapChungChi <= dtToDuration).OrderByDescending(d => d.ngayCapChungChi).FirstOrDefault();
+        }
+
+        public ChungChiVienChuc GetChungChiNghiepVuSuPhamByIdVienChucAndDuration(int idvienchuc, DateTime dtFromDuration, DateTime dtToDuration)
+        {
+            return _db.ChungChiVienChucs.Where(x => x.idVienChuc == idvienchuc && x.LoaiChungChi.tenLoaiChungChi.Contains("Nghiệp vụ sư phạm") && x.ngayCapChungChi >= dtFromDuration && x.ngayCapChungChi <= dtToDuration).OrderByDescending(d => d.ngayCapChungChi).FirstOrDefault();
+        }
+
+        public ChungChiVienChuc GetChungChiLiLuanChinhTriByIdVienChucAndDuration(int idvienchuc, DateTime dtFromDuration, DateTime dtToDuration)
+        {
+            return _db.ChungChiVienChucs.Where(x => x.idVienChuc == idvienchuc && x.LoaiChungChi.tenLoaiChungChi.Contains("Lí luận chính trị") && x.ngayCapChungChi >= dtFromDuration && x.ngayCapChungChi <= dtToDuration).OrderByDescending(d => d.ngayCapChungChi).FirstOrDefault();
+        }
+
+        public ChungChiVienChuc GetChungChiNgoaiNguByIdVienChucAndTimeline(int idvienchuc, DateTime dtTimeline)
+        {
+            return _db.ChungChiVienChucs.Where(x => x.idVienChuc == idvienchuc && x.LoaiChungChi.tenLoaiChungChi.Contains("Ngoại ngữ") && x.ngayCapChungChi <= dtTimeline).OrderByDescending(d => d.ngayCapChungChi).FirstOrDefault();
+        }
+
+        public ChungChiVienChuc GetChungChiTinHocByIdVienChucAndTimeline(int idvienchuc, DateTime dtTimeline)
+        {
+            return _db.ChungChiVienChucs.Where(x => x.idVienChuc == idvienchuc && x.LoaiChungChi.tenLoaiChungChi.Contains("Tin học") && x.ngayCapChungChi <= dtTimeline).OrderByDescending(d => d.ngayCapChungChi).FirstOrDefault();
+        }
+
+        public ChungChiVienChuc GetChungChiNghiepVuSuPhamByIdVienChucAndTimeline(int idvienchuc, DateTime dtTimeline)
+        {
+            return _db.ChungChiVienChucs.Where(x => x.idVienChuc == idvienchuc && x.LoaiChungChi.tenLoaiChungChi.Contains("Nghiệp vụ sư phạm") && x.ngayCapChungChi <= dtTimeline).OrderByDescending(d => d.ngayCapChungChi).FirstOrDefault();
+        }
+
+        public ChungChiVienChuc GetChungChiLiLuanChinhTriByIdVienChucAndTimeline(int idvienchuc, DateTime dtTimeline)
+        {
+            return _db.ChungChiVienChucs.Where(x => x.idVienChuc == idvienchuc && x.LoaiChungChi.tenLoaiChungChi.Contains("Lí luận chính trị") && x.ngayCapChungChi <= dtTimeline).OrderByDescending(d => d.ngayCapChungChi).FirstOrDefault();
         }
 
         public List<string> GetListLinkVanBanDinhKem(string maVienChucForGetListLinkVanBanDinhKemCC)

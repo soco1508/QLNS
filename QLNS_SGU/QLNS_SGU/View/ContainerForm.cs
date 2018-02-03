@@ -32,7 +32,8 @@ namespace QLNS_SGU.View
             btnLogout.ItemClick += (s, e) => presenter.Logout();
             btnNaviMain.ItemClick += (s, e) => presenter.NaviMain();
             btnNaviImportData.ItemClick += (s, e) => presenter.NaviImportData();
-            btnNaviExportData.ItemClick += (s, e) => presenter.NaviExportData();
+            btnNaviExportDataMultiDomain.ItemClick += (s, e) => presenter.NaviExportDataMultiDomain();
+            btnNaviExportDataOneDomain.ItemClick += (s, e) => presenter.NaviExportDataOneDomain();
             btnOpenCreateAndEditPersonInfoForm.ItemClick += (s, e) => presenter.OpenCreateAndEditPersonInfoForm();
             btnNaviLoaiNganh.ItemClick += (s, e) => presenter.NaviLoaiNganh();
             btnNaviNganhDaoTao.ItemClick += (s, e) => presenter.NaviNganhDaoTao();

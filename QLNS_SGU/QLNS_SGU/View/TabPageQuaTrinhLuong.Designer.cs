@@ -441,7 +441,9 @@
             this.dtNgayLenLuong.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtNgayLenLuong.Properties.DisplayFormat.FormatString = "";
+            this.dtNgayLenLuong.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dtNgayLenLuong.Properties.EditFormat.FormatString = "";
+            this.dtNgayLenLuong.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dtNgayLenLuong.Properties.Mask.EditMask = "dd/MM/yyyy";
             this.dtNgayLenLuong.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.dtNgayLenLuong.Size = new System.Drawing.Size(408, 20);
@@ -726,6 +728,7 @@
             // 
             // btnExportExcel
             // 
+            this.btnExportExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExportExcel.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
             this.btnExportExcel.Appearance.Font = new System.Drawing.Font("Tahoma", 8.75F);
             this.btnExportExcel.Appearance.Options.UseBackColor = true;

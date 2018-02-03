@@ -210,8 +210,7 @@ namespace QLNS_SGU.Presenter
                             ngayVaoNganh = unitOfWorks.VienChucRepository.ParseDatetimeMatchDatetimeDatabase(row["ngayvaonganh"].ToString().Trim()),
                             ngayVeTruong = unitOfWorks.VienChucRepository.ParseDatetimeMatchDatetimeDatabase(row["ngayvetruong"].ToString().Trim()),
                             vanHoa = row["vanhoa"].ToString().Trim(),
-                            idQuanLyNhaNuoc = unitOfWorks.QuanLyNhaNuocRepository.GetIdByName(row["qlnn"].ToString().Trim()),
-                            idChinhTri = unitOfWorks.ChinhTriRepository.GetIdByName(row["chinhtri"].ToString().Trim())
+                            idQuanLyNhaNuoc = unitOfWorks.QuanLyNhaNuocRepository.GetIdByName(row["qlnn"].ToString().Trim())
                         });
                     }
 
@@ -467,7 +466,7 @@ namespace QLNS_SGU.Presenter
                             unitOfWorks.ChucVuDonViVienChucRepository.Insert(new ChucVuDonViVienChuc
                             {
                                 idVienChuc = unitOfWorks.VienChucRepository.GetIdVienChuc(mavienchuc),
-                                idChucVu = unitOfWorks.ChucVuRepository.GetIdChucVu(chucvu),
+                                idChucVu = unitOfWorks.ChucVuRepository.GetIdChucVuByTenChucVu(chucvu),
                                 idDonVi = unitOfWorks.DonViRepository.GetIdDonVi(donvi),
                                 idToChuyenMon = unitOfWorks.ToChuyenMonRepository.GetIdToChuyenMon(donvi, tochuyenmon),
                                 phanLoaiCongTac = phanloai,
@@ -481,7 +480,7 @@ namespace QLNS_SGU.Presenter
                             unitOfWorks.ChucVuDonViVienChucRepository.Insert(new ChucVuDonViVienChuc
                             {
                                 idVienChuc = unitOfWorks.VienChucRepository.GetIdVienChuc(mavienchuc),
-                                idChucVu = unitOfWorks.ChucVuRepository.GetIdChucVu(truongphobm),
+                                idChucVu = unitOfWorks.ChucVuRepository.GetIdChucVuByTenChucVu(truongphobm),
                                 idDonVi = unitOfWorks.DonViRepository.GetIdDonVi(donvi),
                                 idToChuyenMon = unitOfWorks.ToChuyenMonRepository.GetIdToChuyenMon(donvi, tochuyenmon),
                                 phanLoaiCongTac = phanloai,
@@ -498,7 +497,7 @@ namespace QLNS_SGU.Presenter
                             unitOfWorks.ChucVuDonViVienChucRepository.Insert(new ChucVuDonViVienChuc
                             {
                                 idVienChuc = unitOfWorks.VienChucRepository.GetIdVienChuc(mavienchuc),
-                                idChucVu = unitOfWorks.ChucVuRepository.GetIdChucVu(chucvu),
+                                idChucVu = unitOfWorks.ChucVuRepository.GetIdChucVuByTenChucVu(chucvu),
                                 idDonVi = unitOfWorks.DonViRepository.GetIdDonVi(donvi),
                                 idToChuyenMon = unitOfWorks.ToChuyenMonRepository.GetIdToChuyenMon(donvi, tochuyenmon),
                                 phanLoaiCongTac = phanloai,
@@ -805,7 +804,7 @@ namespace QLNS_SGU.Presenter
                 string nganhthamgiaday = row["nganhthamgiaday"].ToString().Trim();
                 string chuyennganh = row["chuyennganh"].ToString().Trim();
                 int idvienchuc = unitOfWorks.VienChucRepository.GetIdVienChuc(row["mavienchuc"].ToString().Trim());
-                int idloaihochamhocvi = unitOfWorks.LoaiHocHamHocViRepository.GetIdLoaiHocHamHocVi(row["trinhdo"].ToString().Trim());
+                int idloaihochamhocvi = unitOfWorks.LoaiHocHamHocViRepository.GetIdLoaiHocHamHocViByTenLoaiHocHamHocVi(row["trinhdo"].ToString().Trim());
                 int idloainganh = unitOfWorks.LoaiNganhRepository.GetIdLoaiNganhByNganhDaoTao(row["nganhdaotao"].ToString().Trim());
                 int idnganhdaotao = unitOfWorks.NganhDaoTaoRepository.GetIdNganhDaoTao(row["nganhdaotao"].ToString().Trim());
                 int idchuyennganh = unitOfWorks.ChuyenNganhRepository.GetIdChuyenNganh(chuyennganh);
@@ -821,7 +820,7 @@ namespace QLNS_SGU.Presenter
                             idNganhDaoTao = idnganhdaotao,
                             idChuyenNganh = idchuyennganh,
                             idHocHamHocViVienChuc = unitOfWorks.HocHamHocViVienChucRepository.GetIdHocHamHocViVienChuc(idvienchuc, idloaihochamhocvi, idloainganh, idnganhdaotao, idchuyennganh),
-                            phanLoai = 0,
+                            //phanLoai = 0,
                             ngayBatDau = null,
                             ngayKetThuc = null,
                             linkVanBanDinhKem = ""
@@ -836,7 +835,7 @@ namespace QLNS_SGU.Presenter
                             idNganhDaoTao = idnganhdaotao,
                             idChuyenNganh = idchuyennganh,
                             idHocHamHocViVienChuc = unitOfWorks.HocHamHocViVienChucRepository.GetIdHocHamHocViVienChuc(idvienchuc, idloaihochamhocvi, idloainganh, idnganhdaotao, idchuyennganh),
-                            phanLoai = 1,
+                            phanLoai = true,
                             ngayBatDau = null,
                             ngayKetThuc = null,
                             linkVanBanDinhKem = ""
@@ -852,7 +851,7 @@ namespace QLNS_SGU.Presenter
                                 idNganhDaoTao = _idnganhdaotao,
                                 idChuyenNganh = idnganhday,
                                 idHocHamHocViVienChuc = unitOfWorks.HocHamHocViVienChucRepository.GetIdHocHamHocViVienChuc(idvienchuc, idloaihochamhocvi, idloainganh, idnganhdaotao, idchuyennganh),
-                                phanLoai = 2,
+                                phanLoai = false,
                                 ngayBatDau = null,
                                 ngayKetThuc = null,
                                 linkVanBanDinhKem = ""
@@ -869,7 +868,7 @@ namespace QLNS_SGU.Presenter
                         idNganhDaoTao = idnganhdaotao,
                         idChuyenNganh = idchuyennganh,
                         idHocHamHocViVienChuc = unitOfWorks.HocHamHocViVienChucRepository.GetIdHocHamHocViVienChuc(idvienchuc, idloaihochamhocvi, idloainganh, idnganhdaotao, idchuyennganh),
-                        phanLoai = 1,
+                        phanLoai = true,
                         ngayBatDau = null,
                         ngayKetThuc = null,
                         linkVanBanDinhKem = ""
@@ -896,7 +895,7 @@ namespace QLNS_SGU.Presenter
                 unitOfWorks.HocHamHocViVienChucRepository.Insert(new HocHamHocViVienChuc
                 {
                     idVienChuc = unitOfWorks.VienChucRepository.GetIdVienChuc(row["mavienchuc"].ToString().Trim()),
-                    idLoaiHocHamHocVi = unitOfWorks.LoaiHocHamHocViRepository.GetIdLoaiHocHamHocVi(row["trinhdo"].ToString().Trim()),
+                    idLoaiHocHamHocVi = unitOfWorks.LoaiHocHamHocViRepository.GetIdLoaiHocHamHocViByTenLoaiHocHamHocVi(row["trinhdo"].ToString().Trim()),
                     idLoaiNganh = unitOfWorks.LoaiNganhRepository.GetIdLoaiNganhByNganhDaoTao(row["nganhdaotao"].ToString().Trim()),
                     idNganhDaoTao = unitOfWorks.NganhDaoTaoRepository.GetIdNganhDaoTao(row["nganhdaotao"].ToString().Trim()),
                     idChuyenNganh = unitOfWorks.ChuyenNganhRepository.GetIdChuyenNganh(row["chuyennganh"].ToString().Trim()),
@@ -1038,12 +1037,11 @@ namespace QLNS_SGU.Presenter
                 {
                     string _ngoaingu = unitOfWorks.LoaiChungChiRepository.GetFirstChar(ngoaingu);
                     string _capdongoaingu = unitOfWorks.LoaiChungChiRepository.GetFirstChar(capdongoaingu);
-                    if (list.Any(x => x.tenLoaiChungChi == _ngoaingu && x.capDo == _capdongoaingu) == false)
+                    if (list.Any(x => x.tenLoaiChungChi == _ngoaingu) == false)
                     {
                         list.Add(new LoaiChungChi
                         {
                             tenLoaiChungChi = _ngoaingu,
-                            capDo = _capdongoaingu
                         });
                     }
                 }
@@ -1054,12 +1052,11 @@ namespace QLNS_SGU.Presenter
                 if(capdotinhoc != string.Empty)
                 {
                     string _capdotinhoc = unitOfWorks.LoaiChungChiRepository.GetFirstChar(capdotinhoc);
-                    if (list.Any(x => x.tenLoaiChungChi == "Tin học" && x.capDo == _capdotinhoc) == false)
+                    if (list.Any(x => x.tenLoaiChungChi == "Tin học") == false)
                     {
                         list.Add(new LoaiChungChi
                         {
                             tenLoaiChungChi = "Tin học",
-                            capDo = _capdotinhoc
                         });
                     }
                 }
@@ -1069,7 +1066,6 @@ namespace QLNS_SGU.Presenter
                 unitOfWorks.LoaiChungChiRepository.Insert(new LoaiChungChi
                 {
                     tenLoaiChungChi = row.tenLoaiChungChi,
-                    capDo = row.capDo
                 });
             }
             unitOfWorks.Save();
@@ -1117,7 +1113,7 @@ namespace QLNS_SGU.Presenter
                         unitOfWorks.ChungChiVienChucRepository.Insert(new ChungChiVienChuc
                         {
                             idVienChuc = unitOfWorks.VienChucRepository.GetIdVienChuc(mavienchuc),
-                            idLoaiChungChi = unitOfWorks.LoaiChungChiRepository.GetIdLoaiChungChi(_ngoaingu, _capdongoaingu),
+                            //idLoaiChungChi = unitOfWorks.LoaiChungChiRepository.GetIdLoaiChungChi(_ngoaingu, _capdongoaingu),
                             ghiChu = "",
                             linkVanBanDinhKem = ""
                         });
@@ -1128,7 +1124,7 @@ namespace QLNS_SGU.Presenter
                         unitOfWorks.ChungChiVienChucRepository.Insert(new ChungChiVienChuc
                         {
                             idVienChuc = unitOfWorks.VienChucRepository.GetIdVienChuc(mavienchuc),
-                            idLoaiChungChi = unitOfWorks.LoaiChungChiRepository.GetIdLoaiChungChi("Tin học", _capdotinhoc),
+                            //idLoaiChungChi = unitOfWorks.LoaiChungChiRepository.GetIdLoaiChungChi("Tin học", _capdotinhoc),
                             ghiChu = "",
                             linkVanBanDinhKem = ""
                         });

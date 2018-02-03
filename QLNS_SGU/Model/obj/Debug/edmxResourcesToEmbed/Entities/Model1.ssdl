@@ -9,13 +9,6 @@
     <Property Name="heSoBac" Type="float" Nullable="false" />
     <Property Name="idNgach" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="ChinhTri">
-    <Key>
-      <PropertyRef Name="idChinhTri" />
-    </Key>
-    <Property Name="idChinhTri" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="tenChinhTri" Type="nvarchar" MaxLength="128" />
-  </EntityType>
   <EntityType Name="ChucVu">
     <Key>
       <PropertyRef Name="idChucVu" />
@@ -52,6 +45,7 @@
     <Property Name="ngayCapChungChi" Type="datetime" />
     <Property Name="ghiChu" Type="nvarchar(max)" />
     <Property Name="linkVanBanDinhKem" Type="varchar(max)" />
+    <Property Name="capDoChungChi" Type="nvarchar" MaxLength="128" />
   </EntityType>
   <EntityType Name="ChuyenNganh">
     <Key>
@@ -140,8 +134,7 @@
       <PropertyRef Name="idLoaiChungChi" />
     </Key>
     <Property Name="idLoaiChungChi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="tenLoaiChungChi" Type="nvarchar" MaxLength="256" />
-    <Property Name="capDo" Type="nvarchar" MaxLength="64" />
+    <Property Name="tenLoaiChungChi" Type="nvarchar" MaxLength="128" />
   </EntityType>
   <EntityType Name="LoaiDonVi">
     <Key>
@@ -201,10 +194,11 @@
     <Property Name="idNganhDaoTao" Type="int" Nullable="false" />
     <Property Name="idChuyenNganh" Type="int" Nullable="false" />
     <Property Name="idHocHamHocViVienChuc" Type="int" Nullable="false" />
-    <Property Name="phanLoai" Type="int" />
     <Property Name="ngayBatDau" Type="datetime" />
     <Property Name="ngayKetThuc" Type="datetime" />
     <Property Name="linkVanBanDinhKem" Type="varchar(max)" />
+    <Property Name="trinhDoDay" Type="nvarchar" MaxLength="128" />
+    <Property Name="phanLoai" Type="bit" />
   </EntityType>
   <EntityType Name="QuanLyNhaNuoc">
     <Key>
@@ -302,7 +296,6 @@
     <Property Name="ngayVeTruong" Type="datetime" />
     <Property Name="vanHoa" Type="nvarchar" MaxLength="10" />
     <Property Name="idQuanLyNhaNuoc" Type="int" Nullable="false" />
-    <Property Name="idChinhTri" Type="int" Nullable="false" />
     <Property Name="ghiChu" Type="nvarchar" MaxLength="256" />
     <Property Name="anh" Type="image" />
   </EntityType>
@@ -666,18 +659,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__VienChuc__idChin__32E0915F">
-    <End Role="ChinhTri" Type="Self.ChinhTri" Multiplicity="1" />
-    <End Role="VienChuc" Type="Self.VienChuc" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="ChinhTri">
-        <PropertyRef Name="idChinhTri" />
-      </Principal>
-      <Dependent Role="VienChuc">
-        <PropertyRef Name="idChinhTri" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK__VienChuc__idDanT__300424B4">
     <End Role="DanToc" Type="Self.DanToc" Multiplicity="1" />
     <End Role="VienChuc" Type="Self.VienChuc" Multiplicity="*" />
@@ -716,7 +697,6 @@
   </Association>
   <EntityContainer Name="QLNSSGU_1ModelStoreContainer">
     <EntitySet Name="Bac" EntityType="Self.Bac" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="ChinhTri" EntityType="Self.ChinhTri" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ChucVu" EntityType="Self.ChucVu" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ChucVuDonViVienChuc" EntityType="Self.ChucVuDonViVienChuc" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ChungChiVienChuc" EntityType="Self.ChungChiVienChuc" Schema="dbo" store:Type="Tables" />
@@ -863,10 +843,6 @@
     <AssociationSet Name="FK__TrangThai__idVie__6477ECF3" Association="Self.FK__TrangThai__idVie__6477ECF3">
       <End Role="VienChuc" EntitySet="VienChuc" />
       <End Role="TrangThaiVienChuc" EntitySet="TrangThaiVienChuc" />
-    </AssociationSet>
-    <AssociationSet Name="FK__VienChuc__idChin__32E0915F" Association="Self.FK__VienChuc__idChin__32E0915F">
-      <End Role="ChinhTri" EntitySet="ChinhTri" />
-      <End Role="VienChuc" EntitySet="VienChuc" />
     </AssociationSet>
     <AssociationSet Name="FK__VienChuc__idDanT__300424B4" Association="Self.FK__VienChuc__idDanT__300424B4">
       <End Role="DanToc" EntitySet="DanToc" />

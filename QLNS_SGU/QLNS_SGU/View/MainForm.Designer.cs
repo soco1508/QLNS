@@ -489,7 +489,7 @@
             // 
             this.btnDownloadFileTrangThai.Caption = "Tải xuống văn bản đính kèm";
             this.btnDownloadFileTrangThai.Id = 11;
-            this.btnDownloadFileTrangThai.Name = "btnDownloadFileTrangThai";            
+            this.btnDownloadFileTrangThai.Name = "btnDownloadFileTrangThai";
             // 
             // layoutControl1
             // 
@@ -506,7 +506,7 @@
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Right;
             this.layoutControl1.Location = new System.Drawing.Point(512, 24);
             this.layoutControl1.Name = "layoutControl1";
-            this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(650, 198, 450, 400);
+            this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(598, 198, 450, 400);
             this.layoutControl1.Root = this.layoutControlGroup1;
             this.layoutControl1.Size = new System.Drawing.Size(768, 476);
             this.layoutControl1.TabIndex = 4;
@@ -1740,10 +1740,11 @@
             this.lbChucVu.AppearanceItemCaption.ForeColor = System.Drawing.Color.Black;
             this.lbChucVu.AppearanceItemCaption.Options.UseFont = true;
             this.lbChucVu.AppearanceItemCaption.Options.UseForeColor = true;
+            this.lbChucVu.CustomizationFormText = "Sinh vien";
             this.lbChucVu.Location = new System.Drawing.Point(0, 50);
             this.lbChucVu.Name = "lbChucVu";
             this.lbChucVu.Size = new System.Drawing.Size(359, 25);
-            this.lbChucVu.Text = "Sinh Vien";
+            this.lbChucVu.Text = "Sinh vien";
             this.lbChucVu.TextSize = new System.Drawing.Size(246, 21);
             // 
             // lbDonVi
@@ -2343,6 +2344,7 @@
             this.MinimizeBox = false;
             this.Name = "MainForm";
             this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);

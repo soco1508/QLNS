@@ -8,6 +8,7 @@ using QLNS_SGU.View;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -48,8 +49,7 @@ namespace QLNS_SGU.Presenter
             UnitOfWorks unitOfWorks = new UnitOfWorks(new QLNSSGU_1Entities());
             BindingList<LoaiChungChi> listLoaiChungChi = new BindingList<LoaiChungChi>(unitOfWorks.LoaiChungChiRepository.GetListLoaiChungChiForCRUD());
             _view.GCLoaiChungChi.DataSource = listLoaiChungChi;
-            SplashScreenManager.CloseForm(false);
-            
+            SplashScreenManager.CloseForm(false);            
         }
 
         public void AddNewRow()
@@ -115,14 +115,12 @@ namespace QLNS_SGU.Presenter
         public void HiddenEditor(object sender, EventArgs e)
         {
             _view.GVLoaiChungChi.Columns[1].OptionsColumn.AllowEdit = false;
-            _view.GVLoaiChungChi.Columns[2].OptionsColumn.AllowEdit = false;
         }
 
         public void InitNewRow(object sender, InitNewRowEventArgs e)
         {
             GridView gridView = sender as GridView;
             gridView.SetRowCellValue(e.RowHandle, gridView.Columns[1], "");
-            gridView.SetRowCellValue(e.RowHandle, gridView.Columns[2], "");
         }
 
         public void MouseDoubleClick(object sender, MouseEventArgs e)
@@ -131,11 +129,6 @@ namespace QLNS_SGU.Presenter
             if (hinfo.Column == _view.GVLoaiChungChi.Columns[1])
             {
                 _view.GVLoaiChungChi.Columns[1].OptionsColumn.AllowEdit = true;
-                _view.GVLoaiChungChi.ShowEditor();
-            }
-            else if (hinfo.Column == _view.GVLoaiChungChi.Columns[2])
-            {
-                _view.GVLoaiChungChi.Columns[2].OptionsColumn.AllowEdit = true;
                 _view.GVLoaiChungChi.ShowEditor();
             }
         }
@@ -155,10 +148,9 @@ namespace QLNS_SGU.Presenter
             if (idRowFocused == 0)
             {
                 string loaichungchi = _view.GVLoaiChungChi.GetFocusedRowCellDisplayText("tenLoaiChungChi").ToString();
-                string capdo = _view.GVLoaiChungChi.GetFocusedRowCellDisplayText("capDo").ToString();
                 if (loaichungchi != string.Empty)
                 {
-                    unitOfWorks.LoaiChungChiRepository.Create(loaichungchi, capdo);
+                    unitOfWorks.LoaiChungChiRepository.Create(loaichungchi);
                     LoadDataToGrid();
                     XtraMessageBox.Show("Lưu dữ liệu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     _view.GVLoaiChungChi.MoveLast();
@@ -173,10 +165,9 @@ namespace QLNS_SGU.Presenter
             {
                 int id = Convert.ToInt32(_view.GVLoaiChungChi.GetRowCellValue(row_handle, "idLoaiChungChi"));
                 string loaichungchi = _view.GVLoaiChungChi.GetFocusedRowCellDisplayText("tenLoaiChungChi").ToString();
-                string capdo = _view.GVLoaiChungChi.GetFocusedRowCellDisplayText("capDo").ToString();
                 if (loaichungchi != string.Empty)
                 {
-                    unitOfWorks.LoaiChungChiRepository.Update(id, loaichungchi, capdo);
+                    unitOfWorks.LoaiChungChiRepository.Update(id, loaichungchi);
                     XtraMessageBox.Show("Lưu dữ liệu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else

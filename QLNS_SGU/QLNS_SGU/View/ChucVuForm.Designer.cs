@@ -220,6 +220,7 @@
             // 
             // btnExportExcel
             // 
+            this.btnExportExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExportExcel.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
             this.btnExportExcel.Appearance.Font = new System.Drawing.Font("Tahoma", 8.75F);
             this.btnExportExcel.Appearance.Options.UseBackColor = true;

@@ -130,7 +130,7 @@ namespace QLNS_SGU.Presenter
         public static void LoadDataToMainGrid()
         {
             UnitOfWorks unitOfWorks = new UnitOfWorks(new QLNSSGU_1Entities());
-            BindingList<GridViewMainData> listGridViewMainData = new BindingList<GridViewMainData>(unitOfWorks.GridViewDataRepository.LoadDataToGrid());
+            BindingList<GridViewMainData> listGridViewMainData = new BindingList<GridViewMainData>(unitOfWorks.GridViewDataRepository.LoadDataToMainGrid());
             _view.GCMain.DataSource = listGridViewMainData;                                   
         }       
         public static void SetValueLbHopDong()
@@ -146,8 +146,22 @@ namespace QLNS_SGU.Presenter
             UnitOfWorks unitOfWorks = new UnitOfWorks(new QLNSSGU_1Entities());
             string chucvu = _view.GVMain.GetRowCellValue(rowFocus, "ChucVu").ToString();
             string donvi = _view.GVMain.GetRowCellValue(rowFocus, "DonVi").ToString();
-            _view.LBChucVu.Text = chucvu;
-            _view.LBDonVi.Text = donvi;
+            if(chucvu != string.Empty)
+            {
+                _view.LBChucVu.Text = chucvu;
+            }
+            else
+            {
+                _view.LBChucVu.Text = "Chưa có chức vụ";
+            }           
+            if(donvi != string.Empty)
+            {
+                _view.LBDonVi.Text = donvi;
+            }
+            else
+            {
+                _view.LBDonVi.Text = "Chưa có đơn vị";
+            }           
         }
         private void ChangeInfoAtRightLayout(int rowFocus)
         {

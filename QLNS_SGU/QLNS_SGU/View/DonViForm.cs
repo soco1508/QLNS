@@ -19,8 +19,9 @@ namespace QLNS_SGU.View
         GridControl GCDonVi { get; set; }
         GridView GVDonVi { get; set; }
         SaveFileDialog SaveFileDialog { get; set; }
+        SimpleButton BTNExportExcel { get; set; }
     }
-    public partial class DonViForm : XtraForm
+    public partial class DonViForm : XtraForm, IDonViForm
     {
         public DonViForm()
         {
@@ -31,6 +32,7 @@ namespace QLNS_SGU.View
         public SaveFileDialog SaveFileDialog { get => saveFileDialog1; set => saveFileDialog1 = value; }
         public GridControl GCDonVi { get => gcDonVi; set => gcDonVi = value; }
         public GridView GVDonVi { get => gvDonVi; set => gvDonVi = value; }
+        public SimpleButton BTNExportExcel { get => btnExportExcel; set => btnExportExcel = value; }
         #endregion
 
         public void Attach(IDonViPresenter presenter)

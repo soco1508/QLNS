@@ -14,6 +14,24 @@ namespace Model.Entities
     
     public partial class NganhVienChuc
     {
+        public int idNganhVienChuc { get; set; }
+        public int idVienChuc { get; set; }
+        public int idLoaiNganh { get; set; }
+        public int idNganhDaoTao { get; set; }
+        public int idChuyenNganh { get; set; }
+        public int idHocHamHocViVienChuc { get; set; }
+        public Nullable<System.DateTime> ngayBatDau { get; set; }
+        public Nullable<System.DateTime> ngayKetThuc { get; set; }
+        public string linkVanBanDinhKem { get; set; }
+        public string trinhDoDay { get; set; }
+        public Nullable<bool> phanLoai { get; set; }
+    
+        public virtual ChuyenNganh ChuyenNganh { get; set; }
+        public virtual HocHamHocViVienChuc HocHamHocViVienChuc { get; set; }
+        public virtual LoaiNganh LoaiNganh { get; set; }
+        public virtual NganhDaoTao NganhDaoTao { get; set; }
+        public virtual VienChuc VienChuc { get; set; }
+
         public NganhVienChuc() { }
 
         public NganhVienChuc(NganhVienChuc nganhVienChuc)
@@ -34,22 +52,5 @@ namespace Model.Entities
             NganhDaoTao = nganhVienChuc.NganhDaoTao;
             VienChuc = nganhVienChuc.VienChuc;
         }
-
-        public int idNganhVienChuc { get; set; }
-        public int idVienChuc { get; set; }
-        public int idLoaiNganh { get; set; }
-        public int idNganhDaoTao { get; set; }
-        public int idChuyenNganh { get; set; }
-        public int idHocHamHocViVienChuc { get; set; }
-        public Nullable<int> phanLoai { get; set; }
-        public Nullable<System.DateTime> ngayBatDau { get; set; }
-        public Nullable<System.DateTime> ngayKetThuc { get; set; }
-        public string linkVanBanDinhKem { get; set; }
-    
-        public virtual ChuyenNganh ChuyenNganh { get; set; }
-        public virtual HocHamHocViVienChuc HocHamHocViVienChuc { get; set; }
-        public virtual LoaiNganh LoaiNganh { get; set; }
-        public virtual NganhDaoTao NganhDaoTao { get; set; }
-        public virtual VienChuc VienChuc { get; set; }
     }
 }

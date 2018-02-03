@@ -26,7 +26,6 @@ namespace QLNS_SGU
             var a = new ContainerPresenter(new ContainerForm());
             a.Initialize("DONG");
             Application.Run((Form)a.UI);
-            
         }
     }
 }

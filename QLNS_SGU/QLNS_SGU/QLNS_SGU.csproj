@@ -84,6 +84,7 @@
     <Reference Include="DevExpress.DataAccess.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.DataAccess.v17.1.UI, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Docs.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Images.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Office.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.PivotGrid.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Printing.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -164,7 +165,8 @@
     <Compile Include="Presenter\ContainerPresenter.cs" />
     <Compile Include="Presenter\CreateAndEditPersonInfoPresenter.cs" />
     <Compile Include="Presenter\DonViPresenter.cs" />
-    <Compile Include="Presenter\ExportDataPresenter.cs" />
+    <Compile Include="Presenter\ExportDataMultiDomainPresenter.cs" />
+    <Compile Include="Presenter\ExportDataOneDomainPresenter.cs" />
     <Compile Include="Presenter\ImportDataPresenter.cs" />
     <Compile Include="Presenter\IPresenterArgumentForTabPage.cs" />
     <Compile Include="Presenter\LoaiChucVuPresenter.cs" />
@@ -226,11 +228,17 @@
     <Compile Include="View\DonViForm.Designer.cs">
       <DependentUpon>DonViForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\ExportDataForm.cs">
+    <Compile Include="View\ExportDataMultiDomainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\ExportDataForm.Designer.cs">
-      <DependentUpon>ExportDataForm.cs</DependentUpon>
+    <Compile Include="View\ExportDataMultiDomainForm.Designer.cs">
+      <DependentUpon>ExportDataMultiDomainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ExportDataOneDomainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ExportDataOneDomainForm.Designer.cs">
+      <DependentUpon>ExportDataOneDomainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="View\ImportDataForm.cs">
       <SubType>Form</SubType>
@@ -382,8 +390,11 @@
     <EmbeddedResource Include="View\DonViForm.resx">
       <DependentUpon>DonViForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\ExportDataForm.resx">
-      <DependentUpon>ExportDataForm.cs</DependentUpon>
+    <EmbeddedResource Include="View\ExportDataMultiDomainForm.resx">
+      <DependentUpon>ExportDataMultiDomainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ExportDataOneDomainForm.resx">
+      <DependentUpon>ExportDataOneDomainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\ImportDataForm.resx">
       <DependentUpon>ImportDataForm.cs</DependentUpon>

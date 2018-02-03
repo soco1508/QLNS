@@ -13,29 +13,9 @@ namespace Model.Repository
         {
         }
 
-        public int GetIdLoaiHocHamHocVi(string loaihochamhocvi)
+        public int GetIdLoaiHocHamHocViByTenLoaiHocHamHocVi(string loaihochamhocvi)
         {
-            switch (loaihochamhocvi)
-            {
-                case "PT":
-                    return _db.LoaiHocHamHocVis.Where(x => x.tenLoaiHocHamHocVi == "Phổ thông").Select(y => y.idLoaiHocHamHocVi).FirstOrDefault();                    
-                case "TC":
-                    return _db.LoaiHocHamHocVis.Where(x => x.tenLoaiHocHamHocVi == "Trung cấp").Select(y => y.idLoaiHocHamHocVi).FirstOrDefault();
-                case "CĐ":
-                    return _db.LoaiHocHamHocVis.Where(x => x.tenLoaiHocHamHocVi == "Cao đẳng").Select(y => y.idLoaiHocHamHocVi).FirstOrDefault();
-                case "ĐH":
-                    return _db.LoaiHocHamHocVis.Where(x => x.tenLoaiHocHamHocVi == "Đại học").Select(y => y.idLoaiHocHamHocVi).FirstOrDefault();
-                case "ThS":
-                    return _db.LoaiHocHamHocVis.Where(x => x.tenLoaiHocHamHocVi == "Thạc sĩ").Select(y => y.idLoaiHocHamHocVi).FirstOrDefault();
-                case "TS":
-                    return _db.LoaiHocHamHocVis.Where(x => x.tenLoaiHocHamHocVi == "Tiến sĩ").Select(y => y.idLoaiHocHamHocVi).FirstOrDefault();
-                case "PGS":
-                    return _db.LoaiHocHamHocVis.Where(x => x.tenLoaiHocHamHocVi == "Phó giáo sư").Select(y => y.idLoaiHocHamHocVi).FirstOrDefault();
-                case "GS":
-                    return _db.LoaiHocHamHocVis.Where(x => x.tenLoaiHocHamHocVi == "Giáo sư").Select(y => y.idLoaiHocHamHocVi).FirstOrDefault();
-                default:
-                    return _db.LoaiHocHamHocVis.Where(x => x.tenLoaiHocHamHocVi == "Khác").Select(y => y.idLoaiHocHamHocVi).FirstOrDefault(); ;
-            }
+            return _db.LoaiHocHamHocVis.Where(x => x.tenLoaiHocHamHocVi == loaihochamhocvi).Select(y => y.idLoaiHocHamHocVi).FirstOrDefault();
         }
 
         public IList<LoaiHocHamHocVi> GetListLoaiHocHamHocVi()

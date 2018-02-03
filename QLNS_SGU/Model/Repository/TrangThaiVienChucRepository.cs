@@ -58,6 +58,82 @@ namespace Model.Repository
             _db.TrangThaiVienChucs.Remove(a);
         }
 
+        public TrangThaiVienChuc GetTrangThaiByIdVienChucAndDuration(int idVienChuc, DateTime dtFromDuration, DateTime dtToDuration)
+        {
+            var rows = _db.TrangThaiVienChucs.Where(x => x.idVienChuc == idVienChuc);
+            List<TrangThaiVienChuc> listTrangThaiVienChuc = new List<TrangThaiVienChuc>();
+            foreach (var row in rows)
+            {
+                if (row.ngayKetThuc != null)
+                {
+                    if (row.ngayBatDau >= dtFromDuration && row.ngayKetThuc <= dtToDuration)
+                    {
+                        listTrangThaiVienChuc.Add(row);
+                    }
+                }
+                else
+                {
+                    if (row.ngayBatDau >= dtFromDuration)
+                    {
+                        listTrangThaiVienChuc.Add(row);
+                    }
+                }
+            }
+            if (listTrangThaiVienChuc.Count > 0)
+                return listTrangThaiVienChuc.OrderByDescending(x => x.ngayBatDau).FirstOrDefault();
+            return null;
+        }
+
+        public TrangThaiVienChuc GetTrangThaiByIdVienChucAndTimeline(int idVienChuc, DateTime dtTimeline)
+        {
+            var rows = _db.TrangThaiVienChucs.Where(x => x.idVienChuc == idVienChuc);
+            List<TrangThaiVienChuc> listTrangThaiVienChuc = new List<TrangThaiVienChuc>();
+            foreach (var row in rows)
+            {
+                if (row.ngayKetThuc != null)
+                {
+                    if (row.ngayBatDau <= dtTimeline && row.ngayKetThuc >= dtTimeline)
+                    {
+                        listTrangThaiVienChuc.Add(new TrangThaiVienChuc(row));
+                    }
+                }
+                if (row.ngayKetThuc == null)
+                {
+                    if (row.ngayBatDau <= dtTimeline)
+                    {
+                        listTrangThaiVienChuc.Add(new TrangThaiVienChuc(row));
+                    }
+                }
+            }
+            if(listTrangThaiVienChuc.Count > 0)
+                return listTrangThaiVienChuc.OrderByDescending(x => x.ngayBatDau).FirstOrDefault();
+            return null;
+        }
+
+        public List<TrangThaiVienChuc> GetListTrangThaiByIdVienChucAndDuration(int idVienChuc, DateTime dtFromDuration, DateTime dtToDuration)
+        {
+            var rows = _db.TrangThaiVienChucs.Where(x => x.idVienChuc == idVienChuc);
+            List<TrangThaiVienChuc> listTrangThaiVienChuc = new List<TrangThaiVienChuc>();
+            foreach (var row in rows)
+            {
+                if (row.ngayKetThuc != null)
+                {
+                    if (row.ngayBatDau >= dtFromDuration && row.ngayKetThuc <= dtToDuration)
+                    {
+                        listTrangThaiVienChuc.Add(row);
+                    }
+                }
+                else
+                {
+                    if (row.ngayBatDau >= dtFromDuration)
+                    {
+                        listTrangThaiVienChuc.Add(row);
+                    }
+                }
+            }
+            return listTrangThaiVienChuc;
+        }
+
         public List<TrangThaiVienChuc> GetListTrangThaiByIdVienChucAndTimeline(int idVienChuc, DateTime dtTimeline)
         {
             var rows = _db.TrangThaiVienChucs.Where(x => x.idVienChuc == idVienChuc);
@@ -80,31 +156,7 @@ namespace Model.Repository
                 }
             }
             return listTrangThaiVienChuc;
-        }
-
-        public TrangThaiVienChuc GetObjectByIdVienChucAndPeriodOfTime(int idVienChuc, DateTime dtFromPeriodOfTime, DateTime dtToPeriodOfTime)
-        {
-            var rows = _db.TrangThaiVienChucs.Where(x => x.idVienChuc == idVienChuc);
-            TrangThaiVienChuc obj = null;
-            foreach (var row in rows)
-            {
-                if (row.ngayKetThuc != null)
-                {
-                    if (row.ngayBatDau >= dtFromPeriodOfTime && row.ngayKetThuc <= dtToPeriodOfTime)
-                    {
-                        obj = new TrangThaiVienChuc(rows.Where(x => x.idTrangThaiVienChuc == row.idTrangThaiVienChuc).OrderByDescending(y => y.idTrangThaiVienChuc).FirstOrDefault());
-                    }
-                }
-                else
-                {
-                    if (row.ngayBatDau >= dtFromPeriodOfTime)
-                    {
-                        obj = new TrangThaiVienChuc(rows.Where(x => x.idTrangThaiVienChuc == row.idTrangThaiVienChuc).OrderByDescending(y => y.idTrangThaiVienChuc).FirstOrDefault());
-                    }
-                }
-            }
-            return obj;
-        }
+        }      
 
         public List<string> GetListLinkVanBanDinhKem(string maVienChucForGetListLinkVanBanDinhKem)
         {

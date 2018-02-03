@@ -14,14 +14,14 @@
     <framework targetVersion="4.6.1" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="QLNS_SGU.exe.manifest" size="131528">
+    <dependentAssembly dependencyType="install" codebase="QLNS_SGU.exe.manifest" size="132229">
       <assemblyIdentity name="QLNS_SGU.exe" version="1.0.0.8" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="x86" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>n4fevvGWsXKfeneWpLhO8Jex0iFrq0xbO6er1qmSN7g=</dsig:DigestValue>
+        <dsig:DigestValue>V9vrPuYbFNihQSyFqOycc28x3gfI25Qh2FKw8EQ8DAU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

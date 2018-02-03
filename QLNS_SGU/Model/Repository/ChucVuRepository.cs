@@ -29,9 +29,9 @@ namespace Model.Repository
             }
         }
 
-        public int GetIdChucVu(string chucvu)
+        public int GetIdChucVuByTenChucVu(string chucvu)
         {
-            return _db.ChucVus.Where(x => x.tenChucVu == chucvu).Select(y => y.idChucVu).First();
+            return _db.ChucVus.Where(x => x.tenChucVu.Equals(chucvu)).Select(y => y.idChucVu).FirstOrDefault();
         }
 
         public IList<ChucVu> GetListChucVu()

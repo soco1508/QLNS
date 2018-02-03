@@ -14,13 +14,6 @@
           <Property Name="heSoBac" Type="float" Nullable="false" />
           <Property Name="idNgach" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="ChinhTri">
-          <Key>
-            <PropertyRef Name="idChinhTri" />
-          </Key>
-          <Property Name="idChinhTri" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="tenChinhTri" Type="nvarchar" MaxLength="128" />
-        </EntityType>
         <EntityType Name="ChucVu">
           <Key>
             <PropertyRef Name="idChucVu" />
@@ -57,6 +50,7 @@
           <Property Name="ngayCapChungChi" Type="datetime" />
           <Property Name="ghiChu" Type="nvarchar(max)" />
           <Property Name="linkVanBanDinhKem" Type="varchar(max)" />
+          <Property Name="capDoChungChi" Type="nvarchar" MaxLength="128" />
         </EntityType>
         <EntityType Name="ChuyenNganh">
           <Key>
@@ -145,8 +139,7 @@
             <PropertyRef Name="idLoaiChungChi" />
           </Key>
           <Property Name="idLoaiChungChi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="tenLoaiChungChi" Type="nvarchar" MaxLength="256" />
-          <Property Name="capDo" Type="nvarchar" MaxLength="64" />
+          <Property Name="tenLoaiChungChi" Type="nvarchar" MaxLength="128" />
         </EntityType>
         <EntityType Name="LoaiDonVi">
           <Key>
@@ -206,10 +199,11 @@
           <Property Name="idNganhDaoTao" Type="int" Nullable="false" />
           <Property Name="idChuyenNganh" Type="int" Nullable="false" />
           <Property Name="idHocHamHocViVienChuc" Type="int" Nullable="false" />
-          <Property Name="phanLoai" Type="int" />
           <Property Name="ngayBatDau" Type="datetime" />
           <Property Name="ngayKetThuc" Type="datetime" />
           <Property Name="linkVanBanDinhKem" Type="varchar(max)" />
+          <Property Name="trinhDoDay" Type="nvarchar" MaxLength="128" />
+          <Property Name="phanLoai" Type="bit" />
         </EntityType>
         <EntityType Name="QuanLyNhaNuoc">
           <Key>
@@ -307,7 +301,6 @@
           <Property Name="ngayVeTruong" Type="datetime" />
           <Property Name="vanHoa" Type="nvarchar" MaxLength="10" />
           <Property Name="idQuanLyNhaNuoc" Type="int" Nullable="false" />
-          <Property Name="idChinhTri" Type="int" Nullable="false" />
           <Property Name="ghiChu" Type="nvarchar" MaxLength="256" />
           <Property Name="anh" Type="image" />
         </EntityType>
@@ -671,18 +664,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__VienChuc__idChin__32E0915F">
-          <End Role="ChinhTri" Type="Self.ChinhTri" Multiplicity="1" />
-          <End Role="VienChuc" Type="Self.VienChuc" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ChinhTri">
-              <PropertyRef Name="idChinhTri" />
-            </Principal>
-            <Dependent Role="VienChuc">
-              <PropertyRef Name="idChinhTri" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__VienChuc__idDanT__300424B4">
           <End Role="DanToc" Type="Self.DanToc" Multiplicity="1" />
           <End Role="VienChuc" Type="Self.VienChuc" Multiplicity="*" />
@@ -721,7 +702,6 @@
         </Association>
         <EntityContainer Name="QLNSSGU_1ModelStoreContainer">
           <EntitySet Name="Bac" EntityType="Self.Bac" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ChinhTri" EntityType="Self.ChinhTri" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ChucVu" EntityType="Self.ChucVu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ChucVuDonViVienChuc" EntityType="Self.ChucVuDonViVienChuc" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ChungChiVienChuc" EntityType="Self.ChungChiVienChuc" Schema="dbo" store:Type="Tables" />
@@ -869,10 +849,6 @@
             <End Role="VienChuc" EntitySet="VienChuc" />
             <End Role="TrangThaiVienChuc" EntitySet="TrangThaiVienChuc" />
           </AssociationSet>
-          <AssociationSet Name="FK__VienChuc__idChin__32E0915F" Association="Self.FK__VienChuc__idChin__32E0915F">
-            <End Role="ChinhTri" EntitySet="ChinhTri" />
-            <End Role="VienChuc" EntitySet="VienChuc" />
-          </AssociationSet>
           <AssociationSet Name="FK__VienChuc__idDanT__300424B4" Association="Self.FK__VienChuc__idDanT__300424B4">
             <End Role="DanToc" EntitySet="DanToc" />
             <End Role="VienChuc" EntitySet="VienChuc" />
@@ -901,14 +877,6 @@
           <Property Name="idNgach" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Ngach" Relationship="Self.FK__Bac__idNgach__5BE2A6F2" FromRole="Bac" ToRole="Ngach" />
           <NavigationProperty Name="QuaTrinhLuongs" Relationship="Self.FK__QuaTrinhL__idBac__5FB337D6" FromRole="Bac" ToRole="QuaTrinhLuong" />
-        </EntityType>
-        <EntityType Name="ChinhTri">
-          <Key>
-            <PropertyRef Name="idChinhTri" />
-          </Key>
-          <Property Name="idChinhTri" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="tenChinhTri" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="VienChucs" Relationship="Self.FK__VienChuc__idChin__32E0915F" FromRole="ChinhTri" ToRole="VienChuc" />
         </EntityType>
         <EntityType Name="ChucVu">
           <Key>
@@ -952,6 +920,7 @@
           <Property Name="ngayCapChungChi" Type="DateTime" Precision="3" />
           <Property Name="ghiChu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="linkVanBanDinhKem" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="capDoChungChi" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="LoaiChungChi" Relationship="Self.FK__ChungChiV__idLoa__571DF1D5" FromRole="ChungChiVienChuc" ToRole="LoaiChungChi" />
           <NavigationProperty Name="VienChuc" Relationship="Self.FK__ChungChiV__idVie__5629CD9C" FromRole="ChungChiVienChuc" ToRole="VienChuc" />
         </EntityType>
@@ -1060,8 +1029,7 @@
             <PropertyRef Name="idLoaiChungChi" />
           </Key>
           <Property Name="idLoaiChungChi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="tenLoaiChungChi" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="capDo" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="tenLoaiChungChi" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="ChungChiVienChucs" Relationship="Self.FK__ChungChiV__idLoa__571DF1D5" FromRole="LoaiChungChi" ToRole="ChungChiVienChuc" />
         </EntityType>
         <EntityType Name="LoaiDonVi">
@@ -1134,10 +1102,11 @@
           <Property Name="idNganhDaoTao" Type="Int32" Nullable="false" />
           <Property Name="idChuyenNganh" Type="Int32" Nullable="false" />
           <Property Name="idHocHamHocViVienChuc" Type="Int32" Nullable="false" />
-          <Property Name="phanLoai" Type="Int32" />
           <Property Name="ngayBatDau" Type="DateTime" Precision="3" />
           <Property Name="ngayKetThuc" Type="DateTime" Precision="3" />
           <Property Name="linkVanBanDinhKem" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="trinhDoDay" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="phanLoai" Type="Boolean" />
           <NavigationProperty Name="ChuyenNganh" Relationship="Self.FK__NganhVien__idChu__4CA06362" FromRole="NganhVienChuc" ToRole="ChuyenNganh" />
           <NavigationProperty Name="HocHamHocViVienChuc" Relationship="Self.FK__NganhVien__idHoc__4D94879B" FromRole="NganhVienChuc" ToRole="HocHamHocViVienChuc" />
           <NavigationProperty Name="LoaiNganh" Relationship="Self.FK__NganhVien__idLoa__4AB81AF0" FromRole="NganhVienChuc" ToRole="LoaiNganh" />
@@ -1249,10 +1218,8 @@
           <Property Name="ngayVeTruong" Type="DateTime" Precision="3" />
           <Property Name="vanHoa" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="idQuanLyNhaNuoc" Type="Int32" Nullable="false" />
-          <Property Name="idChinhTri" Type="Int32" Nullable="false" />
           <Property Name="ghiChu" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="anh" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <NavigationProperty Name="ChinhTri" Relationship="Self.FK__VienChuc__idChin__32E0915F" FromRole="VienChuc" ToRole="ChinhTri" />
           <NavigationProperty Name="ChucVuDonViVienChucs" Relationship="Self.FK__ChucVuDon__idVie__35BCFE0A" FromRole="VienChuc" ToRole="ChucVuDonViVienChuc" />
           <NavigationProperty Name="ChungChiVienChucs" Relationship="Self.FK__ChungChiV__idVie__5629CD9C" FromRole="VienChuc" ToRole="ChungChiVienChuc" />
           <NavigationProperty Name="DangHocNangCaos" Relationship="Self.FK__DangHocNa__idVie__5070F446" FromRole="VienChuc" ToRole="DangHocNangCao" />
@@ -1286,18 +1253,6 @@
             </Principal>
             <Dependent Role="QuaTrinhLuong">
               <PropertyRef Name="idBac" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__VienChuc__idChin__32E0915F">
-          <End Role="ChinhTri" Type="Self.ChinhTri" Multiplicity="1" />
-          <End Role="VienChuc" Type="Self.VienChuc" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ChinhTri">
-              <PropertyRef Name="idChinhTri" />
-            </Principal>
-            <Dependent Role="VienChuc">
-              <PropertyRef Name="idChinhTri" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1675,7 +1630,6 @@
         </Association>
         <EntityContainer Name="QLNSSGU_1Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Bacs" EntityType="Self.Bac" />
-          <EntitySet Name="ChinhTris" EntityType="Self.ChinhTri" />
           <EntitySet Name="ChucVus" EntityType="Self.ChucVu" />
           <EntitySet Name="ChucVuDonViVienChucs" EntityType="Self.ChucVuDonViVienChuc" />
           <EntitySet Name="ChungChiVienChucs" EntityType="Self.ChungChiVienChuc" />
@@ -1710,10 +1664,6 @@
           <AssociationSet Name="FK__QuaTrinhL__idBac__5FB337D6" Association="Self.FK__QuaTrinhL__idBac__5FB337D6">
             <End Role="Bac" EntitySet="Bacs" />
             <End Role="QuaTrinhLuong" EntitySet="QuaTrinhLuongs" />
-          </AssociationSet>
-          <AssociationSet Name="FK__VienChuc__idChin__32E0915F" Association="Self.FK__VienChuc__idChin__32E0915F">
-            <End Role="ChinhTri" EntitySet="ChinhTris" />
-            <End Role="VienChuc" EntitySet="VienChucs" />
           </AssociationSet>
           <AssociationSet Name="FK__ChucVu__idLoaiCh__1DE57479" Association="Self.FK__ChucVu__idLoaiCh__1DE57479">
             <End Role="LoaiChucVu" EntitySet="LoaiChucVus" />
@@ -1856,14 +1806,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ChinhTris">
-            <EntityTypeMapping TypeName="QLNSSGU_1Model.ChinhTri">
-              <MappingFragment StoreEntitySet="ChinhTri">
-                <ScalarProperty Name="idChinhTri" ColumnName="idChinhTri" />
-                <ScalarProperty Name="tenChinhTri" ColumnName="tenChinhTri" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="ChucVus">
             <EntityTypeMapping TypeName="QLNSSGU_1Model.ChucVu">
               <MappingFragment StoreEntitySet="ChucVu">
@@ -1901,6 +1843,7 @@
                 <ScalarProperty Name="ngayCapChungChi" ColumnName="ngayCapChungChi" />
                 <ScalarProperty Name="ghiChu" ColumnName="ghiChu" />
                 <ScalarProperty Name="linkVanBanDinhKem" ColumnName="linkVanBanDinhKem" />
+                <ScalarProperty Name="capDoChungChi" ColumnName="capDoChungChi" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1998,7 +1941,6 @@
               <MappingFragment StoreEntitySet="LoaiChungChi">
                 <ScalarProperty Name="idLoaiChungChi" ColumnName="idLoaiChungChi" />
                 <ScalarProperty Name="tenLoaiChungChi" ColumnName="tenLoaiChungChi" />
-                <ScalarProperty Name="capDo" ColumnName="capDo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2065,10 +2007,11 @@
                 <ScalarProperty Name="idNganhDaoTao" ColumnName="idNganhDaoTao" />
                 <ScalarProperty Name="idChuyenNganh" ColumnName="idChuyenNganh" />
                 <ScalarProperty Name="idHocHamHocViVienChuc" ColumnName="idHocHamHocViVienChuc" />
-                <ScalarProperty Name="phanLoai" ColumnName="phanLoai" />
                 <ScalarProperty Name="ngayBatDau" ColumnName="ngayBatDau" />
                 <ScalarProperty Name="ngayKetThuc" ColumnName="ngayKetThuc" />
                 <ScalarProperty Name="linkVanBanDinhKem" ColumnName="linkVanBanDinhKem" />
+                <ScalarProperty Name="trinhDoDay" ColumnName="trinhDoDay" />
+                <ScalarProperty Name="phanLoai" ColumnName="phanLoai" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2175,7 +2118,6 @@
                 <ScalarProperty Name="ngayVeTruong" ColumnName="ngayVeTruong" />
                 <ScalarProperty Name="vanHoa" ColumnName="vanHoa" />
                 <ScalarProperty Name="idQuanLyNhaNuoc" ColumnName="idQuanLyNhaNuoc" />
-                <ScalarProperty Name="idChinhTri" ColumnName="idChinhTri" />
                 <ScalarProperty Name="ghiChu" ColumnName="ghiChu" />
                 <ScalarProperty Name="anh" ColumnName="anh" />
               </MappingFragment>

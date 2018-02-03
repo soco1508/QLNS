@@ -9,7 +9,6 @@ namespace Model.ObjectModels
     public class ExportObjects
     {
         //Default
-        public int Index { get; set; }
         public int IdVienChuc { get; set; }
         public string MaVienChuc { get; set; }
         public string Ho { get; set; }
@@ -33,7 +32,7 @@ namespace Model.ObjectModels
         public DateTime? NgayVeTruong { get; set; }
         public string VanHoa { get; set; }
         public string QuanLyNhaNuoc { get; set; }
-        public string ChinhTri { get; set; }
+        //public string ChinhTri { get; set; }
         public string GhiChu { get; set; }
         //Cong tac
         public string LoaiChucVu { get; set; }
@@ -76,6 +75,7 @@ namespace Model.ObjectModels
         public DateTime? NgayKetThucTT { get; set; }
         public string LinkVanBanDinhKemTT { get; set; }
         //Nganh hoc
+        public string LoaiNganhNH { get; set; }
         public string NganhDaoTaoNH { get; set; }
         public string ChuyenNganhNH { get; set; }        
         public string LoaiHocHamHocViNH { get; set; }
@@ -89,6 +89,7 @@ namespace Model.ObjectModels
         public string PhanLoaiNH { get; set; }
         public string LinkVanBanDinhKemNH { get; set; }
         //Nganh day
+        public string LoaiNganhND { get; set; }
         public string NganhDaoTaoND { get; set; }
         public string ChuyenNganhND { get; set; }
         public string LoaiHocHamHocViND { get; set; }
@@ -105,9 +106,10 @@ namespace Model.ObjectModels
         public string LinkVanBanDinhKemND { get; set; }
         //Chung chi
         public string NgoaiNgu { get; set; }
-        public string CapDo { get; set; }
         public string TinHoc { get; set; }
-        public string NVSP { get; set; }
+        public string LiLuanChinhTri { get; set; }
+        public string ChungChiChuyenMon { get; set; }
+        public string ChungChi { get; set; }
         //Dang hoc nang cao
         public string SoQuyetDinh { get; set; }
         public string LinkAnhQuyetDinh { get; set; }
@@ -120,6 +122,8 @@ namespace Model.ObjectModels
         public string NuocCapBangDHNC { get; set; }
         public DateTime? NgayBatDauDHNC { get; set; }
         public DateTime? NgayKetThucDHNC { get; set; }
+        //index to add row in export one domain
+        public int Index { get; set; }
         public ExportObjects()
         {
             //Default
@@ -145,7 +149,7 @@ namespace Model.ObjectModels
             NgayVeTruong = null;
             VanHoa = "";
             QuanLyNhaNuoc = "";
-            ChinhTri = "";
+            //ChinhTri = "";
             GhiChu = "";
             //Cong tac
             LoaiChucVu = "";
@@ -188,6 +192,7 @@ namespace Model.ObjectModels
             NgayKetThucTT = null;
             LinkVanBanDinhKemTT = "";
             //Nganh hoc
+            LoaiNganhNH = "";
             NganhDaoTaoNH = "";
             ChuyenNganhNH = "";
             LoaiHocHamHocViNH = "";
@@ -201,6 +206,7 @@ namespace Model.ObjectModels
             PhanLoaiNH = "";
             LinkVanBanDinhKemNH = "";
             //Nganh day
+            LoaiNganhND = "";
             NganhDaoTaoND = "";
             ChuyenNganhND = "";
             LoaiHocHamHocViND = "";
@@ -217,9 +223,9 @@ namespace Model.ObjectModels
             LinkVanBanDinhKemND = "";
             //Chung chi
             NgoaiNgu = "";
-            CapDo = "";
             TinHoc = "";
-            NVSP = "";
+            LiLuanChinhTri = "";
+            ChungChiChuyenMon = "";
             //Dang hoc nang cao
             LoaiHocHamHocViDHNC = "";
             SoQuyetDinh = "";
@@ -232,6 +238,8 @@ namespace Model.ObjectModels
             NgayBatDauDHNC = null;
             NgayKetThucDHNC = null;
             Loai = "";
+            //index to add row for export one domain
+            Index = -1;
         }
     }
 }

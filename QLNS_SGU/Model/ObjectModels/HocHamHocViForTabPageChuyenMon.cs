@@ -10,6 +10,7 @@ namespace Model.ObjectModels
     {
         public int Id { get; set; }
         public string LoaiHocHamHocVi { get; set; }
+        public string LoaiNganh { get; set; }
         public string NganhDaoTao { get; set; }
         public string ChuyenNganh { get; set; }
         public string TenHocHamHocVi { get; set; }
@@ -23,6 +24,7 @@ namespace Model.ObjectModels
         {
             Id = -1;
             LoaiHocHamHocVi = "";
+            LoaiNganh = "";
             NganhDaoTao = "";
             ChuyenNganh = "";
             TenHocHamHocVi = "";

@@ -19,8 +19,9 @@ namespace QLNS_SGU.View
         GridControl GCLoaiChucVu { get; set; }
         GridView GVLoaiChucVu { get; set; }
         SaveFileDialog SaveFileDialog { get; set; }
+        SimpleButton BTNExportExcel { get; set; }
     }
-    public partial class LoaiChucVuForm : XtraForm
+    public partial class LoaiChucVuForm : XtraForm, ILoaiChucVuForm
     {
         public LoaiChucVuForm()
         {
@@ -31,15 +32,16 @@ namespace QLNS_SGU.View
         public GridControl GCLoaiChucVu { get => gcLoaiChucVu; set => gcLoaiChucVu = value; }
         public GridView GVLoaiChucVu { get => gvLoaiChucVu; set => gvLoaiChucVu = value; }
         public SaveFileDialog SaveFileDialog { get => saveFileDialog1; set => saveFileDialog1 = value; }
+        public SimpleButton BTNExportExcel { get => btnExportExcel; set => btnExportExcel = value; }
         #endregion
 
         public void Attach(ILoaiChucVuPresenter presenter)
         {
-            btnRefresh.ItemClick += (s, e) => presenter.RefreshGrid();
-            btnAdd.ItemClick += (s, e) => presenter.AddNewRow();
-            btnSave.ItemClick += (s, e) => presenter.SaveData();
-            btnDelete.ItemClick += (s, e) => presenter.DeleteRow();
-            btnExportExcel.ItemClick += (s, e) => presenter.ExportExcel();
+            btnRefresh.Click += (s, e) => presenter.RefreshGrid();
+            btnAdd.Click += (s, e) => presenter.AddNewRow();
+            btnSave.Click += (s, e) => presenter.SaveData();
+            btnDelete.Click += (s, e) => presenter.DeleteRow();
+            btnExportExcel.Click += (s, e) => presenter.ExportExcel();
             gcLoaiChucVu.MouseDoubleClick += new MouseEventHandler(presenter.MouseDoubleClick);
             gvLoaiChucVu.HiddenEditor += new EventHandler(presenter.HiddenEditor);
             gvLoaiChucVu.InitNewRow += new InitNewRowEventHandler(presenter.InitNewRow);

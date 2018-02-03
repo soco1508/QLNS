@@ -19,6 +19,7 @@ namespace QLNS_SGU.View
         GridControl GCLoaiHopDong { get; set; }
         GridView GVLoaiHopDong { get; set; }
         SaveFileDialog SaveFileDialog { get; set; }
+        SimpleButton BTNExportExcel { get; set; }
     }
     public partial class LoaiHopDongForm : XtraForm, ILoaiHopDongForm
     {
@@ -31,6 +32,7 @@ namespace QLNS_SGU.View
         public GridControl GCLoaiHopDong { get => gcLoaiHopDong; set => gcLoaiHopDong = value; }
         public GridView GVLoaiHopDong { get => gvLoaiHopDong; set => gvLoaiHopDong = value; }
         public SaveFileDialog SaveFileDialog { get => saveFileDialog1; set => saveFileDialog1 = value; }
+        public SimpleButton BTNExportExcel { get => btnExportExcel; set => btnExportExcel = value; }
         #endregion
 
         public void Attach(ILoaiHopDongPresenter presenter)

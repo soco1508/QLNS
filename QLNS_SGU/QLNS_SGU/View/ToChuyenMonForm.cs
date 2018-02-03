@@ -19,6 +19,7 @@ namespace QLNS_SGU.View
         SaveFileDialog SaveFileDialog { get; set; }
         GridControl GCToChuyenMon { get; set; }
         GridView GVToChuyenMon { get; set; }
+        SimpleButton BTNExportExcel { get; set; }
     }
     public partial class ToChuyenMonForm : XtraForm, IToChuyenMonForm
     {
@@ -31,6 +32,7 @@ namespace QLNS_SGU.View
         public SaveFileDialog SaveFileDialog { get => saveFileDialog1; set => saveFileDialog1 = value; }
         public GridControl GCToChuyenMon { get => gcToChuyenMon; set => gcToChuyenMon = value; }
         public GridView GVToChuyenMon { get => gvToChuyenMon; set => gvToChuyenMon = value; }
+        public SimpleButton BTNExportExcel { get => btnExportExcel; set => btnExportExcel = value; }
         #endregion
         public void Attach(IToChuyenMonPresenter presenter)
         {

@@ -35,7 +35,6 @@ namespace QLNS_SGU.View
         DateEdit DTNgayVaoDang { get; set; }
         TextEdit TXTVanHoa { get; set; }
         LookUpEdit CBXQuanLyNhaNuoc { get; set; }
-        LookUpEdit CBXChinhTri { get; set; }
         MemoEdit TXTGhiChu { get; set; }
     }
     public partial class TabPageThongTinCaNhan : XtraForm, ITabPageThongTinCaNhan
@@ -65,7 +64,6 @@ namespace QLNS_SGU.View
         public DateEdit DTNgayVaoDang { get => dtNgayVaoDang; set => dtNgayVaoDang = value; }
         public TextEdit TXTVanHoa { get => txtVanHoa; set => txtVanHoa = value; }
         public LookUpEdit CBXQuanLyNhaNuoc { get => cbxQuanLyNhaNuoc; set => cbxQuanLyNhaNuoc = value; }
-        public LookUpEdit CBXChinhTri { get => cbxChinhTri; set => cbxChinhTri = value; }
         public MemoEdit TXTGhiChu { get => txtGhiChu; set => txtGhiChu = value; }
         #endregion
         public void Attach(ITabPageThongTinCaNhanPresenter presenter)

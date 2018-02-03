@@ -19,6 +19,7 @@ namespace QLNS_SGU.View
     {
         OpenFileDialog OpenFileDialog { get; set; }
         SaveFileDialog SaveFileDialog { get; set; }
+        SimpleButton BTNExportExcel { get; set; }
         GridControl GCTabPageTrangThai { get; set; }
         GridView GVTabPageTrangThai { get; set; }
         LookUpEdit CBXTrangThai { get; set; }
@@ -39,6 +40,7 @@ namespace QLNS_SGU.View
         #region Controls
         public OpenFileDialog OpenFileDialog { get => openFileDialog1; set => openFileDialog1 = value; }
         public SaveFileDialog SaveFileDialog { get => saveFileDialog1; set => saveFileDialog1 = value; }
+        public SimpleButton BTNExportExcel { get => btnExportExcel; set => btnExportExcel = value; }
         public GridControl GCTabPageTrangThai { get => gcTrangThai; set => gcTrangThai = value; }
         public GridView GVTabPageTrangThai { get => gvTrangThai; set => gvTrangThai = value; }
         public LookUpEdit CBXTrangThai { get => cbxTrangThai; set => cbxTrangThai = value; }

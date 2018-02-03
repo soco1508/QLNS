@@ -19,6 +19,7 @@ namespace QLNS_SGU.View
         GridControl GCNgach { get; set; }
         GridView GVNgach { get; set; }
         SaveFileDialog SaveFileDialog { get; set; }
+        SimpleButton BTNExportExcel { get; set; }
     }
     public partial class NgachForm : XtraForm, INgachForm
     {
@@ -31,6 +32,7 @@ namespace QLNS_SGU.View
         public GridControl GCNgach { get => gcNgach; set => gcNgach = value; }
         public GridView GVNgach { get => gvNgach; set => gvNgach = value; }
         public SaveFileDialog SaveFileDialog { get => saveFileDialog1; set => saveFileDialog1 = value; }
+        public SimpleButton BTNExportExcel { get => btnExportExcel; set => btnExportExcel = value; }
         #endregion
 
         public void Attach(INgachPresenter presenter)

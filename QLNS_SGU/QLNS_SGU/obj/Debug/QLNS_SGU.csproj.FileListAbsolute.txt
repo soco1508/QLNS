@@ -9,6 +9,7 @@ C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\bin\Debug\
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\bin\Debug\DevExpress.DataAccess.v17.1.dll
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\bin\Debug\DevExpress.DataAccess.v17.1.UI.dll
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\bin\Debug\DevExpress.Docs.v17.1.dll
+C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\bin\Debug\DevExpress.Images.v17.1.dll
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\bin\Debug\DevExpress.Office.v17.1.Core.dll
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\bin\Debug\DevExpress.PivotGrid.v17.1.Core.dll
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\bin\Debug\DevExpress.Printing.v17.1.Core.dll
@@ -238,7 +239,8 @@ C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\QLNS_SGU.View.ContainerForm.resources
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\QLNS_SGU.View.CreateAndEditPersonInfoForm.resources
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\QLNS_SGU.View.DonViForm.resources
-C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\QLNS_SGU.View.ExportDataForm.resources
+C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\QLNS_SGU.View.ExportDataMultiDomainForm.resources
+C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\QLNS_SGU.View.ExportDataOneDomainForm.resources
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\QLNS_SGU.View.ImportDataForm.resources
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\QLNS_SGU.View.LoaiChucVuForm.resources
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\QLNS_SGU.View.LoaiChungChiForm.resources

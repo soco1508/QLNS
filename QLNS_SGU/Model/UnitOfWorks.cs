@@ -40,24 +40,11 @@ namespace Model
         private DanTocRepository _danTocRepository;
         private TonGiaoRepository _tonGiaoRepository;
         private QuanLyNhaNuocRepository _quanLyNhaNuocRepository;
-        private ChinhTriRepository _chinhTriRepository;
 
         private QLNSSGU_1Entities _db;
         public UnitOfWorks(QLNSSGU_1Entities db)
         {
             _db = db;
-        }
-
-        public ChinhTriRepository ChinhTriRepository
-        {
-            get
-            {
-                if (_chinhTriRepository == null)
-                {
-                    _chinhTriRepository = new ChinhTriRepository(_db);
-                }
-                return _chinhTriRepository;
-            }
         }
 
         public QuanLyNhaNuocRepository QuanLyNhaNuocRepository

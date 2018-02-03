@@ -60,7 +60,7 @@ namespace Model.Repository
 
         public void Update(int id, int bac, double hesobac, int idngach)
         {
-            Bac _bac = _db.Bacs.Where(x => x.idBac == id).First();
+            Bac _bac = _db.Bacs.Where(x => x.idBac == id).FirstOrDefault();
             _bac.heSoBac = hesobac;
             _bac.bac1 = bac;
             _bac.idNgach = idngach;

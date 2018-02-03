@@ -93,48 +93,100 @@ namespace Model.Repository
             chucVuDonViVienChuc.linkVanBanDinhKem = linkfiledinhkem;
         }
 
-        public ChucVuDonViVienChuc GetObjectByIdVienChucAndPeriodOfTime(int idVienChuc, DateTime dtFromPeriodOfTime, DateTime dtToPeriodOfTime)
+        public ChucVuDonViVienChuc GetCongTacByIdVienChucAndDuration(int idVienChuc, DateTime dtFromDuration, DateTime dtToDuration)
         {
             var rows = _db.ChucVuDonViVienChucs.Where(x => x.idVienChuc == idVienChuc);
-            ChucVuDonViVienChuc obj = null;
+            List<ChucVuDonViVienChuc> listChucVuDonViVienChuc = new List<ChucVuDonViVienChuc>();
             foreach (var row in rows)
             {
                 if (row.ngayKetThuc != null)
                 {
-                    if (row.ngayBatDau >= dtFromPeriodOfTime && row.ngayKetThuc <= dtToPeriodOfTime)
+                    if (row.ngayBatDau >= dtFromDuration && row.ngayKetThuc <= dtToDuration)
                     {
-                        obj = new ChucVuDonViVienChuc(rows.Where(x => x.idViTriDonViVienChuc == row.idViTriDonViVienChuc).OrderByDescending(y => y.idViTriDonViVienChuc).FirstOrDefault());
+                        listChucVuDonViVienChuc.Add(row);
                     }
                 }
                 else
                 {
-                    if (row.ngayBatDau >= dtFromPeriodOfTime)
+                    if (row.ngayBatDau >= dtFromDuration)
                     {
-                        obj = new ChucVuDonViVienChuc(rows.Where(x => x.idViTriDonViVienChuc == row.idViTriDonViVienChuc).OrderByDescending(y => y.idViTriDonViVienChuc).FirstOrDefault());
+                        listChucVuDonViVienChuc.Add(row);
                     }
                 }
             }
-            return obj;
+            if(listChucVuDonViVienChuc.Count > 0)
+                return listChucVuDonViVienChuc.OrderByDescending(x => x.ChucVu.heSoChucVu).FirstOrDefault();
+            return null;
+        }
+
+        public ChucVuDonViVienChuc GetCongTacByIdVienChucAndTimeline(int idVienChuc, DateTime dtTimeline)
+        {
+            var rows = _db.ChucVuDonViVienChucs.Where(x => x.idVienChuc == idVienChuc);
+            List<ChucVuDonViVienChuc> listChucVuDonViVienChuc = new List<ChucVuDonViVienChuc>();
+            foreach (var row in rows)
+            {
+                if (row.ngayKetThuc != null)
+                {
+                    if (row.ngayBatDau <= dtTimeline && row.ngayKetThuc >= dtTimeline)
+                    {
+                        listChucVuDonViVienChuc.Add(new ChucVuDonViVienChuc(row));
+                    }
+                }
+                if (row.ngayKetThuc == null)
+                {
+                    if (row.ngayBatDau <= dtTimeline)
+                    {
+                        listChucVuDonViVienChuc.Add(new ChucVuDonViVienChuc(row));
+                    }
+                }
+            }
+            if(listChucVuDonViVienChuc.Count > 0)
+                return listChucVuDonViVienChuc.OrderByDescending(x => x.ChucVu.heSoChucVu).FirstOrDefault();
+            return null;
         }
 
         public List<ChucVuDonViVienChuc> GetListCongTacByIdVienChucAndTimeline(int idVienChuc, DateTime dtTimeline)
         {
             var rows = _db.ChucVuDonViVienChucs.Where(x => x.idVienChuc == idVienChuc);
             List<ChucVuDonViVienChuc> listChucVuDonViVienChuc = new List<ChucVuDonViVienChuc>();
-            foreach(var row in rows)
+            foreach (var row in rows)
             {
-                if(row.ngayKetThuc != null)
+                if (row.ngayKetThuc != null)
                 {
-                    if(row.ngayBatDau <= dtTimeline && row.ngayKetThuc >= dtTimeline)
-                    {
-                        listChucVuDonViVienChuc.Add(new ChucVuDonViVienChuc(row));                       
-                    }
-                }
-                if(row.ngayKetThuc == null)
-                {
-                    if(row.ngayBatDau <= dtTimeline)
+                    if (row.ngayBatDau <= dtTimeline && row.ngayKetThuc >= dtTimeline)
                     {
                         listChucVuDonViVienChuc.Add(new ChucVuDonViVienChuc(row));
+                    }
+                }
+                if (row.ngayKetThuc == null)
+                {
+                    if (row.ngayBatDau <= dtTimeline)
+                    {
+                        listChucVuDonViVienChuc.Add(new ChucVuDonViVienChuc(row));
+                    }
+                }
+            }
+            return listChucVuDonViVienChuc;
+        }
+
+        public List<ChucVuDonViVienChuc> GetListCongTacByIdVienChucAndDuration(int idVienChuc, DateTime dtFromDuration, DateTime dtToDuration)
+        {
+            var rows = _db.ChucVuDonViVienChucs.Where(x => x.idVienChuc == idVienChuc);
+            List<ChucVuDonViVienChuc> listChucVuDonViVienChuc = new List<ChucVuDonViVienChuc>();
+            foreach (var row in rows)
+            {
+                if (row.ngayKetThuc != null)
+                {
+                    if (row.ngayBatDau >= dtFromDuration && row.ngayKetThuc <= dtToDuration)
+                    {
+                        listChucVuDonViVienChuc.Add(row);
+                    }
+                }
+                else
+                {
+                    if (row.ngayBatDau >= dtFromDuration)
+                    {
+                        listChucVuDonViVienChuc.Add(row);
                     }
                 }
             }
@@ -162,9 +214,9 @@ namespace Model.Repository
                 case 2:
                     return "Nhiều chức vụ hiện tại";
                 case 3:
-                    return "";
+                    return string.Empty;
                 default:
-                    return "";
+                    return string.Empty;
             }
         }
         public string HardKiemNhiemToGrid(int? kiemnhiem)
@@ -176,9 +228,9 @@ namespace Model.Repository
                 case 1:
                     return "Có";
                 case 2:
-                    return "";
+                    return string.Empty;
                 default:
-                    return "";
+                    return string.Empty;
             }
         }
 
@@ -200,9 +252,9 @@ namespace Model.Repository
                 case 3:
                     return "Thay đổi tổ bộ môn";
                 case 4:
-                    return "";
+                    return string.Empty;
                 default:
-                    return "";
+                    return string.Empty;
             }
         }
         public int? HardCheckPhanLoaiCongTacToDatabase(string checkphanloaicongtac)

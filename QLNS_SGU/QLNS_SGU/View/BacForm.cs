@@ -19,8 +19,9 @@ namespace QLNS_SGU.View
         SaveFileDialog SaveFileDialog { get; set; }
         GridControl GCBac { get; set; }
         GridView GVBac { get; set; }
+        SimpleButton BTNExportExcel { get; set; }
     }
-    public partial class BacForm : XtraForm
+    public partial class BacForm : XtraForm, IBacForm
     {
         public BacForm()
         {
@@ -30,6 +31,7 @@ namespace QLNS_SGU.View
         public SaveFileDialog SaveFileDialog { get => saveFileDialog1; set => saveFileDialog1 = value; }
         public GridControl GCBac { get => gcBac; set => gcBac = value; }
         public GridView GVBac { get => gvBac; set => gvBac = value; }
+        public SimpleButton BTNExportExcel { get => btnExportExcel; set => btnExportExcel = value; }
         #endregion
 
         public void Attach(IBacPresenter presenter)

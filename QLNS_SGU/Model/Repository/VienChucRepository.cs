@@ -174,38 +174,81 @@ namespace Model.Repository
             return _db.VienChucs.Where(x => x.idVienChuc == idVienChuc).FirstOrDefault();
         }
 
-        public List<ExportObjects> GetListFieldsDefaultByTimeline(DateTime dtTimeline)
+        public List<ExportObjects> GetListFieldsDefaultByDuration(DateTime dtFromDuration, DateTime dtToDuration)
         {
             List<ExportObjects> listExportObjects = new List<ExportObjects>();
             ChucVuDonViVienChucRepository chucVuDonViVienChucRepository = new ChucVuDonViVienChucRepository(_db);
             TrangThaiVienChucRepository trangThaiVienChucRepository = new TrangThaiVienChucRepository(_db);
+            var listVienChuc = from v in _db.VienChucs
+                               select new { v.idVienChuc, v.maVienChuc, v.ho, v.ten, v.gioiTinh };
             int count = 0;
-            var listVienChuc = _db.VienChucs.ToList();
-            foreach(var item in listVienChuc)
+            foreach (var item in listVienChuc.ToList())
             {
                 listExportObjects.Add(new ExportObjects
                 {
-                    Index = count,
                     IdVienChuc = item.idVienChuc,
                     MaVienChuc = item.maVienChuc,
                     Ho = item.ho,
                     Ten = item.ten,
-                    GioiTinh = ReturnGenderToGrid(item.gioiTinh)
+                    GioiTinh = ReturnGenderToGrid(item.gioiTinh),
+                    Index = count
                 });
                 count++;
             }
-            foreach(var item in listExportObjects)
+            foreach (var item in listExportObjects)
             {
-                List<ChucVuDonViVienChuc> listChucVuDonViVienChuc = chucVuDonViVienChucRepository.GetListCongTacByIdVienChucAndTimeline(item.IdVienChuc, dtTimeline);
-                string donvi = listChucVuDonViVienChuc.Select(y => y.DonVi.tenDonVi).FirstOrDefault();
-                List<TrangThaiVienChuc> listTrangThaiVienChuc = trangThaiVienChucRepository.GetListTrangThaiByIdVienChucAndTimeline(item.IdVienChuc, dtTimeline);
-                string trangthai = listTrangThaiVienChuc.Select(y => y.TrangThai.tenTrangThai).FirstOrDefault();
+                ChucVuDonViVienChuc chucVuDonViVienChuc = chucVuDonViVienChucRepository.GetCongTacByIdVienChucAndDuration(item.IdVienChuc, dtFromDuration, dtToDuration);
+                string donvi = string.Empty;
+                if (chucVuDonViVienChuc != null)
+                    donvi = chucVuDonViVienChuc.DonVi.tenDonVi;
+                TrangThaiVienChuc trangThaiVienChuc = trangThaiVienChucRepository.GetTrangThaiByIdVienChucAndDuration(item.IdVienChuc, dtFromDuration, dtToDuration);
+                string trangthai = string.Empty;
+                if (trangThaiVienChuc != null)
+                    trangthai = trangThaiVienChuc.TrangThai.tenTrangThai;
                 var exportObjects = listExportObjects.Where(x => x.IdVienChuc == item.IdVienChuc).FirstOrDefault();
                 exportObjects.DonVi = donvi;
                 exportObjects.TrangThai = trangthai;
             }
             return listExportObjects;
         }
+
+        public List<ExportObjects> GetListFieldsDefaultByTimeline(DateTime dtTimeline)
+        {
+            List<ExportObjects> listExportObjects = new List<ExportObjects>();
+            ChucVuDonViVienChucRepository chucVuDonViVienChucRepository = new ChucVuDonViVienChucRepository(_db);
+            TrangThaiVienChucRepository trangThaiVienChucRepository = new TrangThaiVienChucRepository(_db);
+            var listVienChuc = from v in _db.VienChucs
+                               select new { v.idVienChuc, v.maVienChuc, v.ho, v.ten, v.gioiTinh };
+            int count = 0;
+            foreach (var item in listVienChuc.ToList())
+            {
+                listExportObjects.Add(new ExportObjects
+                {
+                    IdVienChuc = item.idVienChuc,
+                    MaVienChuc = item.maVienChuc,
+                    Ho = item.ho,
+                    Ten = item.ten,
+                    GioiTinh = ReturnGenderToGrid(item.gioiTinh),
+                    Index = count,
+                });
+                count++;
+            }
+            foreach (var item in listExportObjects)
+            {
+                ChucVuDonViVienChuc chucVuDonViVienChuc = chucVuDonViVienChucRepository.GetCongTacByIdVienChucAndTimeline(item.IdVienChuc, dtTimeline);
+                string donvi = string.Empty;
+                if (chucVuDonViVienChuc != null)
+                    donvi = chucVuDonViVienChuc.DonVi.tenDonVi;
+                TrangThaiVienChuc trangThaiVienChuc = trangThaiVienChucRepository.GetTrangThaiByIdVienChucAndTimeline(item.IdVienChuc, dtTimeline);
+                string trangthai = string.Empty;
+                if (trangThaiVienChuc != null)
+                    trangthai = trangThaiVienChuc.TrangThai.tenTrangThai;
+                var exportObjects = listExportObjects.Where(x => x.IdVienChuc == item.IdVienChuc).FirstOrDefault();
+                exportObjects.DonVi = donvi;
+                exportObjects.TrangThai = trangthai;
+            }
+            return listExportObjects;
+        }       
 
         public string ReturnLaDangVienToGrid(bool? laDangVien)
         {

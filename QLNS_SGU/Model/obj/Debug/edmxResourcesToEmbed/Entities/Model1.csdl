@@ -11,14 +11,6 @@
     <NavigationProperty Name="Ngach" Relationship="Self.FK__Bac__idNgach__5BE2A6F2" FromRole="Bac" ToRole="Ngach" />
     <NavigationProperty Name="QuaTrinhLuongs" Relationship="Self.FK__QuaTrinhL__idBac__5FB337D6" FromRole="Bac" ToRole="QuaTrinhLuong" />
   </EntityType>
-  <EntityType Name="ChinhTri">
-    <Key>
-      <PropertyRef Name="idChinhTri" />
-    </Key>
-    <Property Name="idChinhTri" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="tenChinhTri" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="VienChucs" Relationship="Self.FK__VienChuc__idChin__32E0915F" FromRole="ChinhTri" ToRole="VienChuc" />
-  </EntityType>
   <EntityType Name="ChucVu">
     <Key>
       <PropertyRef Name="idChucVu" />
@@ -61,6 +53,7 @@
     <Property Name="ngayCapChungChi" Type="DateTime" Precision="3" />
     <Property Name="ghiChu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="linkVanBanDinhKem" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="capDoChungChi" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="LoaiChungChi" Relationship="Self.FK__ChungChiV__idLoa__571DF1D5" FromRole="ChungChiVienChuc" ToRole="LoaiChungChi" />
     <NavigationProperty Name="VienChuc" Relationship="Self.FK__ChungChiV__idVie__5629CD9C" FromRole="ChungChiVienChuc" ToRole="VienChuc" />
   </EntityType>
@@ -169,8 +162,7 @@
       <PropertyRef Name="idLoaiChungChi" />
     </Key>
     <Property Name="idLoaiChungChi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="tenLoaiChungChi" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-    <Property Name="capDo" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="tenLoaiChungChi" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="ChungChiVienChucs" Relationship="Self.FK__ChungChiV__idLoa__571DF1D5" FromRole="LoaiChungChi" ToRole="ChungChiVienChuc" />
   </EntityType>
   <EntityType Name="LoaiDonVi">
@@ -243,10 +235,11 @@
     <Property Name="idNganhDaoTao" Type="Int32" Nullable="false" />
     <Property Name="idChuyenNganh" Type="Int32" Nullable="false" />
     <Property Name="idHocHamHocViVienChuc" Type="Int32" Nullable="false" />
-    <Property Name="phanLoai" Type="Int32" />
     <Property Name="ngayBatDau" Type="DateTime" Precision="3" />
     <Property Name="ngayKetThuc" Type="DateTime" Precision="3" />
     <Property Name="linkVanBanDinhKem" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="trinhDoDay" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="phanLoai" Type="Boolean" />
     <NavigationProperty Name="ChuyenNganh" Relationship="Self.FK__NganhVien__idChu__4CA06362" FromRole="NganhVienChuc" ToRole="ChuyenNganh" />
     <NavigationProperty Name="HocHamHocViVienChuc" Relationship="Self.FK__NganhVien__idHoc__4D94879B" FromRole="NganhVienChuc" ToRole="HocHamHocViVienChuc" />
     <NavigationProperty Name="LoaiNganh" Relationship="Self.FK__NganhVien__idLoa__4AB81AF0" FromRole="NganhVienChuc" ToRole="LoaiNganh" />
@@ -358,10 +351,8 @@
     <Property Name="ngayVeTruong" Type="DateTime" Precision="3" />
     <Property Name="vanHoa" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
     <Property Name="idQuanLyNhaNuoc" Type="Int32" Nullable="false" />
-    <Property Name="idChinhTri" Type="Int32" Nullable="false" />
     <Property Name="ghiChu" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
     <Property Name="anh" Type="Binary" MaxLength="Max" FixedLength="false" />
-    <NavigationProperty Name="ChinhTri" Relationship="Self.FK__VienChuc__idChin__32E0915F" FromRole="VienChuc" ToRole="ChinhTri" />
     <NavigationProperty Name="ChucVuDonViVienChucs" Relationship="Self.FK__ChucVuDon__idVie__35BCFE0A" FromRole="VienChuc" ToRole="ChucVuDonViVienChuc" />
     <NavigationProperty Name="ChungChiVienChucs" Relationship="Self.FK__ChungChiV__idVie__5629CD9C" FromRole="VienChuc" ToRole="ChungChiVienChuc" />
     <NavigationProperty Name="DangHocNangCaos" Relationship="Self.FK__DangHocNa__idVie__5070F446" FromRole="VienChuc" ToRole="DangHocNangCao" />
@@ -395,18 +386,6 @@
       </Principal>
       <Dependent Role="QuaTrinhLuong">
         <PropertyRef Name="idBac" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__VienChuc__idChin__32E0915F">
-    <End Role="ChinhTri" Type="Self.ChinhTri" Multiplicity="1" />
-    <End Role="VienChuc" Type="Self.VienChuc" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="ChinhTri">
-        <PropertyRef Name="idChinhTri" />
-      </Principal>
-      <Dependent Role="VienChuc">
-        <PropertyRef Name="idChinhTri" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -784,7 +763,6 @@
   </Association>
   <EntityContainer Name="QLNSSGU_1Entities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Bacs" EntityType="Self.Bac" />
-    <EntitySet Name="ChinhTris" EntityType="Self.ChinhTri" />
     <EntitySet Name="ChucVus" EntityType="Self.ChucVu" />
     <EntitySet Name="ChucVuDonViVienChucs" EntityType="Self.ChucVuDonViVienChuc" />
     <EntitySet Name="ChungChiVienChucs" EntityType="Self.ChungChiVienChuc" />
@@ -819,10 +797,6 @@
     <AssociationSet Name="FK__QuaTrinhL__idBac__5FB337D6" Association="Self.FK__QuaTrinhL__idBac__5FB337D6">
       <End Role="Bac" EntitySet="Bacs" />
       <End Role="QuaTrinhLuong" EntitySet="QuaTrinhLuongs" />
-    </AssociationSet>
-    <AssociationSet Name="FK__VienChuc__idChin__32E0915F" Association="Self.FK__VienChuc__idChin__32E0915F">
-      <End Role="ChinhTri" EntitySet="ChinhTris" />
-      <End Role="VienChuc" EntitySet="VienChucs" />
     </AssociationSet>
     <AssociationSet Name="FK__ChucVu__idLoaiCh__1DE57479" Association="Self.FK__ChucVu__idLoaiCh__1DE57479">
       <End Role="LoaiChucVu" EntitySet="LoaiChucVus" />

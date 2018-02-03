@@ -22,7 +22,6 @@ namespace Model.Entities
     
         public int idLoaiChungChi { get; set; }
         public string tenLoaiChungChi { get; set; }
-        public string capDo { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChungChiVienChuc> ChungChiVienChucs { get; set; }

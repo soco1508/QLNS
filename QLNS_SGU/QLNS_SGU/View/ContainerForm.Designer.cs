@@ -58,10 +58,11 @@
             this.btnNaviChucVu = new DevExpress.XtraBars.BarButtonItem();
             this.btnNaviLoaiHocHamHocVi = new DevExpress.XtraBars.BarButtonItem();
             this.btnNaviTrangThai = new DevExpress.XtraBars.BarButtonItem();
-            this.btnNaviExportData = new DevExpress.XtraBars.BarButtonItem();
+            this.btnNaviExportDataMultiDomain = new DevExpress.XtraBars.BarButtonItem();
             this.btnAbout = new DevExpress.XtraBars.BarButtonItem();
             this.btnLogout = new DevExpress.XtraBars.BarButtonItem();
             this.btnExit = new DevExpress.XtraBars.BarButtonItem();
+            this.btnNaviExportDataOneDomain = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -70,6 +71,7 @@
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::QLNS_SGU.View.WaitForm1), true, true);
@@ -108,12 +110,13 @@
             this.btnNaviChucVu,
             this.btnNaviLoaiHocHamHocVi,
             this.btnNaviTrangThai,
-            this.btnNaviExportData,
+            this.btnNaviExportDataMultiDomain,
             this.btnAbout,
             this.btnLogout,
-            this.btnExit});
+            this.btnExit,
+            this.btnNaviExportDataOneDomain});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 45;
+            this.ribbon.MaxItemId = 46;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage2,
@@ -129,8 +132,8 @@
             // 
             this.btnNaviImportData.Caption = "Nhập dữ liệu";
             this.btnNaviImportData.Id = 1;
-            this.btnNaviImportData.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnOpenImportData.ImageOptions.Image")));
-            this.btnNaviImportData.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnOpenImportData.ImageOptions.LargeImage")));
+            this.btnNaviImportData.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnNaviImportData.ImageOptions.Image")));
+            this.btnNaviImportData.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnNaviImportData.ImageOptions.LargeImage")));
             this.btnNaviImportData.Name = "btnNaviImportData";
             this.btnNaviImportData.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
@@ -343,13 +346,13 @@
             this.btnNaviTrangThai.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnNaviTrangThai.ImageOptions.LargeImage")));
             this.btnNaviTrangThai.Name = "btnNaviTrangThai";
             // 
-            // btnNaviExportData
+            // btnNaviExportDataMultiDomain
             // 
-            this.btnNaviExportData.Caption = "Xuất dữ liệu";
-            this.btnNaviExportData.Id = 41;
-            this.btnNaviExportData.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnNaviExportData.ImageOptions.Image")));
-            this.btnNaviExportData.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnNaviExportData.ImageOptions.LargeImage")));
-            this.btnNaviExportData.Name = "btnNaviExportData";
+            this.btnNaviExportDataMultiDomain.Caption = "Xuất dữ liệu nhiều lĩnh vực";
+            this.btnNaviExportDataMultiDomain.Id = 41;
+            this.btnNaviExportDataMultiDomain.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnNaviExportDataMultiDomain.ImageOptions.Image")));
+            this.btnNaviExportDataMultiDomain.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnNaviExportDataMultiDomain.ImageOptions.LargeImage")));
+            this.btnNaviExportDataMultiDomain.Name = "btnNaviExportDataMultiDomain";
             // 
             // btnAbout
             // 
@@ -372,6 +375,14 @@
             this.btnExit.Id = 44;
             this.btnExit.ImageOptions.LargeImage = global::QLNS_SGU.Properties.Resources.exit;
             this.btnExit.Name = "btnExit";
+            // 
+            // btnNaviExportDataOneDomain
+            // 
+            this.btnNaviExportDataOneDomain.Caption = "Xuất dữ liệu một lĩnh vực";
+            this.btnNaviExportDataOneDomain.Id = 45;
+            this.btnNaviExportDataOneDomain.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnNaviExportDataOneDomain.ImageOptions.Image")));
+            this.btnNaviExportDataOneDomain.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnNaviExportDataOneDomain.ImageOptions.LargeImage")));
+            this.btnNaviExportDataOneDomain.Name = "btnNaviExportDataOneDomain";
             // 
             // ribbonPage2
             // 
@@ -432,7 +443,8 @@
             // ribbonPage3
             // 
             this.ribbonPage3.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup3});
+            this.ribbonPageGroup3,
+            this.ribbonPageGroup6});
             this.ribbonPage3.Image = ((System.Drawing.Image)(resources.GetObject("ribbonPage3.Image")));
             this.ribbonPage3.Name = "ribbonPage3";
             this.ribbonPage3.Text = "Dữ liệu";
@@ -440,10 +452,17 @@
             // ribbonPageGroup3
             // 
             this.ribbonPageGroup3.ItemLinks.Add(this.btnNaviImportData);
-            this.ribbonPageGroup3.ItemLinks.Add(this.btnNaviExportData);
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
             this.ribbonPageGroup3.ShowCaptionButton = false;
-            this.ribbonPageGroup3.Text = "Nhập/Xuất dữ liệu";
+            this.ribbonPageGroup3.Text = "Nhập dữ liệu";
+            // 
+            // ribbonPageGroup6
+            // 
+            this.ribbonPageGroup6.ItemLinks.Add(this.btnNaviExportDataMultiDomain);
+            this.ribbonPageGroup6.ItemLinks.Add(this.btnNaviExportDataOneDomain);
+            this.ribbonPageGroup6.Name = "ribbonPageGroup6";
+            this.ribbonPageGroup6.ShowCaptionButton = false;
+            this.ribbonPageGroup6.Text = "Xuất dữ liệu";
             // 
             // ribbonStatusBar
             // 
@@ -473,7 +492,6 @@
             this.IsMdiContainer = true;
             this.Name = "ContainerForm";
             this.Ribbon = this.ribbon;
-            this.ShowIcon = false;
             this.StatusBar = this.ribbonStatusBar;
             this.Text = "Quản lý nhân sự";
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
@@ -521,7 +539,7 @@
         private DevExpress.XtraBars.BarButtonItem btnNaviChucVu;
         private DevExpress.XtraBars.BarButtonItem btnNaviLoaiHocHamHocVi;
         private DevExpress.XtraBars.BarButtonItem btnNaviTrangThai;
-        private DevExpress.XtraBars.BarButtonItem btnNaviExportData;
+        private DevExpress.XtraBars.BarButtonItem btnNaviExportDataMultiDomain;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraBars.BarButtonItem btnAbout;
@@ -531,5 +549,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
         private DevExpress.XtraBars.BarButtonItem btnExit;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
+        private DevExpress.XtraBars.BarButtonItem btnNaviExportDataOneDomain;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup6;
     }
 }

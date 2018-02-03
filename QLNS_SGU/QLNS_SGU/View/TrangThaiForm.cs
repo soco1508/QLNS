@@ -19,6 +19,7 @@ namespace QLNS_SGU.View
         GridControl GCTrangThai { get; set; }
         GridView GVTrangThai { get; set; }
         SaveFileDialog SaveFileDialog { get; set; }
+        SimpleButton BTNExportExcel { get; set; }
     }
     public partial class TrangThaiForm : XtraForm, ITrangThaiForm
     {
@@ -31,6 +32,7 @@ namespace QLNS_SGU.View
         public GridControl GCTrangThai { get => gcTrangThai; set => gcTrangThai = value; }
         public GridView GVTrangThai { get => gvTrangThai; set => gvTrangThai = value; }
         public SaveFileDialog SaveFileDialog { get => saveFileDialog1; set => saveFileDialog1 = value; }
+        public SimpleButton BTNExportExcel { get => btnExportExcel; set => btnExportExcel = value; }
         #endregion
         public void Attach(ITrangThaiPresenter presenter)
         {

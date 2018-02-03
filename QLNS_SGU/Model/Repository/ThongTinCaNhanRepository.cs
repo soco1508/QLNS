@@ -23,7 +23,6 @@ namespace Model.Repository
             thongTinCaNhan.ho = vienChuc.ho;
             thongTinCaNhan.ten = vienChuc.ten;
             thongTinCaNhan.sDT = vienChuc.sDT;
-            thongTinCaNhan.chinhTri = vienChuc.ChinhTri.tenChinhTri;
             thongTinCaNhan.danToc = vienChuc.DanToc.tenDanToc;
             thongTinCaNhan.ghiChu = vienChuc.ghiChu;
             thongTinCaNhan.gioiTinh = ReturnGenderString(vienChuc.gioiTinh);

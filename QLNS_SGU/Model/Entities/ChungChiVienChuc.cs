@@ -20,6 +20,7 @@ namespace Model.Entities
         public Nullable<System.DateTime> ngayCapChungChi { get; set; }
         public string ghiChu { get; set; }
         public string linkVanBanDinhKem { get; set; }
+        public string capDoChungChi { get; set; }
     
         public virtual LoaiChungChi LoaiChungChi { get; set; }
         public virtual VienChuc VienChuc { get; set; }
