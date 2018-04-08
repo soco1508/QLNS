@@ -25,3 +25,14 @@ C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\Model\bin\Release\G
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\Model\bin\Release\Google.Apis.Core.xml
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\Model\bin\Release\Google.Apis.Drive.v3.xml
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\Model\bin\Release\Newtonsoft.Json.xml
+C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\Model\bin\Release\Microsoft.WindowsAPICodePack.dll
+C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\Model\bin\Release\Microsoft.WindowsAPICodePack.Shell.dll
+C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\Model\bin\Release\Microsoft.WindowsAPICodePack.ShellExtensions.dll
+C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\Model\bin\Release\Microsoft.WindowsAPICodePack.pdb
+C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\Model\bin\Release\Microsoft.WindowsAPICodePack.xml
+C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\Model\bin\Release\Microsoft.WindowsAPICodePack.Shell.pdb
+C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\Model\bin\Release\Microsoft.WindowsAPICodePack.Shell.xml
+C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\Model\bin\Release\Microsoft.WindowsAPICodePack.ShellExtensions.pdb
+C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\Model\bin\Release\Microsoft.WindowsAPICodePack.ShellExtensions.xml
+C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\Model\obj\Release\Model.csprojResolveAssemblyReference.cache
+C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\Model\obj\Release\Model.csproj.CopyComplete

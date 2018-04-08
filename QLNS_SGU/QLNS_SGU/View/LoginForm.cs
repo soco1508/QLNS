@@ -71,7 +71,6 @@ namespace QLNS_SGU.View
 
         public void Attach(LoginPresenter presenter)
         {
-            chkBNhoMatKhau.CheckedChanged += (sender, e) => presenter.RememberPassword();
             btnDangNhap.Click += (sender, e) => presenter.Login();
             btnHuyBo.Click += (sender, e) => presenter.Cancel();
             TaiKhoan.KeyPress += new KeyPressEventHandler(presenter.CheckEnterKeyPress);

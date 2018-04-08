@@ -703,7 +703,7 @@
             this.layoutControlItem6.Location = new System.Drawing.Point(0, 34);
             this.layoutControlItem6.Name = "layoutControlItem6";
             this.layoutControlItem6.Size = new System.Drawing.Size(524, 24);
-            this.layoutControlItem6.Text = "Ngạch:";
+            this.layoutControlItem6.Text = "Tên ngạch:";
             this.layoutControlItem6.TextSize = new System.Drawing.Size(109, 13);
             // 
             // txtRowIndex

@@ -268,3 +268,4 @@ C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\QLNS_SGU.application
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\QLNS_SGU.exe
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\QLNS_SGU.pdb
+C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\QLNS_SGU.csproj.CopyComplete

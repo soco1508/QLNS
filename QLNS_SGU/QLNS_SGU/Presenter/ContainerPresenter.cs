@@ -98,21 +98,21 @@ namespace QLNS_SGU.Presenter
 
         public void NaviImportData()
         {
-            Form frm = CheckExistChildForm(typeof(ImportDataForm));
-            if (frm == null)
-            {
-                var mainpresenter = new ImportDataPresenter(new ImportDataForm());
-                mainpresenter.Initialize();
-                Form f = (Form)mainpresenter.UI;
-                f.MdiParent = _view;
-                f.WindowState = FormWindowState.Maximized;
-                f.Show();
-            }
-            else
-            {
-                frm.WindowState = FormWindowState.Maximized;
-                frm.Activate();
-            }
+            //Form frm = CheckExistChildForm(typeof(ImportDataForm));
+            //if (frm == null)
+            //{
+            //    var mainpresenter = new ImportDataPresenter(new ImportDataForm());
+            //    mainpresenter.Initialize();
+            //    Form f = (Form)mainpresenter.UI;
+            //    f.MdiParent = _view;
+            //    f.WindowState = FormWindowState.Maximized;
+            //    f.Show();
+            //}
+            //else
+            //{
+            //    frm.WindowState = FormWindowState.Maximized;
+            //    frm.Activate();
+            //}
         }
 
         public void OpenCreateAndEditPersonInfoForm()

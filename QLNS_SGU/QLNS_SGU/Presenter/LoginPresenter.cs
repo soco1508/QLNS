@@ -18,7 +18,6 @@ namespace QLNS_SGU.Presenter
         void CheckEnterKeyPress(object sender, KeyPressEventArgs e);
         void EditTaiKhoanChanged();
         void EditMatKhauChanged();
-        void RememberPassword();
     }
     public class LoginPresenter : ILoginPresenter
     {
@@ -84,6 +83,7 @@ namespace QLNS_SGU.Presenter
                 switch (check)
                 {
                     case true:
+                        RememberPassword(taikhoan, matkhau);
                         _view.SplashScreenManager.CloseWaitForm();
                         _view.Hide();
                         var containerpresenter = new ContainerPresenter(new ContainerForm());
@@ -124,10 +124,8 @@ namespace QLNS_SGU.Presenter
             _view.MatKhau.ErrorText = null;
         }
 
-        public void RememberPassword()
+        private void RememberPassword(string taikhoan, string matkhau)
         {
-            string taikhoan = _view.TaiKhoan.Text;
-            string matkhau = _view.MatKhau.Text;
             if (_view.NhoMatKhau.Checked)
             {
                 Properties.Settings.Default.TaiKhoan = taikhoan;
@@ -137,8 +135,8 @@ namespace QLNS_SGU.Presenter
             }
             else
             {
-                Properties.Settings.Default.TaiKhoan = null;
-                Properties.Settings.Default.MatKhau = null;
+                Properties.Settings.Default.TaiKhoan = string.Empty;
+                Properties.Settings.Default.MatKhau = string.Empty;
                 Properties.Settings.Default.NhoMatKhau = false;
                 Properties.Settings.Default.Save();
             }                       

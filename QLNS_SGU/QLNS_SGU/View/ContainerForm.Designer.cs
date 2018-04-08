@@ -451,6 +451,7 @@
             // 
             // ribbonPageGroup3
             // 
+            this.ribbonPageGroup3.AllowTextClipping = false;
             this.ribbonPageGroup3.ItemLinks.Add(this.btnNaviImportData);
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
             this.ribbonPageGroup3.ShowCaptionButton = false;

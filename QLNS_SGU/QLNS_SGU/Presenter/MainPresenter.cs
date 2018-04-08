@@ -20,8 +20,7 @@ using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 namespace QLNS_SGU.Presenter
 {
     public interface IMainPresenter : IPresenter
-    {
-        //void LoadDataToMainGrid();               
+    {            
         void ViewPersonDetails();
         void ClosePersonDetails();
         void MouseWheelGVThongTinCaNhan(object sender, MouseEventArgs e);
@@ -58,12 +57,13 @@ namespace QLNS_SGU.Presenter
     }
     public class MainPresenter : IMainPresenter
     {
+        private bool firstOpening = true;
         private bool clickGVQuaTrinhCongTac = false;
         private bool clickGVQuaTrinhLuong = false;
         private bool clickGVHocHamHocVi = false;
         private bool clickGVChungChi = false;
         private bool clickGVTrangThai = false;
-        string filename = "c:\\layoutmainform.xml";
+        string filename = "d:\\layoutmainform.xml";
         private static MainForm _view;
         public MainPresenter(MainForm view) => _view = view;
         public object UI => _view;  
@@ -121,7 +121,7 @@ namespace QLNS_SGU.Presenter
         public void LoadForm(object sender, EventArgs e)
         {
             _view.GCMain.ForceInitialize();
-            _view.GCMain.MainView.RestoreLayoutFromXml(filename);
+            if(File.Exists(filename)) _view.GCMain.MainView.RestoreLayoutFromXml(filename);
         }
         public void ClosingForm(object sender, FormClosingEventArgs e)
         {
