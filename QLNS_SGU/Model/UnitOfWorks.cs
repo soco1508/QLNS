@@ -40,11 +40,50 @@ namespace Model
         private DanTocRepository _danTocRepository;
         private TonGiaoRepository _tonGiaoRepository;
         private QuanLyNhaNuocRepository _quanLyNhaNuocRepository;
+        private QuaTrinhPhuCapThamNienNhaGiaoRepository _quaTrinhPhuCapThamNienNhaGiaoRepository;
+        private BaoHiemXaHoiRepository _baoHiemXaHoiRepository;
+        private QuaTrinhGianDoanBaoHiemXaHoiRepository _quaTrinhGianDoanBaoHiemXaHoiRepository;
 
         private QLNSSGU_1Entities _db;
         public UnitOfWorks(QLNSSGU_1Entities db)
         {
             _db = db;
+        }
+
+        public QuaTrinhGianDoanBaoHiemXaHoiRepository QuaTrinhGianDoanBaoHiemXaHoiRepository
+        {
+            get
+            {
+                if (_quaTrinhGianDoanBaoHiemXaHoiRepository == null)
+                {
+                    _quaTrinhGianDoanBaoHiemXaHoiRepository = new QuaTrinhGianDoanBaoHiemXaHoiRepository(_db);
+                }
+                return _quaTrinhGianDoanBaoHiemXaHoiRepository;
+            }
+        }
+
+        public BaoHiemXaHoiRepository BaoHiemXaHoiRepository
+        {
+            get
+            {
+                if (_baoHiemXaHoiRepository == null)
+                {
+                    _baoHiemXaHoiRepository = new BaoHiemXaHoiRepository(_db);
+                }
+                return _baoHiemXaHoiRepository;
+            }
+        }
+
+        public QuaTrinhPhuCapThamNienNhaGiaoRepository QuaTrinhPhuCapThamNienNhaGiaoRepository
+        {
+            get
+            {
+                if (_quaTrinhPhuCapThamNienNhaGiaoRepository == null)
+                {
+                    _quaTrinhPhuCapThamNienNhaGiaoRepository = new QuaTrinhPhuCapThamNienNhaGiaoRepository(_db);
+                }
+                return _quaTrinhPhuCapThamNienNhaGiaoRepository;
+            }
         }
 
         public QuanLyNhaNuocRepository QuanLyNhaNuocRepository

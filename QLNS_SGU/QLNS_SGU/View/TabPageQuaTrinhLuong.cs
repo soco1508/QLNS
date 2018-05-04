@@ -29,8 +29,9 @@ namespace QLNS_SGU.View
         DateEdit DTNgayLenLuong { get; set; }
         SpinEdit TXTHeSoBac { get; set; }
         CheckEdit CHKDangHuongLuong { get; set; }
+        SpinEdit TXTTruocHan { get; set; }
+        SpinEdit TXTHeSoVuotKhung { get; set; }
         TextEdit TXTMaVienChuc { get; set; }
-        TextEdit TXTRownIndex { get; set; }
     }
     public partial class TabPageQuaTrinhLuong : XtraForm, ITabPageQuaTrinhLuong
     {
@@ -51,9 +52,10 @@ namespace QLNS_SGU.View
         public DateEdit DTNgayLenLuong { get => dtNgayLenLuong; set => dtNgayLenLuong = value; }
         public TextEdit TXTLinkVanBanDinhKem { get => txtLinkVanBanDinhKem; set => txtLinkVanBanDinhKem = value; }
         public TextEdit TXTMaVienChuc { get => txtMaVienChuc; set => txtMaVienChuc = value; }
-        public TextEdit TXTRownIndex { get => txtRowIndex; set => txtRowIndex = value; }
         public SpinEdit TXTHeSoBac { get => txtHeSoBac; set => txtHeSoBac = value; }
         public CheckEdit CHKDangHuongLuong { get => chkDangHuongLuong; set => chkDangHuongLuong = value; }
+        public SpinEdit TXTTruocHan { get => txtTruocHan; set => txtTruocHan = value; }
+        public SpinEdit TXTHeSoVuotKhung { get => txtHeSoVuotKhung; set => txtHeSoVuotKhung = value; }
         #endregion
         public void Attach(ITabPageQuaTrinhLuongPresenter presenter)
         {
@@ -64,6 +66,8 @@ namespace QLNS_SGU.View
             dtNgayBatDau.DateTimeChanged += new EventHandler(presenter.NgayBatDauChanged);
             dtNgayLenLuong.DateTimeChanged += new EventHandler(presenter.NgayLenLuongChanged);
             chkDangHuongLuong.CheckedChanged += new EventHandler(presenter.DangHuongLuongChanged);
+            txtTruocHan.EditValueChanged += new EventHandler(presenter.TruocHanChanged);
+            txtHeSoVuotKhung.EditValueChanged += new EventHandler(presenter.HeSoVuotKhungChanged);
             txtLinkVanBanDinhKem.TextChanged += new EventHandler(presenter.LinkVanBanDinhKemChanged);
             gvQuaTrinhLuong.Click += (s, e) => presenter.ClickRowAndShowInfo();
             btnUpload.Click += (s, e) => presenter.UploadFileToGoogleDrive();
@@ -72,7 +76,8 @@ namespace QLNS_SGU.View
             btnRefresh.Click += (s, e) => presenter.Refresh();
             btnAdd.Click += (s, e) => presenter.Add();
             btnDelete.Click += (s, e) => presenter.Delete();
-            btnExportExcel.Click += (s, e) => presenter.ExportExcel();            
+            btnExportExcel.Click += (s, e) => presenter.ExportExcel();
+            gvQuaTrinhLuong.CustomDrawRowIndicator += new RowIndicatorCustomDrawEventHandler(presenter.RowIndicator);
         }
     }
 }

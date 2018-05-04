@@ -26,6 +26,7 @@ namespace Model.Entities
         public string linkVanBanDinhKem { get; set; }
         public Nullable<int> loaiThayDoi { get; set; }
         public Nullable<int> kiemNhiem { get; set; }
+        public string nhanXet { get; set; }
     
         public virtual ChucVu ChucVu { get; set; }
         public virtual DonVi DonVi { get; set; }
@@ -51,9 +52,7 @@ namespace Model.Entities
             VienChuc = chucVuDonViVienChuc.VienChuc;
         }
 
-        public ChucVuDonViVienChuc()
-        {
+        public ChucVuDonViVienChuc() { }
 
-        }
     }
 }

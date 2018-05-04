@@ -21,7 +21,6 @@ namespace QLNS_SGU.Presenter
         void MouseDoubleClick(object sender, MouseEventArgs e);
         void HiddenEditor(object sender, EventArgs e);
         void InitNewRow(object sender, InitNewRowEventArgs e);
-        void EnterToCloseEditor(object sender, KeyEventArgs e);
         void AddNewRow();
         void SaveData();
         void RefreshGrid();
@@ -135,17 +134,7 @@ namespace QLNS_SGU.Presenter
         public void InitNewRow(object sender, InitNewRowEventArgs e)
         {
             GridView gridView = sender as GridView;
-            gridView.SetRowCellValue(e.RowHandle, gridView.Columns[1], "");
-        }
-
-        public void EnterToCloseEditor(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                _view.GVNganhDaoTao.CloseEditor();
-                _view.GVNganhDaoTao.UpdateCurrentRow();
-                e.Handled = true;
-            }
+            gridView.SetRowCellValue(e.RowHandle, gridView.Columns[1], string.Empty);
         }
 
         public void AddNewRow()
@@ -164,10 +153,7 @@ namespace QLNS_SGU.Presenter
             }
         }
 
-        public void RefreshGrid()
-        {
-            LoadDataToGrid();
-        }
+        public void RefreshGrid() => LoadDataToGrid();
 
         public void DeleteRow()
         {

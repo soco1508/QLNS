@@ -22,7 +22,6 @@ namespace QLNS_SGU.View
         SaveFileDialog SaveFileDialog { get; set; }
         OpenFileDialog OpenFileDialog { get; set; }
         TextEdit TXTMaVienChuc { get; set; }
-        TextEdit TXTRowIndex { get; set; }
         SimpleLabelItem LBCopyAndPasteInfo { get; set; }
         //HHHV
         GridControl GCHocHamHocVi { get; set; }
@@ -91,7 +90,6 @@ namespace QLNS_SGU.View
         //HHHV
         public SimpleButton BTNExportExcelHHHV { get => btnExportExcelHHHV; set => btnExportExcelHHHV = value; }
         public TextEdit TXTMaVienChuc { get => txtMaVienChuc; set => txtMaVienChuc = value; }
-        public TextEdit TXTRowIndex { get => txtRowIndex; set => txtRowIndex = value; }
         public GridControl GCHocHamHocVi { get => gcHocHamHocVi; set => gcHocHamHocVi = value; }
         public GridView GVHocHamHocVi { get => gvHocHamHocVi; set => gvHocHamHocVi = value; }
         public LookUpEdit CBXLoaiHocHamHocViHHHV { get => cbxLoaiHocHamHocViHHHV; set => cbxLoaiHocHamHocViHHHV = value; }
@@ -167,6 +165,7 @@ namespace QLNS_SGU.View
             txtHinhThucDaoTaoHHHV.TextChanged += new EventHandler(presenter.HinhThucDaoTaoHHHVChanged);
             txtNuocCapBangHHHV.TextChanged += new EventHandler(presenter.NuocCapBangHHHVChanged);
             txtLinkVanBanDinhKemHHHV.TextChanged += new EventHandler(presenter.LinkVanBanDinhKemHHHVChanged);
+            gvHocHamHocVi.CustomDrawRowIndicator += new RowIndicatorCustomDrawEventHandler(presenter.RowIndicatorHHHV);
             //DHNC
             gvDangHocNangCao.Click += (s, e) => presenter.ClickRowAndShowInfoDHNC();
             btnRefreshDHNC.Click += (s, e) => presenter.RefreshDHNC();
@@ -187,6 +186,7 @@ namespace QLNS_SGU.View
             txtNuocCapBangDHNC.TextChanged += new EventHandler(presenter.NuocCapBangDangHocNangCaoChanged);
             cbxLoai.EditValueChanged += new EventHandler(presenter.LoaiDangHocNangCaoChanged);
             txtLinkAnhQuyetDinh.TextChanged += new EventHandler(presenter.LinkAnhQuyetDinhChanged);
+            gvDangHocNangCao.CustomDrawRowIndicator += new RowIndicatorCustomDrawEventHandler(presenter.RowIndicatorDHNC);
             //Nganh            
             gvNganh.Click += (s, e) => presenter.ClickRowAndShowInfoN();
             btnRefreshN.Click += (s, e) => presenter.RefreshN();
@@ -205,6 +205,7 @@ namespace QLNS_SGU.View
             txtTrinhDoDay.TextChanged += new EventHandler(presenter.TrinhDoDayNChanged);
             radPhanLoaiN.SelectedIndexChanged += new EventHandler(presenter.PhanLoaiNChanged);
             txtLinkVanBanDinhKemN.TextChanged += new EventHandler(presenter.LinkVanBanDinhKemNChanged);
+            gvNganh.CustomDrawRowIndicator += new RowIndicatorCustomDrawEventHandler(presenter.RowIndicatorN);
             //ChungChi
             gvChungChi.Click += (s, e) => presenter.ClickRowAndShowInfoCC();
             btnRefreshCC.Click += (s, e) => presenter.RefreshCC();
@@ -219,6 +220,7 @@ namespace QLNS_SGU.View
             dtNgayCapChungChi.EditValueChanged += new EventHandler(presenter.NgayCapChungChiChanged);
             txtGhiChuCC.TextChanged += new EventHandler(presenter.GhiChuChungChiChanged);
             txtLinkVanBanDinhKemCC.TextChanged += new EventHandler(presenter.LinkVanBanDinhKemHHHVChanged);
+            gvChungChi.CustomDrawRowIndicator += new RowIndicatorCustomDrawEventHandler(presenter.RowIndicatorCC);
         }
     }
 }

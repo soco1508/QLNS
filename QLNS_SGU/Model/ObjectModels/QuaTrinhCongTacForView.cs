@@ -21,22 +21,24 @@ namespace Model.ObjectModels
         public string LoaiThayDoi { get; set; }
         public string KiemNhiem { get; set; }
         public string LinkVanBanDinhKem { get; set; }
+        public string NhanXet { get; set; }
 
         public QuaTrinhCongTacForView()
         {
             Id = -1;
-            ChucVu = "";
-            DonVi = "";
-            DiaDiem = "";
-            ToChuyenMon = "";
-            PhanLoaiCongTac = "";
-            CheckPhanLoaiCongTac = "";
+            ChucVu = string.Empty;
+            DonVi = string.Empty;
+            DiaDiem = string.Empty;
+            ToChuyenMon = string.Empty;
+            PhanLoaiCongTac = string.Empty;
+            CheckPhanLoaiCongTac = string.Empty;
             HeSoChucVu = -1;
             NgayBatDau = Convert.ToDateTime("01/01/1900");
             NgayKetThuc = Convert.ToDateTime("01/01/2500");
-            LoaiThayDoi = "";
-            KiemNhiem = "";
-            LinkVanBanDinhKem = "";
+            LoaiThayDoi = string.Empty;
+            KiemNhiem = string.Empty;
+            LinkVanBanDinhKem = string.Empty;
+            NhanXet = string.Empty;
         }
     }
 }

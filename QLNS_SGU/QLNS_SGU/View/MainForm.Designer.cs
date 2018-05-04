@@ -228,6 +228,8 @@
             this.popupMenuGVHocHamHocVi = new DevExpress.XtraBars.PopupMenu(this.components);
             this.popupMenuGVChungChi = new DevExpress.XtraBars.PopupMenu(this.components);
             this.popupMenuGVTrangThai = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.gridColumn17 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn18 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -815,6 +817,8 @@
             this.gridColumn22,
             this.gridColumn23,
             this.gridColumn24,
+            this.gridColumn17,
+            this.gridColumn18,
             this.gridColumn25});
             this.gvQuaTrinhLuong.GridControl = this.gcQuaTrinhLuong;
             this.gvQuaTrinhLuong.Name = "gvQuaTrinhLuong";
@@ -912,7 +916,7 @@
             this.gridColumn25.FieldName = "LinkVanBanDinhKem";
             this.gridColumn25.Name = "gridColumn25";
             this.gridColumn25.Visible = true;
-            this.gridColumn25.VisibleIndex = 7;
+            this.gridColumn25.VisibleIndex = 9;
             this.gridColumn25.Width = 200;
             // 
             // repositoryItemMemoEdit15
@@ -2321,6 +2325,22 @@
             this.popupMenuGVTrangThai.Manager = this.barManager1;
             this.popupMenuGVTrangThai.Name = "popupMenuGVTrangThai";
             // 
+            // gridColumn17
+            // 
+            this.gridColumn17.Caption = "Trước hạn";
+            this.gridColumn17.FieldName = "TruocHan";
+            this.gridColumn17.Name = "gridColumn17";
+            this.gridColumn17.Visible = true;
+            this.gridColumn17.VisibleIndex = 7;
+            // 
+            // gridColumn18
+            // 
+            this.gridColumn18.Caption = "Hệ số vượt khung";
+            this.gridColumn18.FieldName = "HeSoVuotKhung";
+            this.gridColumn18.Name = "gridColumn18";
+            this.gridColumn18.Visible = true;
+            this.gridColumn18.VisibleIndex = 8;
+            // 
             // MainForm
             // 
             this.Appearance.Options.UseTextOptions = true;
@@ -2663,5 +2683,7 @@
         private DevExpress.XtraBars.BarButtonItem btnExportExcel;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn14;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn16;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn17;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn18;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraSplashScreen;
 using Model;
 using Model.Entities;
@@ -31,6 +32,7 @@ namespace QLNS_SGU.Presenter
         void NgayBatDauChanged(object sender, EventArgs e);
         void NgayKetThucChanged(object sender, EventArgs e);
         void LinkVanBanDinhKemChanged(object sender, EventArgs e);
+        void RowIndicator(object sender, RowIndicatorCustomDrawEventArgs e);
     }
     public class TabPageTrangThaiPresenter : ITabPageTrangThaiPresenter
     {
@@ -54,6 +56,7 @@ namespace QLNS_SGU.Presenter
         {
             _view.Attach(this);
             _view.TXTMaVienChuc.Text = mavienchuc;
+            _view.GVTabPageTrangThai.IndicatorWidth = 50;
         }
         private void LoadGridTabPageTrangThai(string mavienchuc)
         {
@@ -175,6 +178,12 @@ namespace QLNS_SGU.Presenter
             }
             else XtraMessageBox.Show("Không có văn bản đính kèm.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+        private void InsertFirstRowDefault(string mavienchuc)
+        {
+            UnitOfWorks unitOfWorks = new UnitOfWorks(new QLNSSGU_1Entities());
+            unitOfWorks.TrangThaiVienChucRepository.InsertFirstRowDefault(mavienchuc);
+            unitOfWorks.Save();
+        }
 
         public void Add() => SetDefaultValueControl();
 
@@ -190,8 +199,8 @@ namespace QLNS_SGU.Presenter
                 string diadiem = _view.GVTabPageTrangThai.GetFocusedRowCellDisplayText("DiaDiem").ToString();
                 string linkvanbandinhkem = _view.GVTabPageTrangThai.GetFocusedRowCellDisplayText("LinkVanBanDinhKem").ToString();
                 _view.CBXTrangThai.EditValue = unitOfWorks.TrangThaiRepository.GetIdTrangThai(trangthai);
-                _view.DTNgayBatDau.EditValue = unitOfWorks.HopDongVienChucRepository.ReturnNullIfDateTimeNull(_view.GVTabPageTrangThai.GetFocusedRowCellDisplayText("NgayBatDau"));
-                _view.DTNgayKetThuc.EditValue = unitOfWorks.HopDongVienChucRepository.ReturnNullIfDateTimeNull(_view.GVTabPageTrangThai.GetFocusedRowCellDisplayText("NgayKetThuc"));
+                _view.DTNgayBatDau.EditValue = unitOfWorks.HopDongVienChucRepository.ReturnNullIfDateTimeNullToView(_view.GVTabPageTrangThai.GetFocusedRowCellDisplayText("NgayBatDau"));
+                _view.DTNgayKetThuc.EditValue = unitOfWorks.HopDongVienChucRepository.ReturnNullIfDateTimeNullToView(_view.GVTabPageTrangThai.GetFocusedRowCellDisplayText("NgayKetThuc"));
                 _view.TXTMoTa.Text = mota;
                 _view.TXTDiaDiem.Text = diadiem;
                 _view.TXTLinkVanBanDinhKem.Text = linkvanbandinhkem;
@@ -340,6 +349,13 @@ namespace QLNS_SGU.Presenter
             if (mavienchuc != string.Empty)
             {
                 LoadGridTabPageTrangThai(mavienchuc);
+                if(_view.GVTabPageTrangThai.RowCount == 0)
+                {
+                    if (TabPageQuaTrinhCongTacPresenter.checkEmptyRowQTCTGrid)
+                    {
+                        InsertFirstRowDefault(mavienchuc);
+                    }
+                }
                 if(rowFocusFromCreateAndEditPersonalInfoForm >= 0)
                 {
                     _view.GVTabPageTrangThai.FocusedRowHandle = rowFocusFromCreateAndEditPersonalInfoForm;
@@ -385,6 +401,12 @@ namespace QLNS_SGU.Presenter
         public void LinkVanBanDinhKemChanged(object sender, EventArgs e)
         {
             linkVanBanDinhKemChanged = true;
+        }
+
+        public void RowIndicator(object sender, RowIndicatorCustomDrawEventArgs e)
+        {
+            if (e.RowHandle >= 0)
+                e.Info.DisplayText = (e.RowHandle + 1).ToString();
         }
     }
 }

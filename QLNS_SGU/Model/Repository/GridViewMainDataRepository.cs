@@ -13,11 +13,104 @@ namespace Model.Repository
         public GridViewMainDataRepository(QLNSSGU_1Entities db) : base(db)
         {
         }
+        //public Dictionary<int, GridViewMainData> LoadDataToMainGrid1()
+        //{
+        //    Dictionary<int, GridViewMainData> listGridViewMainData = new Dictionary<int, GridViewMainData>();
+        //    Dictionary<int, VienChuc> listVienChuc = _db.VienChucs.ToDictionary(x => x.idVienChuc);
+        //    foreach (KeyValuePair<int, VienChuc> item in listVienChuc)
+        //    {
+        //        Dictionary<int, ChucVuDonViVienChuc> listChucVuDonViVienChucToAdd = new Dictionary<int, ChucVuDonViVienChuc>();
+        //        List<ChucVuDonViVienChuc> listChucVuDonViVienChuc = _db.ChucVuDonViVienChucs.Where(x => x.idVienChuc == item.Value.idVienChuc).ToList();
+        //        if (listChucVuDonViVienChuc.Count == 0)
+        //        {
+        //            listGridViewMainData.Add(item.Key, new GridViewMainData
+        //            {
+        //                MaVienChuc = item.Value.maVienChuc,
+        //                Ho = item.Value.ho,
+        //                Ten = item.Value.ten,
+        //                GioiTinh = CheckGioiTinh(item.Value.gioiTinh),
+        //                NgaySinh = item.Value.ngaySinh,
+        //                ChucVu = string.Empty,
+        //                DonVi = string.Empty,
+        //                TrinhDo = GetMaxLoaiHocHamHocVi(item.Value.idVienChuc),
+        //                HeSo = 0
+        //            });
+        //        }
+        //        if (listChucVuDonViVienChuc.Count == 1)
+        //        {
+        //            listGridViewMainData.Add(item.Key, new GridViewMainData
+        //            {
+        //                MaVienChuc = item.Value.maVienChuc,
+        //                Ho = item.Value.ho,
+        //                Ten = item.Value.ten,
+        //                GioiTinh = CheckGioiTinh(item.Value.gioiTinh),
+        //                NgaySinh = item.Value.ngaySinh,
+        //                ChucVu = listChucVuDonViVienChuc[0].ChucVu.tenChucVu,
+        //                DonVi = listChucVuDonViVienChuc[0].DonVi.tenDonVi,
+        //                TrinhDo = GetMaxLoaiHocHamHocVi(item.Value.idVienChuc),
+        //                HeSo = listChucVuDonViVienChuc[0].ChucVu.heSoChucVu
+        //            });
+        //        }
+        //        if (listChucVuDonViVienChuc.Count > 1)
+        //        {
+        //            for (int i = 0; i < listChucVuDonViVienChuc.Count; i++)
+        //            {
+        //                if (listChucVuDonViVienChuc[i].ngayKetThuc != null)
+        //                {
+        //                    if (listChucVuDonViVienChuc[i].ngayBatDau <= DateTime.Now && listChucVuDonViVienChuc[i].ngayKetThuc >= DateTime.Now)
+        //                    {
+        //                        listChucVuDonViVienChucToAdd.Add(listChucVuDonViVienChuc[i].idViTriDonViVienChuc, listChucVuDonViVienChuc[i]);
+        //                    }
+        //                }
+        //                else
+        //                {
+        //                    if (listChucVuDonViVienChuc[i].ngayBatDau <= DateTime.Now)
+        //                    {
+        //                        listChucVuDonViVienChucToAdd.Add(listChucVuDonViVienChuc[i].idViTriDonViVienChuc, listChucVuDonViVienChuc[i]);
+        //                    }
+        //                }
+        //            }
+        //            if (listChucVuDonViVienChucToAdd.Count > 0)
+        //            {
+        //                var chucVuDonViVienChuc = listChucVuDonViVienChucToAdd.OrderByDescending(x => x.Value.ChucVu.heSoChucVu).FirstOrDefault();
+        //                listGridViewMainData.Add(item.Key, new GridViewMainData
+        //                {
+        //                    MaVienChuc = item.Value.maVienChuc,
+        //                    Ho = item.Value.ho,
+        //                    Ten = item.Value.ten,
+        //                    GioiTinh = CheckGioiTinh(item.Value.gioiTinh),
+        //                    NgaySinh = item.Value.ngaySinh,
+        //                    ChucVu = chucVuDonViVienChuc.Value.ChucVu.tenChucVu,
+        //                    DonVi = chucVuDonViVienChuc.Value.DonVi.tenDonVi,
+        //                    TrinhDo = GetMaxLoaiHocHamHocVi(item.Value.idVienChuc),
+        //                    HeSo = chucVuDonViVienChuc.Value.ChucVu.heSoChucVu
+        //                });
+        //            }
+        //            else
+        //            {
+        //                var chucVuDonViVienChuc = listChucVuDonViVienChuc.OrderByDescending(x => x.ChucVu.heSoChucVu).FirstOrDefault();
+        //                listGridViewMainData.Add(item.Key, new GridViewMainData
+        //                {
+        //                    MaVienChuc = item.Value.maVienChuc,
+        //                    Ho = item.Value.ho,
+        //                    Ten = item.Value.ten,
+        //                    GioiTinh = CheckGioiTinh(item.Value.gioiTinh),
+        //                    NgaySinh = item.Value.ngaySinh,
+        //                    ChucVu = chucVuDonViVienChuc.ChucVu.tenChucVu,
+        //                    DonVi = chucVuDonViVienChuc.DonVi.tenDonVi,
+        //                    TrinhDo = GetMaxLoaiHocHamHocVi(item.Value.idVienChuc),
+        //                    HeSo = chucVuDonViVienChuc.ChucVu.heSoChucVu
+        //                });
+        //            }
+        //        }
+        //    }
+        //    return listGridViewMainData;
+        //}
         public List<GridViewMainData> LoadDataToMainGrid()
         {
             List<GridViewMainData> listGridViewMainData = new List<GridViewMainData>();           
-            List<VienChuc> listIdVienChuc = _db.VienChucs.ToList();
-            foreach(var item in listIdVienChuc)
+            List<VienChuc> listVienChuc = _db.VienChucs.ToList();
+            foreach(var item in listVienChuc)
             {
                 List<ChucVuDonViVienChuc> listChucVuDonViVienChucToAdd = new List<ChucVuDonViVienChuc>();
                 List<ChucVuDonViVienChuc> listChucVuDonViVienChuc = _db.ChucVuDonViVienChucs.Where(x => x.idVienChuc == item.idVienChuc).ToList();

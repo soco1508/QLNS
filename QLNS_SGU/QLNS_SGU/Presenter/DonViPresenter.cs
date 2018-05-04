@@ -22,7 +22,6 @@ namespace QLNS_SGU.Presenter
         void MouseDoubleClick(object sender, MouseEventArgs e);
         void HiddenEditor(object sender, EventArgs e);
         void InitNewRow(object sender, InitNewRowEventArgs e);
-        void EnterToCloseEditor(object sender, KeyEventArgs e);
         void RowIndicator(object sender, RowIndicatorCustomDrawEventArgs e);
     }
     public class DonViPresenter : IDonViPresenter
@@ -37,7 +36,11 @@ namespace QLNS_SGU.Presenter
             _view.GVDonVi.IndicatorWidth = 50;
             LoadDataToGrid();
         }
-
+        private void CloseEditor()
+        {
+            _view.GVDonVi.CloseEditor();
+            _view.GVDonVi.UpdateCurrentRow();
+        }
         private void LoadDataToGrid()
         {
             SplashScreenManager.ShowForm(_view, typeof(WaitForm1), true, true, false, 0);
@@ -79,15 +82,11 @@ namespace QLNS_SGU.Presenter
             }
         }
 
-        public void RefreshGrid()
-        {
-            LoadDataToGrid();
-        }
+        public void RefreshGrid() => LoadDataToGrid();
 
         public void SaveData()
         {
-            _view.GVDonVi.CloseEditor();
-            _view.GVDonVi.UpdateCurrentRow();
+            CloseEditor();
             UnitOfWorks unitOfWorks = new UnitOfWorks(new QLNSSGU_1Entities());
             int row_handle = _view.GVDonVi.FocusedRowHandle;
             int idRowFocused = Convert.ToInt32(_view.GVDonVi.GetFocusedRowCellDisplayText("idDonVi"));
@@ -212,16 +211,6 @@ namespace QLNS_SGU.Presenter
             gridView.SetRowCellValue(e.RowHandle, gridView.Columns[2], "");
             gridView.SetRowCellValue(e.RowHandle, gridView.Columns[3], "");
             gridView.SetRowCellValue(e.RowHandle, gridView.Columns[4], "");
-        }
-
-        public void EnterToCloseEditor(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                _view.GVDonVi.CloseEditor();
-                _view.GVDonVi.UpdateCurrentRow();
-                e.Handled = true;
-            }
         }
 
         public void RowIndicator(object sender, RowIndicatorCustomDrawEventArgs e)

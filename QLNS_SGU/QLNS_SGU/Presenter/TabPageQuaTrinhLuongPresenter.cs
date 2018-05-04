@@ -12,6 +12,7 @@ using System.IO;
 using Model.Entities;
 using Model.ObjectModels;
 using System.Globalization;
+using DevExpress.XtraGrid.Views.Grid;
 
 namespace QLNS_SGU.Presenter
 {
@@ -32,7 +33,10 @@ namespace QLNS_SGU.Presenter
         void NgayBatDauChanged(object sender, EventArgs e);
         void NgayLenLuongChanged(object sender, EventArgs e);
         void DangHuongLuongChanged(object sender, EventArgs e);
+        void TruocHanChanged(object sender, EventArgs e);
+        void HeSoVuotKhungChanged(object sender, EventArgs e);
         void LinkVanBanDinhKemChanged(object sender, EventArgs e);
+        void RowIndicator(object sender, RowIndicatorCustomDrawEventArgs e);
     }
     public class TabPageQuaTrinhLuongPresenter : ITabPageQuaTrinhLuongPresenter
     {
@@ -44,6 +48,8 @@ namespace QLNS_SGU.Presenter
         private bool ngayBatDauChanged = false;
         private bool ngayLenLuongChanged = false;
         private bool dangHuongLuongChanged = false;
+        private bool truocHanChanged = false;
+        private bool heSoVuotKhungChanged = false;
         private bool linkVanBanDinhKemChanged = false;
         public int rowFocusFromCreateAndEditPersonalInfoForm = -1;
         private static CreateAndEditPersonInfoForm _createAndEditPersonInfoForm = new CreateAndEditPersonInfoForm();
@@ -56,6 +62,7 @@ namespace QLNS_SGU.Presenter
         {
             _view.Attach(this);
             _view.TXTMaVienChuc.Text = mavienchuc;
+            _view.GVTabPageQuaTrinhLuong.IndicatorWidth = 50;
         }
         private void LoadGridTabPageQuaTrinhLuong(string mavienchuc)
         {
@@ -98,6 +105,8 @@ namespace QLNS_SGU.Presenter
             _view.DTNgayLenLuong.Text = string.Empty;
             _view.CHKDangHuongLuong.Checked = false;
             _view.TXTHeSoBac.EditValue = 0;
+            _view.TXTTruocHan.EditValue = 0;
+            _view.TXTHeSoVuotKhung.EditValue = 0;
             _view.TXTLinkVanBanDinhKem.Text = string.Empty;
         }
         private void InsertData()
@@ -113,6 +122,8 @@ namespace QLNS_SGU.Presenter
                 ngayBatDau = unitOfWorks.HopDongVienChucRepository.ReturnDateTimeToDatabase(_view.DTNgayBatDau.Text),
                 ngayLenLuong = unitOfWorks.HopDongVienChucRepository.ReturnDateTimeToDatabase(_view.DTNgayLenLuong.Text),                
                 dangHuongLuong = _view.CHKDangHuongLuong.Checked,
+                truocHan = Convert.ToInt32(_view.TXTTruocHan.EditValue),
+                heSoVuotKhung = Convert.ToDouble(_view.TXTHeSoVuotKhung.EditValue),
                 linkVanBanDinhKem = _view.TXTLinkVanBanDinhKem.Text
             });
             unitOfWorks.Save();
@@ -149,6 +160,16 @@ namespace QLNS_SGU.Presenter
             {
                 quaTrinhLuong.dangHuongLuong = _view.CHKDangHuongLuong.Checked;
                 dangHuongLuongChanged = false;
+            }
+            if (truocHanChanged)
+            {
+                quaTrinhLuong.truocHan = Convert.ToInt32(_view.TXTTruocHan.EditValue);
+                truocHanChanged = false;
+            }
+            if (heSoVuotKhungChanged)
+            {
+                quaTrinhLuong.heSoVuotKhung = Convert.ToDouble(_view.TXTHeSoVuotKhung.EditValue);
+                heSoVuotKhungChanged = false;
             }
             if (linkVanBanDinhKemChanged)
             {
@@ -282,13 +303,17 @@ namespace QLNS_SGU.Presenter
                 string mangach = _view.GVTabPageQuaTrinhLuong.GetFocusedRowCellDisplayText("MaNgach").ToString();
                 string hesobac = _view.GVTabPageQuaTrinhLuong.GetFocusedRowCellDisplayText("HeSoBac").ToString();
                 bool danghuongluong = Convert.ToBoolean(_view.GVTabPageQuaTrinhLuong.GetRowCellValue(row_handle, "DangHuongLuong"));
+                string truochan = _view.GVTabPageQuaTrinhLuong.GetFocusedRowCellDisplayText("TruocHan");
+                string hesovuotkhung = _view.GVTabPageQuaTrinhLuong.GetFocusedRowCellDisplayText("HeSoVuotKhung");
                 string linkvanbandinhkem = _view.GVTabPageQuaTrinhLuong.GetFocusedRowCellDisplayText("LinkVanBanDinhKem").ToString();
-                _view.CBXMaNgach.EditValue = unitOfWorks.NgachRepository.GetIdNgach(mangach);
+                _view.CBXMaNgach.Text = mangach;
                 _view.CBXBac.EditValue = Convert.ToInt32(_view.GVTabPageQuaTrinhLuong.GetFocusedRowCellDisplayText("Bac"));
-                _view.DTNgayBatDau.EditValue = unitOfWorks.HopDongVienChucRepository.ReturnNullIfDateTimeNull(_view.GVTabPageQuaTrinhLuong.GetFocusedRowCellDisplayText("NgayBatDau"));
-                _view.DTNgayLenLuong.EditValue = unitOfWorks.HopDongVienChucRepository.ReturnNullIfDateTimeNull(_view.GVTabPageQuaTrinhLuong.GetFocusedRowCellDisplayText("NgayLenLuong"));
+                _view.DTNgayBatDau.EditValue = unitOfWorks.HopDongVienChucRepository.ReturnNullIfDateTimeNullToView(_view.GVTabPageQuaTrinhLuong.GetFocusedRowCellDisplayText("NgayBatDau"));
+                _view.DTNgayLenLuong.EditValue = unitOfWorks.HopDongVienChucRepository.ReturnNullIfDateTimeNullToView(_view.GVTabPageQuaTrinhLuong.GetFocusedRowCellDisplayText("NgayLenLuong"));
                 _view.TXTHeSoBac.EditValue = hesobac;
                 _view.CHKDangHuongLuong.Checked = danghuongluong;
+                if(truochan != string.Empty) _view.TXTTruocHan.EditValue = Convert.ToInt32(truochan);
+                if(hesovuotkhung != string.Empty) _view.TXTHeSoVuotKhung.EditValue = Convert.ToDouble(hesovuotkhung);
                 _view.TXTLinkVanBanDinhKem.Text = linkvanbandinhkem;
             }
         }
@@ -456,6 +481,22 @@ namespace QLNS_SGU.Presenter
         public void LinkVanBanDinhKemChanged(object sender, EventArgs e)
         {
             linkVanBanDinhKemChanged = true;
+        }
+
+        public void TruocHanChanged(object sender, EventArgs e)
+        {
+            truocHanChanged = true;
+        }
+
+        public void HeSoVuotKhungChanged(object sender, EventArgs e)
+        {
+            heSoVuotKhungChanged = true;
+        }
+
+        public void RowIndicator(object sender, RowIndicatorCustomDrawEventArgs e)
+        {
+            if (e.RowHandle >= 0)
+                e.Info.DisplayText = (e.RowHandle + 1).ToString();
         }
     }
 }

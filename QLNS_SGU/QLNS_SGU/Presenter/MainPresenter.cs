@@ -14,8 +14,6 @@ using DevExpress.Utils;
 using Model.ObjectModels;
 using System.IO;
 using System.ComponentModel;
-using DevExpress.XtraGrid.Views.Base;
-using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 
 namespace QLNS_SGU.Presenter
 {
@@ -57,7 +55,6 @@ namespace QLNS_SGU.Presenter
     }
     public class MainPresenter : IMainPresenter
     {
-        private bool firstOpening = true;
         private bool clickGVQuaTrinhCongTac = false;
         private bool clickGVQuaTrinhLuong = false;
         private bool clickGVHocHamHocVi = false;
@@ -126,12 +123,14 @@ namespace QLNS_SGU.Presenter
         public void ClosingForm(object sender, FormClosingEventArgs e)
         {
             _view.GCMain.MainView.SaveLayoutToXml(filename);
+            Application.Exit();
         }
         public static void LoadDataToMainGrid()
         {
             UnitOfWorks unitOfWorks = new UnitOfWorks(new QLNSSGU_1Entities());
-            BindingList<GridViewMainData> listGridViewMainData = new BindingList<GridViewMainData>(unitOfWorks.GridViewDataRepository.LoadDataToMainGrid());
-            _view.GCMain.DataSource = listGridViewMainData;                                   
+            //Dictionary<int, GridViewMainData> datasource = unitOfWorks.GridViewDataRepository.LoadDataToMainGrid1();
+            BindingList<GridViewMainData> listGridViewMainData = new BindingList<GridViewMainData>(unitOfWorks.GridViewDataRepository.LoadDataToMainGrid());            
+            _view.GCMain.DataSource = listGridViewMainData/*datasource.Values*/;
         }       
         public static void SetValueLbHopDong()
         {
@@ -371,27 +370,31 @@ namespace QLNS_SGU.Presenter
 
         public void ViewPersonDetails()
         {
-            int rowFocus = Convert.ToInt32(_view.TXTRowIndex.Text);
-            if (rowFocus >= 0)
+            string rowFocusText = _view.TXTRowIndex.Text;
+            if(rowFocusText != string.Empty)
             {
-                SplashScreenManager.ShowForm(typeof(WaitForm1));
-                _view.LCIThongTinCaNhan.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-                _view.LCIQuaTrinhCongTac.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-                _view.LCIQuaTrinhLuong.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-                _view.LCIHocHamHocVi_DangHocNangCao.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-                _view.LCIChungChi.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-                _view.LCITrangThai.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-                _view.LBThongTinCaNhan.AppearanceItemCaption.ForeColor = Color.RoyalBlue;
-                _view.LBQuaTrinhCongTac.AppearanceItemCaption.ForeColor = Color.DimGray;
-                _view.LBQuaTrinhLuong.AppearanceItemCaption.ForeColor = Color.DimGray;
-                _view.LBChuyenMon.AppearanceItemCaption.ForeColor = Color.DimGray;
-                _view.LBTrangThai.AppearanceItemCaption.ForeColor = Color.DimGray;
-                _view.LayoutControl.Show();
-                ChangeInfoAtRightLayout(rowFocus);
-                ShowThongTinCaNhan(rowFocus);
-                SplashScreenManager.CloseForm();
-            }
-            else XtraMessageBox.Show("Vui lòng chọn dòng khác. Dòng này không có dữ liệu.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                int rowFocus = Convert.ToInt32(rowFocusText);
+                if (rowFocus >= 0)
+                {
+                    SplashScreenManager.ShowForm(typeof(WaitForm1));
+                    _view.LCIThongTinCaNhan.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                    _view.LCIQuaTrinhCongTac.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                    _view.LCIQuaTrinhLuong.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                    _view.LCIHocHamHocVi_DangHocNangCao.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                    _view.LCIChungChi.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                    _view.LCITrangThai.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                    _view.LBThongTinCaNhan.AppearanceItemCaption.ForeColor = Color.RoyalBlue;
+                    _view.LBQuaTrinhCongTac.AppearanceItemCaption.ForeColor = Color.DimGray;
+                    _view.LBQuaTrinhLuong.AppearanceItemCaption.ForeColor = Color.DimGray;
+                    _view.LBChuyenMon.AppearanceItemCaption.ForeColor = Color.DimGray;
+                    _view.LBTrangThai.AppearanceItemCaption.ForeColor = Color.DimGray;
+                    _view.LayoutControl.Show();
+                    ChangeInfoAtRightLayout(rowFocus);
+                    ShowThongTinCaNhan(rowFocus);
+                    SplashScreenManager.CloseForm();
+                }
+                else XtraMessageBox.Show("Vui lòng chọn dòng khác. Dòng này không có dữ liệu.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }         
         }
 
         public void ClickLabelThongTinCaNhan()

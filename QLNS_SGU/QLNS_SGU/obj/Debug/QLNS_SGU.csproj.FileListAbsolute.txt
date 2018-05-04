@@ -261,11 +261,14 @@ C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\QLNS_SGU.View.ToChuyenMonForm.resources
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\QLNS_SGU.View.TrangThaiForm.resources
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\QLNS_SGU.View.WaitForm1.resources
-C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\QLNS_SGU.csproj.GenerateResource.Cache
+C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\QLNS_SGU.csproj.GenerateResource.cache
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\QLNS_SGU.exe.licenses
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\QLNS_SGU.csproj.CoreCompileInputs.cache
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\QLNS_SGU.exe.manifest
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\QLNS_SGU.application
+C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\QLNS_SGU.csproj.CopyComplete
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\QLNS_SGU.exe
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\QLNS_SGU.pdb
-C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\QLNS_SGU.csproj.CopyComplete
+C:\Users\DONG\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\QLNS_SGU.View.TrangThaiHienTaiForm.resources
+C:\Users\DONG\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\QLNS_SGU.View.TabPageBaoHiemXaHoi.resources
+C:\Users\DONG\Documents\Visual Studio 2017\Projects\QLNS_SGU\QLNS_SGU\obj\Debug\QLNS_SGU.View.TabPagePhuCapThamNienNhaGiao.resources

@@ -21,6 +21,8 @@ namespace Model.Entities
         public Nullable<System.DateTime> ngayLenLuong { get; set; }
         public Nullable<bool> dangHuongLuong { get; set; }
         public string linkVanBanDinhKem { get; set; }
+        public Nullable<int> truocHan { get; set; }
+        public Nullable<double> heSoVuotKhung { get; set; }
     
         public virtual Bac Bac { get; set; }
         public virtual VienChuc VienChuc { get; set; }

@@ -35,7 +35,8 @@ namespace QLNS_SGU.View
         DateEdit DTNgayVaoDang { get; set; }
         TextEdit TXTVanHoa { get; set; }
         LookUpEdit CBXQuanLyNhaNuoc { get; set; }
-        MemoEdit TXTGhiChu { get; set; }
+        TextEdit TXTSoCMND { get; set; }
+        MemoEdit TXTGhiChu { get; set; }        
     }
     public partial class TabPageThongTinCaNhan : XtraForm, ITabPageThongTinCaNhan
     {
@@ -64,6 +65,7 @@ namespace QLNS_SGU.View
         public DateEdit DTNgayVaoDang { get => dtNgayVaoDang; set => dtNgayVaoDang = value; }
         public TextEdit TXTVanHoa { get => txtVanHoa; set => txtVanHoa = value; }
         public LookUpEdit CBXQuanLyNhaNuoc { get => cbxQuanLyNhaNuoc; set => cbxQuanLyNhaNuoc = value; }
+        public TextEdit TXTSoCMND { get => txtSoCMND; set => txtSoCMND = value; }
         public MemoEdit TXTGhiChu { get => txtGhiChu; set => txtGhiChu = value; }
         #endregion
         public void Attach(ITabPageThongTinCaNhanPresenter presenter)
@@ -72,7 +74,27 @@ namespace QLNS_SGU.View
             //btnAddNew.ItemClick += (s, e) => presenter.AddNew();
             btnSave.ItemClick += (s, e) => presenter.Save();
             btnSaveAndClose.ItemClick += (s, e) => presenter.SaveAndClose();
-            chkLaDangVien.CheckedChanged += new EventHandler(presenter.CheckedLaDangVienChanged);
+            radGioiTinh.SelectedIndexChanged += new EventHandler(presenter.GioiTinhChanged);
+            txtHo.TextChanged += new EventHandler(presenter.HoChanged);
+            txtTen.TextChanged += new EventHandler(presenter.TenChanged);
+            dtNgaySinh.DateTimeChanged += new EventHandler(presenter.NgaySinhChanged);
+            dtNgayThamGiaCongTac.DateTimeChanged += new EventHandler(presenter.NgayThamGiaCongTacChanged);
+            dtNgayVaoNganh.DateTimeChanged += new EventHandler(presenter.NgayVaoNganhChanged);
+            dtNgayVeTruong.DateTimeChanged += new EventHandler(presenter.NgayVeTruongChanged);
+            txtSoDienThoai.TextChanged += new EventHandler(presenter.SoDienThoaiChanged);
+            txtNoiSinh.TextChanged += new EventHandler(presenter.NoiSinhChanged);
+            txtQueQuan.TextChanged += new EventHandler(presenter.QueQuanChanged);
+            cbxDanToc.EditValueChanged += new EventHandler(presenter.DanTocChanged);
+            cbxTonGiao.EditValueChanged += new EventHandler(presenter.TonGiaoChanged);
+            txtHoKhauThuongTru.TextChanged += new EventHandler(presenter.HoKhauThuongTruChanged);
+            txtNoiOHienNay.TextChanged += new EventHandler(presenter.NoiOHienNay);
+            chkLaDangVien.CheckedChanged += new EventHandler(presenter.LaDangVienChanged);
+            dtNgayVaoDang.DateTimeChanged += new EventHandler(presenter.NgayVaoDangChanged);
+            txtVanHoa.TextChanged += new EventHandler(presenter.VanHoaChanged);
+            cbxQuanLyNhaNuoc.EditValueChanged += new EventHandler(presenter.QuanLyNhaNuocChanged);
+            txtSoCMND.TextChanged += new EventHandler(presenter.SoCMNDChanged);
+            txtGhiChu.TextChanged += new EventHandler(presenter.GhiChuChanged);
+            picVienChuc.ImageChanged += new EventHandler(presenter.PicChanged);
         }
     }
 }

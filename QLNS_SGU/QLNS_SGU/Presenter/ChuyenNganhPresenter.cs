@@ -26,7 +26,6 @@ namespace QLNS_SGU.Presenter
         void MouseDoubleClick(object sender, MouseEventArgs e);
         void HiddenEditor(object sender, EventArgs e);
         void InitNewRow(object sender, InitNewRowEventArgs e);
-        void EnterToCloseEditor(object sender, KeyEventArgs e);
         void RowIndicator(object sender, RowIndicatorCustomDrawEventArgs e);
     }
 
@@ -42,7 +41,11 @@ namespace QLNS_SGU.Presenter
             _view.GVChuyenNganh.IndicatorWidth = 50;
             LoadDataToGrid();
         }
-
+        private void CloseEditor()
+        {
+            _view.GVChuyenNganh.CloseEditor();
+            _view.GVChuyenNganh.UpdateCurrentRow();
+        }
         private void LoadDataToGrid()
         {
             SplashScreenManager.ShowForm(_view, typeof(WaitForm1), true, true, false, 0);
@@ -88,15 +91,11 @@ namespace QLNS_SGU.Presenter
             }
         }
 
-        public void RefreshGrid()
-        {
-            LoadDataToGrid();
-        }
+        public void RefreshGrid() => LoadDataToGrid();
 
         public void SaveData()
         {
-            _view.GVChuyenNganh.CloseEditor();
-            _view.GVChuyenNganh.UpdateCurrentRow();
+            CloseEditor();
             UnitOfWorks unitOfWorks = new UnitOfWorks(new QLNSSGU_1Entities());
             int row_handle = _view.GVChuyenNganh.FocusedRowHandle;
             int idRowFocused = Convert.ToInt32(_view.GVChuyenNganh.GetFocusedRowCellDisplayText("idChuyenNganh"));
@@ -194,16 +193,6 @@ namespace QLNS_SGU.Presenter
         {
             GridView gridView = sender as GridView;
             gridView.SetRowCellValue(e.RowHandle, gridView.Columns[1], "");
-        }
-
-        public void EnterToCloseEditor(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                _view.GVChuyenNganh.CloseEditor();
-                _view.GVChuyenNganh.UpdateCurrentRow();
-                e.Handled = true;
-            }
         }
 
         public void RowIndicator(object sender, RowIndicatorCustomDrawEventArgs e)

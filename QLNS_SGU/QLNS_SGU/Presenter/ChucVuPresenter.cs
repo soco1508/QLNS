@@ -26,7 +26,6 @@ namespace QLNS_SGU.Presenter
         void MouseDoubleClick(object sender, MouseEventArgs e);
         void HiddenEditor(object sender, EventArgs e);
         void InitNewRow(object sender, InitNewRowEventArgs e);
-        void EnterToCloseEditor(object sender, KeyEventArgs e);
         void RowIndicator(object sender, RowIndicatorCustomDrawEventArgs e);
     }
     public class ChucVuPresenter : IChucVuPresenter
@@ -41,7 +40,11 @@ namespace QLNS_SGU.Presenter
             _view.GVChucVu.IndicatorWidth = 50;
             LoadDataToGrid();
         }
-
+        private void CloseEditor()
+        {
+            _view.GVChucVu.CloseEditor();
+            _view.GVChucVu.UpdateCurrentRow();
+        }
         private void LoadDataToGrid()
         {
             SplashScreenManager.ShowForm(_view, typeof(WaitForm1), true, true, false, 0);
@@ -82,15 +85,11 @@ namespace QLNS_SGU.Presenter
             }
         }
 
-        public void RefreshGrid()
-        {
-            LoadDataToGrid();
-        }
+        public void RefreshGrid() => LoadDataToGrid();
 
         public void SaveData()
         {
-            _view.GVChucVu.CloseEditor();
-            _view.GVChucVu.UpdateCurrentRow();
+            CloseEditor();
             UnitOfWorks unitOfWorks = new UnitOfWorks(new QLNSSGU_1Entities());
             int row_handle = _view.GVChucVu.FocusedRowHandle;
             int idRowFocused = Convert.ToInt32(_view.GVChucVu.GetFocusedRowCellDisplayText("idChucVu"));
@@ -195,17 +194,7 @@ namespace QLNS_SGU.Presenter
         public void InitNewRow(object sender, InitNewRowEventArgs e)
         {
             GridView gridView = sender as GridView;
-            gridView.SetRowCellValue(e.RowHandle, gridView.Columns[1], "");
-        }
-
-        public void EnterToCloseEditor(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                _view.GVChucVu.CloseEditor();
-                _view.GVChucVu.UpdateCurrentRow();
-                e.Handled = true;
-            }
+            gridView.SetRowCellValue(e.RowHandle, gridView.Columns[1], string.Empty);
         }
 
         public void RowIndicator(object sender, RowIndicatorCustomDrawEventArgs e)

@@ -29,7 +29,6 @@ namespace QLNS_SGU.View
         TextEdit TXTDiaDiem { get; set; }
         TextEdit TXTLinkVanBanDinhKem { get; set; }
         TextEdit TXTMaVienChuc { get; set; }
-        TextEdit TXTRownIndex { get; set; }
     }
     public partial class TabPageTrangThai : XtraForm, ITabPageTrangThai
     {
@@ -50,7 +49,6 @@ namespace QLNS_SGU.View
         public TextEdit TXTDiaDiem { get => txtDiaDiem; set => txtDiaDiem = value; }
         public TextEdit TXTLinkVanBanDinhKem { get => txtLinkVanBanDinhKem; set => txtLinkVanBanDinhKem = value; }
         public TextEdit TXTMaVienChuc { get => txtMaVienChuc; set => txtMaVienChuc = value; }
-        public TextEdit TXTRownIndex { get => txtRowIndex; set => txtRowIndex = value; }
         #endregion
         public void Attach(ITabPageTrangThaiPresenter presenter)
         {
@@ -69,6 +67,7 @@ namespace QLNS_SGU.View
             dtNgayBatDau.TextChanged += new EventHandler(presenter.NgayBatDauChanged);
             dtNgayKetThuc.TextChanged += new EventHandler(presenter.NgayKetThucChanged);
             txtLinkVanBanDinhKem.TextChanged += new EventHandler(presenter.LinkVanBanDinhKemChanged);
+            gvTrangThai.CustomDrawRowIndicator += new RowIndicatorCustomDrawEventHandler(presenter.RowIndicator);
         }
     }
 }

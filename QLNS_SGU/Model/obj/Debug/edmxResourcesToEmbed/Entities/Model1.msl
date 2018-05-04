@@ -11,6 +11,19 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="BaoHiemXaHois">
+      <EntityTypeMapping TypeName="QLNSSGU_1Model.BaoHiemXaHoi">
+        <MappingFragment StoreEntitySet="BaoHiemXaHoi">
+          <ScalarProperty Name="idBaoHiemXaHoi" ColumnName="idBaoHiemXaHoi" />
+          <ScalarProperty Name="idVienChuc" ColumnName="idVienChuc" />
+          <ScalarProperty Name="soSo" ColumnName="soSo" />
+          <ScalarProperty Name="ngayThamGia" ColumnName="ngayThamGia" />
+          <ScalarProperty Name="ngayCapSo" ColumnName="ngayCapSo" />
+          <ScalarProperty Name="ngayRutSo" ColumnName="ngayRutSo" />
+          <ScalarProperty Name="ghiChu" ColumnName="ghiChu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="ChucVus">
       <EntityTypeMapping TypeName="QLNSSGU_1Model.ChucVu">
         <MappingFragment StoreEntitySet="ChucVu">
@@ -36,6 +49,7 @@
           <ScalarProperty Name="linkVanBanDinhKem" ColumnName="linkVanBanDinhKem" />
           <ScalarProperty Name="loaiThayDoi" ColumnName="loaiThayDoi" />
           <ScalarProperty Name="kiemNhiem" ColumnName="kiemNhiem" />
+          <ScalarProperty Name="nhanXet" ColumnName="nhanXet" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -238,6 +252,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="QuaTrinhGianDoanBaoHiemXaHois">
+      <EntityTypeMapping TypeName="QLNSSGU_1Model.QuaTrinhGianDoanBaoHiemXaHoi">
+        <MappingFragment StoreEntitySet="QuaTrinhGianDoanBaoHiemXaHoi">
+          <ScalarProperty Name="idQuaTrinhGianDoan" ColumnName="idQuaTrinhGianDoan" />
+          <ScalarProperty Name="idVienChuc" ColumnName="idVienChuc" />
+          <ScalarProperty Name="lyDo" ColumnName="lyDo" />
+          <ScalarProperty Name="ngayBatDau" ColumnName="ngayBatDau" />
+          <ScalarProperty Name="ngayKetThuc" ColumnName="ngayKetThuc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="QuaTrinhLuongs">
       <EntityTypeMapping TypeName="QLNSSGU_1Model.QuaTrinhLuong">
         <MappingFragment StoreEntitySet="QuaTrinhLuong">
@@ -247,6 +272,20 @@
           <ScalarProperty Name="ngayBatDau" ColumnName="ngayBatDau" />
           <ScalarProperty Name="ngayLenLuong" ColumnName="ngayLenLuong" />
           <ScalarProperty Name="dangHuongLuong" ColumnName="dangHuongLuong" />
+          <ScalarProperty Name="linkVanBanDinhKem" ColumnName="linkVanBanDinhKem" />
+          <ScalarProperty Name="truocHan" ColumnName="truocHan" />
+          <ScalarProperty Name="heSoVuotKhung" ColumnName="heSoVuotKhung" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QuaTrinhPhuCapThamNienNhaGiaos">
+      <EntityTypeMapping TypeName="QLNSSGU_1Model.QuaTrinhPhuCapThamNienNhaGiao">
+        <MappingFragment StoreEntitySet="QuaTrinhPhuCapThamNienNhaGiao">
+          <ScalarProperty Name="idQuaTrinhPhuCap" ColumnName="idQuaTrinhPhuCap" />
+          <ScalarProperty Name="idVienChuc" ColumnName="idVienChuc" />
+          <ScalarProperty Name="heSoPhuCap" ColumnName="heSoPhuCap" />
+          <ScalarProperty Name="ngayBatDau" ColumnName="ngayBatDau" />
+          <ScalarProperty Name="ngayNangPhuCap" ColumnName="ngayNangPhuCap" />
           <ScalarProperty Name="linkVanBanDinhKem" ColumnName="linkVanBanDinhKem" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -325,6 +364,7 @@
           <ScalarProperty Name="idQuanLyNhaNuoc" ColumnName="idQuanLyNhaNuoc" />
           <ScalarProperty Name="ghiChu" ColumnName="ghiChu" />
           <ScalarProperty Name="anh" ColumnName="anh" />
+          <ScalarProperty Name="soChungMinhNhanDan" ColumnName="soChungMinhNhanDan" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

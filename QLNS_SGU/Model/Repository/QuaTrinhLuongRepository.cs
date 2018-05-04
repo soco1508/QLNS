@@ -31,6 +31,8 @@ namespace Model.Repository
                     NgayBatDau = listQuaTrinhLuong[i].ngayBatDau,
                     NgayLenLuong = listQuaTrinhLuong[i].ngayLenLuong,
                     DangHuongLuong = listQuaTrinhLuong[i].dangHuongLuong,
+                    TruocHan = listQuaTrinhLuong[i].truocHan,
+                    HeSoVuotKhung = listQuaTrinhLuong[i].heSoVuotKhung,
                     LinkVanBanDinhKem = listQuaTrinhLuong[i].linkVanBanDinhKem
                 });
             }

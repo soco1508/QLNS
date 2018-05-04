@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.ComponentModel;
 using System.Globalization;
+using System.Diagnostics;
 
 namespace QLNS_SGU.Presenter
 {
@@ -19,12 +20,53 @@ namespace QLNS_SGU.Presenter
         void LoadForm();
         void Save();
         void SaveAndClose();
-        void CheckedLaDangVienChanged(object sender, EventArgs e);
+        void LaDangVienChanged(object sender, EventArgs e);
+        void GioiTinhChanged(object sender, EventArgs e);
+        void HoChanged(object sender, EventArgs e);
+        void TenChanged(object sender, EventArgs e);
+        void NgaySinhChanged(object sender, EventArgs e);
+        void NgayThamGiaCongTacChanged(object sender, EventArgs e);
+        void NgayVaoNganhChanged(object sender, EventArgs e);
+        void NgayVeTruongChanged(object sender, EventArgs e);
+        void SoDienThoaiChanged(object sender, EventArgs e);
+        void NoiSinhChanged(object sender, EventArgs e);
+        void QueQuanChanged(object sender, EventArgs e);
+        void DanTocChanged(object sender, EventArgs e);
+        void TonGiaoChanged(object sender, EventArgs e);
+        void HoKhauThuongTruChanged(object sender, EventArgs e);
+        void NoiOHienNay(object sender, EventArgs e);
+        void NgayVaoDangChanged(object sender, EventArgs e);
+        void VanHoaChanged(object sender, EventArgs e);
+        void QuanLyNhaNuocChanged(object sender, EventArgs e);
+        void SoCMNDChanged(object sender, EventArgs e);
+        void GhiChuChanged(object sender, EventArgs e);
+        void PicChanged(object sender, EventArgs e);
     }
     public class TabPageThongTinCaNhanPresenter : ITabPageThongTinCaNhanPresenter
     {
         private TabPageThongTinCaNhan _view;
         private bool checkAddNew = false;
+        private bool gioiTinhChanged = false;
+        private bool hoChanged = false;
+        private bool tenChanged = false;
+        private bool ngaySinhChanged = false;
+        private bool ngayThamGiaCongTacChanged = false;
+        private bool ngayVaoNganhChanged = false;
+        private bool ngayVeTruongChanged = false;
+        private bool soDienThoaiChanged = false;
+        private bool noiSinhChanged = false;
+        private bool queQuanChanged = false;
+        private bool danTocChanged = false;
+        private bool tonGiaoChanged = false;
+        private bool hoKhauThuongTruChanged = false;
+        private bool noiOHienNayChanged = false;
+        private bool laDangVienChanged = false;
+        private bool ngayVaoDangChanged = false;
+        private bool vanHoaChanged = false;
+        private bool quanLyNhaNuocChanged = false;
+        private bool soCMNDChanged = false;
+        private bool ghiChuChanged = false;
+        private bool picChanged = false;
         public object UI => _view;
         public TabPageThongTinCaNhanPresenter(TabPageThongTinCaNhan view) => _view = view;
         public void Initialize(string mavienchuc)
@@ -128,6 +170,7 @@ namespace QLNS_SGU.Presenter
                     idQuanLyNhaNuoc = Convert.ToInt32(_view.CBXQuanLyNhaNuoc.EditValue),
                     hoKhauThuongTru = _view.TXTHoKhauThuongTru.Text,
                     noiOHienNay = _view.TXTNoiOHienNay.Text,
+                    soChungMinhNhanDan = _view.TXTSoCMND.Text,
                     ghiChu = _view.TXTGhiChu.Text,
                     anh = ConvertImageToBinary(_view.PICVienChuc.GetLoadedImageLocation())
                 });
@@ -151,39 +194,124 @@ namespace QLNS_SGU.Presenter
             UnitOfWorks unitOfWorks = new UnitOfWorks(new QLNSSGU_1Entities());
             string mavienchuc = _view.TXTMaVienChuc.Text.Trim();
             VienChuc vienChuc = unitOfWorks.VienChucRepository.GetVienChucByMaVienChuc(mavienchuc);
-            vienChuc.ho = _view.TXTHo.Text;
-            vienChuc.ten = _view.TXTTen.Text;
-            vienChuc.gioiTinh = unitOfWorks.VienChucRepository.ReturnGenderToDatabase(_view.RADGioiTinh.SelectedIndex);
-            vienChuc.ngaySinh = unitOfWorks.HopDongVienChucRepository.ReturnDateTimeToDatabase(_view.DTNgaySinh.Text);
-            vienChuc.ngayThamGiaCongTac = unitOfWorks.HopDongVienChucRepository.ReturnDateTimeToDatabase(_view.DTNgayThamGiaCongTac.Text);
-            vienChuc.ngayVeTruong = unitOfWorks.HopDongVienChucRepository.ReturnDateTimeToDatabase(_view.DTNgayVeTruong.Text);
-            vienChuc.ngayVaoNganh = unitOfWorks.HopDongVienChucRepository.ReturnDateTimeToDatabase(_view.DTNgayVaoNganh.Text);
-            vienChuc.laDangVien = _view.CHKLaDangVien.Checked;
-            vienChuc.ngayVaoDang = unitOfWorks.HopDongVienChucRepository.ReturnDateTimeToDatabase(_view.DTNgayVaoDang.Text);
-            vienChuc.sDT = _view.TXTSoDienThoai.Text;
-            vienChuc.noiSinh = _view.TXTNoiSinh.Text;
-            vienChuc.queQuan = _view.TXTQueQuan.Text;
-            vienChuc.idDanToc = Convert.ToInt32(_view.CBXDanToc.EditValue);
-            vienChuc.idTonGiao = Convert.ToInt32(_view.CBXTonGiao.EditValue);
-            vienChuc.vanHoa = _view.TXTVanHoa.Text;
-            vienChuc.idQuanLyNhaNuoc = Convert.ToInt32(_view.CBXQuanLyNhaNuoc.EditValue);
-            vienChuc.hoKhauThuongTru = _view.TXTHoKhauThuongTru.Text;
-            vienChuc.noiOHienNay = _view.TXTNoiOHienNay.Text;
-            vienChuc.ghiChu = _view.TXTGhiChu.Text;
-            vienChuc.anh = ConvertImageToBinary(_view.PICVienChuc.GetLoadedImageLocation());
+            if(hoChanged)
+            {
+                vienChuc.ho = _view.TXTHo.Text;
+                hoChanged = false;
+            }
+            if(tenChanged)
+            {
+                vienChuc.ten = _view.TXTTen.Text;
+                tenChanged = false;
+            }
+            if(gioiTinhChanged)
+            {
+                vienChuc.gioiTinh = unitOfWorks.VienChucRepository.ReturnGenderToDatabase(_view.RADGioiTinh.SelectedIndex);
+                gioiTinhChanged = false;
+            }
+            if(ngaySinhChanged)
+            {
+                vienChuc.ngaySinh = unitOfWorks.HopDongVienChucRepository.ReturnDateTimeToDatabase(_view.DTNgaySinh.Text);
+                ngaySinhChanged = false;
+            }
+            if(ngayThamGiaCongTacChanged)
+            {
+                vienChuc.ngayThamGiaCongTac = unitOfWorks.HopDongVienChucRepository.ReturnDateTimeToDatabase(_view.DTNgayThamGiaCongTac.Text);
+                ngayThamGiaCongTacChanged = false;
+            }
+            if(ngayVeTruongChanged)
+            {
+                vienChuc.ngayVeTruong = unitOfWorks.HopDongVienChucRepository.ReturnDateTimeToDatabase(_view.DTNgayVeTruong.Text);
+                ngayVeTruongChanged = false;
+            }
+            if(ngayVaoNganhChanged)
+            {
+                vienChuc.ngayVaoNganh = unitOfWorks.HopDongVienChucRepository.ReturnDateTimeToDatabase(_view.DTNgayVaoNganh.Text);
+                ngayVaoNganhChanged = false;
+            }
+            if(laDangVienChanged)
+            {
+                vienChuc.laDangVien = _view.CHKLaDangVien.Checked;
+                laDangVienChanged = false;
+            }
+            if(ngayVaoDangChanged)
+            {
+                vienChuc.ngayVaoDang = unitOfWorks.HopDongVienChucRepository.ReturnDateTimeToDatabase(_view.DTNgayVaoDang.Text);
+                ngayVaoDangChanged = false;
+            }
+            if(soDienThoaiChanged)
+            {
+                vienChuc.sDT = _view.TXTSoDienThoai.Text;
+                soDienThoaiChanged = false;
+            }
+            if (noiSinhChanged)
+            {
+                vienChuc.noiSinh = _view.TXTNoiSinh.Text;
+                noiSinhChanged = false;
+            }
+            if(queQuanChanged)
+            {
+                vienChuc.queQuan = _view.TXTQueQuan.Text;
+                queQuanChanged = false;
+            }
+            if(danTocChanged)
+            {
+                vienChuc.idDanToc = Convert.ToInt32(_view.CBXDanToc.EditValue);
+                danTocChanged = false;
+            }
+            if(tonGiaoChanged)
+            {
+                vienChuc.idTonGiao = Convert.ToInt32(_view.CBXTonGiao.EditValue);
+                tonGiaoChanged = false;
+            }
+            if(vanHoaChanged)
+            {
+                vienChuc.vanHoa = _view.TXTVanHoa.Text;
+                vanHoaChanged = false;
+            }
+            if(quanLyNhaNuocChanged)
+            {
+                vienChuc.idQuanLyNhaNuoc = Convert.ToInt32(_view.CBXQuanLyNhaNuoc.EditValue);
+                quanLyNhaNuocChanged = false;
+            }
+            if(hoKhauThuongTruChanged)
+            {
+                vienChuc.hoKhauThuongTru = _view.TXTHoKhauThuongTru.Text;
+                hoKhauThuongTruChanged = false;
+            }
+            if(noiOHienNayChanged)
+            {
+                vienChuc.noiOHienNay = _view.TXTNoiOHienNay.Text;
+                noiOHienNayChanged = false;
+            }
+            if(soCMNDChanged)
+            {
+                vienChuc.soChungMinhNhanDan = _view.TXTSoCMND.Text;
+                soCMNDChanged = false;
+            }
+            if(ghiChuChanged)
+            {
+                vienChuc.ghiChu = _view.TXTGhiChu.Text;
+                ghiChuChanged = false;
+            }
+            if(picChanged)
+            {
+                vienChuc.anh = ConvertImageToBinary(_view.PICVienChuc.GetLoadedImageLocation());
+                picChanged = false;
+            }
             unitOfWorks.Save();
             MainPresenter.LoadDataToMainGrid();
             MainPresenter.MoveRowManaging(mavienchuc);
-            XtraMessageBox.Show("Cập nhật dữ liệu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);            
+            XtraMessageBox.Show("Cập nhật dữ liệu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         public void LoadForm()
         {
             LoadCbxData();
-            string mavienchuc = _view.TXTMaVienChuc.Text;
-            UnitOfWorks unitOfWorks = new UnitOfWorks(new QLNSSGU_1Entities());
+            string mavienchuc = _view.TXTMaVienChuc.Text;          
             if (mavienchuc != string.Empty)
             {
+                UnitOfWorks unitOfWorks = new UnitOfWorks(new QLNSSGU_1Entities());
                 VienChuc vienChuc = unitOfWorks.VienChucRepository.GetVienChucByMaVienChuc(mavienchuc);
                 _view.PICVienChuc.Image = ConvertBinaryToImage(vienChuc.anh);
                 _view.RADGioiTinh.SelectedIndex = unitOfWorks.VienChucRepository.ReturnGenderToTabThongTinCaNhan(vienChuc.gioiTinh);
@@ -204,6 +332,7 @@ namespace QLNS_SGU.Presenter
                 _view.CBXDanToc.EditValue = vienChuc.idDanToc;
                 _view.CBXTonGiao.EditValue = vienChuc.idTonGiao;
                 _view.CBXQuanLyNhaNuoc.EditValue = vienChuc.idQuanLyNhaNuoc;
+                _view.TXTSoCMND.Text = vienChuc.soChungMinhNhanDan;
                 _view.TXTGhiChu.Text = vienChuc.ghiChu;
             }
             else
@@ -318,12 +447,111 @@ namespace QLNS_SGU.Presenter
             }
         }
 
-        public void CheckedLaDangVienChanged(object sender, EventArgs e)
+        public void LaDangVienChanged(object sender, EventArgs e)
         {
+            laDangVienChanged = true;
             if(_view.CHKLaDangVien.Checked == false)
-            {
                 _view.DTNgayVaoDang.Text = string.Empty;
-            }
+        }
+
+        public void GioiTinhChanged(object sender, EventArgs e)
+        {
+            gioiTinhChanged = true;
+        }
+
+        public void HoChanged(object sender, EventArgs e)
+        {
+            hoChanged = true;
+        }
+
+        public void TenChanged(object sender, EventArgs e)
+        {
+            tenChanged = true;
+        }
+
+        public void NgaySinhChanged(object sender, EventArgs e)
+        {
+            ngaySinhChanged = true;
+        }
+
+        public void NgayThamGiaCongTacChanged(object sender, EventArgs e)
+        {
+            ngayThamGiaCongTacChanged = true;
+        }
+
+        public void NgayVaoNganhChanged(object sender, EventArgs e)
+        {
+            ngayVaoNganhChanged = true;
+        }
+
+        public void NgayVeTruongChanged(object sender, EventArgs e)
+        {
+            ngayVeTruongChanged = true;
+        }
+
+        public void SoDienThoaiChanged(object sender, EventArgs e)
+        {
+            soDienThoaiChanged = true;
+        }
+
+        public void NoiSinhChanged(object sender, EventArgs e)
+        {
+            noiSinhChanged = true;
+        }
+
+        public void QueQuanChanged(object sender, EventArgs e)
+        {
+            queQuanChanged = true;
+        }
+
+        public void DanTocChanged(object sender, EventArgs e)
+        {
+            danTocChanged = true;
+        }
+
+        public void TonGiaoChanged(object sender, EventArgs e)
+        {
+            tonGiaoChanged = true;
+        }
+
+        public void HoKhauThuongTruChanged(object sender, EventArgs e)
+        {
+            hoKhauThuongTruChanged = true;
+        }
+
+        public void NoiOHienNay(object sender, EventArgs e)
+        {
+            noiOHienNayChanged = true;
+        }
+
+        public void NgayVaoDangChanged(object sender, EventArgs e)
+        {
+            ngayVaoDangChanged = true;
+        }
+
+        public void VanHoaChanged(object sender, EventArgs e)
+        {
+            vanHoaChanged = true;
+        }
+
+        public void QuanLyNhaNuocChanged(object sender, EventArgs e)
+        {
+            quanLyNhaNuocChanged = true;
+        }
+
+        public void SoCMNDChanged(object sender, EventArgs e)
+        {
+            soCMNDChanged = true;
+        }
+
+        public void GhiChuChanged(object sender, EventArgs e)
+        {
+            ghiChuChanged = true;
+        }
+
+        public void PicChanged(object sender, EventArgs e)
+        {
+            picChanged = true;
         }
     }
 }

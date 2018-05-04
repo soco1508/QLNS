@@ -20,7 +20,6 @@ namespace QLNS_SGU.Presenter
         void ExportExcel();
         void SaveData();
         void InitNewRow(object sender, InitNewRowEventArgs e);
-        void EnterToCloseEditor(object sender, KeyEventArgs e);
         void DeleteRow();
         void RowIndicator(object sender, RowIndicatorCustomDrawEventArgs e);
     }
@@ -87,16 +86,6 @@ namespace QLNS_SGU.Presenter
             catch
             {
                 XtraMessageBox.Show("Không thể xóa. Loại Đơn Vị này đang được sử dụng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        public void EnterToCloseEditor(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                _view.GVLoaiDonVi.CloseEditor();
-                _view.GVLoaiDonVi.UpdateCurrentRow();
-                e.Handled = true;
             }
         }
 

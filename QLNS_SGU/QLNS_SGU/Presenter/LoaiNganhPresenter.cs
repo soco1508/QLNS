@@ -29,7 +29,6 @@ namespace QLNS_SGU.Presenter
         void ExportExcel();
         void SaveData();
         void InitNewRow(object sender, InitNewRowEventArgs e);
-        void EnterToCloseEditor(object sender, KeyEventArgs e);
         void DeleteRow();
         void RowIndicator(object sender, RowIndicatorCustomDrawEventArgs e);
     }
@@ -90,10 +89,7 @@ namespace QLNS_SGU.Presenter
             _view.GVLoaiNganh.Columns[1].OptionsColumn.AllowEdit = false;
         }
 
-        public void RefreshGrid()
-        {
-            LoadDataToGrid();
-        }
+        public void RefreshGrid() => LoadDataToGrid();
 
         public void ExportExcel()
         {
@@ -147,17 +143,7 @@ namespace QLNS_SGU.Presenter
         public void InitNewRow(object sender, InitNewRowEventArgs e)
         {            
             GridView gridView = sender as GridView;
-            gridView.SetRowCellValue(e.RowHandle, gridView.Columns[1], ""); 
-        }
-
-        public void EnterToCloseEditor(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                _view.GVLoaiNganh.CloseEditor();
-                _view.GVLoaiNganh.UpdateCurrentRow();
-                e.Handled = true;
-            }
+            gridView.SetRowCellValue(e.RowHandle, gridView.Columns[1], string.Empty); 
         }
 
         public void DeleteRow()

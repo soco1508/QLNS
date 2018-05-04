@@ -26,6 +26,7 @@ namespace Model.Entities
         }
     
         public virtual DbSet<Bac> Bacs { get; set; }
+        public virtual DbSet<BaoHiemXaHoi> BaoHiemXaHois { get; set; }
         public virtual DbSet<ChucVu> ChucVus { get; set; }
         public virtual DbSet<ChucVuDonViVienChuc> ChucVuDonViVienChucs { get; set; }
         public virtual DbSet<ChungChiVienChuc> ChungChiVienChucs { get; set; }
@@ -46,7 +47,9 @@ namespace Model.Entities
         public virtual DbSet<NganhVienChuc> NganhVienChucs { get; set; }
         public virtual DbSet<QuanLyNhaNuoc> QuanLyNhaNuocs { get; set; }
         public virtual DbSet<QuanTriVien> QuanTriViens { get; set; }
+        public virtual DbSet<QuaTrinhGianDoanBaoHiemXaHoi> QuaTrinhGianDoanBaoHiemXaHois { get; set; }
         public virtual DbSet<QuaTrinhLuong> QuaTrinhLuongs { get; set; }
+        public virtual DbSet<QuaTrinhPhuCapThamNienNhaGiao> QuaTrinhPhuCapThamNienNhaGiaos { get; set; }
         public virtual DbSet<ThamSo> ThamSoes { get; set; }
         public virtual DbSet<ToChuyenMon> ToChuyenMons { get; set; }
         public virtual DbSet<TonGiao> TonGiaos { get; set; }

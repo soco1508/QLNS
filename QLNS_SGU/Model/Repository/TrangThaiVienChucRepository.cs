@@ -13,6 +13,26 @@ namespace Model.Repository
         public TrangThaiVienChucRepository(QLNSSGU_1Entities db) : base(db)
         {
         }
+        
+        public void InsertFirstRowDefault(string mavienchuc)
+        {
+            VienChucRepository vienChucRepository = new VienChucRepository(_db);
+            int idvienchuc = vienChucRepository.GetIdVienChuc(mavienchuc);
+            TrangThaiVienChuc trangThaiVienChuc = new TrangThaiVienChuc();
+            trangThaiVienChuc.idVienChuc = idvienchuc;
+            trangThaiVienChuc.TrangThai.tenTrangThai = "Đang làm";
+            _db.TrangThaiVienChucs.Add(trangThaiVienChuc);
+        }
+
+        public bool CheckExistsAnyRow(string mavienchuc)
+        {
+            VienChucRepository vienChucRepository = new VienChucRepository(_db);
+            int idvienchuc = vienChucRepository.GetIdVienChuc(mavienchuc);
+            int idTrangThaiVienChuc = _db.TrangThaiVienChucs.Where(x => x.idVienChuc == idvienchuc).Select(y => y.idTrangThaiVienChuc).FirstOrDefault();
+            if (idTrangThaiVienChuc > 0)
+                return true;
+            return false;
+        }
 
         public void Update(string mavienchuc, DateTime ngaybatdau, DateTime ngayketthuc, string mota, string diadiem)
         {
@@ -45,6 +65,14 @@ namespace Model.Repository
                 });
             }
             return listTrangThaiForView;
+        }
+
+        public TrangThaiVienChuc GetTrangThaiHienTai(string mavienchuc)
+        {
+            VienChucRepository vienChucRepository = new VienChucRepository(_db);           
+            int idvienchuc = vienChucRepository.GetIdVienChuc(mavienchuc);
+            TrangThaiVienChuc trangThaiHienTai = _db.TrangThaiVienChucs.Where(x => x.idVienChuc == idvienchuc && !x.TrangThai.tenTrangThai.Contains("Đang làm")).OrderByDescending(y => y.idTrangThaiVienChuc).FirstOrDefault();
+            return trangThaiHienTai;
         }
 
         public TrangThaiVienChuc GetObjectById(int idtrangthaivienchuc)

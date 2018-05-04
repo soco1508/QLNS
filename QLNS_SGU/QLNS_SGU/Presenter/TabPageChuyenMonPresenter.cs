@@ -40,6 +40,7 @@ namespace QLNS_SGU.Presenter
         void HinhThucDaoTaoHHHVChanged(object sender, EventArgs e);
         void NuocCapBangHHHVChanged(object sender, EventArgs e);
         void LinkVanBanDinhKemHHHVChanged(object sender, EventArgs e);
+        void RowIndicatorHHHV(object sender, RowIndicatorCustomDrawEventArgs e);
         //DHNC 
         void ClickRowAndShowInfoDHNC();
         void RefreshDHNC();
@@ -60,6 +61,7 @@ namespace QLNS_SGU.Presenter
         void NuocCapBangDangHocNangCaoChanged(object sender, EventArgs e);
         void LoaiDangHocNangCaoChanged(object sender, EventArgs e);
         void LinkAnhQuyetDinhChanged(object sender, EventArgs e);
+        void RowIndicatorDHNC(object sender, RowIndicatorCustomDrawEventArgs e);
         //Nganh
         void ClickRowAndShowInfoN();
         void RefreshN();
@@ -78,6 +80,7 @@ namespace QLNS_SGU.Presenter
         void TrinhDoDayNChanged(object sender, EventArgs e);
         void PhanLoaiNChanged(object sender, EventArgs e);
         void LinkVanBanDinhKemNChanged(object sender, EventArgs e);
+        void RowIndicatorN(object sender, RowIndicatorCustomDrawEventArgs e);
         //ChungChi
         void ClickRowAndShowInfoCC();
         void RefreshCC();
@@ -91,7 +94,8 @@ namespace QLNS_SGU.Presenter
         void CapDoChungChiChanged(object sender, EventArgs e);
         void NgayCapChungChiChanged(object sender, EventArgs e);
         void GhiChuChungChiChanged(object sender, EventArgs e);
-        void LinkVanBanDinhKemChungChiChanged(object sender, EventArgs e);        
+        void LinkVanBanDinhKemChungChiChanged(object sender, EventArgs e);
+        void RowIndicatorCC(object sender, RowIndicatorCustomDrawEventArgs e);
     }
     public class TabPageChuyenMonPresenter : ITabPageChuyenMonPresenter
     {
@@ -107,6 +111,10 @@ namespace QLNS_SGU.Presenter
         {
             _view.Attach(this);
             _view.TXTMaVienChuc.Text = mavienchuc;
+            _view.GVHocHamHocVi.IndicatorWidth = 50;
+            _view.GVDangHocNangCao.IndicatorWidth = 50;
+            _view.GVNganh.IndicatorWidth = 50;
+            _view.GVChungChi.IndicatorWidth = 50;
         }                      
         private string GenerateCode() => Guid.NewGuid().ToString("N");                             
         private void Download(string linkvanbandinhkem)
@@ -524,7 +532,7 @@ namespace QLNS_SGU.Presenter
                 _view.TXTNgonNguDaoTaoHHHV.Text = _view.GVHocHamHocVi.GetFocusedRowCellDisplayText("NgonNguDaoTao");
                 _view.TXTHinhThucDaoTaoHHHV.Text = _view.GVHocHamHocVi.GetFocusedRowCellDisplayText("HinhThucDaoTao");
                 _view.TXTNuocCapBangHHHV.Text = _view.GVHocHamHocVi.GetFocusedRowCellDisplayText("NuocCapBang");
-                _view.DTNgayCapBang.EditValue = unitOfWorks.HopDongVienChucRepository.ReturnNullIfDateTimeNull(_view.GVHocHamHocVi.GetFocusedRowCellDisplayText("NgayCapBang"));
+                _view.DTNgayCapBang.EditValue = unitOfWorks.HopDongVienChucRepository.ReturnNullIfDateTimeNullToView(_view.GVHocHamHocVi.GetFocusedRowCellDisplayText("NgayCapBang"));
                 _view.TXTLinkVanBanDinhKemHHHV.Text = _view.GVHocHamHocVi.GetFocusedRowCellDisplayText("LinkVanBanDinhKem");
             }
         }
@@ -751,6 +759,12 @@ namespace QLNS_SGU.Presenter
         {
             linkVanBanDinhKemHHHVChanged = true;
         }
+
+        public void RowIndicatorHHHV(object sender, RowIndicatorCustomDrawEventArgs e)
+        {
+            if (e.RowHandle >= 0)
+                e.Info.DisplayText = (e.RowHandle + 1).ToString();
+        }
         #endregion
         #region DHNC
         public static string idFileUploadDHNC = string.Empty;
@@ -938,8 +952,8 @@ namespace QLNS_SGU.Presenter
                 _view.TXTNgonNguDaoTaoDHNC.Text = _view.GVDangHocNangCao.GetFocusedRowCellDisplayText("NgonNguDaoTao");
                 _view.TXTHinhThucDaoTaoDHNC.Text = _view.GVDangHocNangCao.GetFocusedRowCellDisplayText("HinhThucDaoTao");
                 _view.TXTNuocCapBangDHNC.Text = _view.GVDangHocNangCao.GetFocusedRowCellDisplayText("NuocCapBang");
-                _view.DTNgayBatDauDHNC.EditValue = unitOfWorks.HopDongVienChucRepository.ReturnNullIfDateTimeNull(_view.GVDangHocNangCao.GetFocusedRowCellDisplayText("NgayBatDau"));
-                _view.DTNgayKetThucDHNC.EditValue = unitOfWorks.HopDongVienChucRepository.ReturnNullIfDateTimeNull(_view.GVDangHocNangCao.GetFocusedRowCellDisplayText("NgayKetThuc"));
+                _view.DTNgayBatDauDHNC.EditValue = unitOfWorks.HopDongVienChucRepository.ReturnNullIfDateTimeNullToView(_view.GVDangHocNangCao.GetFocusedRowCellDisplayText("NgayBatDau"));
+                _view.DTNgayKetThucDHNC.EditValue = unitOfWorks.HopDongVienChucRepository.ReturnNullIfDateTimeNullToView(_view.GVDangHocNangCao.GetFocusedRowCellDisplayText("NgayKetThuc"));
                 _view.TXTSoQuyetDinh.Text = _view.GVDangHocNangCao.GetFocusedRowCellDisplayText("SoQuyetDinh");
                 _view.TXTLinkAnhQuyetDinh.Text = _view.GVDangHocNangCao.GetFocusedRowCellDisplayText("LinkAnhQuyetDinh");
             }
@@ -1138,6 +1152,12 @@ namespace QLNS_SGU.Presenter
         {
             linkAnhQuyetDinhChanged = true;
         }
+
+        public void RowIndicatorDHNC(object sender, RowIndicatorCustomDrawEventArgs e)
+        {
+            if (e.RowHandle >= 0)
+                e.Info.DisplayText = (e.RowHandle + 1).ToString();
+        }
         #endregion
         #region Nganh
         public static string idFileUploadN = string.Empty;
@@ -1316,8 +1336,8 @@ namespace QLNS_SGU.Presenter
                 _view.CBXChuyenNganhN.EditValue = unitOfWorks.ChuyenNganhRepository.GetIdChuyenNganh(chuyennganh);
                 _view.TXTTrinhDoDay.Text = _view.GVNganh.GetRowCellValue(row_handle, "TrinhDoDay").ToString();
                 _view.RADPhanLoaiN.SelectedIndex = unitOfWorks.NganhVienChucRepository.HardCodePhanLoaiToRadioGroup(_view.GVNganh.GetFocusedRowCellDisplayText("PhanLoai"));
-                _view.DTNgayBatDauN.EditValue = unitOfWorks.HopDongVienChucRepository.ReturnNullIfDateTimeNull(_view.GVNganh.GetFocusedRowCellDisplayText("NgayBatDau"));
-                _view.DTNgayKetThucN.EditValue = unitOfWorks.HopDongVienChucRepository.ReturnNullIfDateTimeNull(_view.GVNganh.GetFocusedRowCellDisplayText("NgayKetThuc"));
+                _view.DTNgayBatDauN.EditValue = unitOfWorks.HopDongVienChucRepository.ReturnNullIfDateTimeNullToView(_view.GVNganh.GetFocusedRowCellDisplayText("NgayBatDau"));
+                _view.DTNgayKetThucN.EditValue = unitOfWorks.HopDongVienChucRepository.ReturnNullIfDateTimeNullToView(_view.GVNganh.GetFocusedRowCellDisplayText("NgayKetThuc"));
                 _view.TXTLinkVanBanDinhKemN.Text = _view.GVNganh.GetFocusedRowCellDisplayText("LinkVanBanDinhKem");
             }
         }
@@ -1556,6 +1576,12 @@ namespace QLNS_SGU.Presenter
         {
             linkVanBanDinhKemNChanged = true;
         }
+
+        public void RowIndicatorN(object sender, RowIndicatorCustomDrawEventArgs e)
+        {
+            if (e.RowHandle >= 0)
+                e.Info.DisplayText = (e.RowHandle + 1).ToString();
+        }
         #endregion
         #region ChungChi
         private bool loaiChungChiChanged = false;
@@ -1674,7 +1700,7 @@ namespace QLNS_SGU.Presenter
             {
                 _view.CBXLoaiChungChi.EditValue = _view.GVChungChi.GetFocusedRowCellDisplayText("LoaiChungChi");
                 _view.TXTCapDoChungChi.Text = _view.GVChungChi.GetFocusedRowCellDisplayText("CapDo");
-                _view.DTNgayCapChungChi.EditValue = unitOfWorks.HopDongVienChucRepository.ReturnNullIfDateTimeNull(_view.GVChungChi.GetFocusedRowCellDisplayText("NgayCapChungChi"));
+                _view.DTNgayCapChungChi.EditValue = unitOfWorks.HopDongVienChucRepository.ReturnNullIfDateTimeNullToView(_view.GVChungChi.GetFocusedRowCellDisplayText("NgayCapChungChi"));
                 _view.TXTGhiChuCC.Text = _view.GVChungChi.GetFocusedRowCellDisplayText("GhiChu");
                 _view.TXTLinkVanBanDinhKemCC.Text = _view.GVChungChi.GetFocusedRowCellDisplayText("LinkVanBanDinhKem");
             }
@@ -1842,7 +1868,13 @@ namespace QLNS_SGU.Presenter
         public void LinkVanBanDinhKemChungChiChanged(object sender, EventArgs e)
         {
             linkVanBanDinhKemChungChiChanged = true;
-        }       
+        }
+
+        public void RowIndicatorCC(object sender, RowIndicatorCustomDrawEventArgs e)
+        {
+            if (e.RowHandle >= 0)
+                e.Info.DisplayText = (e.RowHandle + 1).ToString();
+        }
         #endregion
     }
 }

@@ -55,7 +55,7 @@ namespace QLNS_SGU.Presenter
         private void CheckLogin()
         {
             UnitOfWorks unitOfWorks = new UnitOfWorks(new Model.Entities.QLNSSGU_1Entities());
-            string taikhoan = _view.TaiKhoan.Text;
+            string taikhoan = _view.TaiKhoan.Text.Trim();
             string matkhau = _view.MatKhau.Text;
             if (taikhoan == String.Empty && matkhau != string.Empty)
             {

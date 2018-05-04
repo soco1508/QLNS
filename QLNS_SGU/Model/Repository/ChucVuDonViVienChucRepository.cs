@@ -19,7 +19,7 @@ namespace Model.Repository
             int idvienchuc = _db.VienChucs.Where(x => x.maVienChuc == mavienchuc).Select(y => y.idVienChuc).FirstOrDefault();
             var rows = from a in _db.ChucVuDonViVienChucs
                        where a.idVienChuc == idvienchuc
-                       select a;
+                       select a; 
             var rows1 = from a in rows
                         group a by a.idDonVi into g
                         from p in g
@@ -70,7 +70,8 @@ namespace Model.Repository
                     CheckPhanLoaiCongTac = HardCheckPhanLoaiCongTacToGrid(listChucVuDonViVienChuc[i].checkPhanLoaiCongTac),
                     LoaiThayDoi = HardLoaiThayDoiToGrid(listChucVuDonViVienChuc[i].loaiThayDoi),
                     KiemNhiem = HardKiemNhiemToGrid(listChucVuDonViVienChuc[i].kiemNhiem),
-                    LinkVanBanDinhKem = listChucVuDonViVienChuc[i].linkVanBanDinhKem
+                    LinkVanBanDinhKem = listChucVuDonViVienChuc[i].linkVanBanDinhKem,
+                    NhanXet = listChucVuDonViVienChuc[i].nhanXet
                 });
             }
             return listQuaTrinhCongTac;

@@ -45,7 +45,6 @@ namespace QLNS_SGU.View
             gcNgach.MouseDoubleClick += new MouseEventHandler(presenter.MouseDoubleClick);
             gvNgach.HiddenEditor += new EventHandler(presenter.HiddenEditor);
             gvNgach.InitNewRow += new InitNewRowEventHandler(presenter.InitNewRow);
-            gvNgach.KeyDown += new KeyEventHandler(presenter.EnterToCloseEditor);
             gvNgach.CustomDrawRowIndicator += new RowIndicatorCustomDrawEventHandler(presenter.RowIndicator);
         }
     }

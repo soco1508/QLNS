@@ -45,7 +45,6 @@ namespace QLNS_SGU.View
             gcLoaiHopDong.MouseDoubleClick += new MouseEventHandler(presenter.MouseDoubleClick);
             gvLoaiHopDong.HiddenEditor += new EventHandler(presenter.HiddenEditor);
             gvLoaiHopDong.InitNewRow += new InitNewRowEventHandler(presenter.InitNewRow);
-            gvLoaiHopDong.KeyDown += new KeyEventHandler(presenter.EnterToCloseEditor);
             gvLoaiHopDong.CustomDrawRowIndicator += new RowIndicatorCustomDrawEventHandler(presenter.RowIndicator);
         }
     }

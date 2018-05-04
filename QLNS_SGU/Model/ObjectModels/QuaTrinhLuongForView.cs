@@ -16,6 +16,8 @@ namespace Model.ObjectModels
         public DateTime? NgayBatDau { get; set; }
         public DateTime? NgayLenLuong { get; set; }
         public bool? DangHuongLuong { get; set; }
+        public int? TruocHan { get; set; }
+        public double? HeSoVuotKhung { get; set; }
         public string LinkVanBanDinhKem { get; set; }
         public QuaTrinhLuongForView()
         {
@@ -27,6 +29,8 @@ namespace Model.ObjectModels
             NgayBatDau = Convert.ToDateTime("01/01/1900");
             NgayLenLuong = Convert.ToDateTime("01/01/1900");
             DangHuongLuong = false;
+            TruocHan = -1;
+            HeSoVuotKhung = -1;
             LinkVanBanDinhKem = string.Empty;
         }
     }

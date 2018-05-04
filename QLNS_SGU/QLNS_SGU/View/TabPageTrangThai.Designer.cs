@@ -77,7 +77,6 @@
             this.emptySpaceItem7 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.txtRowIndex = new DevExpress.XtraEditors.TextEdit();
             this.txtMaVienChuc = new DevExpress.XtraEditors.TextEdit();
             this.btnExportExcel = new DevExpress.XtraEditors.SimpleButton();
             this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
@@ -118,7 +117,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtRowIndex.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaVienChuc.Properties)).BeginInit();
             this.SuspendLayout();
             // 
@@ -316,6 +314,8 @@
             // 
             // gridColumn22
             // 
+            this.gridColumn22.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn22.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
             this.gridColumn22.Caption = "Ngày bắt đầu ";
             this.gridColumn22.DisplayFormat.FormatString = "dd/MM/yyyy";
             this.gridColumn22.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
@@ -327,6 +327,8 @@
             // 
             // gridColumn23
             // 
+            this.gridColumn23.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn23.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
             this.gridColumn23.Caption = "Ngày kết thúc";
             this.gridColumn23.DisplayFormat.FormatString = "dd/MM/yyyy";
             this.gridColumn23.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
@@ -431,7 +433,6 @@
             // txtMoTa
             // 
             this.txtMoTa.Location = new System.Drawing.Point(96, 46);
-            this.txtMoTa.MenuManager = this.barManager1;
             this.txtMoTa.Name = "txtMoTa";
             this.txtMoTa.Size = new System.Drawing.Size(436, 20);
             this.txtMoTa.StyleController = this.layoutControl2;
@@ -454,7 +455,7 @@
             this.emptySpaceItem1,
             this.layoutControlGroup1});
             this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlGroup2.Name = "layoutControlGroup1";
+            this.layoutControlGroup2.Name = "Root";
             this.layoutControlGroup2.Size = new System.Drawing.Size(1100, 477);
             this.layoutControlGroup2.TextVisible = false;
             // 
@@ -509,7 +510,7 @@
             // 
             this.layoutControlItem1.Control = this.txtMoTa;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 34);
-            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Name = "item0";
             this.layoutControlItem1.Size = new System.Drawing.Size(524, 24);
             this.layoutControlItem1.Text = "Mô tả:";
             this.layoutControlItem1.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
@@ -590,7 +591,7 @@
             // 
             this.layoutControlItem2.Control = this.btnUpload;
             this.layoutControlItem2.Location = new System.Drawing.Point(300, 24);
-            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Name = "item1";
             this.layoutControlItem2.Size = new System.Drawing.Size(68, 26);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
@@ -603,16 +604,6 @@
             this.layoutControlItem3.Size = new System.Drawing.Size(86, 26);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
-            // 
-            // txtRowIndex
-            // 
-            this.txtRowIndex.EditValue = "txtrowindex";
-            this.txtRowIndex.Location = new System.Drawing.Point(739, 0);
-            this.txtRowIndex.MenuManager = this.barManager1;
-            this.txtRowIndex.Name = "txtRowIndex";
-            this.txtRowIndex.Size = new System.Drawing.Size(100, 20);
-            this.txtRowIndex.TabIndex = 42;
-            this.txtRowIndex.Visible = false;
             // 
             // txtMaVienChuc
             // 
@@ -740,7 +731,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1100, 500);
             this.ControlBox = false;
-            this.Controls.Add(this.txtRowIndex);
             this.Controls.Add(this.txtMaVienChuc);
             this.Controls.Add(this.btnExportExcel);
             this.Controls.Add(this.btnDelete);
@@ -759,7 +749,7 @@
             this.Name = "TabPageTrangThai";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.Text = "Quản lý trạng thái";
+            this.Text = "Trạng thái";
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).EndInit();
             this.layoutControl2.ResumeLayout(false);
@@ -794,7 +784,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtRowIndex.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaVienChuc.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -844,7 +833,6 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem16;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem7;
-        private DevExpress.XtraEditors.TextEdit txtRowIndex;
         private DevExpress.XtraEditors.TextEdit txtMaVienChuc;
         private DevExpress.XtraEditors.SimpleButton btnExportExcel;
         private DevExpress.XtraEditors.SimpleButton btnDelete;

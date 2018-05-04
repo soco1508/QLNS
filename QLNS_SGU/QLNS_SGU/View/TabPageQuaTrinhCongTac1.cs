@@ -28,7 +28,6 @@ namespace QLNS_SGU.View
         GridControl GCTabPageQuaTrinhCongTac { get; set; }
         GridView GVTabPageQuaTrinhCongTac { get; set; }
         TextEdit TXTMaVienChuc { get; set; }
-        TextEdit TXTRowIndex { get; set; }
         TextEdit TXTLinkVanBanDinhKem { get; set; }
         TextEdit TXTHeSoChucVu { get; set; }
         LookUpEdit CBXChucVu { get; set; }
@@ -40,6 +39,8 @@ namespace QLNS_SGU.View
         LookUpEdit CBXLoaiThayDoi { get; set; }
         DateEdit DTNgayBatDau { get; set; }
         DateEdit DTNgayKetThuc { get; set; }
+        MemoEdit TXTNhanXet { get; set; }
+        HyperlinkLabelControl LinkLBTrangThaiHienTai { get; set; }
         //HD
         SimpleButton BTNExportExcelHD { get; set; }
         GridControl GCTabPageHopDong { get; set; }
@@ -47,7 +48,7 @@ namespace QLNS_SGU.View
         LookUpEdit CBXLoaiHopDong { get; set; }
         DateEdit DTNgayBatDauHD { get; set; }
         DateEdit DTNgayKetThucHD { get; set; }
-        TextEdit TXTGhiChuHD { get; set; }
+        MemoEdit TXTGhiChuHD { get; set; }
         TextEdit TXTLinkVanBanDinhKemHD { get; set; }
     }
     public partial class TabPageQuaTrinhCongTac1 : XtraForm, ITabPageQuaTrinhCongTac
@@ -66,7 +67,6 @@ namespace QLNS_SGU.View
         public GridView GVTabPageQuaTrinhCongTac { get => gvTabPageQuaTrinhCongTac; set => gvTabPageQuaTrinhCongTac = value; }
         public TextEdit TXTMaVienChuc { get => txtMaVienChuc; set => txtMaVienChuc = value; }
         public TextEdit TXTLinkVanBanDinhKem { get => txtLinkVanBanDinhKem; set => txtLinkVanBanDinhKem = value; }
-        public TextEdit TXTRowIndex { get => txtRowIndex; set => txtRowIndex = value; }
         public TextEdit TXTHeSoChucVu { get => txtHeSoChucVu; set => txtHeSoChucVu = value; }
         public LookUpEdit CBXChucVu { get => cbxChucVu; set => cbxChucVu = value; }
         public LookUpEdit CBXDonVi { get => cbxDonVi; set => cbxDonVi = value; }
@@ -77,6 +77,8 @@ namespace QLNS_SGU.View
         public LookUpEdit CBXLoaiThayDoi { get => cbxLoaiThayDoi; set => cbxLoaiThayDoi = value; }
         public DateEdit DTNgayBatDau { get => dtNgayBatDau; set => dtNgayBatDau = value; }
         public DateEdit DTNgayKetThuc { get => dtNgayKetThuc; set => dtNgayKetThuc = value; }
+        public MemoEdit TXTNhanXet { get => txtNhanXet; set => txtNhanXet = value; }
+        public HyperlinkLabelControl LinkLBTrangThaiHienTai { get => linklbTrangThaiHienTai; set => linklbTrangThaiHienTai = value; }
         //HD
         public SimpleButton BTNExportExcelHD { get => btnExportExcelHD; set => btnExportExcelHD = value; }
         public GridControl GCTabPageHopDong { get => gcHopDong; set => gcHopDong = value; }
@@ -84,7 +86,7 @@ namespace QLNS_SGU.View
         public LookUpEdit CBXLoaiHopDong { get => cbxLoaiHopDong; set => cbxLoaiHopDong = value; }
         public DateEdit DTNgayBatDauHD { get => dtNgayBatDauHD; set => dtNgayBatDauHD = value; }
         public DateEdit DTNgayKetThucHD { get => dtNgayKetThucHD; set => dtNgayKetThucHD = value; }
-        public TextEdit TXTGhiChuHD { get => txtGhiChuHD; set => txtGhiChuHD = value; }
+        public MemoEdit TXTGhiChuHD { get => txtGhiChuHD; set => txtGhiChuHD = value; }
         public TextEdit TXTLinkVanBanDinhKemHD { get => txtLinkVanBanDinhKemHD; set => txtLinkVanBanDinhKemHD = value; }
         #endregion
         public void Attach(ITabPageQuaTrinhCongTacPresenter presenter)
@@ -109,6 +111,9 @@ namespace QLNS_SGU.View
             cbxCheckPhanLoaiCongTac.EditValueChanged += new EventHandler(presenter.PhanLoaiChanged);
             cbxKiemNhiem.EditValueChanged += new EventHandler(presenter.KiemNhiemChanged);
             txtLinkVanBanDinhKem.TextChanged += new EventHandler(presenter.LinkVanBanDinhKemQuaTrinhCongTacChanged);
+            txtNhanXet.TextChanged += new EventHandler(presenter.NhanXetChanged);
+            gvTabPageQuaTrinhCongTac.CustomDrawRowIndicator += new RowIndicatorCustomDrawEventHandler(presenter.RowIndicatorQTCT);
+            linklbTrangThaiHienTai.Click += (s, e) => presenter.ShowTrangThaiHienTai();
             //HD
             gvHopDong.Click += (s, e) => presenter.ClickRowAndShowInfoHD();
             btnUploadHD.Click += (s, e) => presenter.UploadFileToGoogleDriveHD();
@@ -123,6 +128,7 @@ namespace QLNS_SGU.View
             dtNgayBatDauHD.DateTimeChanged += new EventHandler(presenter.NgayKetThucHopDongChanged);
             txtGhiChuHD.TextChanged += new EventHandler(presenter.GhiChuHopDongChanged);
             txtLinkVanBanDinhKemHD.TextChanged += new EventHandler(presenter.LinkVanBanDinhKemHopDongChanged);
+            gvHopDong.CustomDrawRowIndicator += new RowIndicatorCustomDrawEventHandler(presenter.RowIndicatorHD);
         }
     }
 }

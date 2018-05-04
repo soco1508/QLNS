@@ -90,7 +90,6 @@
             this.btnAddCC = new DevExpress.XtraEditors.SimpleButton();
             this.btnRefreshCC = new DevExpress.XtraEditors.SimpleButton();
             this.tabHocHamHocVi = new DevExpress.XtraTab.XtraTabPage();
-            this.txtRowIndex = new DevExpress.XtraEditors.TextEdit();
             this.txtMaVienChuc = new DevExpress.XtraEditors.TextEdit();
             this.btnExportExcelHHHV = new DevExpress.XtraEditors.SimpleButton();
             this.btnDeleteHHHV = new DevExpress.XtraEditors.SimpleButton();
@@ -430,7 +429,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem73)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem70)).BeginInit();
             this.tabHocHamHocVi.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtRowIndex.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaVienChuc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -964,6 +962,8 @@
             // 
             // gridColumn71
             // 
+            this.gridColumn71.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn71.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
             this.gridColumn71.Caption = "Ngày cấp chứng chỉ";
             this.gridColumn71.DisplayFormat.FormatString = "dd/MM/yyyy";
             this.gridColumn71.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
@@ -1335,7 +1335,6 @@
             // 
             // tabHocHamHocVi
             // 
-            this.tabHocHamHocVi.Controls.Add(this.txtRowIndex);
             this.tabHocHamHocVi.Controls.Add(this.txtMaVienChuc);
             this.tabHocHamHocVi.Controls.Add(this.btnExportExcelHHHV);
             this.tabHocHamHocVi.Controls.Add(this.btnDeleteHHHV);
@@ -1347,16 +1346,6 @@
             this.tabHocHamHocVi.Name = "tabHocHamHocVi";
             this.tabHocHamHocVi.Size = new System.Drawing.Size(1094, 472);
             this.tabHocHamHocVi.Text = "Học hàm - Học vị";
-            // 
-            // txtRowIndex
-            // 
-            this.txtRowIndex.EditValue = "txtrowindex";
-            this.txtRowIndex.Location = new System.Drawing.Point(743, 2);
-            this.txtRowIndex.MenuManager = this.barManager1;
-            this.txtRowIndex.Name = "txtRowIndex";
-            this.txtRowIndex.Size = new System.Drawing.Size(100, 20);
-            this.txtRowIndex.TabIndex = 16;
-            this.txtRowIndex.Visible = false;
             // 
             // txtMaVienChuc
             // 
@@ -1685,6 +1674,8 @@
             // 
             // gridColumn9
             // 
+            this.gridColumn9.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn9.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
             this.gridColumn9.Caption = "Ngày cấp bằng";
             this.gridColumn9.DisplayFormat.FormatString = "dd/MM/yyyy";
             this.gridColumn9.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
@@ -2251,6 +2242,8 @@
             // 
             // gridColumn15
             // 
+            this.gridColumn15.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn15.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
             this.gridColumn15.Caption = "Ngày bắt đầu";
             this.gridColumn15.DisplayFormat.FormatString = "dd/MM/yyyy";
             this.gridColumn15.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
@@ -2262,6 +2255,8 @@
             // 
             // gridColumn16
             // 
+            this.gridColumn16.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn16.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
             this.gridColumn16.Caption = "Ngày kết thúc";
             this.gridColumn16.DisplayFormat.FormatString = "dd/MM/yyyy";
             this.gridColumn16.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
@@ -2922,6 +2917,8 @@
             // 
             // gridColumn65
             // 
+            this.gridColumn65.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn65.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
             this.gridColumn65.Caption = "Ngày bắt đầu";
             this.gridColumn65.DisplayFormat.FormatString = "dd/MM/yyyy";
             this.gridColumn65.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
@@ -2933,6 +2930,8 @@
             // 
             // gridColumn66
             // 
+            this.gridColumn66.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn66.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
             this.gridColumn66.Caption = "Ngày kết thúc";
             this.gridColumn66.DisplayFormat.FormatString = "dd/MM/yyyy";
             this.gridColumn66.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
@@ -4632,7 +4631,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem73)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem70)).EndInit();
             this.tabHocHamHocVi.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.txtRowIndex.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaVienChuc.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
@@ -4878,7 +4876,6 @@
         private DevExpress.XtraBars.StandaloneBarDockControl standaloneBarDockControl1;
         private DevExpress.XtraTab.XtraTabControl xtraTabControl1;
         private DevExpress.XtraTab.XtraTabPage tabHocHamHocVi;
-        private DevExpress.XtraEditors.TextEdit txtRowIndex;
         private DevExpress.XtraEditors.TextEdit txtMaVienChuc;
         private DevExpress.XtraEditors.SimpleButton btnDownloadHHHV;
         private DevExpress.XtraEditors.SimpleButton btnUploadHHHV;

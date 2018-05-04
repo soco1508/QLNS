@@ -31,8 +31,8 @@ C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\Model\bin\Debug\Mic
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\Model\bin\Debug\Microsoft.WindowsAPICodePack.ShellExtensions.pdb
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\Model\bin\Debug\Microsoft.WindowsAPICodePack.ShellExtensions.xml
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\Model\bin\Debug\Newtonsoft.Json.xml
-C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\Model\obj\Debug\Model.csproj.CopyComplete
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\Model\obj\Debug\Model.dll
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\Model\obj\Debug\Model.pdb
-C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\Model\obj\Debug\Model.csproj.CopyComplete
+C:\Users\DONG\Documents\Visual Studio 2017\Projects\QLNS_SGU\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache

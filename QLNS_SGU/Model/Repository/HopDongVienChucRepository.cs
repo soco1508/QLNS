@@ -49,22 +49,22 @@ namespace Model.Repository
                                                      .FirstOrDefault();
         }
 
-        public object ReturnNullIfDateTimeNull(string datetime)
+        public object ReturnNullIfDateTimeNullToView(string datetime)
         {
             if (datetime != string.Empty)
-                return DateTime.ParseExact(datetime, "dd'/'MM'/'yyyy", CultureInfo.InvariantCulture);
+                return DateTime.ParseExact(datetime, "dd/MM/yyyy", null);
             return null;
         }
 
         public DateTime? ReturnDateTimeToDatabase(string datetime)
         {
-            if (datetime == "")
+            if (datetime == string.Empty)
             {
                 return null;
             }
             else
             {
-                return DateTime.ParseExact(datetime, "dd'/'MM'/'yyyy", CultureInfo.InvariantCulture);
+                return DateTime.ParseExact(datetime, "dd/MM/yyyy", null);
             }
         }
 

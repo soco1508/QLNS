@@ -25,7 +25,6 @@ namespace QLNS_SGU.Presenter
         void ExportExcel();
         void SaveData();
         void InitNewRow(object sender, InitNewRowEventArgs e);
-        void EnterToCloseEditor(object sender, KeyEventArgs e);
         void DeleteRow();
         void RowIndicator(object sender, RowIndicatorCustomDrawEventArgs e);
     }
@@ -42,7 +41,11 @@ namespace QLNS_SGU.Presenter
             _view.GVLoaiChungChi.IndicatorWidth = 50;
             LoadDataToGrid();
         }
-
+        private void CloseEditor()
+        {
+            _view.GVLoaiChungChi.CloseEditor();
+            _view.GVLoaiChungChi.UpdateCurrentRow();
+        }
         private void LoadDataToGrid()
         {
             SplashScreenManager.ShowForm(_view, typeof(WaitForm1), true, true, false, 0);
@@ -94,16 +97,6 @@ namespace QLNS_SGU.Presenter
             }
         }
 
-        public void EnterToCloseEditor(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                _view.GVLoaiChungChi.CloseEditor();
-                _view.GVLoaiChungChi.UpdateCurrentRow();
-                e.Handled = true;
-            }
-        }
-
         public void ExportExcel()
         {
             _view.SaveFileDialog.FileName = string.Empty;
@@ -120,7 +113,7 @@ namespace QLNS_SGU.Presenter
         public void InitNewRow(object sender, InitNewRowEventArgs e)
         {
             GridView gridView = sender as GridView;
-            gridView.SetRowCellValue(e.RowHandle, gridView.Columns[1], "");
+            gridView.SetRowCellValue(e.RowHandle, gridView.Columns[1], string.Empty);
         }
 
         public void MouseDoubleClick(object sender, MouseEventArgs e)
@@ -133,15 +126,11 @@ namespace QLNS_SGU.Presenter
             }
         }
 
-        public void RefreshGrid()
-        {
-            LoadDataToGrid();
-        }
+        public void RefreshGrid() => LoadDataToGrid();
 
         public void SaveData()
         {
-            _view.GVLoaiChungChi.CloseEditor();
-            _view.GVLoaiChungChi.UpdateCurrentRow();
+            CloseEditor();
             UnitOfWorks unitOfWorks = new UnitOfWorks(new QLNSSGU_1Entities());
             int row_handle = _view.GVLoaiChungChi.FocusedRowHandle;
             int idRowFocused = Convert.ToInt32(_view.GVLoaiChungChi.GetFocusedRowCellDisplayText("idLoaiChungChi"));

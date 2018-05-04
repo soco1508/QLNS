@@ -22,7 +22,6 @@ namespace QLNS_SGU.Presenter
         void MouseDoubleClick(object sender, MouseEventArgs e);
         void HiddenEditor(object sender, EventArgs e);
         void InitNewRow(object sender, InitNewRowEventArgs e);
-        void EnterToCloseEditor(object sender, KeyEventArgs e);
         void RowIndicator(object sender, RowIndicatorCustomDrawEventArgs e);
     }
     public class ToChuyenMonPresenter : IToChuyenMonPresenter
@@ -84,10 +83,7 @@ namespace QLNS_SGU.Presenter
             }
         }
 
-        public void RefreshGrid()
-        {
-            LoadDataToGrid();
-        }
+        public void RefreshGrid() => LoadDataToGrid();
 
         public void SaveData()
         {
@@ -189,16 +185,6 @@ namespace QLNS_SGU.Presenter
         {
             GridView gridView = sender as GridView;
             gridView.SetRowCellValue(e.RowHandle, gridView.Columns[1], "");
-        }
-
-        public void EnterToCloseEditor(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                _view.GVToChuyenMon.CloseEditor();
-                _view.GVToChuyenMon.UpdateCurrentRow();
-                e.Handled = true;
-            }
         }
 
         public void RowIndicator(object sender, RowIndicatorCustomDrawEventArgs e)

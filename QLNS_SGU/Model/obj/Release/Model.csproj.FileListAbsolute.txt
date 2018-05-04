@@ -34,5 +34,5 @@ C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\Model\bin\Release\M
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\Model\bin\Release\Microsoft.WindowsAPICodePack.Shell.xml
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\Model\bin\Release\Microsoft.WindowsAPICodePack.ShellExtensions.pdb
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\Model\bin\Release\Microsoft.WindowsAPICodePack.ShellExtensions.xml
-C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\Model\obj\Release\Model.csprojResolveAssemblyReference.cache
 C:\Users\Dong\Documents\Visual Studio 2017\Projects\QLNS_SGU\Model\obj\Release\Model.csproj.CopyComplete
+C:\Users\DONG\Documents\Visual Studio 2017\Projects\QLNS_SGU\Model\obj\Release\Model.csprojResolveAssemblyReference.cache
