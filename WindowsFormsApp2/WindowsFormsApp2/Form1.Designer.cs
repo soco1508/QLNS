@@ -72,7 +72,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(479, 210);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Form1";
+            this.tabPage1.Text = "MH Điểm danh";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // btnImportExcel
@@ -128,7 +128,6 @@
             this.txtCode.Name = "txtCode";
             this.txtCode.Size = new System.Drawing.Size(100, 20);
             this.txtCode.TabIndex = 3;
-            
             this.txtCode.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtCode_KeyUp);
             // 
             // tabPage2
@@ -140,7 +139,7 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(479, 210);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Form2";
+            this.tabPage2.Text = "MH Thông tin";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // btnCloseForm2
@@ -174,7 +173,7 @@
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(479, 210);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Form3";
+            this.tabPage3.Text = "MH Chỗ ngồi";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // btnCloseForm3
@@ -207,7 +206,7 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "MH Điểm danh";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);

@@ -35,6 +35,8 @@ namespace WindowsFormsApp2
 
         private void btnOpenForm2_Click(object sender, EventArgs e)
         {
+            if (form2 == null || form2.IsDisposed)
+                form2 = new Form2();
             form2.Show();
         }
 
@@ -45,6 +47,10 @@ namespace WindowsFormsApp2
 
         private void btnOpenForm3_Click(object sender, EventArgs e)
         {
+            if (form3 == null || form3.IsDisposed)
+            {
+                form3 = new Form3();                
+            }
             form3.Show();
         }
 

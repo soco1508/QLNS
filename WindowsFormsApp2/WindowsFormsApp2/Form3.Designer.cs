@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.SuspendLayout();
             // 
             // Form3
@@ -40,7 +41,7 @@
             this.DoubleBuffered = true;
             this.Name = "Form3";
             this.ShowIcon = false;
-            this.Text = "Màn hình chỗ ngồi";
+            this.Text = "MH Chỗ ngồi";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form3_FormClosed);
             this.Load += new System.EventHandler(this.Form3_Load);
             this.SizeChanged += new System.EventHandler(this.Form3_SizeChanged);
@@ -49,5 +50,7 @@
         }
 
         #endregion
+
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.lbCode = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbTen = new System.Windows.Forms.Label();
@@ -49,7 +48,6 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(110, 125);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(180, 200);
@@ -68,9 +66,8 @@
             this.lbTen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(47)))), ((int)(((byte)(71)))));
             this.lbTen.Location = new System.Drawing.Point(321, 187);
             this.lbTen.Name = "lbTen";
-            this.lbTen.Size = new System.Drawing.Size(414, 35);
+            this.lbTen.Size = new System.Drawing.Size(0, 35);
             this.lbTen.TabIndex = 2;
-            this.lbTen.Text = "HỒNG PHÚC THẠNH ĐÔNG";
             this.lbTen.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lbChucVu
@@ -84,9 +81,8 @@
             this.lbChucVu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(47)))), ((int)(((byte)(71)))));
             this.lbChucVu.Location = new System.Drawing.Point(321, 234);
             this.lbChucVu.Name = "lbChucVu";
-            this.lbChucVu.Size = new System.Drawing.Size(250, 35);
+            this.lbChucVu.Size = new System.Drawing.Size(0, 35);
             this.lbChucVu.TabIndex = 2;
-            this.lbChucVu.Text = "UV BCH LCH SV";
             this.lbChucVu.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.lbChucVu.Click += new System.EventHandler(this.lbChucVu_Click);
             // 
@@ -101,9 +97,8 @@
             this.lbDonVi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(47)))), ((int)(((byte)(71)))));
             this.lbDonVi.Location = new System.Drawing.Point(320, 278);
             this.lbDonVi.Name = "lbDonVi";
-            this.lbDonVi.Size = new System.Drawing.Size(329, 36);
+            this.lbDonVi.Size = new System.Drawing.Size(0, 36);
             this.lbDonVi.TabIndex = 2;
-            this.lbDonVi.Text = "Khoa toán - Ứng dụng";
             this.lbDonVi.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // Form2
@@ -121,7 +116,7 @@
             this.Controls.Add(this.lbCode);
             this.Name = "Form2";
             this.ShowIcon = false;
-            this.Text = "Màn hình thông tin";
+            this.Text = "MH Thông tin";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form2_FormClosed);
             this.Load += new System.EventHandler(this.Form2_Load);
             this.SizeChanged += new System.EventHandler(this.Form2_SizeChanged);

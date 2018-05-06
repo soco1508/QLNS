@@ -15,6 +15,7 @@ namespace WindowsFormsApp2
     {
         Label[,] labelMatrix = new Label[25, 16];
         public bool isShowing = false;
+        
 
         public Form3()
         {
@@ -44,8 +45,11 @@ namespace WindowsFormsApp2
         {
             if (WindowState == FormWindowState.Maximized)
             {
+                
+
                 FormBorderStyle = FormBorderStyle.None;
                 Controls.Clear();
+
                 DrawLabel();
                 Dictionary<string, Data> datas = Form1.exceldata;
                 foreach (KeyValuePair<string, Data> data in datas)
@@ -54,10 +58,13 @@ namespace WindowsFormsApp2
                     label.Text = data.Key;
                     label.Font = new Font(label.Font.FontFamily, GetFontSize(label, label.Text, 5, 1, 1000));
                     label.BackColor = Color.LightBlue;
+                    label.TextAlign = ContentAlignment.MiddleCenter;
                 }
                 string directory = AppDomain.CurrentDomain.BaseDirectory;
                 string filepath = "" + directory + "\\Data\\sitmapempty.bmp";
-                BackgroundImage = Image.FromFile(filepath);              
+                BackgroundImage = Image.FromFile(filepath);
+
+                
             }
         }
 
@@ -77,8 +84,7 @@ namespace WindowsFormsApp2
                         Label label = new Label();
                         label.Parent = this;
                         label.Location = new Point(x, y);
-                        label.AutoSize = false;
-                        label.TextAlign = ContentAlignment.MiddleCenter;
+                        label.AutoSize = false;                        
                         label.Width = Convert.ToInt32(Size.Width * 4.819 / 100);
                         tempWidth = label.Width;
                         label.Height = Convert.ToInt32(Size.Height * 3 / 100);
