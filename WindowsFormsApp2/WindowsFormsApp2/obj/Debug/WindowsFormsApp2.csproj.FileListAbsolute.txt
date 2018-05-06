@@ -102,5 +102,5 @@ D:\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\de\DevExpress.Xpo.v17.1.resources
 D:\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\es\DevExpress.Xpo.v17.1.resources.dll
 D:\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\ja\DevExpress.Xpo.v17.1.resources.dll
 D:\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\ru\DevExpress.Xpo.v17.1.resources.dll
-D:\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csprojResolveAssemblyReference.cache
 D:\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Form3.resources
+D:\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csprojResolveAssemblyReference.cache

@@ -28,27 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(873, 461);
-            this.panel1.TabIndex = 0;
             // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(873, 461);
-            this.ControlBox = false;
-            this.Controls.Add(this.panel1);
+            this.DoubleBuffered = true;
             this.Name = "Form3";
             this.ShowIcon = false;
-            this.Text = "Form3";
+            this.Text = "Màn hình chỗ ngồi";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form3_FormClosed);
             this.Load += new System.EventHandler(this.Form3_Load);
             this.SizeChanged += new System.EventHandler(this.Form3_SizeChanged);
             this.ResumeLayout(false);
@@ -56,7 +49,5 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
     }
 }

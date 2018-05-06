@@ -114,7 +114,6 @@
             this.BackgroundImage = global::WindowsFormsApp2.Properties.Resources.UI;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(873, 461);
-            this.ControlBox = false;
             this.Controls.Add(this.lbDonVi);
             this.Controls.Add(this.lbChucVu);
             this.Controls.Add(this.lbTen);
@@ -122,7 +121,8 @@
             this.Controls.Add(this.lbCode);
             this.Name = "Form2";
             this.ShowIcon = false;
-            this.Text = "Form2";
+            this.Text = "Màn hình thông tin";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form2_FormClosed);
             this.Load += new System.EventHandler(this.Form2_Load);
             this.SizeChanged += new System.EventHandler(this.Form2_SizeChanged);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Form2_MouseClick);

@@ -14,6 +14,8 @@ namespace WindowsFormsApp2
 {
     public partial class Form2 : Form
     {
+        public bool isShowing = false;
+
         public PictureBox AnhDaiBieu
         {
             get => pictureBox1;
@@ -78,9 +80,11 @@ namespace WindowsFormsApp2
         private void Form2_Load(object sender, EventArgs e)
         {
             string directory = AppDomain.CurrentDomain.BaseDirectory;
-            string filepath = "" + directory + "\\Data\\UI.jpg";
+            string filepath = "" + directory + "\\Data\\UI.bmp";
             BackgroundImage = Image.FromFile(filepath);
             //BackgroundImageLayout = ImageLayout.Stretch;
+
+            isShowing = true;
         }
 
         private void Form2_MouseClick(object sender, MouseEventArgs e)
@@ -94,6 +98,11 @@ namespace WindowsFormsApp2
         private void lbChucVu_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Form2_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            isShowing = false;
         }
     }
 }

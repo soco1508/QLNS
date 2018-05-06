@@ -30,16 +30,17 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.btnImportExcel = new System.Windows.Forms.Button();
+            this.btnExportExcel = new System.Windows.Forms.Button();
             this.lbNumber = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtCode = new System.Windows.Forms.TextBox();
-            this.btnOpenForm2 = new System.Windows.Forms.Button();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnCloseForm2 = new System.Windows.Forms.Button();
+            this.btnOpenForm2 = new System.Windows.Forms.Button();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.btnCloseForm3 = new System.Windows.Forms.Button();
             this.btnOpenForm3 = new System.Windows.Forms.Button();
-            this.btnExportExcel = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -61,6 +62,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.btnImportExcel);
             this.tabPage1.Controls.Add(this.btnExportExcel);
             this.tabPage1.Controls.Add(this.lbNumber);
             this.tabPage1.Controls.Add(this.label1);
@@ -73,29 +75,33 @@
             this.tabPage1.Text = "Form1";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // btnImportExcel
             // 
-            this.tabPage2.Controls.Add(this.btnCloseForm2);
-            this.tabPage2.Controls.Add(this.btnOpenForm2);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(479, 210);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Form2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.btnImportExcel.BackColor = System.Drawing.Color.White;
+            this.btnImportExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImportExcel.Image = global::WindowsFormsApp2.Properties.Resources.importdata;
+            this.btnImportExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnImportExcel.Location = new System.Drawing.Point(8, 16);
+            this.btnImportExcel.Name = "btnImportExcel";
+            this.btnImportExcel.Size = new System.Drawing.Size(119, 28);
+            this.btnImportExcel.TabIndex = 6;
+            this.btnImportExcel.Text = "Nhập dữ liệu";
+            this.btnImportExcel.UseVisualStyleBackColor = false;
+            this.btnImportExcel.Click += new System.EventHandler(this.btnImportExcel_Click);
             // 
-            // tabPage3
+            // btnExportExcel
             // 
-            this.tabPage3.Controls.Add(this.btnCloseForm3);
-            this.tabPage3.Controls.Add(this.btnOpenForm3);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(479, 210);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Form3";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.btnExportExcel.BackColor = System.Drawing.Color.White;
+            this.btnExportExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExportExcel.Image = global::WindowsFormsApp2.Properties.Resources.excel;
+            this.btnExportExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExportExcel.Location = new System.Drawing.Point(8, 57);
+            this.btnExportExcel.Name = "btnExportExcel";
+            this.btnExportExcel.Size = new System.Drawing.Size(119, 28);
+            this.btnExportExcel.TabIndex = 6;
+            this.btnExportExcel.Text = "Xuất excel";
+            this.btnExportExcel.UseVisualStyleBackColor = false;
+            this.btnExportExcel.Click += new System.EventHandler(this.btnExportExcel_Click);
             // 
             // lbNumber
             // 
@@ -122,29 +128,54 @@
             this.txtCode.Name = "txtCode";
             this.txtCode.Size = new System.Drawing.Size(100, 20);
             this.txtCode.TabIndex = 3;
-            this.txtCode.TextChanged += new System.EventHandler(this.txtCode_TextChanged_1);
+            
+            this.txtCode.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtCode_KeyUp);
             // 
-            // btnOpenForm2
+            // tabPage2
             // 
-            this.btnOpenForm2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpenForm2.Location = new System.Drawing.Point(48, 17);
-            this.btnOpenForm2.Name = "btnOpenForm2";
-            this.btnOpenForm2.Size = new System.Drawing.Size(75, 23);
-            this.btnOpenForm2.TabIndex = 0;
-            this.btnOpenForm2.Text = "Mở form";
-            this.btnOpenForm2.UseVisualStyleBackColor = true;
-            this.btnOpenForm2.Click += new System.EventHandler(this.btnOpenForm2_Click);
+            this.tabPage2.Controls.Add(this.btnCloseForm2);
+            this.tabPage2.Controls.Add(this.btnOpenForm2);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(479, 210);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Form2";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // btnCloseForm2
             // 
             this.btnCloseForm2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCloseForm2.Location = new System.Drawing.Point(48, 60);
             this.btnCloseForm2.Name = "btnCloseForm2";
-            this.btnCloseForm2.Size = new System.Drawing.Size(75, 23);
+            this.btnCloseForm2.Size = new System.Drawing.Size(75, 29);
             this.btnCloseForm2.TabIndex = 0;
             this.btnCloseForm2.Text = "Tắt form";
             this.btnCloseForm2.UseVisualStyleBackColor = true;
             this.btnCloseForm2.Click += new System.EventHandler(this.btnCloseForm2_Click);
+            // 
+            // btnOpenForm2
+            // 
+            this.btnOpenForm2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOpenForm2.Location = new System.Drawing.Point(48, 17);
+            this.btnOpenForm2.Name = "btnOpenForm2";
+            this.btnOpenForm2.Size = new System.Drawing.Size(75, 28);
+            this.btnOpenForm2.TabIndex = 0;
+            this.btnOpenForm2.Text = "Mở form";
+            this.btnOpenForm2.UseVisualStyleBackColor = true;
+            this.btnOpenForm2.Click += new System.EventHandler(this.btnOpenForm2_Click);
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.btnCloseForm3);
+            this.tabPage3.Controls.Add(this.btnOpenForm3);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(479, 210);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Form3";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // btnCloseForm3
             // 
@@ -168,19 +199,6 @@
             this.btnOpenForm3.UseVisualStyleBackColor = true;
             this.btnOpenForm3.Click += new System.EventHandler(this.btnOpenForm3_Click);
             // 
-            // btnExportExcel
-            // 
-            this.btnExportExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExportExcel.Image = global::WindowsFormsApp2.Properties.Resources.excel;
-            this.btnExportExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExportExcel.Location = new System.Drawing.Point(9, 24);
-            this.btnExportExcel.Name = "btnExportExcel";
-            this.btnExportExcel.Size = new System.Drawing.Size(106, 28);
-            this.btnExportExcel.TabIndex = 6;
-            this.btnExportExcel.Text = "Xuất excel";
-            this.btnExportExcel.UseVisualStyleBackColor = true;
-            this.btnExportExcel.Click += new System.EventHandler(this.btnExportExcel_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -188,6 +206,7 @@
             this.ClientSize = new System.Drawing.Size(487, 236);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
@@ -214,6 +233,7 @@
         private System.Windows.Forms.Button btnOpenForm3;
         private System.Windows.Forms.Button btnExportExcel;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Button btnImportExcel;
     }
 }
 
